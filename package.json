@@ -1,0 +1,60 @@
+{
+  "name": "@ecomplus/storefront",
+  "version": "0.0.1",
+  "description": "PWA and JAMstack based e-commerce template for E-Com Plus stores",
+  "main": "template/js/index.js",
+  "scripts": {
+    "serve": "storefront-pack serve",
+    "build": "storefront-pack build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/storefront.git"
+  },
+  "keywords": [
+    "ecomplus",
+    "storefront",
+    "jamstack-ecommerce",
+    "pwa-ecommerce",
+    "ecommerce-template",
+    "ecommerce-theme",
+    "pwa-boilerplate",
+    "ecommerce-boilerplate",
+    "vuejs",
+    "vuejs-ecommerce",
+    "bootstrap4",
+    "bootstrap-ecommerce",
+    "store-theme"
+  ],
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomclub/storefront/issues"
+  },
+  "homepage": "https://github.com/ecomclub/storefront#readme",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@ecomplus/storefront-framework": "^0.10.1",
+    "husky": "^2.1.0",
+    "standard": "^12.0.1"
+  },
+  "dependencies": {
+    "@ecomplus/shopping-cart": "^0.3.0",
+    "@ecomplus/storefront-renderer": "^1.2.0",
+    "@ecomplus/storefront-twbs": "^1.2.1",
+    "@ecomplus/widget-minicart": "^0.3.0",
+    "@ecomplus/widget-search": "^0.2.2",
+    "@ecomplus/widget-user": "^0.1.0"
+  },
+  "browserslist": [
+    "last 1 version",
+    "not dead",
+    "> 0.2%"
+  ]
+}

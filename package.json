@@ -40,7 +40,8 @@
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
-    "@ecomplus/storefront-framework": "^0.10.1",
+    "@ecomplus/storefront-framework": "^1.1.0",
+    "babel-eslint": "^10.0.1",
     "husky": "^2.1.0",
     "standard": "^12.0.1"
   },
@@ -50,11 +51,15 @@
     "@ecomplus/storefront-twbs": "^1.2.1",
     "@ecomplus/widget-minicart": "^0.3.0",
     "@ecomplus/widget-search": "^0.2.2",
-    "@ecomplus/widget-user": "^0.1.0"
+    "@ecomplus/widget-user": "^0.1.0",
+    "core-js": "^3.0.1"
   },
   "browserslist": [
     "last 1 version",
     "not dead",
     "> 0.2%"
-  ]
+  ],
+  "standard": {
+    "parser": "babel-eslint"
+  }
 }

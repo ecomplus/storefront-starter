@@ -1,12 +1,13 @@
 <%= include('html') %>
 <head>
-  <%= include('head', { title: 'Hello World' }) %>
+  <%= include('head', { title: pages.home.title }) %>
 </head>
 <%= include('body') %>
-  <%= include('navbar') %>
+  <%= include('header') %>
+
+  <!-- Netlify Identity for CMS -->
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script defer>
-    // Netlify Identity for CMS login
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", function (user) {
         if (!user) {

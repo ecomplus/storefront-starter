@@ -1,5 +1,7 @@
 'use strict'
 
+import '@fortawesome/fontawesome-free'
+
 // import specific fa icons
 import {
   faShoppingBag,
@@ -20,5 +22,3 @@ library.add(
   faArrowLeft,
   faTimes
 )
-
-import('@fortawesome/fontawesome-free')

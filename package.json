@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "PWA and JAMstack based e-commerce template for E-Com Plus stores",
   "main": "template/js/index.js",
+  "private": true,
   "scripts": {
     "serve": "storefront-pack serve",
     "build": "storefront-pack build"

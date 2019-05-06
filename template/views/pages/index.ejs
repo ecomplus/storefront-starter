@@ -2,8 +2,8 @@
 <head>
   <%= include('head', { title: 'Hello World' }) %>
 </head>
-<body>
-  <h1 class="st-text-primary"><%= settings.name %></h1>
+<%= include('body') %>
+  <%= include('navbar') %>
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script defer>
     // Netlify Identity for CMS login

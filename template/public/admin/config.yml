@@ -18,12 +18,6 @@ collections:
         file: 'content/pages/home.json'
         fields:
           - {label: 'Name', name: 'name', widget: 'string'}
-          - {label: 'Logo', name: 'logo', widget: 'image'}
-          - {label: 'Primary Color', name: 'primary_color', widget: 'string'}
-          - {label: 'Secondary Color', name: 'secondary_color', widget: 'string'}
-          - {label: 'Icon', name: 'icon', widget: 'image'}
-          - {label: 'Large Icon', name: 'large_icon', widget: 'image'}
-          - {label: 'Favicon', name: 'favicon', widget: 'image'}
 
   # default blog posts collection
   # remove if your template does not support blog
@@ -78,7 +72,8 @@ collections:
           - {label: 'Language', name: 'lang', widget: 'string'}
           - {label: 'Store ID', name: 'store_id', widget: 'number'}
           - {label: 'Store Object ID', name: 'store_object_id', widget: 'string'}
-          - {label: 'Logo', name: 'logo', widget: 'image'}
+          - {label: 'Logo', name: 'logo', widget: 'image', required: false}
+          - {label: 'Mini Logo', name: 'mini_logo', widget: 'image', required: false}
           - {label: 'Primary Color', name: 'primary_color', widget: 'string'}
           - {label: 'Secondary Color', name: 'secondary_color', widget: 'string'}
           - {label: 'App Background Color', name: 'bg_color', widget: 'string'}

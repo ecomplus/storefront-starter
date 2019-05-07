@@ -1,6 +1,7 @@
 'use strict'
 
 /* global Vue */
+/* global EcomInit */
 
 // components
 import EcomNavbar from '@ecomplus/widget-navbar'
@@ -8,12 +9,10 @@ import EcomUser from '@ecomplus/widget-user'
 import EcomSearch from '@ecomplus/widget-search'
 import EcomMinicart from '@ecomplus/widget-minicart'
 
-// E-Com Plus storefront renderer
-/* global Ecom */
 // E-Com Plus public APIs SDK
 /* global EcomIo */
 
-Ecom.init().then(() => {
+EcomInit.then(() => {
   // manually render with slots
   const slots = {}
   const $navbar = document.getElementById('navbar')

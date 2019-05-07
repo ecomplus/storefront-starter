@@ -1,0 +1,15 @@
+.ecom-navbar {
+  > .ecom-navbar__title {
+    margin: 1rem;
+  }
+
+  > .ecom-navbar__menu {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  &__submenu {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}

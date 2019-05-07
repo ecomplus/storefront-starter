@@ -6,6 +6,8 @@
 // E-Com Plus public APIs SDK
 /* global EcomIo */
 
+import { DEFAULT_LANG } from './lib/constants'
+
 // components
 import EcomNavbar from '@ecomplus/widget-navbar'
 import EcomUser from '@ecomplus/widget-user'
@@ -37,7 +39,7 @@ const mountHeader = () => {
     },
 
     data: {
-      lang: 'pt_br',
+      lang: DEFAULT_LANG,
       storeId: 1011,
       searchButtonOnly: false
     },

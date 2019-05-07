@@ -9,8 +9,19 @@ import {
   faSearch,
   faChevronDown,
   faArrowLeft,
-  faTimes
+  faTimes,
+  faPhone,
+  faHistory
 } from '@fortawesome/free-solid-svg-icons'
+
+import {
+  faFacebook,
+  faPinterest,
+  faTwitter,
+  faYoutube,
+  faInstagram,
+  faWhatsapp
+} from '@fortawesome/free-brands-svg-icons'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -20,5 +31,13 @@ library.add(
   faSearch,
   faChevronDown,
   faArrowLeft,
-  faTimes
+  faTimes,
+  faFacebook,
+  faPinterest,
+  faTwitter,
+  faYoutube,
+  faInstagram,
+  faWhatsapp,
+  faPhone,
+  faHistory
 )

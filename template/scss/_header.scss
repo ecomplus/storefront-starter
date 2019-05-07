@@ -1,3 +1,25 @@
+.header {
+  &__bar {
+    max-width: 80rem;
+
+    a {
+      display: inline-block;
+      margin-right: .75rem;
+      color: inherit;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &-left a {
+      @media (min-width: 992px) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
 .ecom-navbar {
   > .ecom-navbar__title {
     margin: 0 1rem 1rem 1rem;

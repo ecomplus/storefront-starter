@@ -9,4 +9,5 @@ import '@ecomplus/shopping-cart'
 import './src/header'
 
 // async load
+import('./src/utils')
 import('./src/icons')

@@ -1,16 +1,20 @@
 <div class="header">
-  <div class="header__countdown">
+  <div class="header__countdown st-block-secondary text-center lead p-2">
+    Marketing Tag
+    <button class="btn btn-sm ml-2 btn-outline-light">Action</button>
   </div>
-  <div class="header__bar bg-dark">
+  <div class="header__bar bg-light">
+    Facebook
   </div>
 </div>
 
 <!-- EcomNavbar slots -->
-<header id="navbar" class="ecom-navbar">
+<header id="navbar" class="ecom-navbar bg-light">
   <div
     class="_ecom-el ecom-navbar__title"
-    data-slot="header-col-1"
-    data-type="store">
+    data-type="store"
+    data-ssr="no-hydration"
+    data-slot="header-col-1">
     <a href="/">
       <img
         v-if="body.logo"
@@ -25,6 +29,7 @@
   <ul
     class="_ecom-el ecom-navbar__menu st-block-primary"
     data-type="category"
+    data-ssr="no-hydration"
     data-list-all="true"
     data-slot="nav">
     <li v-for="category in body.result" v-if="!category.parent">

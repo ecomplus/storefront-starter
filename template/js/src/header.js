@@ -1,7 +1,10 @@
 'use strict'
 
 /* global Vue */
+// Storefront renderer init promise
 /* global EcomInit */
+// E-Com Plus public APIs SDK
+/* global EcomIo */
 
 // components
 import EcomNavbar from '@ecomplus/widget-navbar'
@@ -9,13 +12,12 @@ import EcomUser from '@ecomplus/widget-user'
 import EcomSearch from '@ecomplus/widget-search'
 import EcomMinicart from '@ecomplus/widget-minicart'
 
-// E-Com Plus public APIs SDK
-/* global EcomIo */
+// navbar DOM element
+const $navbar = document.getElementById('navbar')
 
-EcomInit.then(() => {
+const mountHeader = () => {
   // manually render with slots
   const slots = {}
-  const $navbar = document.getElementById('navbar')
   ;[ 'header-col-1', 'nav' ].forEach(slot => {
     for (let i = 0; i < $navbar.children.length; i++) {
       let $el = $navbar.children[i]
@@ -81,4 +83,11 @@ EcomInit.then(() => {
       </template>
     </EcomNavbar>`
   }).$mount($navbar)
-})
+}
+
+if ($navbar.getElementsByClassName('_ecom-el').length) {
+  // must wait storefront renderer
+  EcomInit.then(mountHeader)
+} else {
+  mountHeader()
+}

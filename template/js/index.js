@@ -5,9 +5,8 @@
 import '@ecomplus/storefront-renderer/dist/storefront.min.js'
 import '@ecomplus/shopping-cart'
 
-// E-Com Plus storefront renderer
-/* global Ecom */
-window.EcomInit = Ecom.init()
+// main components
+import './src/header'
 
+// async load
 import('./src/icons')
-import('./src/header')

@@ -211,6 +211,7 @@ collections:
         fields:
           - label: "Marketing stripe"
             name: "marketing_stripe"
+            widget: object
             hint: "Stripe with text and call to action shown on top of header"
             fields:
               - {label: 'Text', name: 'text', required: false, widget: 'string'}
@@ -218,6 +219,7 @@ collections:
               - {label: 'Call to action link', name: 'call_to_action_link', required: false, widget: 'string'}
           - label: "Contacts stripe"
             name: "contacts_stripe"
+            widget: object
             hint: "Stripe with contacts such as contact page, whatsapp and social media"
             fields:
               - label: Pages

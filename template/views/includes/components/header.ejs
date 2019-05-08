@@ -1,13 +1,7 @@
 <div class="header bg-light">
   <div class="header__countdown st-block-secondary text-center lead p-2">
-    <% if (layout.header.marketing_stripe.text) { %>
-      <%- layout.header.marketing_stripe.text %> 
-    <% } %>
-    <button class="btn btn-sm ml-2 btn-outline-light" href="<% if (layout.header.marketing_stripe.call_to_action_link) { %> <%- layout.header.marketing_stripe.call_to_action_link %><% } %>">
-      <% if (layout.header.marketing_stripe.call_to_action) { %>
-        <%- layout.header.marketing_stripe.call_to_action %>
-      <% } %>
-    </button>
+    Promotion marketing tag
+    <button class="btn btn-sm ml-2 btn-outline-light">Call to action</button>
   </div>
   <div class="header__bar bg-light text-muted font-weight-bold pt-2 pb-1 px-lg-3 d-none d-md-block">
     <div class="container-fluid">
@@ -19,14 +13,15 @@
           <a href="contact">
             Contact
           </a>
+          <% if (layout.header.contacts_stripe.phone) { %>
           <a
-            href="#"
-            target="_blank"
-            class="whatsapp-link font-weight-normal"
-            data-tel="+5531977778888">
-            <i class="fab fa-whatsapp"></i>
-            <small>(31)</small> 9 7777-8888
+            href="tel:+<%- layout.header.contacts_stripe.phone %>"
+            class="font-weight-normal"
+            target="_blank">
+            <i class="fas fa-phone"></i>
+             <%- layout.header.contacts_stripe.phone %>
           </a>
+          <% } %>
           <a
             href="tel:+553137778888"
             class="font-weight-normal"

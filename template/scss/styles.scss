@@ -7,10 +7,9 @@
 // Storefront Bootstrap 4 theme
 @import "@ecomplus/storefront-twbs/scss/storefront-twbs.scss";
 
-// Widgets styles
-@import "@ecomplus/widget-minicart/src/EcomMinicart.scss";
-@import "@ecomplus/widget-search/src/EcomSearch.scss";
-@import "@ecomplus/widget-navbar/src/EcomNavbar.scss";
+// Additional dependencies
+@import "@glidejs/glide/src/assets/sass/glide.core";
+@import "@glidejs/glide/src/assets/sass/glide.theme";
 
 // E-Com Plus storefront rederer recommended styles
 @import "renderer";
@@ -20,5 +19,4 @@
 // Template styles:
 // Custom theme components and modifiers
 
-@import "header";
-@import "hero-slider";
+@import "components/header";

@@ -20,8 +20,9 @@
 // Custom theme components and modifiers
 
 @import "components/header";
+@import "components/footer";
 @import "components/hero-slider";
 
 body {
-  min-height: 100rem;
+  min-height: 60rem;
 }

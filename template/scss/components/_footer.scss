@@ -1,0 +1,16 @@
+.footer {
+  &__social a {
+    color: inherit;
+    text-decoration: none;
+    opacity: .7;
+    margin-right: .75rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

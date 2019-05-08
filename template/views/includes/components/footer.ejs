@@ -1,6 +1,104 @@
-<footer class="footer">
+<footer class="footer bg-light py-3 py-lg-4 py-xl-5">
   <div class="container">
-    <div class="footer__credits">
+    <div class="row">
+      <div class="col-12 col-lg order-lg-last">
+        <div class="footer__title h2 lead">
+          Contact
+        </div>
+        <ul class="list-unstyled">
+          <li>
+            <i class="fab fa-whatsapp text-muted mr-1"></i>
+            <a
+              href="#"
+              target="_blank"
+              class="whatsapp-link font-weight-bold"
+              data-tel="+5531977778888">
+              (31) 9 7777-8888
+            </a>
+          </li>
+          <li>
+            <i class="fas fa-phone text-muted mr-1"></i>
+            <a
+              href="tel:+553137778888"
+              target="_blank"
+              class="font-weight-bold">
+              (31) 3777-8888
+            </a>
+          </li>
+          <li>
+            <a href="mailto:myemail@sample.com" target="_blank">
+              myemail@sample.com
+            </a>
+          </li>
+        </ul>
+        <p class="footer__social lead st-text-secondary">
+          <a href="#" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-pinterest"></i>
+          </a>
+        </p>
+      </div>
+      <div class="col-12 col-lg">
+        <h2 class="footer__title lead text-primary">
+          <%= settings.name %>
+        </h2>
+        <p class="text-muted">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      <div class="col">
+        <div class="footer__title h2 lead">
+          About
+        </div>
+        <ul class="list-unstyled">
+          <li>
+            <i class="fas fa-angle-right st-text-primary-lightest"></i>
+            <a href="#">
+              About us
+            </a>
+          </li>
+          <li>
+            <i class="fas fa-angle-right st-text-primary-lightest"></i>
+            <a href="#">
+              Privacy policy
+            </a>
+          </li>
+          <li>
+            <i class="fas fa-angle-right st-text-primary-lightest"></i>
+            <a href="#">
+              Terms of service
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="footer__title h2 lead">
+          Categories
+        </div>
+        <ul
+          class="_ecom-el list-unstyled"
+          data-type="category"
+          data-list-all="true">
+          <li v-for="category in body.result" v-if="!category.parent">
+            <i class="fas fa-angle-right st-text-primary-lightest"></i>
+            <a v-bind:href="'/' + category.slug">
+              {{ category.name }}
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </footer>

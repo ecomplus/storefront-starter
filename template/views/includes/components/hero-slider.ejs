@@ -1,0 +1,34 @@
+<section class="hero-slider">
+  <div class="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides hero-slider__slides">
+        <% args.slides.forEach(({ link, img }) => { %>
+          <li class="glide__slide">
+            <a href="<%= link %>" class="d-block">
+              <img
+                class="lozad fade img-fluid"
+                data-src="<%= img %>" />
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+      <div class="glide__arrows" data-glide-el="controls">
+        <button
+          class="glide__arrow glide__arrow--left"
+          data-glide-dir="<">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <button
+          class="glide__arrow glide__arrow--right"
+          data-glide-dir=">">
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="glide__bullets" data-glide-el="controls[nav]">
+        <% args.slides.forEach((_, index) => { %>
+          <button class="glide__bullet" data-glide-dir="=<%= index %>"></button>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</section>

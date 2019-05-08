@@ -1,32 +1,25 @@
 <%= include('html') %>
 <head>
-  <%= include('head', { title: pages.home.title }) %>
+  <%= include('head', {
+    title: pages.home.title
+  }) %>
 </head>
 <%= include('body') %>
   <%= include('components/header') %>
 
   <main>
-    <!-- Banner carousel -->
-    <section>
-      <ul id="hero-slider" class="hero-slider">
-        <li class="hero-slider__item">
-          <a href="#" class="d-block">
-            <img
-              class="lozad img-fluid"
-              data-src="/img/uploads/lauren-fleischmann-469994-unsplash.jpg"
-              data-after-loaded="HeroSlider(0)" />
-          </a>
-        </li>
-        <li class="hero-slider__item">
-          <a href="#" class="d-block">
-            <img
-              class="lozad img-fluid"
-              data-src="/img/uploads/andrew-tanglao-505288-unsplash.jpg"
-              data-after-loaded="HeroSlider(1)" />
-          </a>
-        </li>
-      </ul>
-    </section>
+    <%= include('components/hero-slider', {
+      slides: [
+        {
+          link: '#',
+          img: '/img/uploads/lauren-fleischmann-469994-unsplash.jpg'
+        },
+        {
+          link: '#',
+          img: '/img/uploads/andrew-tanglao-505288-unsplash.jpg'
+        }
+      ]
+    }) %>
 
     <div class="container">
     </div>

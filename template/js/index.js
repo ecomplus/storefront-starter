@@ -11,4 +11,3 @@ import './src/components/header'
 // async load
 import('./src/utils')
 import('./src/icons')
-import('./src/lazy-load')

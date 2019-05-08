@@ -225,8 +225,8 @@ collections:
                 widget: list
                 fields:
                   - {label: Title, name: title, required: false, widget: string}
-                  - {label: Link, name: link, required: false, widget: link}
-              - {label: 'Phone', name: 'telefone', required: false, widget: 'number'}
+                  - {label: Link, name: link, required: false, widget: string}
+              - {label: 'Phone', name: 'phone', required: false, widget: 'number'}
               - {label: 'Whatsapp', name: 'whatsapp', required: false, widget: 'number'}
               - name: 'social_links'
                 hint: "Links to social media pages"

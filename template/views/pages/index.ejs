@@ -8,7 +8,9 @@
   <%= include('components/header') %>
 
   <main>
-    <%= include('components/hero-slider', {
+    <%= include('components/slider', {
+      autoplay: 6000,
+      className: 'hero-slider',
       slides: [
         {
           link: '#',

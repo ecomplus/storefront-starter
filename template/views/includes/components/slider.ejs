@@ -1,7 +1,7 @@
-<section class="hero-slider">
-  <div class="glide">
+<section class="<%= args.className %>">
+  <div class="glide" data-autoplay="<%= args.autoplay %>">
     <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides hero-slider__slides">
+      <ul class="glide__slides <%= args.className %>__slides">
         <% args.slides.forEach(({ link, img }) => { %>
           <li class="glide__slide">
             <a href="<%= link %>" class="d-block">

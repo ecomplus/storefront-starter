@@ -29,7 +29,12 @@ EcomInit.then(() => {
   }
 
   // setup carousel sliders
-  new Glide('.glide').mount()
+  let $glides = document.getElementsByClassName('glide')
+  for (let i = 0; i < $glides.length; i++) {
+    let $glide = $glides[i]
+    let autoplay = parseInt($glide.dataset.autoplay, 10)
+    new Glide($glide, { autoplay }).mount()
+  }
 
   // handle images (and not only) lazy load
   lozad('.lozad', {

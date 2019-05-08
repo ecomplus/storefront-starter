@@ -1,18 +1,22 @@
 {
   "marketing_stripe": {
-    "text": "teste",
-    "call_to_action": "twer'",
-    "call_to_action_link": "lkjhouh"
+    "text": "Promoção de inverno, descontos de até 40%!",
+    "call_to_action": "COMPRAR",
+    "call_to_action_link": "https://www.e-com.club/planos/"
   },
   "contacts_stripe": {
     "pages": [
       {
-        "title": "çlkjçkjç",
-        "link": "çlkjçkjç"
+        "title": "Blog",
+        "link": "https://www.e-com.club/blog/"
+      },
+      {
+        "title": "Integrações",
+        "link": "https://www.e-com.club/integracoes-ecommerce/"
       }
     ],
-    "phone": 741963741,
-    "whatsapp": 74741852,
+    "phone": 3133360637,
+    "whatsapp": 31992980550,
     "social_links": "987"
   }
 }

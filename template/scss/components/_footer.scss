@@ -1,0 +1,36 @@
+.footer {
+  &__social a {
+    color: inherit;
+    text-decoration: none;
+    opacity: .7;
+    margin-right: .75rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.ecom-credits {
+  padding: 1.5rem;
+  background: #fff;
+  text-align: center;
+  font-size: .85rem;
+  color: #37003c;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    margin-left: .2rem;
+    height: 1.2rem;
+    display: inline-block;
+    width: auto;
+  }
+}

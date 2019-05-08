@@ -10,8 +10,10 @@ import {
   faChevronDown,
   faArrowLeft,
   faArrowRight,
+  faAngleRight,
   faTimes,
   faPhone,
+  faEnvelope,
   faHistory,
   faBars
 } from '@fortawesome/free-solid-svg-icons'
@@ -34,6 +36,7 @@ library.add(
   faChevronDown,
   faArrowLeft,
   faArrowRight,
+  faAngleRight,
   faTimes,
   faFacebook,
   faPinterest,
@@ -42,6 +45,7 @@ library.add(
   faInstagram,
   faWhatsapp,
   faPhone,
+  faEnvelope,
   faHistory,
   faBars
 )

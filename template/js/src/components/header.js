@@ -6,9 +6,9 @@
 // E-Com Plus public APIs SDK
 /* global EcomIo */
 
-import { DEFAULT_LANG } from './lib/constants'
+import { DEFAULT_LANG } from './../lib/constants'
 
-// components
+// nested components
 import EcomNavbar from '@ecomplus/widget-navbar'
 import EcomUser from '@ecomplus/widget-user'
 import EcomSearch from '@ecomplus/widget-search'

@@ -11,7 +11,8 @@ import {
   faArrowLeft,
   faTimes,
   faPhone,
-  faHistory
+  faHistory,
+  faBars
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -39,5 +40,6 @@ library.add(
   faInstagram,
   faWhatsapp,
   faPhone,
-  faHistory
+  faHistory,
+  faBars
 )

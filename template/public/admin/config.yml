@@ -191,7 +191,7 @@ collections:
     files:
       - name: 'footer'
         label: 'Footer Settings'
-        file: 'content/footer.json'
+        file: 'content/layout/footer.json'
         fields:
           - label: Seals
             name: seals
@@ -207,7 +207,7 @@ collections:
               - {label: Link url, required: false, name: url, widget: string}
       - name: 'Header'
         label: 'Header Settings'
-        file: 'content/header.json'
+        file: 'content/layout/header.json'
         fields:
           - label: "Marketing stripe"
             name: "marketing_stripe"

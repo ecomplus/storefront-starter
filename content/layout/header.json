@@ -1,1 +1,18 @@
-{}
+{
+  "marketing_stripe": {
+    "text": "teste",
+    "call_to_action": "twer'",
+    "call_to_action_link": "lkjhouh"
+  },
+  "contacts_stripe": {
+    "pages": [
+      {
+        "title": "çlkjçkjç",
+        "link": "çlkjçkjç"
+      }
+    ],
+    "phone": 741963741,
+    "whatsapp": 74741852,
+    "social_links": "987"
+  }
+}

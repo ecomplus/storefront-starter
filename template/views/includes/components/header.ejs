@@ -29,30 +29,42 @@
                <%- layout.header.contacts_stripe.whatsapp %>
             </a>
           <% } %>
+          <% if (layout.header.contacts_stripe.phone) { %>
           <a
-            href="tel:+553137778888"
+            href="tel:+<%- layout.header.contacts_stripe.phone %>"
             class="font-weight-normal"
             target="_blank">
             <i class="fas fa-phone"></i>
-            <small>(31)</small> 3777-8888
+             <%- layout.header.contacts_stripe.phone %>
           </a>
+          <% } %>
         </div>
         <div class="col-auto">
-          <a href="#" target="_blank">
+          <% if (layout.header.contacts_stripe.facebook) { %>
+          <a href="<%- layout.header.contacts_stripe.facebook %>" target="_blank">
             <i class="fab fa-facebook"></i>
           </a>
-          <a href="#" target="_blank">
+          <% } %>
+          <% if (layout.header.contacts_stripe.youtube) { %>
+          <a href="<%- layout.header.contacts_stripe.youtube %>" target="_blank">
             <i class="fab fa-youtube"></i>
           </a>
-          <a href="#" target="_blank">
+          <% } %>
+          <% if (layout.header.contacts_stripe.instagram) { %>
+          <a href="<%- layout.header.contacts_stripe.instagram %>" target="_blank">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="#" target="_blank">
+          <% } %>
+          <% if (layout.header.contacts_stripe.twitter) { %>
+          <a href="<%- layout.header.contacts_stripe.twitter %>" target="_blank">
             <i class="fab fa-twitter"></i>
           </a>
-          <a href="#" target="_blank">
+          <% } %>
+          <% if (layout.header.contacts_stripe.pinterest) { %>
+          <a href="<%- layout.header.contacts_stripe.pinterest %>" target="_blank">
             <i class="fab fa-pinterest"></i>
           </a>
+          <% } %>
         </div>
       </div>
     </div>

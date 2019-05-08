@@ -21,13 +21,15 @@
             <i class="fab fa-whatsapp"></i>
             <small>(31)</small> 9 7777-8888
           </a>
+          <% if (layout.header.contacts_stripe.phone) { %>
           <a
-            href="tel:+553137778888"
+            href="tel:+<%- layout.header.contacts_stripe.phone %>"
             class="font-weight-normal"
             target="_blank">
             <i class="fas fa-phone"></i>
-            <small>(31)</small> 3777-8888
+             <%- layout.header.contacts_stripe.phone %>
           </a>
+          <% } %>
         </div>
         <div class="col-auto">
           <a href="#" target="_blank">

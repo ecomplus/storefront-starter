@@ -231,6 +231,7 @@ collections:
               - {label: 'Phone', name: 'phone', required: false, widget: 'number'}
               - {label: 'Whatsapp', name: 'whatsapp', required: false, widget: 'number'}
               - name: 'social_links'
+                widget: object
                 hint: "Links to social media pages"
                 label: 'Social links'
                 fields:

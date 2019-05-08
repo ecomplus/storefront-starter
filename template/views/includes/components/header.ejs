@@ -13,14 +13,16 @@
           <a href="contact">
             Contact
           </a>
-          <a
-            href="#"
-            target="_blank"
-            class="whatsapp-link font-weight-normal"
-            data-tel="+5531977778888">
-            <i class="fab fa-whatsapp"></i>
-            <small>(31)</small> 9 7777-8888
-          </a>
+          <% if (layout.header.contacts_stripe.whatsapp) { %>
+            <a
+              href="#"
+              target="_blank"
+              class="whatsapp-link font-weight-normal"
+              data-tel="<%- layout.header.contacts_stripe.whatsapp %>">
+              <i class="fab fa-whatsapp"></i>
+               <%- layout.header.contacts_stripe.whatsapp %>
+            </a>
+          <% } %>
           <a
             href="tel:+553137778888"
             class="font-weight-normal"
@@ -30,31 +32,21 @@
           </a>
         </div>
         <div class="col-auto">
-          <% if (layout.header.contacts_stripe.facebook) { %>
-          <a href="<%- layout.header.contacts_stripe.facebook %>" target="_blank">
+          <a href="#" target="_blank">
             <i class="fab fa-facebook"></i>
           </a>
-          <% } %>
-          <% if (layout.header.contacts_stripe.youtube) { %>
-          <a href="<%- layout.header.contacts_stripe.youtube %>" target="_blank">
+          <a href="#" target="_blank">
             <i class="fab fa-youtube"></i>
           </a>
-          <% } %>
-          <% if (layout.header.contacts_stripe.instagram) { %>
-          <a href="<%- layout.header.contacts_stripe.instagram %>" target="_blank">
+          <a href="#" target="_blank">
             <i class="fab fa-instagram"></i>
           </a>
-          <% } %>
-          <% if (layout.header.contacts_stripe.twitter) { %>
-          <a href="<%- layout.header.contacts_stripe.twitter %>" target="_blank">
+          <a href="#" target="_blank">
             <i class="fab fa-twitter"></i>
           </a>
-          <% } %>
-          <% if (layout.header.contacts_stripe.pinterest) { %>
-          <a href="<%- layout.header.contacts_stripe.pinterest %>" target="_blank">
+          <a href="#" target="_blank">
             <i class="fab fa-pinterest"></i>
           </a>
-          <% } %>
         </div>
       </div>
     </div>

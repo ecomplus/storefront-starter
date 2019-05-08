@@ -1,1 +1,26 @@
-{}
+{
+  "marketing_stripe": {
+  "text": "Promoção de inverno, descontos de até 40%",
+  "call_to_action": "comprar",
+  "call_to_action_link": "https://twitter.com/"
+  },
+  "contacts_stripe": {
+    "pages": [
+      {
+        "title": "Sobre nós",
+        "link": "https://www.youtube.com/watch?v=bD6ifecX6rs"
+      },
+      {
+        "title": "Contato",
+        "link": "http://www.anatel.gov.br/institucional/contato"
+      }
+    ],
+    "telefone": 3133360637,
+    "whatsapp": 31992980552,
+    "social_links": {
+      "facebook": "fb.com",
+      "twitter": "https://twitter.com/",
+      "youtube": "https://youtube.com/"
+    }
+  }
+}

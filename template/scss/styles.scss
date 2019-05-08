@@ -20,4 +20,10 @@
 // Custom theme components and modifiers
 
 @import "components/header";
+@import "components/footer";
 @import "components/hero-slider";
+@import "components/payment-icon";
+
+body {
+  min-height: 60rem;
+}

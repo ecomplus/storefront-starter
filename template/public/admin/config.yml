@@ -1,3 +1,4 @@
+#
 backend:
   name: git-gateway
   branch: master
@@ -9,6 +10,7 @@ collections:
 
   # static content for pages
   # may vary by template
+
   - name: 'pages'
     label: 'Pages'
     delete: false
@@ -17,7 +19,105 @@ collections:
         label: 'Homepage'
         file: 'content/pages/home.json'
         fields:
-          - {label: 'Name', name: 'name', widget: 'string'}
+          - label: "Carousel"
+            name: "carousel"
+            widget: object
+            fields:
+              - label: Images
+                name: images
+                widget: list
+                fields:
+                  - {label: Image, name: image, widget: image}
+                  - {label: alt, name: Alt tag, widget: string}
+          - name: 'showcase'
+            label: 'Showcase'
+            widget: object
+            fields:
+              - label: "Product box style"
+                name: "product_box_style"
+                widget: "select"
+                options: ["Default", "Quickview", "Sidebar"]
+              - {label: Collection, name: collection, widget: string}
+          - label: "Botton infos"
+            name: "botton_infos"
+            widget: object
+            fields:
+              - label: Left info
+                name: left_info
+                widget: object
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - {label: Description, name: description, widget: string}
+                  - {label: Link text, name: link_text, widget: string}
+                  - {label: Link url, name: link_url, widget: string}
+              - label: Right info
+                name: right_info
+                widget: object
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - {label: Description, name: description, widget: string}
+                  - {label: Link text, name: link_text, widget: string}
+                  - {label: Link url, name: link_url, widget: string}
+      - name: '_product'
+        label: 'Product page'
+        file: 'content/pages/_product.json'
+        fields:
+          - name: 'product_box'
+            label: 'Product box'
+            widget: object
+            fields:
+              - label: "Product box style"
+                name: "product_box_style"
+                widget: "select"
+                options: ["Default", "Description on sidebar acordion", "Project"]
+          - {label: 'Body', name: 'body', widget: 'markdown'}
+      - name: '_about'
+        label: 'About us page'
+        file: 'content/pages/_about.json'
+        fields:
+          - label: "Content style"
+            name: "content_style"
+            widget: "select"
+            options: ["Image on side", "Image first"]
+          - label: Image
+            name: image
+            widget: object
+            fields:
+              - {label: Image, name: image, widget: image}
+              - {label: alt, name: Alt tag, widget: string}
+          - {label: 'Body', name: 'body', widget: 'markdown'}
+      - name: '_blog'
+        label: 'Blog page'
+        file: 'content/pages/_blog.json'
+        fields:
+          - {label: 'Body', name: 'body', widget: 'markdown'}
+          - name: 'posts_box'
+            label: 'Posts box'
+            widget: object
+            fields:
+              - label: "Posts box style"
+                name: "post_box_style"
+                widget: "select"
+                options: ["Big tumbnail", "Grid", "List", "Two per row"]
+      - name: '_faq'
+        label: 'FAQ page'
+        file: 'content/pages/_faq.json'
+        fields:
+          - label: "FAQs"
+            name: "faqs"
+            widget: object
+            fields:
+              - label: "Style"
+                name: "style"
+                widget: "select"
+                options: ["Default", "Numbered"]
+              - label: FAQ
+                name: faq
+                widget: list
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - {label: 'Body', name: 'body', widget: 'markdown'}
+
 
   # default blog posts collection
   # remove if your template does not support blog
@@ -72,11 +172,67 @@ collections:
           - {label: 'Language', name: 'lang', widget: 'string'}
           - {label: 'Store ID', name: 'store_id', widget: 'number'}
           - {label: 'Store Object ID', name: 'store_object_id', widget: 'string'}
-          - {label: 'Logo', name: 'logo', widget: 'image', required: false}
-          - {label: 'Mini Logo', name: 'mini_logo', widget: 'image', required: false}
+          - {label: 'Logo', name: 'logo', widget: 'image'}
           - {label: 'Primary Color', name: 'primary_color', widget: 'string'}
           - {label: 'Secondary Color', name: 'secondary_color', widget: 'string'}
           - {label: 'App Background Color', name: 'bg_color', widget: 'string'}
           - {label: 'Icon', name: 'icon', widget: 'image'}
           - {label: 'Large Icon', name: 'large_icon', widget: 'image'}
           - {label: 'Favicon', name: 'favicon', widget: 'image'}
+  # Global header
+  # It will be aplied at all pages asdasda
+  - name: 'layout'
+    label: 'Layout'
+    description: 'Layout applied to all pages'
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: 'footer'
+        label: 'Footer Settings'
+        file: 'content/footer.json'
+        fields:
+          - label: Seals
+            name: seals
+            widget: list
+            fields:
+              - {label: Image, name: image, widget: image}
+              - {label: alt, name: Alt tag, widget: string}
+          - label: Links
+            name: links
+            widget: list
+            fields:
+              - {label: Text, name: text, widget: string}
+              - {label: Link url, name: url, widget: string}
+      - name: 'Header'
+        label: 'Header Settings'
+        file: 'content/header.json'
+        fields:
+          - label: "Marketing stripe"
+            name: "marketing_stripe"
+            hint: "Stripe with text and call to action shown on top of header"
+            fields:
+              - {label: 'Text', name: 'text', required: false, widget: 'string'}
+              - {label: 'Call to action', name: 'call_to_action', required: false, widget: 'string'}
+              - {label: 'Call to action link', name: 'call_to_action_link', required: false, widget: 'string'}
+          - label: "Contacts stripe"
+            name: "contacts_stripe"
+            hint: "Stripe with contacts such as contact page, whatsapp and social media"
+            fields:
+              - label: Pages
+                name: pages
+                widget: list
+                fields:
+                  - {label: Title, name: title, required: false, widget: string}
+                  - {label: Link, name: link, required: false, widget: link}
+              - {label: 'Phone', name: 'telefone', required: false, widget: 'number'}
+              - {label: 'Whatsapp', name: 'whatsapp', required: false, widget: 'number'}
+              - name: 'social_links'
+                hint: "Links to social media pages"
+                label: 'Social links'
+                fields:
+                  - {label: 'Facebook', name: 'facebook', widget: 'string', required: false}
+                  - {label: 'Twitter', name: 'twitter', widget: 'string', required: false}
+                  - {label: 'Youtube', name: 'youtube', widget: 'string', required: false}
+                  - {label: 'Instagram', name: 'instagram', widget: 'string', required: false}
+                  - {label: 'Pinterest', name: 'pinterest', widget: 'string', required: false}

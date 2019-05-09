@@ -32,7 +32,7 @@
             <% } %>
           <% if (layout.header.contacts_stripe.phone) { %>
           <a
-            href="tel:+<%- layout.header.contacts_stripe.phone %>"
+            href="tel:+<%= layout.header.contacts_stripe.phone.replace(/\D/g, '') %>"
             class="font-weight-normal"
             target="_blank">
             <i class="fas fa-phone"></i>

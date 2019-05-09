@@ -1,8 +1,8 @@
 {
   "marketing_stripe": {
-    "text": "Promoção de inverno, descontos de até 40%!",
-    "call_to_action": "COMPRAR",
-    "call_to_action_link": "https://www.e-com.club/planos/"
+    "text": "",
+    "call_to_action": "",
+    "call_to_action_link": ""
   },
   "contacts_stripe": {
     "pages": [
@@ -15,8 +15,8 @@
         "link": "https://www.e-com.club/integracoes-ecommerce/"
       }
     ],
-    "phone": 3133360637,
-    "whatsapp": 31992980550,
+    "phone": "(31)33360637",
+    "whatsapp": "(31)992980550",
     "social_links": {
       "facebook": "https://www.facebook.com/",
       "twitter": "",

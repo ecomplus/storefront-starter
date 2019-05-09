@@ -193,18 +193,54 @@ collections:
         label: 'Footer Settings'
         file: 'content/layout/footer.json'
         fields:
+          - label: Description
+            name: description
+            widget: object
+            fields:
+              - {label: Title, required: false, name: title, widget: string}
+              - {label: Body, required: false, name: body, widget: markdown}
+          - label: Link list 1
+            name: link_list_1
+            widget: object
+            fields:
+              - {label: Title, required: false, name: title, widget: string}
+              - label: Links
+                name: links
+                widget: list
+                fields:
+                  - {label: Text, required: false, name: text, widget: string}
+                  - {label: Link url, required: false, name: url, widget: string}
+          - label: Link list 2
+            name: link_list_2
+            widget: object
+            fields:
+              - {label: Title, required: false, name: title, widget: string}
+              - label: Links
+                name: links
+                widget: list
+                fields:
+                  - {label: Text, required: false, name: text, widget: string}
+                  - {label: Link url, required: false, name: url, widget: string}
+          - label: Contacts
+            name: contacts
+            widget: object
+            fields:
+              - {label: Title, required: false, name: title, widget: string}
+              - {label: Whatsapp, required: false, name: whatsapp, widget: string}
+              - {label: Phone, required: false, name: phone, widget: string}
           - label: Seals
             name: seals
             widget: list
             fields:
               - {label: Image, required: false, name: image, widget: image}
               - {label: alt, required: false, name: Alt tag, widget: string}
-          - label: Links
-            name: links
-            widget: list
+          - label: Credits
+            name: credits
+            widget: object
             fields:
-              - {label: Text, required: false, name: text, widget: string}
-              - {label: Link url, required: false, name: url, widget: string}
+              - {label: Text, required: false, name: texto, widget: string}
+
+
       - name: 'Header'
         label: 'Header Settings'
         file: 'content/layout/header.json'
@@ -228,8 +264,8 @@ collections:
                 fields:
                   - {label: Title, name: title, required: false, widget: string}
                   - {label: Link, name: link, required: false, widget: string}
-              - {label: 'Phone', name: 'phone', required: false, widget: 'number'}
-              - {label: 'Whatsapp', name: 'whatsapp', required: false, widget: 'number'}
+              - {label: 'Phone', name: 'phone', required: false, widget: 'string'}
+              - {label: 'Whatsapp', name: 'whatsapp', required: false, widget: 'string'}
               - name: 'social_links'
                 widget: object
                 hint: "Links to social media pages"

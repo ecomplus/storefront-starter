@@ -1,7 +1,7 @@
 <div class="header bg-light">
-  <% if (layout.header.marketing_stripe || layout.header.marketing_stripe.call_to_action) { %>
-  <div class="header__countdown st-block-secondary text-center lead p-2">
+  <% if (layout.header.marketing_stripe.text || layout.header.marketing_stripe.call_to_action) { %>
     <% if (layout.header.marketing_stripe.text ) { %>
+  <div class="header__countdown st-block-secondary text-center lead p-2">
       <%- layout.header.marketing_stripe.text %>
     <% } %>
     <button class="btn btn-sm ml-2 btn-outline-light" href="<% if (layout.header.marketing_stripe.call_to_action_link) { %> <%- layout.header.marketing_stripe.call_to_action_link %><% } %>">

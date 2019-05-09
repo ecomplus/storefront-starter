@@ -1,7 +1,7 @@
 <footer class="footer bg-light py-3 py-lg-4 py-xl-5">
   <div class="container">
     <div class="row">
-      <div class="col-12 col-lg order-lg-last">
+      <div class="col-12 col-lg-auto order-lg-last">
         <div class="footer__title h2 lead">
           Contact
         </div>
@@ -49,7 +49,7 @@
           </a>
         </p>
       </div>
-      <div class="col-12 col-lg">
+      <div class="col-12 col-lg-5">
         <h2 class="footer__title lead text-primary">
           <%= settings.name %>
         </h2>
@@ -57,12 +57,28 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
+        <div class="mt-4 mb-3">
+          <p class="footer__payment-methods">
+            <i class="payment-icon payment-icon--visa"></i>
+            <i class="payment-icon payment-icon--mastercard"></i>
+            <i class="payment-icon payment-icon--amex"></i>
+            <i class="payment-icon payment-icon--diners"></i>
+            <i class="payment-icon payment-icon--hipercard"></i>
+            <i class="payment-icon payment-icon--elo"></i>
+            <i class="payment-icon payment-icon--boleto"></i>
+          </p>
+          <div class="footer__stamps row">
+            <div class="col-auto">
+              <img src="/static/ssl-safe.png" />
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col">
         <div class="footer__title h2 lead">
           About
         </div>
-        <ul class="list-unstyled">
+        <ul class="footer__links list-unstyled">
           <li>
             <i class="fas fa-angle-right st-text-primary-lightest"></i>
             <a href="#">
@@ -88,7 +104,7 @@
           Categories
         </div>
         <ul
-          class="_ecom-el list-unstyled"
+          class="_ecom-el footer__links list-unstyled"
           data-type="category"
           data-list-all="true">
           <li v-for="category in body.result" v-if="!category.parent">
@@ -99,15 +115,6 @@
           </li>
         </ul>
       </div>
-    </div>
-    <div class="footer__stamps mt-4">
-      <i class="payment-icon payment-icon--visa"></i>
-      <i class="payment-icon payment-icon--mastercard"></i>
-      <i class="payment-icon payment-icon--amex"></i>
-      <i class="payment-icon payment-icon--diners"></i>
-      <i class="payment-icon payment-icon--hipercard"></i>
-      <i class="payment-icon payment-icon--elo"></i>
-      <i class="payment-icon payment-icon--boleto"></i>
     </div>
     <div class="footer__credits small mt-3 border-top pt-3">
       © Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

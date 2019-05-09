@@ -1,7 +1,7 @@
 {
   "marketing_stripe": {
-    "text": "",
-    "call_to_action": "",
+    "text": "Promoção de inverno, descontos de até 50%!",
+    "call_to_action": "COMPRAR",
     "call_to_action_link": ""
   },
   "contacts_stripe": {

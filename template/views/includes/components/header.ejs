@@ -1,4 +1,5 @@
 <div class="header bg-light">
+  <% if (layout.header.marketing_stripe) { %>
   <div class="header__countdown st-block-secondary text-center lead p-2">
     <% if (layout.header.marketing_stripe.text) { %>
       <%- layout.header.marketing_stripe.text %>
@@ -9,6 +10,7 @@
       <% } %>
     </button>
   </div>
+  <% } %>
   <div class="header__bar bg-light text-muted font-weight-bold pt-2 pb-1 px-lg-3 d-none d-md-block">
     <div class="container-fluid">
       <div class="row">
@@ -25,7 +27,7 @@
               href="#"
               target="_blank"
               class="whatsapp-link font-weight-normal"
-              data-tel="<%- layout.header.contacts_stripe.whatsapp %>">
+              data-tel="<%- layout.header.contacts_stripe.whatsapp.replace(/\D/g, '') %>">
               <i class="fab fa-whatsapp"></i>
                <%- layout.header.contacts_stripe.whatsapp %>
             </a>

@@ -18,10 +18,11 @@
     "phone": 3133360637,
     "whatsapp": 31992980550,
     "social_links": {
-      "facebook": "fb.com",
-      "twitter": "twitter.com",
-      "youtube": "youtube.com",
-      "instagram": "instagram.com"
+      "facebook": "https://www.facebook.com/",
+      "twitter": "",
+      "youtube": "",
+      "instagram": "",
+      "pinterest": "https://br.pinterest.com/"
     }
   }
 }

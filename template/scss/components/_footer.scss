@@ -1,4 +1,10 @@
 .footer {
+  border-top: .25rem solid $secondary;
+
+  &__links {
+    font-size: 93%;
+  }
+
   &__social a {
     color: inherit;
     text-decoration: none;

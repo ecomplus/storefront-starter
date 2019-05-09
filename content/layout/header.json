@@ -1,8 +1,8 @@
 {
   "marketing_stripe": {
-    "text": "Promoção de inverno, descontos de até 40%!",
-    "call_to_action": "COMPRAR",
-    "call_to_action_link": "https://www.e-com.club/planos/"
+    "text": "",
+    "call_to_action": "",
+    "call_to_action_link": ""
   },
   "contacts_stripe": {
     "pages": [

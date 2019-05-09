@@ -1,1 +1,37 @@
-{}
+{
+  "description": {
+    "title": "Loja Exemplo",
+    "body": "Essa é a loja exemplo da **E-Com Plus**! Ao criar uma loja, sua loja será assim por padrão. É possível fazer edições no layout através do Netlify CMS, e popular as páginas com produtos e categorias criadas em nosso [painel](https://app.e-com.plus). Tenha uma boa experiência!"
+  },
+  "link_list_1": {
+    "list_pages": true
+  },
+  "link_list_2": {
+    "list_categories": true
+  },
+  "contacts": {
+    "youtube": "youtube.com",
+    "facebook": "facebook.com",
+    "phone": "(31) 3336-0637",
+    "whatsapp": "(31) 9 9298-0558",
+    "instagram": "instagram.com",
+    "twitter": "twitter.com",
+    "title": "Entre em contato",
+    "pinterest": "pinterest.com",
+    "e-mail": "minhaloja@e-com.plus"
+  },
+  "cards": [
+    {
+      "visa": false,
+      "mastercard": true,
+      "american_express": true,
+      "dinners": true,
+      "hipercard": true,
+      "elo": true,
+      "boleto": true
+    }
+  ],
+  "credits": {
+    "texto": "© Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  MYSHOP LTDA | CNPJ: 00.000.000/0000-00 - Store Address"
+  }
+}

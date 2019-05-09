@@ -206,8 +206,8 @@ collections:
             widget: object
             hint: "Lista de links normalmente utilizada para exibir páginas como, Sobre nós e Política de privacidade"
             fields:
-              - {label: Título, required: false, name: title, widget: string}
               - {label: "Listar páginas", hint: "Ativar para listar as páginas extra automáticamente", name: "list_pages", widget: "boolean", default: true}
+              - {label: Título, required: false, name: title, widget: string}
               - label: Links
                 name: links
                 widget: list
@@ -233,9 +233,9 @@ collections:
             hint: "Contatos da loja"
             fields:
               - {label: Título, required: false, name: title, widget: string}
-              - {label: Whatsapp, required: false, name: whatsapp, widget: string}
               - {label: Telefone, required: false, name: phone, widget: string}
-              - {label: E-mail, required: false, name: e-mail, widget: string}
+              - {label: email, required: false, name: email, widget: string}
+              - {label: Whatsapp, required: false, name: whatsapp, widget: string}
               - {label: 'Facebook', name: 'facebook', widget: 'string', required: false}
               - {label: 'Twitter', name: 'twitter', widget: 'string', required: false}
               - {label: 'Youtube', name: 'youtube', widget: 'string', required: false}
@@ -249,15 +249,15 @@ collections:
               - {label: alt, required: false, name: Alt tag, widget: string}
           - label: Bandeiras
             name: cards
-            widget: list
+            widget: object
             fields:
-              - {label: "Visa", name: "visa", widget: "boolean", default: true}
-              - {label: "Mastercard", name: "mastercard", widget: "boolean", default: true}
-              - {label: "American Express", name: "american_express", widget: "boolean", default: true}
-              - {label: "Dinners", name: "dinners", widget: "boolean", default: true}
-              - {label: "Hipercard", name: "hipercard", widget: "boolean", default: true}
-              - {label: "Elo", name: "elo", widget: "boolean", default: true}
-              - {label: "Boleto", name: "boleto", widget: "boolean", default: true}
+              - {label: "Visa", name: "visa", widget: "boolean", default: true, required: false}
+              - {label: "Mastercard", name: "mastercard", widget: "boolean", default: true, required: false}
+              - {label: "American Express", name: "american_express", widget: "boolean", default: true, required: false}
+              - {label: "Dinners", name: "dinners", widget: "boolean", default: true, required: false}
+              - {label: "Hipercard", name: "hipercard", widget: "boolean", default: true, required: false}
+              - {label: "Elo", name: "elo", widget: "boolean", default: true, required: false}
+              - {label: "Boleto", name: "boleto", widget: "boolean", default: true, required: false}
 
           - label: Creditos
             name: credits

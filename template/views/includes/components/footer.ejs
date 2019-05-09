@@ -2,52 +2,69 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-auto order-lg-last">
-        
+        <% if (layout.footer.contacts.title ) { %>
         <div class="footer__title h2 lead">
-          Contact
+          <%- layout.footer.contacts.title %>
         </div>
+        <% } %>
         <ul class="list-unstyled">
+          <% if (layout.footer.contacts.title ) { %>
           <li>
             <i class="fab fa-whatsapp text-muted mr-1"></i>
             <a
               href="#"
               target="_blank"
               class="whatsapp-link font-weight-bold"
-              data-tel="+5531977778888">
-              (31) 9 7777-8888
+              data-tel="<%- layout.footer.contacts.whatsapp %>.replace(/\D/g, '')">
+              <%- layout.footer.contacts.whatsapp %>
             </a>
           </li>
+          <% } %>
+          <% if (layout.footer.contacts.phone ) { %>
           <li>
             <i class="fas fa-phone text-muted mr-1"></i>
             <a
-              href="tel:+553137778888"
+              href="<%- layout.footer.contacts.phone %>.replace(/\D/g, '')"
               target="_blank"
               class="font-weight-bold">
-              (31) 3777-8888
+              <%- layout.footer.contacts.phone %>
             </a>
           </li>
+          <% } %>
+          <% if (layout.footer.contacts.email ) { %>
           <li>
             <a href="mailto:myemail@sample.com" target="_blank">
-              myemail@sample.com
+              <%- layout.footer.contacts.email %>
             </a>
           </li>
+          <% } %>
         </ul>
         <p class="footer__social lead">
+          <% if (layout.footer.contacts.facebook ) { %>
           <a href="#" target="_blank" style="color: #3b5998">
             <i class="fab fa-facebook"></i>
           </a>
+          <% } %>
+          <% if (layout.footer.contacts.youtube ) { %>
           <a href="#" target="_blank" style="color: #ff0000">
             <i class="fab fa-youtube"></i>
           </a>
+          <% } %>
+          <% if (layout.footer.contacts.instagram ) { %>
           <a href="#" target="_blank" style="color: #e1306c">
             <i class="fab fa-instagram"></i>
           </a>
+          <% } %>
+          <% if (layout.footer.contacts.twitter ) { %>
           <a href="#" target="_blank" style="color: #1da1f2">
             <i class="fab fa-twitter"></i>
           </a>
+          <% } %>
+          <% if (layout.footer.contacts.pinterest ) { %>
           <a href="#" target="_blank" style="color: #bd081c">
             <i class="fab fa-pinterest"></i>
           </a>
+          <% } %>
         </p>
       </div>
       <div class="col-12 col-lg-5">

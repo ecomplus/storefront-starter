@@ -5,10 +5,10 @@
   }) %>
 </head>
 <%= include('body') %>
-  <%= include('components/header') %>
+  <%= include('organisms/header') %>
 
   <main>
-    <%= include('components/banner-slider', {
+    <%= include('molecules/banner-slider', {
       autoplay: 9000,
       className: 'hero-slider',
       slides: [
@@ -23,11 +23,10 @@
       ]
     }) %>
 
-    <div class="container">
-    </div>
+    <%= include('molecules/pitbar') %>
   </main>
 
-  <%= include('components/footer') %>
+  <%= include('organisms/footer') %>
 
   <!-- Netlify Identity for CMS -->
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>

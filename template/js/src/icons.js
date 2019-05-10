@@ -15,7 +15,11 @@ import {
   faPhone,
   faEnvelope,
   faHistory,
-  faBars
+  faBars,
+  faShippingFast,
+  faCreditCard,
+  faExchangeAlt,
+  faPercent
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -47,5 +51,9 @@ library.add(
   faPhone,
   faEnvelope,
   faHistory,
-  faBars
+  faBars,
+  faShippingFast,
+  faCreditCard,
+  faExchangeAlt,
+  faPercent
 )

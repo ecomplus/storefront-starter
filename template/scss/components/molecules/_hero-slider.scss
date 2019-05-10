@@ -8,6 +8,7 @@
   &__slides > li {
     height: 23rem;
     overflow: hidden;
+    margin: 0;
 
     @media (max-width: 991.98px) {
       height: 18rem;

@@ -19,10 +19,10 @@
 // Template styles:
 // Custom theme components and modifiers
 
-@import "components/header";
-@import "components/footer";
-@import "components/hero-slider";
-@import "components/payment-icon";
+@import "components/atoms/payment-icon";
+@import "components/molecules/hero-slider";
+@import "components/organisms/header";
+@import "components/organisms/footer";
 
 body {
   min-height: 60rem;

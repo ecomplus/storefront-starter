@@ -19,8 +19,10 @@
 // Template styles:
 // Custom theme components and modifiers
 
+@import "components/atoms/rounded-icon";
 @import "components/atoms/payment-icon";
 @import "components/molecules/hero-slider";
+@import "components/molecules/pitbar";
 @import "components/organisms/header";
 @import "components/organisms/footer";
 

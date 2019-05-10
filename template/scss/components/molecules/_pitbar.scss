@@ -1,0 +1,36 @@
+.pitbar {
+  margin-left: auto;
+  margin-right: auto;
+  color: $light;
+
+  &__item {
+    text-transform: uppercase;
+    display: flex;
+    color: inherit;
+    align-items: center;
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 90%;
+
+    &::after {
+      content: " ";
+      background: $light;
+      position: absolute;
+      left: 20%;
+      bottom: -3px;
+      height: .1rem;
+      width: 0;
+      transition: width .5s;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: inherit;
+
+      &::after {
+        width: 70%;
+      }
+    }
+  }
+}

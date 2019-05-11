@@ -28,18 +28,27 @@ EcomInit.then(() => {
     }
   }
 
+  // handle images (and not only) lazy load
+  const observer = lozad('.lozad', {
+    loaded ($el) {
+      setTimeout(() => $el.classList.add('show'), 400)
+    }
+  })
+  observer.observe()
+
   // setup carousel sliders
   let $glides = document.getElementsByClassName('glide')
   for (let i = 0; i < $glides.length; i++) {
     let $glide = $glides[i]
     let autoplay = parseInt($glide.dataset.autoplay, 10)
-    new Glide($glide, { autoplay }).mount()
+    new Glide($glide, { autoplay }).mount().on('move', () => {
+      // mannualy trigger slide images load
+      let $lozad = $glide.getElementsByClassName('lozad')
+      for (let i = 0; i < $lozad.length; i++) {
+        if (!$lozad[i].dataset.loaded) {
+          observer.triggerLoad($lozad[i])
+        }
+      }
+    })
   }
-
-  // handle images (and not only) lazy load
-  lozad('.lozad', {
-    loaded ($el) {
-      setTimeout(() => $el.classList.add('show'), 400)
-    }
-  }).observe()
 })

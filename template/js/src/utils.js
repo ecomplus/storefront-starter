@@ -47,16 +47,20 @@ EcomInit.then(() => {
     }
     ;[ 'autoplay', 'perView' ].forEach(opt => {
       if ($glide.dataset.hasOwnProperty(opt)) {
-        options[opt] = parseInt($glide.dataset[opt], 10)
+        let val = parseInt($glide.dataset[opt], 10)
+        if (!isNaN(val)) {
+          options[opt] = val
+        }
       }
     })
 
     // per view breakpoints following Bootstrap grid
     let grid = { Xs: 576, Sm: 768, Md: 992, Lg: 1200 }
     options.breakpoints = {}
-    for (let maxSize in grid) {
-      if (grid.hasOwnProperty(maxSize)) {
-        let perView = $glide.dataset['perView' + maxSize]
+    for (let label in grid) {
+      let maxSize = grid[label]
+      if (maxSize) {
+        let perView = $glide.dataset['perView' + label]
         if (perView) {
           options.breakpoints[maxSize] = {
             perView: parseInt(perView, 10)

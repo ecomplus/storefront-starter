@@ -1,8 +1,21 @@
 .items-carousel {
+  &__list {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__title {
+    display: inline;
+
+    a {
+      color: inherit;
+    }
+  }
+
   &__arrow,
   .glide__arrow {
     color: $dark;
-    padding: 14px 8px;
+    font-size: 1.2rem;
 
     &--left {
       left: -22px;

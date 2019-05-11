@@ -5,9 +5,14 @@
     data-id="<%= args.collection %>"
     data-list="products"
     data-size="<%= args.size || 8 %>">
-    <a v-bind:href="body.slug">
-      <h3> {{ body.name }} </h3>
-    </a>
+    <h4 class="items-carousel__title">
+      <a v-if="body.slug" v-bind:href="body.slug">
+        {{ body.name }}
+      </a>
+      <span v-else>
+        {{ body.name }}
+      </span>
+    </h4>
     <div
       class="glide"
       data-autoplay="<%= args.autoplay %>"
@@ -17,8 +22,10 @@
       data-per-view-sm="2"
       data-per-view-xs="1">
       <div class="glide__track" data-glide-el="track">
-        <ul class="glide__slides mb-0">
-          <li v-for="item in searchedItems(body)" class="glide__slide">
+        <ul class="glide__slides items-carousel__list">
+          <li
+            v-for="item in searchedItems(body)"
+            class="glide__slide items-carousel__item">
             <%- partial('molecules/product-item') %>
           </li>
         </ul>

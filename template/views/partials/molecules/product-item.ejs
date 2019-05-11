@@ -6,7 +6,9 @@
       class="img-fluid" />
   </div>
   <a v-bind:href="item.slug">
-    <h3> {{ name(item) }} </h3>
+    <h3 class="product-item__name">
+      {{ name(item) }}
+    </h3>
   </a>
   <p class="price-block">
     <span v-if="onPromotion(item)">

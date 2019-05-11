@@ -5,12 +5,12 @@
   }) %>
 </head>
 <%= include('body') %>
-  <%= include('organisms/header') %>
+  <%= include('templates/header') %>
 
   <main>
+    <!-- Full width content -->
     <%= include('molecules/banner-slider', {
       autoplay: 9000,
-      className: 'hero-slider',
       slides: [
         {
           link: '#',
@@ -22,11 +22,17 @@
         }
       ]
     }) %>
-
     <%= include('molecules/pitbar') %>
+
+    <div class="container">
+      <!-- Containerized page content -->
+      <%= include('organisms/items-carousel', {
+        collection: '1'
+      }) %>
+    </div>
   </main>
 
-  <%= include('organisms/footer') %>
+  <%= include('templates/footer') %>
 
   <!-- Netlify Identity for CMS -->
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>

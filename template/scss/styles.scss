@@ -21,10 +21,12 @@
 
 @import "components/atoms/rounded-icon";
 @import "components/atoms/payment-icon";
-@import "components/molecules/hero-slider";
+@import "components/molecules/banner-slider";
 @import "components/molecules/pitbar";
-@import "components/organisms/header";
-@import "components/organisms/footer";
+@import "components/molecules/product-item";
+@import "components/organisms/items-carousel";
+@import "components/templates/header";
+@import "components/templates/footer";
 
 body {
   min-height: 60rem;

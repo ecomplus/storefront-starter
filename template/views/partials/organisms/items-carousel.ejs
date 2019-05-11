@@ -1,4 +1,4 @@
-<section class="items-carousel">
+<section class="items-carousel my-4">
   <div
     class="_ecom-el"
     data-type="collection"
@@ -17,21 +17,21 @@
       data-per-view-sm="2"
       data-per-view-xs="1">
       <div class="glide__track" data-glide-el="track">
-        <ul class="glide__slides">
+        <ul class="glide__slides mb-0">
           <li v-for="item in searchedItems(body)" class="glide__slide">
-            <%= partial('molecules/product-item') %>
+            <%- partial('molecules/product-item') %>
           </li>
         </ul>
         <div class="glide__arrows" data-glide-el="controls">
           <button
             class="glide__arrow glide__arrow--left"
             data-glide-dir="<">
-            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-chevron-left"></i>
           </button>
           <button
             class="glide__arrow glide__arrow--right"
             data-glide-dir=">">
-            <i class="fas fa-arrow-right"></i>
+            <i class="fas fa-chevron-right"></i>
           </button>
         </div>
       </div>

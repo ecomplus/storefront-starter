@@ -1,3 +1,26 @@
 <div class="product-item">
-  {{ item.name }}
+  <div v-if="item.pictures && item.pictures[0] && item.pictures[0].normal" class="item-img">
+    <img
+      v-bind:src="item.pictures[0].normal.url"
+      v-bind:alt="item.pictures[0].normal.alt"
+      class="img-fluid" />
+  </div>
+  <a v-bind:href="item.slug">
+    <h3> {{ name(item) }} </h3>
+  </a>
+  <p class="price-block">
+    <span v-if="onPromotion(item)">
+      {{ item.currency_symbol }}
+      <strong class="price"> {{ formatMoney(item.price) }} </strong>
+      <span class="base-price"> {{ formatMoney(item.base_price) }} </span>
+    </span>
+    <span v-else>
+      {{ item.currency_symbol }}
+      <strong class="price"> {{ formatMoney(price(item)) }} </strong>
+    </span>
+  </p>
+  <span v-if="item.available">
+    <button v-if="inStock(item)" class="btn btn-success"> Buy </button>
+    <span class="no-stock" v-else> Out of stock </span>
+  </span>
 </div>

@@ -1,3 +1,14 @@
 .items-carousel {
-  
+  &__arrow,
+  .glide__arrow {
+    color: $dark;
+    padding: 14px 8px;
+
+    &--left {
+      left: -22px;
+    }
+    &--right {
+      right: -22px;
+    }
+  }
 }

@@ -70,14 +70,19 @@ EcomInit.then(() => {
     }
 
     // new slider instance
-    new Glide($glide, options).mount().on('move', () => {
-      // mannualy trigger slide images load
-      let $lozad = $glide.getElementsByClassName('lozad')
-      for (let i = 0; i < $lozad.length; i++) {
-        if (!$lozad[i].dataset.loaded) {
-          observer.triggerLoad($lozad[i])
+    const glide = new Glide($glide, options)
+    glide.on([ 'mount.before', 'run' ], () => {
+      // mannualy trigger images load inside active slide
+      let $slide = $glide.getElementsByClassName('glide__slide')[glide.index]
+      if ($slide) {
+        let $lozad = $slide.getElementsByClassName('lozad')
+        for (let i = 0; i < $lozad.length; i++) {
+          if (!$lozad[i].dataset.loaded) {
+            observer.triggerLoad($lozad[i])
+          }
         }
       }
     })
+    glide.mount()
   }
 })

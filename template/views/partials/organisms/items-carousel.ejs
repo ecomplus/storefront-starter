@@ -1,0 +1,40 @@
+<section class="items-carousel">
+  <div
+    class="_ecom-el"
+    data-type="collection"
+    data-id="<%= args.collection %>"
+    data-list="products"
+    data-size="<%= args.size || 8 %>">
+    <a v-bind:href="body.slug">
+      <h3> {{ body.name }} </h3>
+    </a>
+    <div
+      class="glide"
+      data-autoplay="<%= args.autoplay %>"
+      data-type="carousel"
+      data-per-view="4"
+      data-per-view-md="3"
+      data-per-view-sm="2"
+      data-per-view-xs="1">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li v-for="item in searchedItems(body)" class="glide__slide">
+            <%= partial('molecules/product-item') %>
+          </li>
+        </ul>
+        <div class="glide__arrows" data-glide-el="controls">
+          <button
+            class="glide__arrow glide__arrow--left"
+            data-glide-dir="<">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <button
+            class="glide__arrow glide__arrow--right"
+            data-glide-dir=">">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

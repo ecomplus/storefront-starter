@@ -1,15 +1,15 @@
-<%= include('html') %>
+<%= partial('html') %>
 <head>
-  <%= include('head', {
+  <%= partial('head', {
     title: pages.home.title
   }) %>
 </head>
-<%= include('body') %>
-  <%= include('templates/header') %>
+<%= partial('body') %>
+  <%= partial('templates/header') %>
 
   <main>
     <!-- Full width content -->
-    <%= include('molecules/banner-slider', {
+    <%= partial('molecules/banner-slider', {
       autoplay: 9000,
       slides: [
         {
@@ -22,17 +22,17 @@
         }
       ]
     }) %>
-    <%= include('molecules/pitbar') %>
+    <%= partial('molecules/pitbar') %>
 
     <div class="container">
       <!-- Containerized page content -->
-      <%= include('organisms/items-carousel', {
-        collection: '1'
+      <%= partial('organisms/items-carousel', {
+        collection: '5cc0ba91887ef430f1f67d81'
       }) %>
     </div>
   </main>
 
-  <%= include('templates/footer') %>
+  <%= partial('templates/footer') %>
 
   <!-- Netlify Identity for CMS -->
   <script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>

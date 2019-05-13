@@ -79,7 +79,7 @@ EcomInit.then(() => {
             let { perView, breakpoints } = options
             for (let width in breakpoints) {
               if (breakpoints.hasOwnProperty(width) && screen.width <= parseInt(width, 10)) {
-                perView = breakpoints[width]
+                perView = breakpoints[width].perView
                 break
               }
             }

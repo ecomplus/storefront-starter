@@ -19,8 +19,8 @@ collections:
         label: 'Home'
         file: 'content/pages/home.json'
         fields:
-          - label: "Slider"
-            name: "carousel"
+          - label: 'Slider'
+            name: 'carousel'
             widget: object
             fields:
               - label: Images
@@ -33,13 +33,13 @@ collections:
             label: 'Vitrine'
             widget: object
             fields:
-              - label: "Product box style"
-                name: "product_box_style"
-                widget: "select"
-                options: ["Default", "Quickview", "Sidebar"]
+              - label: 'Product box style'
+                name: 'product_box_style'
+                widget: 'select'
+                options: ['Default', 'Quickview', 'Sidebar']
               - {label: Collection, required: false, name: collection, widget: string}
-          - label: "Botton infos"
-            name: "botton_infos"
+          - label: 'Botton infos'
+            name: 'botton_infos'
             widget: object
             fields:
               - label: Left info
@@ -66,19 +66,19 @@ collections:
             label: 'Product box'
             widget: object
             fields:
-              - label: "Product box style"
-                name: "product_box_style"
-                widget: "select"
-                options: ["Default", "Description on sidebar acordion", "Project"]
+              - label: 'Product box style'
+                name: 'product_box_style'
+                widget: 'select'
+                options: ['Default', 'Description on sidebar acordion', 'Project']
           - {label: 'Body', name: 'body', widget: 'markdown'}
       - name: '_about'
         label: 'About us page'
         file: 'content/pages/_about.json'
         fields:
-          - label: "Content style"
-            name: "content_style"
-            widget: "select"
-            options: ["Image on side", "Image first"]
+          - label: 'Content style'
+            name: 'content_style'
+            widget: 'select'
+            options: ['Image on side', 'Image first']
           - label: Image
             name: image
             widget: object
@@ -95,23 +95,23 @@ collections:
             label: 'Posts box'
             widget: object
             fields:
-              - label: "Posts box style"
-                name: "post_box_style"
+              - label: 'Posts box style'
+                name: 'post_box_style'
                 required: false
-                widget: "select"
-                options: ["Big tumbnail", "Grid", "List", "Two per row"]
+                widget: 'select'
+                options: ['Big tumbnail', 'Grid', 'List', 'Two per row']
       - name: '_faq'
         label: 'FAQ page'
         file: 'content/pages/_faq.json'
         fields:
-          - label: "FAQs"
-            name: "faqs"
+          - label: 'FAQs'
+            name: 'faqs'
             widget: object
             fields:
-              - label: "Style"
-                name: "style"
-                widget: "select"
-                options: ["Default", "Numbered"]
+              - label: 'Style'
+                name: 'style'
+                widget: 'select'
+                options: ['Default', 'Numbered']
               - label: FAQ
                 name: faq
                 widget: list
@@ -174,8 +174,8 @@ collections:
           - {label: 'Store ID', name: 'store_id', widget: 'number'}
           - {label: 'Store Object ID', name: 'store_object_id', widget: 'string'}
           - {label: 'Logo', name: 'logo', widget: 'image', required: false}
-          - {label: 'Mini Logo', name: 'mini_logo', widget: 'image', required: false}
-          - {label: 'Logo', required: false, name: 'logo', widget: 'image'}
+          - {label: 'Mini Logo', name: 'mini_logo', widget: 'image'}
+          - {label: 'Logo', name: 'logo', widget: 'image'}
           - {label: 'Primary Color', required: false, name: 'primary_color', widget: 'string'}
           - {label: 'Secondary Color', required: false, name: 'secondary_color', widget: 'string'}
           - {label: 'App Background Color', required: false, name: 'bg_color', widget: 'string'}
@@ -199,14 +199,14 @@ collections:
             name: description
             widget: object
             fields:
-              - {label: Título, hint: "Em destaque, dentro de uma tag H2", required: false, name: title, widget: string}
+              - {label: Título, hint: 'Em destaque, dentro de uma tag H2', required: false, name: title, widget: string}
               - {label: Texto, required: false, name: body, widget: markdown}
           - label: Lista de links 1
             name: link_list_1
             widget: object
-            hint: "Lista de links normalmente utilizada para exibir páginas como, Sobre nós e Política de privacidade"
+            hint: 'Lista de links normalmente utilizada para exibir páginas como, Sobre nós e Política de privacidade'
             fields:
-              - {label: "Listar páginas", hint: "Ativar para listar as páginas extra automáticamente", name: "list_pages", widget: "boolean", default: true}
+              - {label: 'Listar páginas', hint: 'Ativar para listar as páginas extra automáticamente', name: 'list_pages', widget: 'boolean', default: true}
               - {label: Título, required: false, name: title, widget: string}
               - label: Links
                 name: links
@@ -217,9 +217,9 @@ collections:
           - label: Lista de links 2
             name: link_list_2
             widget: object
-            hint: "Lista adicional de links, para exibir páginas"
+            hint: 'Lista adicional de links, para exibir páginas'
             fields:
-              - {label: "Listar categorias", hint: "Ativar para listar as categorias da loja automáticamente", name: "list_categories", widget: "boolean", default: true}
+              - {label: 'Listar categorias', hint: 'Ativar para listar as categorias da loja automáticamente', name: 'list_categories', widget: 'boolean', default: true}
               - {label: Título, required: false, name: title, widget: string}
               - label: Links
                 name: links
@@ -230,12 +230,12 @@ collections:
           - label: Contatos
             name: contacts
             widget: object
-            hint: "Contatos da loja"
+            hint: 'Contatos da loja'
             fields:
-              - {label: Título, required: false, name: title, widget: string}
-              - {label: Telefone, required: false, name: phone, widget: string}
-              - {label: email, required: false, name: email, widget: string}
-              - {label: Whatsapp, required: false, name: whatsapp, widget: string}
+              - {label: 'Título', required: false, name: title, widget: string}
+              - {label: 'Telefone', required: false, name: phone, widget: string}
+              - {label: 'email', required: false, name: email, widget: string}
+              - {label: 'Whatsapp', required: false, name: whatsapp, widget: string}
               - {label: 'Facebook', name: 'facebook', widget: 'string', required: false}
               - {label: 'Twitter', name: 'twitter', widget: 'string', required: false}
               - {label: 'Youtube', name: 'youtube', widget: 'string', required: false}
@@ -247,17 +247,32 @@ collections:
             fields:
               - {label: Imagem, required: false, name: image, widget: image}
               - {label: alt, required: false, name: Alt tag, widget: string}
-          - label: Bandeiras
-            name: cards
-            widget: object
+          - label: 'Meios de pagamento'
+            name: 'payment_methods'
+            widget: 'list'
             fields:
-              - {label: "Visa", name: "visa", widget: "boolean", default: true, required: false}
-              - {label: "Mastercard", name: "mastercard", widget: "boolean", default: true, required: false}
-              - {label: "American Express", name: "american_express", widget: "boolean", default: true, required: false}
-              - {label: "Dinners", name: "dinners", widget: "boolean", default: true, required: false}
-              - {label: "Hipercard", name: "hipercard", widget: "boolean", default: true, required: false}
-              - {label: "Elo", name: "elo", widget: "boolean", default: true, required: false}
-              - {label: "Boleto", name: "boleto", widget: "boolean", default: true, required: false}
+              - label: 'Bandeira'
+                name: 'card'
+                widget: 'select'
+                options: [
+                'visa',
+                'santander',
+                'mastercard',
+                'itau',
+                'hsbc',
+                'hipercard',
+                'hiper',
+                'elo',
+                'diners',
+                'citybank',
+                'bradesco',
+                'boleto',
+                'banrisul',
+                'bb',
+                'aura',
+                'amex',
+                'mais',
+                ]
 
           - label: Creditos
             name: credits
@@ -270,18 +285,18 @@ collections:
         label: 'Header'
         file: 'content/layout/header.json'
         fields:
-          - label: "Tarja de marketing "
-            name: "marketing_stripe"
+          - label: 'Tarja de marketing '
+            name: 'marketing_stripe'
             widget: object
-            hint: "Tarja na cor secundária com texto e botão, caso não seja configurada não é exibida na loja"
+            hint: 'Tarja na cor secundária com texto e botão, caso não seja configurada não é exibida na loja'
             fields:
               - {label: 'Texto', name: 'text', required: false, widget: 'string'}
               - {label: 'Texto do botão', name: 'call_to_action', required: false, widget: 'string'}
               - {label: 'Link do botão', name: 'call_to_action_link', required: false, widget: 'string'}
-          - label: "Tarja de contatos"
-            name: "contacts_stripe"
+          - label: 'Tarja de contatos'
+            name: 'contacts_stripe'
             widget: object
-            hint: "Tarja com contatos da loja, como páginas internas, telefones e redes sociais"
+            hint: 'Tarja com contatos da loja, como páginas internas, telefones e redes sociais'
             fields:
               - label: Páginas
                 name: pages
@@ -293,7 +308,7 @@ collections:
               - {label: 'Whatsapp', name: 'whatsapp', required: false, widget: 'string'}
               - name: 'social_links'
                 widget: object
-                hint: "Entrar com a url da página nas devidas redes sociais"
+                hint: 'Entrar com a url da página nas devidas redes sociais'
                 label: 'Links para redes sociais'
                 fields:
                   - {label: 'Facebook', name: 'facebook', widget: 'string', required: false}

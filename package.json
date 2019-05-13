@@ -52,7 +52,7 @@
     "@ecomplus/storefront-twbs": "^1.2.1",
     "@ecomplus/widget-minicart": "^0.3.1",
     "@ecomplus/widget-navbar": "^0.3.0",
-    "@ecomplus/widget-search": "^0.4.4",
+    "@ecomplus/widget-search": "^0.4.5",
     "@ecomplus/widget-user": "^0.5.0",
     "@fortawesome/fontawesome-free": "^5.8.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.18",

@@ -1,6 +1,5 @@
 'use strict'
 
-/* global screen */
 // Storefront renderer init promise
 /* global EcomInit */
 
@@ -76,14 +75,7 @@ EcomInit.then(() => {
         case '>':
         case '<':
           if (type === 'carousel') {
-            let { perView, breakpoints } = options
-            for (let width in breakpoints) {
-              if (breakpoints.hasOwnProperty(width) && screen.width <= parseInt(width, 10)) {
-                perView = breakpoints[width].perView
-                break
-              }
-            }
-
+            const { perView } = glide.settings
             if (perView) {
               // handle carousel pagination
               let page = Math.ceil(glide.index / perView)

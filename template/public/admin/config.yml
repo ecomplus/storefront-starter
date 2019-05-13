@@ -90,6 +90,42 @@ collections:
     editor:
       preview: false
     files:
+      - name: 'header'
+        label: 'Header'
+        file: 'content/layout/header.json'
+        fields:
+          - label: "Tarja de marketing "
+            name: "marketing_stripe"
+            widget: object
+            hint: "Tarja na cor secundária com texto e botão, caso não seja configurada não é exibida na loja"
+            fields:
+              - {label: 'Texto', name: 'text', required: false, widget: 'string'}
+              - {label: 'Texto do botão', name: 'call_to_action', required: false, widget: 'string'}
+              - {label: 'Link do botão', name: 'call_to_action_link', required: false, widget: 'string'}
+          - label: "Tarja de contatos"
+            name: "contacts_stripe"
+            widget: object
+            hint: "Tarja com contatos da loja, como páginas internas, telefones e redes sociais"
+            fields:
+              - label: Páginas
+                name: pages
+                widget: list
+                fields:
+                  - {label: Título, name: title, required: false, widget: string}
+                  - {label: Link, name: link, required: false, widget: string}
+              - {label: 'Telefone', name: 'phone', required: false, widget: 'string'}
+              - {label: 'Whatsapp', name: 'whatsapp', required: false, widget: 'string'}
+              - name: 'social_links'
+                widget: object
+                hint: "Entrar com a url da página nas devidas redes sociais"
+                label: 'Links para redes sociais'
+                fields:
+                  - {label: 'Facebook', name: 'facebook', widget: 'string', required: false}
+                  - {label: 'Twitter', name: 'twitter', widget: 'string', required: false}
+                  - {label: 'Youtube', name: 'youtube', widget: 'string', required: false}
+                  - {label: 'Instagram', name: 'instagram', widget: 'string', required: false}
+                  - {label: 'Pinterest', name: 'pinterest', widget: 'string', required: false}
+
       - name: 'footer'
         label: 'Footer'
         file: 'content/layout/footer.json'

@@ -2,19 +2,45 @@
   padding: 1rem;
 
   &__name {
-    font-size: .9rem;
+    margin-top: .5rem;
+    font-size: .88rem;
+    line-height: 1.2;
+    height: 3.168rem;
+    overflow: hidden;
     font-weight: normal;
+    display: block;
+  }
+
+  &__prices {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 2.365rem;
+  }
+
+  &__price {
+    font-size: 1.25rem;
+    line-height: 1.075;
+
+    &--compare {
+      font-weight: normal;
+      color: $text-muted;
+      text-decoration: line-through;
+      font-size: .95rem;
+      display: block;
+    }
   }
 
   &__pictures {
     display: flex;
-    height: 260px;
+    height: 250px;
     align-items: center;
     text-align: center;
     overflow: hidden;
   }
 
   &__picture {
+    display: block;
     max-height: 100%;
     flex: 0 0 100%;
     opacity: 0;

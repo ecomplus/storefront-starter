@@ -1,50 +1,73 @@
 <div class="header bg-light">
+  <% if (layout.header.marketing_stripe.text || layout.header.marketing_stripe.call_to_action) { %>
+    <% if (layout.header.marketing_stripe.text ) { %>
   <div class="header__countdown st-block-secondary text-center lead p-2">
-    Promotion marketing tag
-    <button class="btn btn-sm ml-2 btn-outline-light">Call to action</button>
+      <%- layout.header.marketing_stripe.text %>
+    <% } %>
+    <button class="btn btn-sm ml-2 btn-outline-light" href="<% if (layout.header.marketing_stripe.call_to_action_link) { %> <%- layout.header.marketing_stripe.call_to_action_link %><% } %>">
+      <% if (layout.header.marketing_stripe.call_to_action) { %>
+        <%- layout.header.marketing_stripe.call_to_action %>
+      <% } %>
+    </button>
   </div>
+  <% } %>
   <div class="header__bar bg-light text-muted font-weight-bold pt-2 pb-1 px-lg-3 d-none d-md-block">
     <div class="container-fluid">
       <div class="row">
         <div class="col header__bar-left">
-          <a href="about-us">
-            About us
-          </a>
-          <a href="contact">
-            Contact
-          </a>
+          <% if (layout.header.contacts_stripe.pages) { %>
+            <% layout.header.contacts_stripe.pages.forEach(page => {%>
+            <a href="<%- page.link %>">
+              <%- page.title %>
+            </a>
+            <% }) %>
+          <% } %>
+          <% if (layout.header.contacts_stripe.whatsapp) { %>
+            <a
+              href="#"
+              target="_blank"
+              class="whatsapp-link font-weight-normal"
+              data-tel="<%- layout.header.contacts_stripe.whatsapp.replace(/\D/g, '') %>">
+              <i class="fab fa-whatsapp"></i>
+               <%- layout.header.contacts_stripe.whatsapp %>
+            </a>
+            <% } %>
+          <% if (layout.header.contacts_stripe.phone) { %>
           <a
-            href="#"
-            target="_blank"
-            class="whatsapp-link font-weight-normal"
-            data-tel="+5531977778888">
-            <i class="fab fa-whatsapp"></i>
-            <small>(31)</small> 9 7777-8888
-          </a>
-          <a
-            href="tel:+553137778888"
+            href="tel:+<%= layout.header.contacts_stripe.phone.replace(/\D/g, '') %>"
             class="font-weight-normal"
             target="_blank">
             <i class="fas fa-phone"></i>
-            <small>(31)</small> 3777-8888
+             <%- layout.header.contacts_stripe.phone %>
           </a>
+          <% } %>
         </div>
         <div class="col-auto">
-          <a href="#" target="_blank">
+          <% if (layout.header.contacts_stripe.social_links.facebook) { %>
+          <a href="<%- layout.header.contacts_stripe.facebook %>" target="_blank">
             <i class="fab fa-facebook"></i>
           </a>
-          <a href="#" target="_blank">
+          <% } %>
+          <% if (layout.header.contacts_stripe.social_links.youtube) { %>
+          <a href="<%- layout.header.contacts_stripe.youtube %>" target="_blank">
             <i class="fab fa-youtube"></i>
           </a>
-          <a href="#" target="_blank">
+          <% } %>
+          <% if (layout.header.contacts_stripe.social_links.instagram) { %>
+          <a href="<%- layout.header.contacts_stripe.instagram %>" target="_blank">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="#" target="_blank">
+          <% } %>
+          <% if (layout.header.contacts_stripe.social_links.twitter) { %>
+          <a href="<%- layout.header.contacts_stripe.twitter %>" target="_blank">
             <i class="fab fa-twitter"></i>
           </a>
-          <a href="#" target="_blank">
+          <% } %>
+          <% if (layout.header.contacts_stripe.social_links.pinterest) { %>
+          <a href="e-com.club" target="_blank">
             <i class="fab fa-pinterest"></i>
           </a>
+          <% } %>
         </div>
       </div>
     </div>

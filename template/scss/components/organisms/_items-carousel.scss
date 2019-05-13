@@ -5,10 +5,30 @@
   }
 
   &__title {
-    display: inline;
+    display: block;
+    text-align: center;
+    position: relative;
+    padding: 1rem;
+    margin: 0;
+
+    &::before {
+      position: absolute;
+      content: " ";
+      width: 80%;
+      height: .1rem;
+      top: 50%;
+      margin-top: -.05rem;
+      left: 10%;
+      background: $light;
+      z-index: -1;
+    }
 
     a {
+      display: inline-block;
       color: inherit;
+      background: $white;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 

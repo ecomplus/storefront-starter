@@ -1,8 +1,8 @@
 'use strict'
 
+/* global screen */
 // Storefront renderer init promise
 /* global EcomInit */
-/* global screen */
 
 import { IS_MOBILE } from './lib/constants'
 

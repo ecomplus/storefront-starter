@@ -5,4 +5,33 @@
     font-size: .9rem;
     font-weight: normal;
   }
+
+  &__pictures {
+    display: flex;
+    height: 260px;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  &__picture {
+    max-height: 100%;
+    flex: 0 0 100%;
+    opacity: 0;
+
+    &:first-child {
+      opacity: 1 !important;
+    }
+  }
+
+  &:hover {
+    .product-item__picture {
+      display: none;
+
+      &:last-child {
+        display: block;
+        opacity: 1 !important;
+      }
+    }
+  }
 }

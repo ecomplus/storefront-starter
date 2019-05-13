@@ -1,9 +1,13 @@
 <div class="product-item">
-  <div v-if="item.pictures && item.pictures[0] && item.pictures[0].normal" class="item-img">
-    <img
-      v-bind:src="item.pictures[0].normal.url"
-      v-bind:alt="item.pictures[0].normal.alt"
-      class="img-fluid" />
+  <div v-if="item.pictures" class="product-item__pictures">
+    <div
+      v-for="(picture, index) in item.pictures.slice(0, 2)"
+      class="product-item__picture fade">
+      <img
+        v-bind:data-src="picture.normal.url"
+        v-bind:alt="picture.normal.alt"
+        class="fade lozad img-fluid" />
+    </div>
   </div>
   <a v-bind:href="item.slug">
     <h3 class="product-item__name">

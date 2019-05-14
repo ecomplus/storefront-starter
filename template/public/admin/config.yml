@@ -24,10 +24,10 @@ collections:
   - name: 'blog_posts'
     label: 'Blog Posts'
     description: 'Add extra content to the site with blog posts related to your store and clients'
-    folder: 'content/blog-posts'
+    folder: 'content/blog_posts'
     extension: 'json'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{year}}_{{month}}_{{day}}_{{slug}}'
     fields:
       - {label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog'}
       - {label: 'Title', name: 'title', widget: 'string'}
@@ -41,10 +41,10 @@ collections:
   - name: 'extra_pages'
     label: 'Extra Pages'
     description: 'Add extra content to the site with blog posts related to your store and clients'
-    folder: 'content/extra-pages'
+    folder: 'content/extra_pages'
     extension: 'json'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{year}}_{{month}}_{{day}}_{{slug}}'
     fields:
       - {label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog'}
       - {label: 'Title', name: 'title', widget: 'string'}
@@ -202,7 +202,7 @@ collections:
               - {label: "Citibank", name: "citibank", widget: "boolean", default: true, required: false}
               - {label: "HSBC", name: "hsbc", widget: "boolean", default: true, required: false}
               - {label: "Banrisul", name: "banrisul", widget: "boolean", default: true, required: false}
-              - {label: "Mais", name: "mais", widget: "Mais", default: true, required: false}
+              - {label: "Mais", name: "mais", widget: "boolean", default: true, required: false}
           - label: Creditos
             name: credits
             widget: object

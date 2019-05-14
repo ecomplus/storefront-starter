@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "serve": "storefront-pack serve",
-    "build": "storefront-pack build"
+    "build": "storefront-pack build",
+    "build:dev": "netlify dev --live"
   },
   "repository": {
     "type": "git",
@@ -41,7 +42,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.6.1",
     "@commitlint/config-conventional": "^7.6.0",
-    "@ecomplus/storefront-framework": "^2.0.0",
+    "@ecomplus/storefront-framework": "^2.1.1",
     "babel-eslint": "^10.0.1",
     "husky": "^2.2.0",
     "standard": "^12.0.1"

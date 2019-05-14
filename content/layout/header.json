@@ -1,2 +1,28 @@
 {
+  "marketing_stripe": {
+    "text": "Promoção de inverno, descontos de até 40%!",
+    "call_to_action": "COMPRAR",
+    "call_to_action_link": "promoção"
+  },
+  "contacts_stripe": {
+    "pages": [
+      {
+        "title": "Sobre nós",
+        "link": "about"
+      },
+      {
+        "title": "FAQ",
+        "link": "faq"
+      }
+    ],
+    "phone": "(31)992980552",
+    "whatsapp": "(31)95555987",
+    "social_links": {
+      "facebook": "https://www.facebook.com/ecom.clubpage/?ref=bookmarks",
+      "twitter": "https://twitter.com/",
+      "youtube": "https://www.youtube.com/",
+      "instagram": "https://www.instagram.com/",
+      "pinterest": "https://br.pinterest.com/"
+    }
+  }
 }

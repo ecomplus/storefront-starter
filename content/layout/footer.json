@@ -1,0 +1,68 @@
+{
+  "description": {
+    "title": "Loja modelo",
+    "body": "Essa é a loja modelo da [E-Com Plus](e-com.plus). Oferecemos vários temas e aplicativos em no [market](https://market.e-com.plus/pt_br), e um painel extremamente amigável que pode ser acessado [aqui](https://app.e-com.plus). Espero que tenha uma **ótima** experiencia conosco!"
+  },
+  "link_list_1": {
+    "list_pages": true,
+    "title": "Páginas",
+    "links": [
+      {
+        "text": "Sobre nós",
+        "url": "about"
+      },
+      {
+        "text": "Política de privacidade",
+        "url": "privacidade"
+      }
+    ]
+  },
+  "link_list_2": {
+    "list_categories": false,
+    "title": "categorias",
+    "links": [
+      {
+        "text": "Categoria 1",
+        "url": "link1"
+      },
+      {
+        "text": "Categoria 2",
+        "url": "link2"
+      }
+    ]
+  },
+  "contacts": {
+    "youtube": "youtube.com",
+    "facebook": "fb.com",
+    "phone": "(31) 9 9999-9999",
+    "whatsapp": "(99) 9999-9999",
+    "instagram": "instagram.com",
+    "twitter": "twitter.com",
+    "title": "Contatos:",
+    "pinterest": "pinterest.com",
+    "email": "contato@e-com.club"
+  },
+  "seals": [
+    {
+      "image": "/img/uploads/ssl-safe.png",
+      "Alt tag": "Conexão segura"
+    }
+  ],
+  "payment_methods": {
+    "bb": true,
+    "visa": true,
+    "aura": true,
+    "banrisul": true,
+    "elo": true,
+    "hipercard": true,
+    "hsbc": true,
+    "bradesco": true,
+    "santander": true,
+    "citibank": true,
+    "mais": true,
+    "itau": true
+  },
+  "credits": {
+    "texto": "© Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  MYSHOP LTDA | CNPJ: 00.000.000/0000-00 - Store Address"
+  }
+}

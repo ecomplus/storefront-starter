@@ -1,5 +1,4 @@
-
-'use strict'
+import './sw.js'
 
 // setup dependencies
 import '@ecomplus/storefront-renderer/dist/storefront.min.js'

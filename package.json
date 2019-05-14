@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@ecomplus/shopping-cart": "^0.3.0",
+    "@ecomplus/storefront-app": "^0.10.0",
     "@ecomplus/storefront-renderer": "^1.3.0",
     "@ecomplus/storefront-twbs": "^1.2.1",
     "@ecomplus/widget-minicart": "^0.3.1",

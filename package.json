@@ -6,8 +6,7 @@
   "private": true,
   "scripts": {
     "serve": "storefront-pack serve",
-    "build": "storefront-pack build",
-    "build:dev": "netlify dev --live"
+    "build": "storefront-pack build"
   },
   "repository": {
     "type": "git",

@@ -16,21 +16,21 @@
       <div class="row">
         <div class="col header__bar-left">
           <% if (layout.header.contacts_stripe.pages) { %>
-            <% layout.header.contacts_stripe.pages.forEach(page => {%>
-            <a href="<%- page.link %>">
-              <%- page.title %>
-            </a>
-            <% }) %>
+          <% layout.header.contacts_stripe.pages.forEach(page => {%>
+          <a href="<%- page.link %>">
+            <%- page.title %>
+          </a>
+          <% }) %>
           <% } %>
           <% if (layout.header.contacts_stripe.whatsapp) { %>
-            <a
+          <a
               href="#"
               target="_blank"
               class="whatsapp-link font-weight-normal"
               data-tel="<%- layout.header.contacts_stripe.whatsapp.replace(/\D/g, '') %>">
-              <i class="fab fa-whatsapp"></i>
-               <%- layout.header.contacts_stripe.whatsapp %>
-            </a>
+            <i class="fab fa-whatsapp"></i>
+            <%- layout.header.contacts_stripe.whatsapp %>
+          </a>
             <% } %>
           <% if (layout.header.contacts_stripe.phone) { %>
           <a

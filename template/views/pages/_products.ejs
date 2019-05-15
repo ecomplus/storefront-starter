@@ -1,0 +1,42 @@
+<%= partial('html') %>
+<head>
+  <%= partial('head') %>
+</head>
+<%= partial('body') %>
+  <%= partial('templates/header') %>
+
+  <main class="main">
+    <div
+      class="container py-1 py-sm-2 py-lg-4 _ecom-el"
+      data-type="product"
+      data-current="true">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="/">
+              <i class="fas fa-home"></i>
+            </a>
+          </li>
+          <li
+            class="breadcrumb-item"
+            v-if="splitCategoryTree().length"
+            v-for="category in splitCategoryTree()">
+            <a v-bind:href="'/' + category.slug">{{ name(category) }}</a>
+          </li>
+          <li
+            class="breadcrumb-item"
+            v-elseif="body.categories"
+            v-for="category in body.categories.splice(0, 1)">
+            <a v-bind:href="'/' + category.slug">{{ name(category) }}</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            {{ name() }}
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </main>
+
+  <%= partial('templates/footer') %>
+</body>
+</html>

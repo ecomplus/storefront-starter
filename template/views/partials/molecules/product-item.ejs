@@ -1,28 +1,37 @@
 <div class="product-item">
-  <div v-if="item.pictures && item.pictures[0] && item.pictures[0].normal" class="item-img">
-    <img
-      v-bind:src="item.pictures[0].normal.url"
-      v-bind:alt="item.pictures[0].normal.alt"
-      class="img-fluid" />
-  </div>
-  <a v-bind:href="item.slug">
+  <a
+    v-bind:href="item.slug"
+    class="product-item__link"
+    v-bind:title="item.name">
+    <span v-if="item.pictures" class="product-item__pictures">
+      <span
+        v-for="(picture, index) in item.pictures.slice(0, 2)"
+        class="product-item__picture fade">
+        <img
+          v-bind:data-src="picture.normal.url"
+          v-bind:alt="picture.normal.alt"
+          class="fade lozad-ecom img-fluid" />
+      </span>
+    </span>
     <h3 class="product-item__name">
       {{ name(item) }}
     </h3>
   </a>
-  <p class="price-block">
-    <span v-if="onPromotion(item)">
-      {{ item.currency_symbol }}
-      <strong class="price"> {{ formatMoney(item.price) }} </strong>
-      <span class="base-price"> {{ formatMoney(item.base_price) }} </span>
+  <p class="product-item__info">
+    <span v-if="item.available && inStock(item)" class="product-item__prices">
+      <span
+        v-if="onPromotion(item)"
+        class="product-item__price product-item__price--compare text-muted">
+        {{ item.currency_symbol }}
+        {{ formatMoney(item.base_price) }}
+      </span>
+      <strong class="product-item__price">
+        {{ item.currency_symbol }}
+        {{ formatMoney(item.price) }}
+      </strong>
     </span>
-    <span v-else>
-      {{ item.currency_symbol }}
-      <strong class="price"> {{ formatMoney(price(item)) }} </strong>
+    <span v-else class="product-item__unavailable">
+      Out of stock
     </span>
   </p>
-  <span v-if="item.available">
-    <button v-if="inStock(item)" class="btn btn-success"> Buy </button>
-    <span class="no-stock" v-else> Out of stock </span>
-  </span>
 </div>

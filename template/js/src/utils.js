@@ -12,6 +12,17 @@ import lozad from 'lozad'
 // https://glidejs.com/docs/
 import Glide from '@glidejs/glide'
 
+const handleLazyLoad = className => {
+  // handle images (and not only) lazy load
+  return lozad('.' + className, {
+    loaded ($el) {
+      $el.classList.remove(className)
+      setTimeout(() => $el.classList.add('show'), 400)
+    }
+  }).observe()
+}
+handleLazyLoad('lozad')
+
 EcomInit.then(() => {
   // setup whatsapp links
   let $wpLinks = document.getElementsByClassName('whatsapp-link')
@@ -28,23 +39,14 @@ EcomInit.then(() => {
     }
   }
 
-  // handle images (and not only) lazy load
-  const observer = lozad('.lozad', {
-    loaded ($el) {
-      setTimeout(() => $el.classList.add('show'), 400)
-    }
-  })
-  observer.observe()
-
   // setup carousel sliders
   let $glides = document.getElementsByClassName('glide')
   for (let i = 0; i < $glides.length; i++) {
     let $glide = $glides[i]
     // setup glide options from element data
     // https://glidejs.com/docs/options/
-    let options = {
-      type: $glide.dataset.type
-    }
+    let type = $glide.dataset.type
+    let options = { type }
     ;[ 'autoplay', 'perView' ].forEach(opt => {
       if ($glide.dataset.hasOwnProperty(opt)) {
         let val = parseInt($glide.dataset[opt], 10)
@@ -71,18 +73,40 @@ EcomInit.then(() => {
 
     // new slider instance
     const glide = new Glide($glide, options)
-    glide.on([ 'mount.before', 'run' ], () => {
-      // mannualy trigger images load inside active slide
-      let $slide = $glide.getElementsByClassName('glide__slide')[glide.index]
-      if ($slide) {
-        let $lozad = $slide.getElementsByClassName('lozad')
-        for (let i = 0; i < $lozad.length; i++) {
-          if (!$lozad[i].dataset.loaded) {
-            observer.triggerLoad($lozad[i])
+    let size
+    if (type === 'carousel') {
+      size = $glide.getElementsByClassName('glide__slide').length
+    }
+    glide.mount()
+
+    glide.on([ 'run.before' ], move => {
+      let { direction } = move
+      // calculate movement steps on carousel sliders
+      switch (direction) {
+        case '>':
+        case '<':
+          if (type === 'carousel') {
+            const { perView } = glide.settings
+            if (perView) {
+              // handle carousel pagination
+              let page = Math.ceil(glide.index / perView)
+              let newIndex = page * perView + (direction === '>' ? perView : -perView)
+              if (newIndex >= size) {
+                // rollback to first page
+                newIndex = 0
+              } else if (newIndex < 0 || newIndex + perView > size) {
+                // last page
+                newIndex = size - perView
+              }
+              move.direction = '='
+              move.steps = newIndex
+            }
           }
-        }
+          break
       }
     })
-    glide.mount()
   }
+
+  // lazy load product pictures
+  handleLazyLoad('lozad-ecom')
 })

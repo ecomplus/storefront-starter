@@ -30,5 +30,10 @@
 
 body {
   overflow-x: hidden;
-  min-height: 60rem;
+
+  > .main {
+    width: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+  }
 }

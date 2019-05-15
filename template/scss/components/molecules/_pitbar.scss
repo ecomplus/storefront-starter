@@ -3,6 +3,14 @@
   margin-right: auto;
   color: $light;
 
+  &__nav {
+    @media (max-width: 575.98px) {
+      overflow-x: auto;
+      min-width: 100%;
+      flex-wrap: nowrap;
+    }
+  }
+
   &__item {
     text-transform: uppercase;
     display: flex;

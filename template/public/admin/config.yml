@@ -5,6 +5,11 @@ backend:
 media_folder: 'public/img/uploads'
 public_folder: '/img/uploads'
 
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+
 collections:
 
   # static content for pages
@@ -135,7 +140,7 @@ collections:
             widget: object
             fields:
               - {label: Título, hint: "Em destaque, dentro de uma tag H2", required: false, name: title, widget: string}
-              - {label: Texto, required: false, name: body, widget: markdown}
+              - {label: Texto, required: false, name: body, widget: string}
           - label: Lista de links 1
             name: link_list_1
             widget: object

@@ -12,16 +12,16 @@ import lozad from 'lozad'
 // https://glidejs.com/docs/
 import Glide from '@glidejs/glide'
 
-const handleLazyLoad = () => {
+const handleLazyLoad = className => {
   // handle images (and not only) lazy load
-  return lozad('.lozad', {
+  return lozad('.' + className, {
     loaded ($el) {
-      $el.classList.remove('lozad')
+      $el.classList.remove(className)
       setTimeout(() => $el.classList.add('show'), 400)
     }
-  })
+  }).observe()
 }
-handleLazyLoad()
+handleLazyLoad('lozad')
 
 EcomInit.then(() => {
   // setup whatsapp links
@@ -108,6 +108,5 @@ EcomInit.then(() => {
   }
 
   // lazy load product pictures
-  const lozadObserver = handleLazyLoad()
-  lozadObserver.observe()
+  handleLazyLoad('lozad-ecom')
 })

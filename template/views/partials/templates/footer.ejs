@@ -9,15 +9,15 @@
         <% } %>
         <ul class="list-unstyled">
           <% if (layout.footer.contacts.phone_wpp ) { %>
-            <% if (settings.contacts.whatsapp) { %>
+            <% if (contacts.whatsapp) { %>
               <li>
                 <i class="fab fa-whatsapp text-muted mr-1"></i>
                 <a
                   href="#"
                   target="_blank"
                   class="whatsapp-link font-weight-bold"
-                  data-tel="<%- settings.contacts.whatsapp %>.replace(/\D/g, '')">
-                  <%- settings.contacts.whatsapp %>
+                  data-tel="<%- contacts.whatsapp %>.replace(/\D/g, '')">
+                  <%- contacts.whatsapp %>
                 </a>
               </li>
             <% } %>
@@ -25,19 +25,19 @@
               <li>
                 <i class="fas fa-phone text-muted mr-1"></i>
                 <a
-                  href="<%- settings.contacts.phone %>.replace(/\D/g, '')"
+                  href="<%- contacts.phone %>.replace(/\D/g, '')"
                   target="_blank"
                   class="font-weight-bold">
-                  <%- settings.contacts.phone %>
+                  <%- contacts.phone %>
                 </a>
               </li>
             <% } %>
           <% } %>
           <% if (layout.footer.contacts.email ) { %>
-            <% if (settings.contacts.email ) { %>
+            <% if (contacts.email ) { %>
               <li>
                 <a href="mailto:myemail@sample.com" target="_blank">
-                  <%- settings.contacts.email %>
+                  <%- contacts.email %>
                 </a>
               </li>
             <% } %>
@@ -45,28 +45,28 @@
         </ul>
         <% if (layout.footer.contacts.socials ) { %>
           <p class="footer__social lead">
-            <% if (settings.contacts.facebook ) { %>
-              <a href="<%- settings.contacts.facebook %>" target="_blank" style="color: #3b5998">
+            <% if (contacts.facebook ) { %>
+              <a href="<%- contacts.facebook %>" target="_blank" style="color: #3b5998">
                 <i class="fab fa-facebook"></i>
               </a>
             <% } %>
-            <% if (settings.contacts.youtube ) { %>
-              <a href="<%- settings.contacts.youtube %>" target="_blank" style="color: #ff0000">
+            <% if (contacts.youtube ) { %>
+              <a href="<%- contacts.youtube %>" target="_blank" style="color: #ff0000">
                 <i class="fab fa-youtube"></i>
               </a>
             <% } %>
-            <% if (settings.contacts.instagram ) { %>
-              <a href="<%- settings.contacts.instagram %>" target="_blank" style="color: #e1306c">
+            <% if (contacts.instagram ) { %>
+              <a href="<%- contacts.instagram %>" target="_blank" style="color: #e1306c">
                 <i class="fab fa-instagram"></i>
               </a>
             <% } %>
-            <% if (settings.contacts.twitter ) { %>
-              <a href="<%- settings.contacts.twitter %>" target="_blank" style="color: #1da1f2">
+            <% if (contacts.twitter ) { %>
+              <a href="<%- contacts.twitter %>" target="_blank" style="color: #1da1f2">
                 <i class="fab fa-twitter"></i>
               </a>
             <% } %>
-            <% if (settings.contacts.pinterest ) { %>
-              <a href="<%- settings.contacts.pinterest %>" target="_blank" style="color: #bd081c">
+            <% if (contacts.pinterest ) { %>
+              <a href="<%- contacts.pinterest %>" target="_blank" style="color: #bd081c">
                 <i class="fab fa-pinterest"></i>
               </a>
             <% } %>

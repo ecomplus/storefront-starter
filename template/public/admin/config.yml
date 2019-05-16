@@ -127,7 +127,7 @@ collections:
           - {label: 'Large Icon', name: 'large_icon', widget: 'image'}
           - {label: 'Favicon', name: 'favicon', widget: 'image'}
       - name: 'contacts'
-        file: 'content/settings.json'
+        file: 'content/contacts.json'
         label: 'Contatos'
         hint: "Contatos da loja, exibidos em várias páginas"
         fields:
@@ -185,7 +185,7 @@ collections:
             widget: object
             fields:
               - {label: Título, hint: "Em destaque, dentro de uma tag H2", required: false, name: title, widget: string}
-              - {label: Texto, required: false, name: body, widget: markdown}
+              - {label: Texto, required: false, name: body, widget: string}
           - label: Lista de links 1
             name: link_list_1
             widget: object

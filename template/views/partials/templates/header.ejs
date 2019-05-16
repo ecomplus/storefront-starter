@@ -1,15 +1,15 @@
 <div class="header bg-light">
   <% if (layout.header.marketing_stripe.text || layout.header.marketing_stripe.call_to_action) { %>
-    <% if (layout.header.marketing_stripe.text ) { %>
-  <div class="header__countdown st-block-secondary text-center lead p-2">
-      <%- layout.header.marketing_stripe.text %>
-    <% } %>
-    <button class="btn btn-sm ml-2 btn-outline-light" href="<% if (layout.header.marketing_stripe.call_to_action_link) { %> <%- layout.header.marketing_stripe.call_to_action_link %><% } %>">
+    <div class="header__countdown st-block-secondary text-center lead p-2">
+      <%= layout.header.marketing_stripe.text %>
       <% if (layout.header.marketing_stripe.call_to_action) { %>
-        <%- layout.header.marketing_stripe.call_to_action %>
+        <button
+          class="btn btn-sm ml-2 btn-outline-light"
+          href="<%= layout.header.marketing_stripe.call_to_action_link %>">
+          <%= layout.header.marketing_stripe.call_to_action %>
+        </button>
       <% } %>
-    </button>
-  </div>
+    </div>
   <% } %>
   <div class="header__bar bg-light text-muted font-weight-bold pt-2 pb-1 px-lg-3 d-none d-md-block">
     <div class="container-fluid">

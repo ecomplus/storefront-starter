@@ -4,6 +4,12 @@
   max-width: 80rem;
   margin: 0 auto;
 
+  @media (max-width: 575.98px) {
+    &__bullets {
+      display: none;
+    }
+  }
+
   &__slides,
   &__slides > li {
     overflow: hidden;

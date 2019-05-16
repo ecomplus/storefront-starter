@@ -18,6 +18,7 @@ collections:
         file: 'content/pages/home.json'
         fields:
           - {label: 'Título', name: 'title', widget: 'string', hint: "É relevante para SEO e exibida na aba do navegador"}
+
           - label: "Slides"
             name: "slides"
             widget: list
@@ -30,10 +31,12 @@ collections:
             widget: list
             fields:
               - {label: Coleção, required: false, name: collection, widget: string, hint: "Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
+
           - label: "Info banner"
             name: "info_banner"
             widget: object
             fields:
+
               - label: "Frete"
                 name: "shipping"
                 widget: object
@@ -58,6 +61,7 @@ collections:
                 fields:
                   - {label: Texto, required: false, name: text, widget: string}
                   - {label: Link, required: false, name: link, widget: string}
+
 
 
 

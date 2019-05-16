@@ -127,7 +127,7 @@ collections:
         hint: "Contatos da loja, exibidos em várias páginas"
         label: 'Contatos'
         fields:
-          - {label: 'E-mail', name: 'mail', required: false, widget: 'string'}
+          - {label: 'E-mail', name: 'email', required: false, widget: 'string'}
           - {label: 'Telefone', name: 'phone', required: false, widget: 'string'}
           - {label: 'Whatsapp', name: 'whatsapp', required: false, widget: 'string'}
           - {label: 'Facebook', name: 'facebook', widget: 'string', required: false}

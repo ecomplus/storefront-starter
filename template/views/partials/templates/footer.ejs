@@ -4,7 +4,7 @@
       <div class="col-12 col-lg-auto order-lg-last">
         <% if (layout.footer.contacts.title ) { %>
           <div class="footer__title h2 lead">
-            <%- layout.footer.contacts.title %>
+            <%= layout.footer.contacts.title %>
           </div>
         <% } %>
         <ul class="list-unstyled">
@@ -15,8 +15,8 @@
                 href="#"
                 target="_blank"
                 class="whatsapp-link font-weight-bold"
-                data-tel="<%- layout.footer.contacts.whatsapp %>.replace(/\D/g, '')">
-                <%- layout.footer.contacts.whatsapp %>
+                data-tel="<%= layout.footer.contacts.whatsapp.replace(/\D/g, '') %>">
+                <%= layout.footer.contacts.whatsapp %>
               </a>
             </li>
           <% } %>
@@ -24,17 +24,17 @@
             <li>
               <i class="fas fa-phone text-muted mr-1"></i>
               <a
-                href="<%- layout.footer.contacts.phone %>.replace(/\D/g, '')"
+                href="<%= layout.footer.contacts.phone.replace(/\D/g, '') %>"
                 target="_blank"
                 class="font-weight-bold">
-                <%- layout.footer.contacts.phone %>
+                <%= layout.footer.contacts.phone %>
               </a>
             </li>
           <% } %>
           <% if (layout.footer.contacts.email ) { %>
             <li>
               <a href="mailto:myemail@sample.com" target="_blank">
-                <%- layout.footer.contacts.email %>
+                <%= layout.footer.contacts.email %>
               </a>
             </li>
           <% } %>
@@ -189,7 +189,7 @@
               </a>
             </li>
           </ul>
-        <% } else{ %>
+        <% } else { %>
           <ul class="footer__links list-unstyled">
           <% layout.footer.link_list_2.links.forEach(link => {%>
               <li>

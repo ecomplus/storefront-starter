@@ -1,4 +1,4 @@
-<div class="header bg-light">
+<header class="header bg-light">
   <% if (layout.header.marketing_stripe.text || layout.header.marketing_stripe.call_to_action) { %>
     <% if (layout.header.marketing_stripe.text ) { %>
   <div class="header__countdown st-block-secondary text-center lead p-2">
@@ -72,52 +72,52 @@
       </div>
     </div>
   </div>
-</div>
 
-<header id="navbar" class="ecom-navbar bg-light">
-  <div
-    class="_ecom-el ecom-navbar__title"
-    data-type="store"
-    data-ssr="no-hydration"
-    data-slot="header-col-1">
-    <a href="/">
-      <img
-        v-if="body.logo"
-        v-bind:src="body.logo.url"
-        v-bind:alt="body.logo.alt"
-        class="py-xl-1" />
-      <h2 v-else>
-        {{ body.name }}
-      </h2>
-    </a>
-  </div>
-  <ul
-    class="_ecom-el ecom-navbar__menu st-block-primary"
-    data-type="category"
-    data-ssr="no-hydration"
-    data-list-all="true"
-    data-slot="nav">
-    <li v-for="category in body.result" v-if="!category.parent">
-      <a v-bind:href="'/' + category.slug">
+  <div id="navbar" class="ecom-navbar bg-light">
+    <div
+      class="_ecom-el ecom-navbar__title"
+      data-type="store"
+      data-ssr="no-hydration"
+      data-slot="header-col-1">
+      <a href="/">
         <img
-          v-if="category.icon"
-          v-bind:src="category.icon.url"
-          class="mr-1" />
-        {{ category.name }}
+          v-if="body.logo"
+          v-bind:src="body.logo.url"
+          v-bind:alt="body.logo.alt"
+          class="py-xl-1" />
+        <h2 v-else>
+          {{ body.name }}
+        </h2>
       </a>
-      <span v-if="filterByParentSlug(body.result, category.slug).length">
-        <a href="javascript:;" class="px-1">
-          <i class="fas fa-chevron-down"></i>
+    </div>
+    <ul
+      class="_ecom-el ecom-navbar__menu st-block-primary"
+      data-type="category"
+      data-ssr="no-hydration"
+      data-list-all="true"
+      data-slot="nav">
+      <li v-for="category in body.result" v-if="!category.parent">
+        <a v-bind:href="'/' + category.slug">
+          <img
+            v-if="category.icon"
+            v-bind:src="category.icon.url"
+            class="mr-1" />
+          {{ category.name }}
         </a>
-        <ul class="ecom-navbar__submenu dropdown-menu">
-          <a
-            class="dropdown-item"
-            v-bind:href="'/' + subcategory.slug"
-            v-for="subcategory in filterByParentSlug(body.result, category.slug)">
-            {{ subcategory.name }}
+        <span v-if="filterByParentSlug(body.result, category.slug).length">
+          <a href="javascript:;" class="px-1">
+            <i class="fas fa-chevron-down"></i>
           </a>
-        </ul>
-      </span>
-    </li>
-  </ul>
+          <ul class="ecom-navbar__submenu dropdown-menu">
+            <a
+              class="dropdown-item"
+              v-bind:href="'/' + subcategory.slug"
+              v-for="subcategory in filterByParentSlug(body.result, category.slug)">
+              {{ subcategory.name }}
+            </a>
+          </ul>
+        </span>
+      </li>
+    </ul>
+  </div>
 </header>

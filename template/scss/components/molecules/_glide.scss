@@ -8,6 +8,16 @@
     &--transparent .glide__arrow {
       background: none;
       color: $dark;
+
+      &:hover,
+      &:active {
+        background: $white;
+      }
+    }
+
+    &--white .glide__arrow {
+      background: $white;
+      color: $dark;
     }
 
     &--outer .glide__arrow {

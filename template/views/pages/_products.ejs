@@ -25,9 +25,8 @@
           </li>
           <li
             class="breadcrumb-item"
-            v-elseif="body.categories"
-            v-for="category in body.categories.splice(0, 1)">
-            <a v-bind:href="'/' + category.slug">{{ name(category) }}</a>
+            v-elseif="body.categories && body.categories.length">
+            <a v-bind:href="'/' + body.categories[0].slug">{{ name(body.categories[0]) }}</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
             {{ name() }}

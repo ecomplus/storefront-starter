@@ -123,9 +123,9 @@ collections:
           - {label: 'Large Icon', name: 'large_icon', widget: 'image'}
           - {label: 'Favicon', name: 'favicon', widget: 'image'}
       - name: 'contacts'
-        widget: object
-        hint: "Contatos da loja, exibidos em várias páginas"
+        file: 'content/settings.json'
         label: 'Contatos'
+        hint: "Contatos da loja, exibidos em várias páginas"
         fields:
           - {label: 'E-mail', name: 'email', required: false, widget: 'string'}
           - {label: 'Telefone', name: 'phone', required: false, widget: 'string'}

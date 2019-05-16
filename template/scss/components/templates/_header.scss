@@ -4,6 +4,9 @@
 @import "@ecomplus/widget-navbar/src/EcomNavbar.scss";
 
 .header {
+  z-index: 9;
+  position: relative;
+
   &__bar {
     max-width: 80rem;
     margin-left: auto;

@@ -7,8 +7,8 @@
   "secondary_color": "#333333",
   "bg_color": "#ffffff",
   "logo": "/img/uploads/logo.png",
-  "icon": "/img/icon.png",
-  "large_icon": "/img/large-icon.png",
+  "icon": "/img/uploads/icon.png",
+  "large_icon": "/img/uploads/large-icon.png",
   "favicon": "/img/uploads/favicon.png",
   "store_id": 1011,
   "store_object_id": "5b1abe30a4d4531b8fe40725"

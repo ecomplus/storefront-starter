@@ -81,14 +81,18 @@
     data-ssr="no-hydration"
     data-slot="header-col-1">
     <a href="/">
-      <img
-        v-if="body.logo"
-        v-bind:src="body.logo.url"
-        v-bind:alt="body.logo.alt"
-        class="py-xl-1" />
-      <h2 v-else>
-        {{ body.name }}
-      </h2>
+      <% if (settings.logo) { %>
+        <img src="<%= settings.logo %>" alt="<%= settings.name %>" class="py-xl-1" />
+      <% } else { %>
+        <img
+          v-if="body.logo"
+          v-bind:src="body.logo.url"
+          v-bind:alt="body.logo.alt"
+          class="py-xl-1" />
+        <h2 v-else>
+          {{ body.name }}
+        </h2>
+      <% } %>
     </a>
   </div>
   <ul

@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: 'public/img/uploads'
+media_folder: 'template/public/img/uploads'
 public_folder: '/img/uploads'
 
 collections:
@@ -18,34 +18,51 @@ collections:
         file: 'content/pages/home.json'
         fields:
           - {label: 'Título', name: 'title', widget: 'string', hint: "É relevante para SEO e exibida na aba do navegador"}
-          - label: "Slider"
-            name: "carousel"
-            widget: object
+
+          - label: "Slides"
+            name: "slides"
+            widget: list
             fields:
-              - label: Slides
-                name: slides
-                widget: list
-                fields:
-                  - {label: Imagem, name: image, widget: image}
-                  - {label: Link, required: false, name: link, widget: string}
+              - {label: Imagem, name: img, widget: image}
+              - {label: Link, required: false, name: link, widget: string}
+
           - name: 'showcase'
             label: 'Vitrine'
-            widget: object
+            widget: list
             fields:
-              - label: Coleções
-                name: colections
-                widget: list
-                hint: "Lista de coleções exibidas na vitrine"
-                fields:
-                  - {label: Link, required: false, name: link, widget: string, hint: "Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
+              - {label: Coleção, required: false, name: collection, widget: string, hint: "Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
+
           - label: "Info banner"
             name: "info_banner"
             widget: object
             fields:
-              - {label: Frete, required: false, name: shipping, widget: string}
-              - {label: Parcelamento, required: false, name: installment, widget: string}
-              - {label: Trocas, required: false, name: exchange, widget: string}
-              - {label: Promoção, required: false, name: promo, widget: string}
+
+              - label: "Frete"
+                name: "shipping"
+                widget: object
+                fields:
+                  - {label: Texto, required: false, name: text, widget: string}
+                  - {label: Link, required: false, name: link, widget: string}
+              - label: "Parcelamento"
+                name: "installments"
+                widget: object
+                fields:
+                  - {label: Texto, required: false, name: text, widget: string}
+                  - {label: Link, required: false, name: link, widget: string}
+              - label: "Trocas"
+                name: "exchange"
+                widget: object
+                fields:
+                  - {label: Texto, required: false, name: text, widget: string}
+                  - {label: Link, required: false, name: link, widget: string}
+              - label: "Promoção"
+                name: "promo"
+                widget: object
+                fields:
+                  - {label: Texto, required: false, name: text, widget: string}
+                  - {label: Link, required: false, name: link, widget: string}
+
+
 
 
   # default blog posts collection
@@ -109,6 +126,19 @@ collections:
           - {label: 'Icon', name: 'icon', widget: 'image'}
           - {label: 'Large Icon', name: 'large_icon', widget: 'image'}
           - {label: 'Favicon', name: 'favicon', widget: 'image'}
+      - name: 'contacts'
+        file: 'content/settings.json'
+        label: 'Contatos'
+        hint: "Contatos da loja, exibidos em várias páginas"
+        fields:
+          - {label: 'E-mail', name: 'email', required: false, widget: 'string'}
+          - {label: 'Telefone', name: 'phone', required: false, widget: 'string'}
+          - {label: 'Whatsapp', name: 'whatsapp', required: false, widget: 'string'}
+          - {label: 'Facebook', name: 'facebook', widget: 'string', required: false}
+          - {label: 'Twitter', name: 'twitter', widget: 'string', required: false}
+          - {label: 'Youtube', name: 'youtube', widget: 'string', required: false}
+          - {label: 'Instagram', name: 'instagram', widget: 'string', required: false}
+          - {label: 'Pinterest', name: 'pinterest', widget: 'string', required: false}
 
   # Site Layout
   # usually will be applied all pages
@@ -142,18 +172,9 @@ collections:
                 fields:
                   - {label: Título, name: title, required: false, widget: string}
                   - {label: Link, name: link, required: false, widget: string}
-              - {label: 'Telefone', name: 'phone', required: false, widget: 'string'}
-              - {label: 'Whatsapp', name: 'whatsapp', required: false, widget: 'string'}
-              - name: 'social_links'
-                widget: object
-                hint: "Entrar com a url da página nas devidas redes sociais"
-                label: 'Links para redes sociais'
-                fields:
-                  - {label: 'Facebook', name: 'facebook', widget: 'string', required: false}
-                  - {label: 'Twitter', name: 'twitter', widget: 'string', required: false}
-                  - {label: 'Youtube', name: 'youtube', widget: 'string', required: false}
-                  - {label: 'Instagram', name: 'instagram', widget: 'string', required: false}
-                  - {label: 'Pinterest', name: 'pinterest', widget: 'string', required: false}
+              - {label: 'Mostrar telefone e whatsapp', name: 'phone_wpp', required: false, widget: 'boolean'}
+              - {label: 'Mostrar redes  sociais', name: 'socials', required: false, widget: 'boolean'}
+
 
       - name: 'footer'
         label: 'Footer'
@@ -197,14 +218,9 @@ collections:
             hint: "Contatos da loja"
             fields:
               - {label: 'Título', required: false, name: title, widget: string}
-              - {label: 'Telefone', required: false, name: phone, widget: string}
-              - {label: 'email', required: false, name: email, widget: string}
-              - {label: 'Whatsapp', required: false, name: whatsapp, widget: string}
-              - {label: 'Facebook', name: 'facebook', widget: 'string', required: false}
-              - {label: 'Twitter', name: 'twitter', widget: 'string', required: false}
-              - {label: 'Youtube', name: 'youtube', widget: 'string', required: false}
-              - {label: 'Instagram', name: 'instagram', widget: 'string', required: false}
-              - {label: 'Pinterest', name: 'pinterest', widget: 'string', required: false}
+              - {label: 'Mostrar telefone e whatsapp', name: 'phone_wpp', required: false, widget: 'boolean'}
+              - {label: 'Mostar email', required: false, name: email, widget: boolean}
+              - {label: 'Mostrar redes  sociais', name: 'socials', required: false, widget: 'boolean'}
           - label: Selos
             name: seals
             widget: list

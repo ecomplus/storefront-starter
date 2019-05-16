@@ -22,53 +22,57 @@
               </a>
             <% }) %>
           <% } %>
-          <% if (layout.header.contacts_stripe.whatsapp) { %>
-            <a
-                href="#"
-                target="_blank"
-                class="whatsapp-link font-weight-normal"
-                data-tel="<%- layout.header.contacts_stripe.whatsapp.replace(/\D/g, '') %>">
-              <i class="fab fa-whatsapp"></i>
-              <%- layout.header.contacts_stripe.whatsapp %>
-            </a>
+          <% if (layout.header.contacts_stripe.phone_wpp) { %>
+            <% if (settings.contacts.whatsapp) { %>
+              <a
+                  href="#"
+                  target="_blank"
+                  class="whatsapp-link font-weight-normal"
+                  data-tel="<%- settings.contacts.whatsapp.replace(/\D/g, '') %>">
+                <i class="fab fa-whatsapp"></i>
+                <%- settings.contacts.whatsapp %>
+              </a>
+              <% } %>
+            <% if (settings.contacts.phone) { %>
+              <a
+                href="tel:+<%= settings.contacts.phone.replace(/\D/g, '') %>"
+                class="font-weight-normal"
+                target="_blank">
+                <i class="fas fa-phone"></i>
+                 <%- settings.contacts.phone %>
+              </a>
             <% } %>
-          <% if (layout.header.contacts_stripe.phone) { %>
-            <a
-              href="tel:+<%= layout.header.contacts_stripe.phone.replace(/\D/g, '') %>"
-              class="font-weight-normal"
-              target="_blank">
-              <i class="fas fa-phone"></i>
-               <%- layout.header.contacts_stripe.phone %>
-            </a>
           <% } %>
         </div>
-        <div class="col-auto">
-          <% if (layout.header.contacts_stripe.social_links.facebook) { %>
-            <a href="<%- layout.header.contacts_stripe.social_links.facebook %>" target="_blank">
-              <i class="fab fa-facebook"></i>
-            </a>
-          <% } %>
-          <% if (layout.header.contacts_stripe.social_links.youtube) { %>
-            <a href="<%- layout.header.contacts_stripe.social_links.youtube %>" target="_blank">
-              <i class="fab fa-youtube"></i>
-            </a>
-          <% } %>
-          <% if (layout.header.contacts_stripe.social_links.instagram) { %>
-            <a href="<%- layout.header.contacts_stripe.social_links.instagram %>" target="_blank">
-              <i class="fab fa-instagram"></i>
-            </a>
-          <% } %>
-          <% if (layout.header.contacts_stripe.social_links.twitter) { %>
-            <a href="<%- layout.header.contacts_stripe.social_links.twitter %>" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          <% } %>
-          <% if (layout.header.contacts_stripe.social_links.pinterest) { %>
-            <a href="<%- layout.header.contacts_stripe.social_links.pinterest %>" target="_blank">
-              <i class="fab fa-pinterest"></i>
-            </a>
-          <% } %>
-        </div>
+        <% if (layout.header.contacts_stripe.socials) { %>
+          <div class="col-auto">
+            <% if (settings.contacts.facebook) { %>
+              <a href="<%- settings.contacts.facebook %>" target="_blank">
+                <i class="fab fa-facebook"></i>
+              </a>
+            <% } %>
+            <% if (settings.contacts.youtube) { %>
+              <a href="<%- settings.contacts.youtube %>" target="_blank">
+                <i class="fab fa-youtube"></i>
+              </a>
+            <% } %>
+            <% if (settings.contacts.instagram) { %>
+              <a href="<%- settings.contacts.instagram %>" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            <% } %>
+            <% if (settings.contacts.twitter) { %>
+              <a href="<%- settings.contacts.twitter %>" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            <% } %>
+            <% if (settings.contacts.pinterest) { %>
+              <a href="<%- settings.contacts.pinterest %>" target="_blank">
+                <i class="fab fa-pinterest"></i>
+              </a>
+            <% } %>
+          </div>
+        <% } %>
       </div>
     </div>
   </div>

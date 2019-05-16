@@ -15,14 +15,7 @@
         "link": "faq"
       }
     ],
-    "phone": "(31) 3333-0007",
-    "whatsapp": "(31) 9 9999-8888",
-    "social_links": {
-      "facebook": "https://www.facebook.com/ecom.clubpage/?ref=bookmarks",
-      "twitter": "https://twitter.com/",
-      "youtube": "https://www.youtube.com/",
-      "instagram": "https://www.instagram.com/",
-      "pinterest": "https://br.pinterest.com/"
-    }
+    "phone_wpp": true,
+    "socials": true
   }
 }

@@ -15,14 +15,7 @@
         "link": "faq"
       }
     ],
-    "phone": "(31)992980552",
-    "whatsapp": "(31)95555987",
-    "social_links": {
-      "facebook": "https://www.facebook.com/ecom.clubpage/?ref=bookmarks",
-      "twitter": "https://twitter.com/",
-      "youtube": "https://www.youtube.com/",
-      "instagram": "https://www.instagram.com/",
-      "pinterest": "https://br.pinterest.com/"
-    }
+    "phone_wpp": true,
+    "socials": true
   }
 }

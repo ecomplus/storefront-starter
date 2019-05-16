@@ -31,17 +31,4 @@
       padding-right: 1rem;
     }
   }
-
-  &__arrow,
-  .glide__arrow {
-    color: $dark;
-    font-size: 1.2rem;
-
-    &--left {
-      left: -22px;
-    }
-    &--right {
-      right: -22px;
-    }
-  }
 }

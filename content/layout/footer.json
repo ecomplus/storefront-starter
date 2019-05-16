@@ -1,7 +1,7 @@
 {
   "description": {
     "title": "Loja modelo",
-    "body": "Essa é a loja modelo da E-Com Plus. Oferecemos vários temas e aplicativos em no market, um painel extremamente amigável e lojas que são Progressive Web Apps. Espero que tenha uma ótima experiencia conosco!"
+    "body": "Essa é a loja modelo da E-Com Plus. Oferecemos vários temas e aplicativos em no market, e um painel extremamente amigável que pode ser acessado aqui. Espero que tenha uma ótima experiencia conosco!"
   },
   "link_list_1": {
     "list_pages": true,
@@ -18,7 +18,7 @@
     ]
   },
   "link_list_2": {
-    "list_categories": false,
+    "list_categories": true,
     "title": "categorias",
     "links": [
       {
@@ -32,15 +32,10 @@
     ]
   },
   "contacts": {
-    "youtube": "youtube.com",
-    "facebook": "fb.com",
-    "phone": "(31) 9 9999-9999",
-    "whatsapp": "(99) 9999-9999",
-    "instagram": "instagram.com",
-    "twitter": "twitter.com",
     "title": "Contatos:",
-    "pinterest": "pinterest.com",
-    "email": "contato@e-com.club"
+    "phone_wpp": true,
+    "email": "contato@e-com.club",
+    "socials": true
   },
   "seals": [
     {
@@ -51,15 +46,17 @@
   "payment_methods": {
     "bb": true,
     "visa": true,
-    "aura": true,
-    "banrisul": true,
+    "boleto": true,
+    "aura": false,
+    "banrisul": false,
     "elo": true,
-    "hipercard": true,
-    "hsbc": true,
+    "hipercard": false,
+    "hsbc": false,
     "bradesco": true,
-    "santander": true,
-    "citibank": true,
-    "mais": true,
+    "santander": false,
+    "mastercard": true,
+    "citibank": false,
+    "mais": false,
     "itau": true
   },
   "credits": {

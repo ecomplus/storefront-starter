@@ -4,43 +4,39 @@
       <div class="col-12 col-lg-auto order-lg-last">
         <% if (layout.footer.contacts.title ) { %>
           <div class="footer__title h2 lead">
-            <%- layout.footer.contacts.title %>
+            <%= layout.footer.contacts.title %>
           </div>
         <% } %>
         <ul class="list-unstyled">
-          <% if (layout.footer.contacts.phone_wpp ) { %>
-            <% if (contacts.whatsapp) { %>
-              <li>
-                <i class="fab fa-whatsapp text-muted mr-1"></i>
-                <a
-                  href="#"
-                  target="_blank"
-                  class="whatsapp-link font-weight-bold"
-                  data-tel="<%- contacts.whatsapp %>.replace(/\D/g, '')">
-                  <%- contacts.whatsapp %>
-                </a>
-              </li>
-            <% } %>
-            <% if (contacts.phone ) { %>
-              <li>
-                <i class="fas fa-phone text-muted mr-1"></i>
-                <a
-                  href="<%- contacts.phone %>.replace(/\D/g, '')"
-                  target="_blank"
-                  class="font-weight-bold">
-                  <%- contacts.phone %>
-                </a>
-              </li>
-            <% } %>
+          <% if (layout.footer.contacts.title ) { %>
+            <li>
+              <i class="fab fa-whatsapp text-muted mr-1"></i>
+              <a
+                href="#"
+                target="_blank"
+                class="whatsapp-link font-weight-bold"
+                data-tel="<%= layout.footer.contacts.whatsapp.replace(/\D/g, '') %>">
+                <%= layout.footer.contacts.whatsapp %>
+              </a>
+            </li>
           <% } %>
-          <% if (contacts.email ) { %>
-            <% if (contacts.email ) { %>
-              <li>
-                <a href="mailto:myemail@sample.com" target="_blank">
-                  <%- contacts.email %>
-                </a>
-              </li>
-            <% } %>
+          <% if (layout.footer.contacts.phone ) { %>
+            <li>
+              <i class="fas fa-phone text-muted mr-1"></i>
+              <a
+                href="<%= layout.footer.contacts.phone.replace(/\D/g, '') %>"
+                target="_blank"
+                class="font-weight-bold">
+                <%= layout.footer.contacts.phone %>
+              </a>
+            </li>
+          <% } %>
+          <% if (layout.footer.contacts.email ) { %>
+            <li>
+              <a href="mailto:myemail@sample.com" target="_blank">
+                <%= layout.footer.contacts.email %>
+              </a>
+            </li>
           <% } %>
         </ul>
         <% if (layout.footer.contacts.socials ) { %>
@@ -140,7 +136,7 @@
           </p>
           <div class="footer__stamps row">
             <div class="col-auto">
-              <img src="/static/ssl-safe.png" />
+              <img src="/assets/ssl-safe.png" />
             </div>
           </div>
         </div>
@@ -195,7 +191,7 @@
               </a>
             </li>
           </ul>
-        <% } else{ %>
+        <% } else { %>
           <ul class="footer__links list-unstyled">
           <% layout.footer.link_list_2.links.forEach(link => {%>
               <li>
@@ -220,6 +216,8 @@
 <div class="ecom-credits">
   <a href="https://e-com.plus" target="_blank">
     Powered by
-    <img src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png" />
+    <img
+      src="https://ecom.nyc3.digitaloceanspaces.com/brand/plus/198x43.png"
+      alt="E-Com Plus" />
   </a>
 </div>

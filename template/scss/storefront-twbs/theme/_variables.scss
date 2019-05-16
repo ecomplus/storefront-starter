@@ -5,4 +5,28 @@
 // All variables reference:
 // https://github.com/twbs/bootstrap/blob/master/scss/_variables.scss
 
+// Color system
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+// Breadcrumbs
+
+$breadcrumb-padding-y:              .5rem;
+$breadcrumb-padding-x:              0;
+
+$breadcrumb-bg:                     none !default;
+$breadcrumb-divider-color:          $gray-400 !default;
+$breadcrumb-active-color:           $gray-600 !default;
+$breadcrumb-divider:                quote("/") !default;
+
 // For more customizations edit the `_components.scss` file

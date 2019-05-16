@@ -1,0 +1,24 @@
+.glide {
+  &__arrow {
+    background: rgba(#aaa, .35);
+    color: #fff;
+  }
+
+  &__arrows {
+    &--transparent .glide__arrow {
+      background: none;
+      color: $dark;
+    }
+
+    &--outer .glide__arrow {
+      font-size: 1.2rem;
+
+      &--left {
+        left: -22px;
+      }
+      &--right {
+        right: -22px;
+      }
+    }
+  }
+}

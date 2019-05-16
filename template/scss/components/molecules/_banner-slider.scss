@@ -4,22 +4,30 @@
   max-width: 80rem;
   margin: 0 auto;
 
+  @media (max-width: 575.98px) {
+    &__bullets {
+      display: none;
+    }
+  }
+
   &__slides,
   &__slides > li {
-    height: 23rem;
     overflow: hidden;
     margin: 0;
 
-    @media (max-width: 991.98px) {
-      height: 18rem;
-    }
-
     @media (max-width: 767.98px) {
-      height: 11rem;
+      min-height: 5rem;
+    }
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      min-height: 12rem;
+    }
+    @media (min-width: 992px) {
+      min-height: 18rem;
     }
 
-    @media (max-width: 575.98px) {
-      height: 8rem;
+    > img,
+    > a > img {
+      width: 100%;
     }
   }
 }

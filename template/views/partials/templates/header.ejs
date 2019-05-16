@@ -1,6 +1,6 @@
 <div class="header bg-light">
   <% if (layout.header.marketing_stripe.text || layout.header.marketing_stripe.call_to_action) { %>
-    <div class="header__countdown st-block-secondary text-center lead p-2">
+    <div class="header__countdown d-none d-sm-block st-block-secondary text-center lead p-2">
       <%= layout.header.marketing_stripe.text %>
       <% if (layout.header.marketing_stripe.call_to_action) { %>
         <button

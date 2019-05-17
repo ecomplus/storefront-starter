@@ -30,6 +30,13 @@
     background-color: rgba($white, .4);
     border-color: rgba($dark, .4);
 
+    @media (max-width: 575.98px) {
+      border-width: 1px;
+      width: 10px;
+      height: 10px;
+      margin: 0 2px;
+    }
+
     &:hover,
     &:focus,
     &--active {

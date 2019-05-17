@@ -8,12 +8,12 @@ import '@ecomplus/shopping-cart'
 import './src/partials/header'
 
 // async load
-import('./src/utils')
 import('./src/icons')
+window.SetupUtils = import('./src/utils')
 
 // import scripts by page
-let $main = document.getElementById('__main')
+const $main = document.getElementById('__main')
 if ($main) {
-  let { page } = $main.dataset
+  const { page } = $main.dataset
   import('./src/pages/' + page)
 }

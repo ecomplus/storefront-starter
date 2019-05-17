@@ -43,30 +43,48 @@ EcomInit.then(() => {
 
   // setup carousel sliders
   let $glides = document.getElementsByClassName('glide')
-  let glidesCount = $glides.length
-  if (glidesCount) {
-    const lozadSlides = ($glide, glide) => () => {
-      // mannualy trigger images load inside active slide
-      let $slide = $glide.getElementsByClassName('glide__slide')[glide.index]
-      if ($slide) {
-        let $imgs = $slide.getElementsByTagName('IMG')
-        for (let i = 0; i < $imgs.length; i++) {
-          let $img = $imgs[i]
-          if ($img.dataset.src && !$img.dataset.loaded) {
-            observer.triggerLoad($img)
+  for (let i = 0; i < $glides.length; i++) {
+    let $glide = $glides[i]
+    // setup glide options from element data
+    // https://glidejs.com/docs/options/
+    let options = {}
+    ;[ 'autoplay', 'perView' ].forEach(opt => {
+      if ($glide.dataset.hasOwnProperty(opt)) {
+        let val = parseInt($glide.dataset[opt], 10)
+        if (!isNaN(val)) {
+          options[opt] = val
+        }
+      }
+    })
+
+    // per view breakpoints following Bootstrap grid
+    let grid = { Xs: 576, Sm: 768, Md: 992, Lg: 1200 }
+    options.breakpoints = {}
+    for (let label in grid) {
+      let maxSize = grid[label]
+      if (maxSize) {
+        let perView = $glide.dataset['perView' + label]
+        if (perView) {
+          options.breakpoints[maxSize] = {
+            perView: parseInt(perView, 10)
           }
         }
       }
     }
 
-    const carouselPagination = (glide, size) => move => {
-      let { direction } = move
-      // calculate movement steps on carousel sliders
-      switch (direction) {
-        case '>':
-        case '<':
-          const { perView } = glide.settings
-          if (perView) {
+    // new slider instance
+    let size = $glide.getElementsByClassName('glide__slide').length
+    const glide = new Glide($glide, options)
+    glide.mount()
+
+    glide.on('run.before', move => {
+      const { perView } = glide.settings
+      if (perView > 1) {
+        const { direction } = move
+        // calculate movement steps on carousel sliders
+        switch (direction) {
+          case '>':
+          case '<':
             // handle carousel pagination
             let page = Math.ceil(glide.index / perView)
             let newIndex = page * perView + (direction === '>' ? perView : -perView)
@@ -79,56 +97,25 @@ EcomInit.then(() => {
             }
             move.direction = '='
             move.steps = newIndex
-          }
-          break
-      }
-    }
-
-    for (let i = 0; i < glidesCount; i++) {
-      let $glide = $glides[i]
-      // setup glide options from element data
-      // https://glidejs.com/docs/options/
-      let type = $glide.dataset.type || 'slider'
-      let options = { type }
-      ;[ 'autoplay', 'perView' ].forEach(opt => {
-        if ($glide.dataset.hasOwnProperty(opt)) {
-          let val = parseInt($glide.dataset[opt], 10)
-          if (!isNaN(val)) {
-            options[opt] = val
-          }
         }
-      })
+      }
+    })
 
-      // per view breakpoints following Bootstrap grid
-      let grid = { Xs: 576, Sm: 768, Md: 992, Lg: 1200 }
-      options.breakpoints = {}
-      for (let label in grid) {
-        let maxSize = grid[label]
-        if (maxSize) {
-          let perView = $glide.dataset['perView' + label]
-          if (perView) {
-            options.breakpoints[maxSize] = {
-              perView: parseInt(perView, 10)
+    glide.on('run', () => {
+      if (glide.settings.perView === 1) {
+        // mannualy trigger images load inside active slide
+        let $slide = $glide.getElementsByClassName('glide__slide')[glide.index]
+        if ($slide) {
+          let $imgs = $slide.getElementsByTagName('IMG')
+          for (let i = 0; i < $imgs.length; i++) {
+            let $img = $imgs[i]
+            if ($img.dataset.src && !$img.dataset.loaded) {
+              observer.triggerLoad($img)
             }
           }
         }
       }
-
-      // new slider instance
-      const glide = new Glide($glide, options)
-      let size
-      if (type === 'carousel') {
-        size = $glide.getElementsByClassName('glide__slide').length
-      }
-      glide.mount()
-
-      if (type === 'carousel') {
-        glide.on('run.before', carouselPagination(glide, size))
-      } else {
-        // images slider
-        glide.on('run', lozadSlides($glide, glide))
-      }
-    }
+    })
   }
 
   // lazy load product pictures

@@ -2,10 +2,15 @@
   &__stage {
     text-align: center;
     min-height: 300px;
+    width: 100%;
 
     ul {
       margin: 0;
     }
+  }
+
+  &__picture {
+    width: 100%;
   }
 
   &__thumbs {

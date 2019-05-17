@@ -129,13 +129,13 @@
           </ul>
         <% } else{ %>
           <ul class="footer__links list-unstyled">
-            <% layout.footer.link_list_1.links.forEach(link => {%>
-                <li>
-                  <i class="fas fa-angle-right st-text-primary-lightest"></i>
-                  <a href="<%= link.url %>">
-                    <%= link.text %>
-                  </a>
-                </li>
+            <% layout.footer.link_list_1.links.forEach(link => { %>
+              <li>
+                <i class="fas fa-angle-right st-text-primary-lightest"></i>
+                <a href="<%= link.url %>">
+                  <%= link.text %>
+                </a>
+              </li>
             <% }) %>
           </ul>
         <% } %>
@@ -160,13 +160,13 @@
           </ul>
         <% } else { %>
           <ul class="footer__links list-unstyled">
-          <% layout.footer.link_list_2.links.forEach(link => {%>
-              <li>
-                <i class="fas fa-angle-right st-text-primary-lightest"></i>
-                <a href="<%= link.url %>">
-                  <%= link.text %>
-                </a>
-              </li>
+          <% layout.footer.link_list_2.links.forEach(link => { %>
+            <li>
+              <i class="fas fa-angle-right st-text-primary-lightest"></i>
+              <a href="<%= link.url %>">
+                <%= link.text %>
+              </a>
+            </li>
           <% }) %>
           </ul>
         <% } %>
@@ -174,7 +174,7 @@
     </div>
     <% if (layout.footer.credits.texto) { %>
       <div class="footer__credits small mt-3 border-top pt-3">
-          <%= layout.footer.credits.texto %>
+        <%= layout.footer.credits.texto %>
       </div>
     <% } %>
   </div>

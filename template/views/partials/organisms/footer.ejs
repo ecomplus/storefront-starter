@@ -2,14 +2,14 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-auto order-lg-last">
-        <% if (layout.footer.contacts.title ) { %>
+        <% if (layout.footer.contacts.title) { %>
           <div class="footer__title h2 lead">
             <%= layout.footer.contacts.title %>
           </div>
         <% } %>
         <ul class="list-unstyled">
-          <% if (layout.footer.contacts.phone_wpp ) { %>
-            <% if (contacts.whatsapp ) { %>
+          <% if (layout.footer.contacts.phone_wpp) { %>
+            <% if (contacts.whatsapp) { %>
               <li>
                 <i class="fab fa-whatsapp text-muted mr-1"></i>
                 <a
@@ -21,7 +21,7 @@
                 </a>
               </li>
             <% } %>
-            <% if (contacts.phone ) { %>
+            <% if (contacts.phone) { %>
               <li>
                 <i class="fas fa-phone text-muted mr-1"></i>
                 <a
@@ -33,7 +33,7 @@
               </li>
             <% } %>
           <% } %>
-          <% if (layout.footer.contacts.email ) { %>
+          <% if (layout.footer.contacts.email) { %>
             <li>
               <a href="mailto:myemail@sample.com" target="_blank">
                 <%= layout.footer.contacts.email %>
@@ -41,100 +41,65 @@
             </li>
           <% } %>
         </ul>
-        <% if (layout.footer.contacts.socials ) { %>
+        <% if (layout.footer.contacts.socials) { %>
           <p class="footer__social lead">
-            <% if (contacts.facebook ) { %>
-              <a href="<%- contacts.facebook %>" target="_blank" style="color: #3b5998">
-                <i class="fab fa-facebook"></i>
-              </a>
-            <% } %>
-            <% if (contacts.youtube ) { %>
-              <a href="<%- contacts.youtube %>" target="_blank" style="color: #ff0000">
-                <i class="fab fa-youtube"></i>
-              </a>
-            <% } %>
-            <% if (contacts.instagram ) { %>
-              <a href="<%- contacts.instagram %>" target="_blank" style="color: #e1306c">
-                <i class="fab fa-instagram"></i>
-              </a>
-            <% } %>
-            <% if (contacts.twitter ) { %>
-              <a href="<%- contacts.twitter %>" target="_blank" style="color: #1da1f2">
-                <i class="fab fa-twitter"></i>
-              </a>
-            <% } %>
-            <% if (contacts.pinterest ) { %>
-              <a href="<%- contacts.pinterest %>" target="_blank" style="color: #bd081c">
-                <i class="fab fa-pinterest"></i>
-              </a>
-            <% } %>
+            <% let socialNetworkColors = {
+              facebook: '#3b5998',
+              youtube: '#ff0000',
+              instagram: '#e1306c',
+              twitter: '#1da1f2',
+              pinterest: '#bd081c',
+              linkedin: '#0073b1'
+            }
+            for (let network in socialNetworkColors) {
+              if (contacts[network]) { %>
+                <a
+                  href="<%= contacts[network] %>"
+                  target="_blank"
+                  style="color: <%- socialNetworkColors[network] %>">
+                  <i class="fab fa-<%= network %>"></i>
+                </a>
+              <% }
+            } %>
           </p>
         <% } %>
       </div>
       <div class="col-12 col-lg-5">
-        <% if (layout.footer.description.title ) { %>
+        <% if (layout.footer.description.title) { %>
           <h2 class="footer__title lead text-primary">
             <%= layout.footer.description.title %>
           </h2>
         <% } %>
-        <% if (layout.footer.description.body ) { %>
+        <% if (layout.footer.description.body) { %>
           <p class="text-muted">
             <%- layout.footer.description.body %>
           </p>
         <% } %>
         <div class="mt-4 mb-3">
           <p class="footer__payment-methods">
-            <% if (layout.footer.payment_methods.boleto ) { %>
-              <i class="payment-icon payment-icon--boleto"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.visa ) { %>
-              <i class="payment-icon payment-icon--visa"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.mastercard ) { %>
-              <i class="payment-icon payment-icon--mastercard"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.elo ) { %>
-              <i class="payment-icon payment-icon--elo"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.amex ) { %>
-              <i class="payment-icon payment-icon--amex"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.hipercard ) { %>
-              <i class="payment-icon payment-icon--hipercard"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.hiper ) { %>
-              <i class="payment-icon payment-icon--hiper"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.diners ) { %>
-              <i class="payment-icon payment-icon--diners"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.aura ) { %>
-              <i class="payment-icon payment-icon--aura"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.itau ) { %>
-              <i class="payment-icon payment-icon--itau"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.bradesco ) { %>
-              <i class="payment-icon payment-icon--bradesco"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.bb ) { %>
-              <i class="payment-icon payment-icon--bb"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.santander ) { %>
-              <i class="payment-icon payment-icon--santander"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.citibank ) { %>
-              <i class="payment-icon payment-icon--citibank"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.hsbc ) { %>
-              <i class="payment-icon payment-icon--hsbc"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.banrisul ) { %>
-              <i class="payment-icon payment-icon--banrisul"></i>
-            <% } %>
-            <% if (layout.footer.payment_methods.mais ) { %>
-              <i class="payment-icon payment-icon--mais"></i>
-            <% } %>
+            <% ;[
+              'boleto',
+              'visa',
+              'mastercard',
+              'elo',
+              'amex',
+              'hipercard',
+              'hiper',
+              'diners',
+              'aura',
+              'itau',
+              'bradesco',
+              'bb',
+              'santander',
+              'citibank',
+              'hsbc',
+              'banrisul',
+              'mais'
+            ].forEach(method => {
+              if (layout.footer.payment_methods[method]) { %>
+                <i class="payment-icon payment-icon--<%= method %>"></i>
+              <% }
+            }) %>
           </p>
           <div class="footer__stamps row">
             <div class="col-auto">
@@ -145,11 +110,11 @@
       </div>
       <div class="col">
         <div class="footer__title h2 lead">
-          <% if (layout.footer.link_list_1.title ) { %>
+          <% if (layout.footer.link_list_1.title) { %>
             <%= layout.footer.link_list_1.title %>
           <% } %>
         </div>
-        <% if (layout.footer.link_list_1.list_pages ) { %>
+        <% if (layout.footer.link_list_1.list_pages) { %>
           <ul class="footer__links list-unstyled">
             <% for (var page in extra_pages)  {%>
               <% if (extra_pages.hasOwnProperty[page]) { %>
@@ -177,11 +142,11 @@
       </div>
       <div class="col">
         <div class="footer__title h2 lead">
-          <% if (layout.footer.link_list_2.title ) { %>
+          <% if (layout.footer.link_list_2.title) { %>
             <%= layout.footer.link_list_2.title %>
           <% } %>
         </div>
-        <% if (layout.footer.link_list_2.list_categories ) { %>
+        <% if (layout.footer.link_list_2.list_categories) { %>
           <ul
             class="_ecom-el footer__links list-unstyled"
             data-type="category"
@@ -207,7 +172,7 @@
         <% } %>
       </div>
     </div>
-    <% if (layout.footer.credits.texto ) { %>
+    <% if (layout.footer.credits.texto) { %>
       <div class="footer__credits small mt-3 border-top pt-3">
           <%= layout.footer.credits.texto %>
       </div>

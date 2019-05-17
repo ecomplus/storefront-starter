@@ -46,31 +46,20 @@
         </div>
         <% if (layout.header.contacts_stripe.socials) { %>
           <div class="col-auto">
-            <% if (contacts.facebook) { %>
-              <a href="<%- contacts.facebook %>" target="_blank">
-                <i class="fab fa-facebook"></i>
-              </a>
-            <% } %>
-            <% if (contacts.youtube) { %>
-              <a href="<%- contacts.youtube %>" target="_blank">
-                <i class="fab fa-youtube"></i>
-              </a>
-            <% } %>
-            <% if (contacts.instagram) { %>
-              <a href="<%- contacts.instagram %>" target="_blank">
-                <i class="fab fa-instagram"></i>
-              </a>
-            <% } %>
-            <% if (contacts.twitter) { %>
-              <a href="<%- contacts.twitter %>" target="_blank">
-                <i class="fab fa-twitter"></i>
-              </a>
-            <% } %>
-            <% if (contacts.pinterest) { %>
-              <a href="<%- contacts.pinterest %>" target="_blank">
-                <i class="fab fa-pinterest"></i>
-              </a>
-            <% } %>
+            <% ;[
+              'facebook',
+              'youtube',
+              'instagram',
+              'twitter',
+              'pinterest',
+              'linkedin'
+            ].forEach(network => {
+              if (contacts[network]) { %>
+                <a href="<%= contacts[network] %>" target="_blank">
+                  <i class="fab fa-<%= network %>"></i>
+                </a>
+              <% }
+            }) %>
           </div>
         <% } %>
       </div>

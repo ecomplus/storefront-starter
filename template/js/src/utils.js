@@ -88,7 +88,7 @@ EcomInit.then(() => {
       let $glide = $glides[i]
       // setup glide options from element data
       // https://glidejs.com/docs/options/
-      let { type } = $glide.dataset
+      let type = $glide.dataset.type || 'slider'
       let options = { type }
       ;[ 'autoplay', 'perView' ].forEach(opt => {
         if ($glide.dataset.hasOwnProperty(opt)) {

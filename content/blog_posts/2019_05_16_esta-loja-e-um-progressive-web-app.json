@@ -1,0 +1,8 @@
+{
+  "layout": "blog",
+  "title": "Esta loja é um Progressive Web App",
+  "date": "2019-05-16T16:01:40.618Z",
+  "thumbnail": "template/public/img/uploads/pwa-reliable.png",
+  "description": "PWA é uma evolução híbrida entre um aplicativo e uma página web, que torna a experiência de uso de uma página web pelo celular semelhante a de um aplicativo mobile.\n\n",
+  "body": "Quais são as vantagens?\r\n\nRetenção e economia são as principais vantagens do PWA. Normalmente, ao utilizar um aplicativo o usuário segue um passo a passo – pode variar entre: buscar o app, instalar, abrir, se cadastrar, interagir e compartilhar. Em cada uma dessas etapas podemos perder até 20% do público, mas numa aplicação web esse caminho é encurtado.\r\n\n\r\n\nAlém disso, os custos de desenvolver um PWA é mais baixo, uma vez que se trata de apenas uma plataforma acessível para todos os usuários, independente do dispositivo.\r\n\n\r\n\nAlguns cases de sucesso de PWA são: Alibaba e Flipkart"
+}

@@ -20,15 +20,15 @@
 // Template styles:
 // Custom theme components and modifiers
 
-@import "components/atoms/rounded-icon";
-@import "components/atoms/payment-icon";
-@import "components/molecules/banner-slider";
-@import "components/molecules/pitbar";
-@import "components/molecules/product-item";
-@import "components/organisms/items-carousel";
-@import "components/organisms/product";
-@import "components/organisms/header";
-@import "components/organisms/footer";
+@import "atoms/rounded-icon";
+@import "atoms/payment-icon";
+@import "molecules/banner-slider";
+@import "molecules/pitbar";
+@import "molecules/product-item";
+@import "organisms/items-carousel";
+@import "organisms/product";
+@import "organisms/header";
+@import "organisms/footer";
 
 body {
   overflow-x: hidden;

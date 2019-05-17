@@ -1,7 +1,7 @@
 .glide {
   &__arrow {
     background: rgba($white, .6);
-    color: $secondary;
+    color: $dark;
   }
 
   &__arrows {
@@ -22,13 +22,13 @@
     width: 12px;
     height: 12px;
     background-color: rgba($white, .4);
-    border-color: rgba($secondary, .4);
+    border-color: rgba($dark, .4);
 
     &:hover,
     &:focus,
     &--active {
       background-color: rgba($white, .6);
-      border-color: $secondary;
+      border-color: $dark;
     }
   }
 }

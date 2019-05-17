@@ -16,7 +16,6 @@
     <div
       class="glide"
       data-autoplay="<%= args.autoplay %>"
-      data-type="carousel"
       data-per-view="4"
       data-per-view-md="3"
       data-per-view-sm="2">
@@ -28,9 +27,7 @@
             <%- partial('molecules/product-item') %>
           </li>
         </ul>
-        <div
-          class="glide__arrows glide__arrows--transparent glide__arrows--outer"
-          data-glide-el="controls">
+        <div class="glide__arrows glide__arrows--outer" data-glide-el="controls">
           <button
             class="glide__arrow glide__arrow--left"
             data-glide-dir="<">

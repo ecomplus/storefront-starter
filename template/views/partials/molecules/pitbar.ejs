@@ -1,54 +1,47 @@
 <section class="pitbar st-block-secondary">
   <div class="container">
     <div class="row align-items-center pitbar__nav">
-      <% if (args.pitbar.shipping.text) { %>
-        <div class="col-auto col-sm-6 col-lg">
-          <a class="pitbar__item" href="<%= args.pitbar.shipping.link %>">
-            <span class="rounded-icon">
-              <i class="fas fa-shipping-fast"></i>
-            </span>
-            <div class="ml-3">
-              <%= args.pitbar.shipping.text %>
-            </div>
-          </a>
-        </div>
-      <% } %>
-      <% if (args.pitbar.installments.text) { %>
-        <div class="col-auto col-sm-6 col-lg">
-          <a class="pitbar__item" href="<%= args.pitbar.installments.link %>">
-            <span class="rounded-icon">
-              <i class="fas fa-credit-card"></i>
-            </span>
-            <div class="ml-3">
-              <%= args.pitbar.installments.text %>
-            </div>
-          </a>
-        </div>
-      <% } %>
-      <% if (args.pitbar.exchange.text) { %>
-        <div class="col-auto col-sm-6 col-lg">
-          <a class="pitbar__item" href="<%= args.pitbar.exchange.link %>">
-            <span class="rounded-icon">
-              <i class="fas fa-exchange-alt"></i>
-            </span>
-            <div class="ml-3">
-              <%= args.pitbar.exchange.text %>
-            </div>
-          </a>
-        </div>
-      <% } %>
-      <% if (args.pitbar.promo.text) { %>
-        <div class="col-auto col-sm-6 col-lg">
-          <a class="pitbar__item" href="<%= args.pitbar.promo.link %>">
-            <span class="rounded-icon">
-              <i class="fas fa-percent"></i>
-            </span>
-            <div class="ml-3">
-              <%= args.pitbar.promo.text %>
-            </div>
-          </a>
-        </div>
-      <% } %>
+      <div class="col-auto col-sm-6 col-lg">
+        <a class="pitbar__item" href="#">
+          <span class="rounded-icon">
+            <i class="fas fa-shipping-fast"></i>
+          </span>
+          <div class="ml-3">
+            Free shipping from R$ 500,00
+          </div>
+        </a>
+      </div>
+      <div class="col-auto col-sm-6 col-lg">
+        <a class="pitbar__item" href="#">
+          <span class="rounded-icon">
+            <i class="fas fa-credit-card"></i>
+          </span>
+          <div class="ml-3">
+            Up to 12x without fee on credit card
+          </div>
+        </a>
+      </div>
+      <div class="col-auto col-sm-6 col-lg">
+        <a class="pitbar__item" href="#">
+          <span class="rounded-icon">
+            <i class="fas fa-exchange-alt"></i>
+          </span>
+          <div class="ml-3">
+            Did not like it?
+            The first exchange is free!
+          </div>
+        </a>
+      </div>
+      <div class="col-auto col-sm-6 col-lg">
+        <a class="pitbar__item" href="#">
+          <span class="rounded-icon">
+            <i class="fas fa-percent"></i>
+          </span>
+          <div class="ml-3">
+            Check our best <strong>promotions</strong>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>

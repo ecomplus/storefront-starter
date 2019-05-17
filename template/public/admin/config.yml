@@ -5,6 +5,11 @@ backend:
 media_folder: 'template/public/img/uploads'
 public_folder: '/img/uploads'
 
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+
 collections:
 
   # static content for pages

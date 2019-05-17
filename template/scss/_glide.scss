@@ -1,26 +1,12 @@
 .glide {
   &__arrow {
-    background: rgba(#aaa, .35);
-    color: #fff;
+    background: rgba($white, .6);
+    color: $secondary;
   }
 
   &__arrows {
-    &--transparent .glide__arrow {
-      background: none;
-      color: $dark;
-
-      &:hover,
-      &:active {
-        background: $white;
-      }
-    }
-
-    &--white .glide__arrow {
-      background: $white;
-      color: $dark;
-    }
-
     &--outer .glide__arrow {
+      background: $white;
       font-size: 1.2rem;
 
       &--left {

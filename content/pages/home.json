@@ -15,7 +15,7 @@
     }
   ],
   "pitbar": {
- {
+    "shipping": {
       "text": "Frete grátis para compras acima de R$ 300"
     },
     "installments": {
@@ -29,4 +29,3 @@
     }
   }
 }
-

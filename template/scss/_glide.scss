@@ -18,11 +18,24 @@
     }
   }
 
+  &__bullets {
+    @media (max-width: 575.98px) {
+      bottom: 8%;
+    }
+  }
+
   &__bullet {
     width: 12px;
     height: 12px;
     background-color: rgba($white, .4);
     border-color: rgba($dark, .4);
+
+    @media (max-width: 575.98px) {
+      border-width: 1px;
+      width: 8px;
+      height: 8px;
+      margin: 0 2px;
+    }
 
     &:hover,
     &:focus,

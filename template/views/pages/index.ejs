@@ -15,10 +15,10 @@
     <div class="container py-1 py-sm-2 py-lg-4">
       <!-- Containerized page content -->
       <% pages.home.showcase.forEach(item => {%>
-        <%= partial('organisms/items-carousel', item.collection) %>
+        <%= partial('organisms/items-carousel', item) %>
       <% }) %>
     </div>
-    
+
   </main>
 
   <%= partial('organisms/footer') %>

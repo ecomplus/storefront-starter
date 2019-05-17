@@ -9,7 +9,7 @@
         <% } %>
         <ul class="list-unstyled">
           <% if (layout.footer.contacts.phone_wpp ) { %>
-            <% if (layout.footer.contacts.phone_wpp ) { %>
+            <% if (contacts.whatsapp ) { %>
               <li>
                 <i class="fab fa-whatsapp text-muted mr-1"></i>
                 <a
@@ -36,7 +36,7 @@
           <% if (layout.footer.contacts.email ) { %>
             <li>
               <a href="mailto:myemail@sample.com" target="_blank">
-                <%= contacts.email %>
+                <%= layout.footer.contacts.email %>
               </a>
             </li>
           <% } %>

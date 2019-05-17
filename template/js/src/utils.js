@@ -76,10 +76,14 @@ EcomInit.then(() => {
     let size = $glide.getElementsByClassName('glide__slide').length
     const glide = new Glide($glide, options)
     glide.mount()
+    if ($glide.dataset.global) {
+      // save instance object globally
+      window[$glide.dataset.global] = glide
+    }
 
     glide.on('run.before', move => {
       const { perView } = glide.settings
-      if (perView > 1) {
+      if (perView > 1 && $glide.dataset.pagination !== 'false') {
         const { direction } = move
         // calculate movement steps on carousel sliders
         switch (direction) {

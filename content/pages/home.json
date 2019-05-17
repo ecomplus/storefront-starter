@@ -1,3 +1,30 @@
 {
-  "title": ""
+  "title": "Essa é a homepage!",
+  "slides": [
+    {
+      "img": "/img/uploads/banner1.png"
+    },
+    {
+      "img": "/img/uploads/banner2.png"
+    }
+  ],
+  "showcase": [
+    {
+      "collection": "5cc0ba91887ef430f1f67d81"
+    }
+  ],
+  "pitbar": {
+    "shipping": {
+      "text": "Frete grátis para compras acima de R$ 300"
+    },
+    "installments": {
+      "text": "Parcele até 5x sem juros"
+    },
+    "exchange": {
+      "text": "Não gostou? A primeira troca é gratuita"
+    },
+    "promo": {
+      "text": "Diferentes promoções ao longo do ano! "
+    }
+  }
 }

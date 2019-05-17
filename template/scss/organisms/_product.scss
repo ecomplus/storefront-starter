@@ -1,5 +1,23 @@
 .product {
   &__stage {
     text-align: center;
+    min-height: 300px;
+
+    ul {
+      margin: 0;
+    }
+  }
+
+  &__thumbs {
+    display: block;
+    margin: 1rem auto 0 auto;
+
+    img {
+      width: 100%;
+      height: auto;
+      margin-right: .5rem;
+      font-size: .8rem;
+      overflow: hidden;
+    }
   }
 }

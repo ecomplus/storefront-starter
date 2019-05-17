@@ -7,9 +7,10 @@
 // Storefront Bootstrap 4 theme
 @import "@ecomplus/storefront-twbs/scss/storefront-twbs.scss";
 
-// Additional dependencies
+// Glidejs to handle sliders and carousel
 @import "@glidejs/glide/src/assets/sass/glide.core";
 @import "@glidejs/glide/src/assets/sass/glide.theme";
+@import "glide";
 
 // E-Com Plus storefront rederer recommended styles
 @import "renderer";
@@ -21,13 +22,13 @@
 
 @import "components/atoms/rounded-icon";
 @import "components/atoms/payment-icon";
-@import "components/molecules/glide";
 @import "components/molecules/banner-slider";
 @import "components/molecules/pitbar";
 @import "components/molecules/product-item";
 @import "components/organisms/items-carousel";
-@import "components/templates/header";
-@import "components/templates/footer";
+@import "components/organisms/product";
+@import "components/organisms/header";
+@import "components/organisms/footer";
 
 body {
   overflow-x: hidden;

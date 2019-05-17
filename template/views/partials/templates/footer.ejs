@@ -8,33 +8,35 @@
           </div>
         <% } %>
         <ul class="list-unstyled">
-          <% if (layout.footer.contacts.title ) { %>
-            <li>
-              <i class="fab fa-whatsapp text-muted mr-1"></i>
-              <a
-                href="#"
-                target="_blank"
-                class="whatsapp-link font-weight-bold"
-                data-tel="<%= layout.footer.contacts.whatsapp.replace(/\D/g, '') %>">
-                <%= layout.footer.contacts.whatsapp %>
-              </a>
-            </li>
-          <% } %>
-          <% if (layout.footer.contacts.phone ) { %>
-            <li>
-              <i class="fas fa-phone text-muted mr-1"></i>
-              <a
-                href="<%= layout.footer.contacts.phone.replace(/\D/g, '') %>"
-                target="_blank"
-                class="font-weight-bold">
-                <%= layout.footer.contacts.phone %>
-              </a>
-            </li>
+          <% if (layout.footer.contacts.phone_wpp ) { %>
+            <% if (layout.footer.contacts.phone_wpp ) { %>
+              <li>
+                <i class="fab fa-whatsapp text-muted mr-1"></i>
+                <a
+                  href="#"
+                  target="_blank"
+                  class="whatsapp-link font-weight-bold"
+                  data-tel="<%= contacts.whatsapp.replace(/\D/g, '') %>">
+                  <%= contacts.whatsapp %>
+                </a>
+              </li>
+            <% } %>
+            <% if (contacts.phone ) { %>
+              <li>
+                <i class="fas fa-phone text-muted mr-1"></i>
+                <a
+                  href="<%= contacts.phone.replace(/\D/g, '') %>"
+                  target="_blank"
+                  class="font-weight-bold">
+                  <%= contacts.phone %>
+                </a>
+              </li>
+            <% } %>
           <% } %>
           <% if (layout.footer.contacts.email ) { %>
             <li>
               <a href="mailto:myemail@sample.com" target="_blank">
-                <%= layout.footer.contacts.email %>
+                <%= contacts.email %>
               </a>
             </li>
           <% } %>

@@ -30,6 +30,7 @@ collections:
             fields:
               - {label: Imagem, name: img, widget: image}
               - {label: Link, required: false, name: link, widget: string}
+              - {label: Alt, required: false, name: alt, widget: string}
 
           - name: 'showcase'
             label: 'Vitrine'
@@ -38,7 +39,7 @@ collections:
               - {label: Coleção, required: false, name: collection, widget: string, hint: "Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
 
           - label: "Info banner"
-            name: "info_banner"
+            name: "pitbar"
             widget: object
             fields:
 
@@ -144,6 +145,7 @@ collections:
           - {label: 'Youtube', name: 'youtube', widget: 'string', required: false}
           - {label: 'Instagram', name: 'instagram', widget: 'string', required: false}
           - {label: 'Pinterest', name: 'pinterest', widget: 'string', required: false}
+          - {label: 'LinkedIn', name: 'linkedin', widget: 'string', required: false}
 
   # Site Layout
   # usually will be applied all pages

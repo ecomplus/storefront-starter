@@ -17,4 +17,18 @@
       }
     }
   }
+
+  &__bullet {
+    width: 12px;
+    height: 12px;
+    background-color: rgba($white, .4);
+    border-color: rgba($secondary, .4);
+
+    &:hover,
+    &:focus,
+    &--active {
+      background-color: rgba($white, .6);
+      border-color: $secondary;
+    }
+  }
 }

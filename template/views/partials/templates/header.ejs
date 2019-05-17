@@ -22,53 +22,57 @@
               </a>
             <% }) %>
           <% } %>
-          <% if (layout.header.contacts_stripe.whatsapp) { %>
-            <a
-                href="#"
-                target="_blank"
-                class="whatsapp-link font-weight-normal"
-                data-tel="<%- layout.header.contacts_stripe.whatsapp.replace(/\D/g, '') %>">
-              <i class="fab fa-whatsapp"></i>
-              <%- layout.header.contacts_stripe.whatsapp %>
-            </a>
+          <% if (layout.header.contacts_stripe.phone_wpp) { %>
+            <% if (contacts.whatsapp) { %>
+              <a
+                  href="#"
+                  target="_blank"
+                  class="whatsapp-link font-weight-normal"
+                  data-tel="<%- contacts.whatsapp.replace(/\D/g, '') %>">
+                <i class="fab fa-whatsapp"></i>
+                <%- contacts.whatsapp %>
+              </a>
+              <% } %>
+            <% if (contacts.phone) { %>
+              <a
+                href="tel:+<%= contacts.phone.replace(/\D/g, '') %>"
+                class="font-weight-normal"
+                target="_blank">
+                <i class="fas fa-phone"></i>
+                 <%- contacts.phone %>
+              </a>
             <% } %>
-          <% if (layout.header.contacts_stripe.phone) { %>
-            <a
-              href="tel:+<%= layout.header.contacts_stripe.phone.replace(/\D/g, '') %>"
-              class="font-weight-normal"
-              target="_blank">
-              <i class="fas fa-phone"></i>
-               <%- layout.header.contacts_stripe.phone %>
-            </a>
           <% } %>
         </div>
-        <div class="col-auto">
-          <% if (layout.header.contacts_stripe.social_links.facebook) { %>
-            <a href="<%- layout.header.contacts_stripe.social_links.facebook %>" target="_blank">
-              <i class="fab fa-facebook"></i>
-            </a>
-          <% } %>
-          <% if (layout.header.contacts_stripe.social_links.youtube) { %>
-            <a href="<%- layout.header.contacts_stripe.social_links.youtube %>" target="_blank">
-              <i class="fab fa-youtube"></i>
-            </a>
-          <% } %>
-          <% if (layout.header.contacts_stripe.social_links.instagram) { %>
-            <a href="<%- layout.header.contacts_stripe.social_links.instagram %>" target="_blank">
-              <i class="fab fa-instagram"></i>
-            </a>
-          <% } %>
-          <% if (layout.header.contacts_stripe.social_links.twitter) { %>
-            <a href="<%- layout.header.contacts_stripe.social_links.twitter %>" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-          <% } %>
-          <% if (layout.header.contacts_stripe.social_links.pinterest) { %>
-            <a href="<%- layout.header.contacts_stripe.social_links.pinterest %>" target="_blank">
-              <i class="fab fa-pinterest"></i>
-            </a>
-          <% } %>
-        </div>
+        <% if (layout.header.contacts_stripe.socials) { %>
+          <div class="col-auto">
+            <% if (contacts.facebook) { %>
+              <a href="<%- contacts.facebook %>" target="_blank">
+                <i class="fab fa-facebook"></i>
+              </a>
+            <% } %>
+            <% if (contacts.youtube) { %>
+              <a href="<%- contacts.youtube %>" target="_blank">
+                <i class="fab fa-youtube"></i>
+              </a>
+            <% } %>
+            <% if (contacts.instagram) { %>
+              <a href="<%- contacts.instagram %>" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            <% } %>
+            <% if (contacts.twitter) { %>
+              <a href="<%- contacts.twitter %>" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            <% } %>
+            <% if (contacts.pinterest) { %>
+              <a href="<%- contacts.pinterest %>" target="_blank">
+                <i class="fab fa-pinterest"></i>
+              </a>
+            <% } %>
+          </div>
+        <% } %>
       </div>
     </div>
   </div>

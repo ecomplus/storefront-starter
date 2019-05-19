@@ -15,5 +15,7 @@ window.SetupUtils = import('./src/utils')
 const $main = document.getElementById('__main')
 if ($main) {
   const { page } = $main.dataset
-  import('./src/pages/' + page)
+  if (page) {
+    import('./src/pages/' + page)
+  }
 }

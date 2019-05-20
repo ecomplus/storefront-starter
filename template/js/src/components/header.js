@@ -17,6 +17,9 @@ import EcomMinicart from '@ecomplus/widget-minicart'
 // navbar DOM element
 const $navbar = document.getElementById('navbar')
 
+const header = {}
+export default header
+
 const mountHeader = () => {
   // manually render with slots
   const slots = {}
@@ -30,7 +33,7 @@ const mountHeader = () => {
     }
   })
 
-  new Vue({
+  header.vm = new Vue({
     components: {
       EcomNavbar,
       EcomMinicart,
@@ -41,7 +44,8 @@ const mountHeader = () => {
     data: {
       lang: DEFAULT_LANG,
       storeId: 1011,
-      searchButtonOnly: false
+      searchButtonOnly: false,
+      showMinicart: false
     },
 
     computed: {
@@ -74,7 +78,7 @@ const mountHeader = () => {
       <template #header-col-2>
         <div class="d-flex justify-content-end">
           <EcomUser class="mr-1" :storeId="getStore" :lang="lang" />
-          <EcomMinicart :lang="lang" />
+          <EcomMinicart :lang="lang" :show.sync="showMinicart" />
         </div>
       </template>
       <template v-slot:header-col-3="{ fixed }">

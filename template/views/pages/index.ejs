@@ -9,7 +9,19 @@
 
   <main class="main">
     <!-- Full width content -->
-    <%= partial('molecules/banner-slider', pages.home.slider) %>
+    <%= partial('molecules/banner-slider', {
+      autoplay: 9000,
+      slides: [
+        {
+          link: '#',
+          img: '/img/uploads/banner1.png'
+        },
+        {
+          link: '#',
+          img: '/img/uploads/banner2.png'
+        }
+      ]
+    }) %>
     <%= partial('molecules/pitbar') %>
 
     <div class="container py-1 py-sm-2 py-lg-4">

@@ -11,6 +11,12 @@
       }
     ]
   },
+  "pitbar": {
+    "shipping": true,
+    "installments": true,
+    "exchange": true,
+    "promo": true
+  },
   "showcase": [
     {
       "collection": "5cc0ba91887ef430f1f67d81"

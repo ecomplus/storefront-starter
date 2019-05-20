@@ -36,6 +36,15 @@ collections:
                   - {label: Imagem, name: img, widget: image}
                   - {label: Link, required: false, name: link, widget: string}
                   - {label: Alt, required: false, name: alt, widget: string}
+          - label: 'Pitbar'
+            name: 'pitbar'
+            hint: "Tarja com informações gerais da loja"
+            widget: 'object'
+            fields:
+              - {label: "Exibir informação de frete", name: "shipping", widget: "boolean", default: true, required: false}
+              - {label: "Exibir informação de parcelamento", name: "installments", widget: "boolean", default: true, required: false}
+              - {label: "Exibir informação de trocas", name: "exchange", widget: "boolean", default: true, required: false}
+              - {label: "Exibir informação de promoção", name: "promo", widget: "boolean", default: true, required: false}
           - name: 'showcase'
             label: 'Vitrine'
             widget: list

@@ -23,52 +23,33 @@ collections:
         file: 'content/pages/home.json'
         fields:
           - {label: 'Título', name: 'title', widget: 'string', hint: "É relevante para SEO e exibida na aba do navegador"}
-
-          - label: "Slides"
-            name: "slides"
-            widget: list
+          - label: "Slider"
+            name: "slider"
+            widget: object
+            hint: "Slider de imagens exibido na página inicial"
             fields:
-              - {label: Imagem, name: img, widget: image}
-              - {label: Link, required: false, name: link, widget: string}
-
+              - {label: 'Autoplay', name: 'autoplay', hint: 'Tempo de exibição de cada slide, defina 0 para o slide não mudar automaticamente', required: false, widget: 'number'}
+              - label: Slides
+                name: slides
+                widget: list
+                fields:
+                  - {label: Imagem, name: img, widget: image}
+                  - {label: Link, required: false, name: link, widget: string}
+                  - {label: Alt, required: false, name: alt, widget: string}
+          - label: 'Pitbar'
+            name: 'pitbar'
+            hint: "Tarja com informações gerais da loja"
+            widget: 'object'
+            fields:
+              - {label: "Exibir informação de frete", name: "shipping", widget: "boolean", default: true, required: false}
+              - {label: "Exibir informação de parcelamento", name: "installments", widget: "boolean", default: true, required: false}
+              - {label: "Exibir informação de trocas", name: "exchange", widget: "boolean", default: true, required: false}
+              - {label: "Exibir informação de promoção", name: "promo", widget: "boolean", default: true, required: false}
           - name: 'showcase'
             label: 'Vitrine'
             widget: list
             fields:
               - {label: Coleção, required: false, name: collection, widget: string, hint: "Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
-
-          - label: "Info banner"
-            name: "info_banner"
-            widget: object
-            fields:
-
-              - label: "Frete"
-                name: "shipping"
-                widget: object
-                fields:
-                  - {label: Texto, required: false, name: text, widget: string}
-                  - {label: Link, required: false, name: link, widget: string}
-              - label: "Parcelamento"
-                name: "installments"
-                widget: object
-                fields:
-                  - {label: Texto, required: false, name: text, widget: string}
-                  - {label: Link, required: false, name: link, widget: string}
-              - label: "Trocas"
-                name: "exchange"
-                widget: object
-                fields:
-                  - {label: Texto, required: false, name: text, widget: string}
-                  - {label: Link, required: false, name: link, widget: string}
-              - label: "Promoção"
-                name: "promo"
-                widget: object
-                fields:
-                  - {label: Texto, required: false, name: text, widget: string}
-                  - {label: Link, required: false, name: link, widget: string}
-
-
-
 
   # default blog posts collection
   # remove if your template does not support blog
@@ -131,6 +112,7 @@ collections:
           - {label: 'Icon', name: 'icon', widget: 'image'}
           - {label: 'Large Icon', name: 'large_icon', widget: 'image'}
           - {label: 'Favicon', name: 'favicon', widget: 'image'}
+
       - name: 'contacts'
         file: 'content/contacts.json'
         label: 'Contatos'
@@ -144,6 +126,38 @@ collections:
           - {label: 'Youtube', name: 'youtube', widget: 'string', required: false}
           - {label: 'Instagram', name: 'instagram', widget: 'string', required: false}
           - {label: 'Pinterest', name: 'pinterest', widget: 'string', required: false}
+          - {label: 'LinkedIn', name: 'linkedin', widget: 'string', required: false}
+
+      - label: "Informações"
+        file: 'content/info.json'
+        name: "info"
+        hint: "Informações gerais da loja, exibidas em várias páginas"
+        widget: object
+        fields:
+          - label: "Frete"
+            name: "shipping"
+            widget: object
+            fields:
+              - {label: Texto, required: false, name: text, widget: string}
+              - {label: Link, required: false, name: link, widget: string}
+          - label: "Parcelamento"
+            name: "installments"
+            widget: object
+            fields:
+              - {label: Texto, required: false, name: text, widget: string}
+              - {label: Link, required: false, name: link, widget: string}
+          - label: "Trocas"
+            name: "exchange"
+            widget: object
+            fields:
+              - {label: Texto, required: false, name: text, widget: string}
+              - {label: Link, required: false, name: link, widget: string}
+          - label: "Promoção"
+            name: "promo"
+            widget: object
+            fields:
+              - {label: Texto, required: false, name: text, widget: string}
+              - {label: Link, required: false, name: link, widget: string}
 
   # Site Layout
   # usually will be applied all pages

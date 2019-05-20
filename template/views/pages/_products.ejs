@@ -89,33 +89,39 @@
 
           <div class="col col-md">
             <h1 class="product__name">{{ name() }}</h1>
-            <small class="text-muted">SKU: {{ body.sku }}</small>
-            <p class="product__info">
-              <span v-if="!body.available" class="product__unavailable">
-                This item is unavailable now
-              </span>
-              <span v-else-if="!inStock()" class="product__out-of-stock">
-                This item out of stock now
-              </span>
-              <span v-else class="product__prices mt-3">
-                <span v-if="onPromotion()">
-                  from {{ body.currency_symbol }}
-                  {{ formatMoney(body.base_price) }}
-                  to
-                </span>
-                <strong class="product__price">
-                  {{ body.currency_symbol }}
-                  {{ formatMoney(body.price) }}
-                </strong>
-                <span>
-                  or 10x of
-                  <strong>
-                    {{ body.currency_symbol }}
-                    {{ formatMoney(body.price / 10) }}
-                  </strong>
-                </span>
-              </span>
+            <p class="small text-muted">SKU: {{ body.sku }}</p>
+            <p v-if="!body.available" class="product__unavailable">
+              This item is unavailable now
             </p>
+            <p v-else-if="!inStock()" class="product__out-of-stock">
+              This item out of stock now
+            </p>
+            <p v-else class="product__prices">
+              <span v-if="onPromotion()">
+                from {{ body.currency_symbol }}
+                {{ formatMoney(body.base_price) }}
+                to
+              </span>
+              <strong class="product__price">
+                {{ body.currency_symbol }}
+                {{ formatMoney(body.price) }}
+              </strong>
+              or 10x of
+              <strong>
+                {{ body.currency_symbol }}
+                {{ formatMoney(body.price / 10) }}
+              </strong>
+            </p>
+            <p v-if="body.short_description" class="product__short-description lead">
+              {{ body.short_description }}
+            </p>
+            <button
+              v-if="body.available && inStock()"
+              class="btn btn-primary btn-lg product__buy"
+              onclick="addToCart()">
+              <i class="fas fa-shopping-bag mr-1"></i>
+              Buy
+            </button>
           </div>
         </section>
       </div>

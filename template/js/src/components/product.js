@@ -3,6 +3,9 @@
 /* global Stage, Thumbs */
 // Storefront renderer init promise
 /* global EcomInit, Ecom */
+// Shopping cart lib
+// https://developers.e-com.plus/shopping-cart/EcomCart.html
+/* global EcomCart */
 // Wait utils.js load
 /* global SetupUtils */
 
@@ -20,11 +23,11 @@ SetupUtils.then(() => {
       Stage.go('=' + index)
     }
 
-    const { currentObject } = Ecom
+    const product = Ecom.currentObject
     // PhotoSwipe images list
     const psImages = []
-    if (currentObject) {
-      const { pictures, name } = currentObject
+    if (product) {
+      const { pictures, name } = product
       if (pictures && pictures.length) {
         // setup PhotoSwipe items
         // https://photoswipe.com/documentation/getting-started.html
@@ -54,6 +57,19 @@ SetupUtils.then(() => {
           const gallery = new PhotoSwipe($pswp, PhotoSwipeUI, psImages, { index })
           gallery.init()
         }
+      }
+    }
+
+    window.addToCart = index => {
+      if (product) {
+        const { name, sku, price } = product
+        EcomCart.addItem({
+          product_id: product._id,
+          quantity: 1,
+          price,
+          name,
+          sku
+        })
       }
     }
   })

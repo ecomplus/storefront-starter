@@ -1,17 +1,18 @@
 'use strict'
 
-/* global Stage, Thumbs */
 // Storefront renderer init promise
 /* global EcomInit, Ecom */
-// Shopping cart lib
-// https://developers.e-com.plus/shopping-cart/EcomCart.html
-/* global EcomCart */
 // Wait utils.js load
-/* global SetupUtils */
+/* global SetupUtils, Stage, Thumbs */
 
+// shopping cart lib
+// https://developers.e-com.plus/shopping-cart/EcomCart.html
+import EcomCart from '@ecomplus/shopping-cart'
 // responsive gallery for product pictures with PhotoSwipe
 import PhotoSwipe from 'photoswipe'
-import PhotoSwipeUI from 'photoswipe/dist/photoswipe-ui-default'
+import psUi from 'photoswipe/dist/photoswipe-ui-default'
+// get header component Vue instance
+import header from './header'
 
 SetupUtils.then(() => {
   EcomInit.then(() => {
@@ -54,7 +55,7 @@ SetupUtils.then(() => {
         const $pswp = document.getElementsByClassName('pswp')[0]
         if ($pswp) {
           // initializes and opens PhotoSwipe
-          const gallery = new PhotoSwipe($pswp, PhotoSwipeUI, psImages, { index })
+          const gallery = new PhotoSwipe($pswp, psUi, psImages, { index })
           gallery.init()
         }
       }
@@ -70,6 +71,7 @@ SetupUtils.then(() => {
           name,
           sku
         })
+        header.vm.showMinicart = true
       }
     }
   })

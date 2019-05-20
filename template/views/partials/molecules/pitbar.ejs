@@ -1,50 +1,50 @@
 <section class="pitbar st-block-secondary">
   <div class="container">
     <div class="row align-items-center pitbar__nav">
-      <% if (args.pitbar.shipping.text) { %>
+      <% if (info.shipping.text) { %>
         <div class="col-auto col-sm-6 col-lg">
-          <a class="pitbar__item" href="<%= args.pitbar.shipping.link %>">
+          <a class="pitbar__item" href="<%= info.shipping.link %>">
             <span class="rounded-icon">
               <i class="fas fa-shipping-fast"></i>
             </span>
             <div class="ml-3">
-              <%= args.pitbar.shipping.text %>
+              <%= info.shipping.text %>
             </div>
           </a>
         </div>
       <% } %>
-      <% if (args.pitbar.installments.text) { %>
+      <% if (info.installments.text) { %>
         <div class="col-auto col-sm-6 col-lg">
-          <a class="pitbar__item" href="<%= args.pitbar.installments.link %>">
+          <a class="pitbar__item" href="<%= info.installments.link %>">
             <span class="rounded-icon">
               <i class="fas fa-credit-card"></i>
             </span>
             <div class="ml-3">
-              <%= args.pitbar.installments.text %>
+              <%= info.installments.text %>
             </div>
           </a>
         </div>
       <% } %>
-      <% if (args.pitbar.exchange.text) { %>
+      <% if (info.exchange.text) { %>
         <div class="col-auto col-sm-6 col-lg">
-          <a class="pitbar__item" href="<%= args.pitbar.exchange.link %>">
+          <a class="pitbar__item" href="<%= info.exchange.link %>">
             <span class="rounded-icon">
               <i class="fas fa-exchange-alt"></i>
             </span>
             <div class="ml-3">
-              <%= args.pitbar.exchange.text %>
+              <%= info.exchange.text %>
             </div>
           </a>
         </div>
       <% } %>
-      <% if (args.pitbar.promo.text) { %>
+      <% if (info.promo.text) { %>
         <div class="col-auto col-sm-6 col-lg">
-          <a class="pitbar__item" href="<%= args.pitbar.promo.link %>">
+          <a class="pitbar__item" href="<%= info.promo.link %>">
             <span class="rounded-icon">
               <i class="fas fa-percent"></i>
             </span>
             <div class="ml-3">
-              <%= args.pitbar.promo.text %>
+              <%= info.promo.text %>
             </div>
           </a>
         </div>

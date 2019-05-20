@@ -9,13 +9,13 @@
 
   <main class="main">
     <!-- Full width content -->
-    <%= partial('molecules/banner-slider', pages.home) %>
-    <%= partial('molecules/pitbar', pages.home) %>
+    <%= partial('molecules/banner-slider', pages.home.slider) %>
+    <%= partial('molecules/pitbar') %>
 
     <div class="container py-1 py-sm-2 py-lg-4">
       <!-- Containerized page content -->
-      <% pages.home.showcase.forEach(item => {%>
-        <%= partial('organisms/items-carousel', item) %>
+      <% pages.home.showcase.forEach(carousel => { %>
+        <%= partial('organisms/items-carousel', carousel) %>
       <% }) %>
     </div>
 

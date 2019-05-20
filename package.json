@@ -41,7 +41,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.6.1",
     "@commitlint/config-conventional": "^7.6.0",
-    "@ecomplus/storefront-framework": "^2.4.0",
+    "@ecomplus/storefront-framework": "^2.4.1",
     "babel-eslint": "^10.0.1",
     "husky": "^2.3.0",
     "standard": "^12.0.1"
@@ -60,7 +60,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.8.2",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@glidejs/glide": "^3.3.0",
-    "core-js": "^3.0.1",
+    "core-js": "^3.1.0",
     "lozad": "^1.9.0",
     "photoswipe": "^4.1.3"
   },

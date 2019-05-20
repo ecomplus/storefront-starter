@@ -34,7 +34,7 @@
         </nav>
 
         <section class="row product my-3">
-          <div class="col col-lg-5" v-if="body.pictures && body.pictures.length">
+          <div class="col col-md-6" v-if="body.pictures && body.pictures.length">
             <div class="glide" data-global="Stage">
               <div class="glide__track product__stage border" data-glide-el="track">
                 <ul class="glide__slides">
@@ -87,8 +87,35 @@
             </div>
           </div>
 
-          <div class="col col-lg-7">
-            <h1>{{ name() }}</h1>
+          <div class="col col-md">
+            <h1 class="product__name">{{ name() }}</h1>
+            <small class="text-muted">SKU: {{ body.sku }}</small>
+            <p class="product__info">
+              <span v-if="!body.available" class="product__unavailable">
+                This item is unavailable now
+              </span>
+              <span v-else-if="!inStock()" class="product__out-of-stock">
+                This item out of stock now
+              </span>
+              <span v-else class="product__prices mt-3">
+                <span v-if="onPromotion()">
+                  from {{ body.currency_symbol }}
+                  {{ formatMoney(body.base_price) }}
+                  to
+                </span>
+                <strong class="product__price">
+                  {{ body.currency_symbol }}
+                  {{ formatMoney(body.price) }}
+                </strong>
+                <span>
+                  or 10x of
+                  <strong>
+                    {{ body.currency_symbol }}
+                    {{ formatMoney(body.price / 10) }}
+                  </strong>
+                </span>
+              </span>
+            </p>
           </div>
         </section>
       </div>

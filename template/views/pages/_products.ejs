@@ -4,8 +4,9 @@
 </head>
 <%= partial('body') %>
   <%= partial('organisms/header') %>
+  <%= partial('molecules/photoswipe') %>
 
-  <main class="main" id="__main" data-page="product">
+  <main class="main" id="__main" data-import="product">
     <div class="container py-1 py-sm-2 py-lg-4">
       <div class="_ecom-el" data-type="product" data-current="true">
         <nav class="d-none d-md-block" aria-label="breadcrumb">
@@ -32,15 +33,18 @@
           </ol>
         </nav>
 
-        <section class="row product">
+        <section class="row product my-3">
           <div class="col col-lg-5" v-if="body.pictures && body.pictures.length">
-            <div class="glide" data-global="Gallery">
+            <div class="glide" data-global="Stage">
               <div class="glide__track product__stage border" data-glide-el="track">
                 <ul class="glide__slides">
                   <li class="glide__slide" v-for="(picture, index) in body.pictures">
-                    <a href="#" class="d-block">
+                    <a
+                      href="javascript:;"
+                      v-bind:onclick="'openGallery(' + index + ');'"
+                      class="d-block">
                       <img
-                        class="lozad-ecom fade img-fluid"
+                        class="lozad-ecom product__picture fade img-fluid"
                         v-bind:data-src="picture.big.url"
                         v-bind:alt="picture.big.alt" />
                     </a>
@@ -70,7 +74,7 @@
                   <li class="glide__slide" v-for="(picture, index) in body.pictures">
                     <a
                       href="javascript:;"
-                      v-bind:onclick="'moveGallery(' + index + ');'"
+                      v-bind:onclick="'moveStage(' + index + ');'"
                       class="d-block">
                       <img
                         class="img-fluid"
@@ -82,7 +86,9 @@
               </div>
             </div>
           </div>
-          <div class="col">
+
+          <div class="col col-lg-7">
+            <h1>{{ name() }}</h1>
           </div>
         </section>
       </div>

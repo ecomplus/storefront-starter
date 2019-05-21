@@ -1,7 +1,7 @@
 import './sw.js'
 
 // setup dependencies
-import '@ecomplus/storefront-renderer/dist/storefront.min.js'
+import '@ecomplus/storefront-renderer'
 import '@ecomplus/shopping-cart'
 
 // main components

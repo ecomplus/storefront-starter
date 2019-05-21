@@ -1,10 +1,8 @@
 'use strict'
 
-/* global Vue */
-// Storefront renderer init promise
-/* global EcomInit */
+// Storefront init promise
 // E-Com Plus public APIs SDK
-/* global EcomIo */
+import { Vue, EcomInit, EcomIo } from '@ecomplus/storefront-renderer'
 
 import { DEFAULT_LANG } from './lib/constants'
 

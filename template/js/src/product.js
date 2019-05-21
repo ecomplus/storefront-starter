@@ -1,8 +1,7 @@
 'use strict'
 
-// Storefront renderer init promise
-/* global EcomInit, Ecom */
-
+// Storefront Renderer and init promise
+import { Ecom, EcomInit } from '@ecomplus/storefront-renderer'
 // shopping cart lib
 // https://developers.e-com.plus/shopping-cart/EcomCart.html
 import EcomCart from '@ecomplus/shopping-cart'

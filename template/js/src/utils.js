@@ -1,9 +1,9 @@
 'use strict'
 
-// Storefront renderer init promise
-/* global EcomInit */
-
 import { IS_MOBILE } from './lib/constants'
+
+// Storefront renderer init promise
+import { EcomInit } from '@ecomplus/storefront-renderer'
 
 // lazy load elements with Lozad
 // https://github.com/ApoorvSaxena/lozad.js

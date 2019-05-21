@@ -35,7 +35,7 @@
 
         <section class="row product my-3">
           <div class="col col-md-6" v-if="body.pictures && body.pictures.length">
-            <div class="glide" data-global="Stage">
+            <div class="glide" data-name="stage">
               <div class="glide__track product__stage border" data-glide-el="track">
                 <ul class="glide__slides">
                   <li class="glide__slide" v-for="(picture, index) in body.pictures">
@@ -67,7 +67,7 @@
             <div
               class="glide d-none d-md-block"
               data-pagination="false"
-              data-global="Thumbs"
+              data-name="thumbs"
               data-per-view="4">
               <div class="glide__track product__thumbs" data-glide-el="track">
                 <ul class="glide__slides" id="thumbs">

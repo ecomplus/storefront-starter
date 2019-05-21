@@ -2,14 +2,18 @@
 
 // Storefront Renderer and init promise
 import { Ecom, EcomInit } from '@ecomplus/storefront-renderer'
+
 // shopping cart lib
 // https://developers.e-com.plus/shopping-cart/EcomCart.html
 import EcomCart from '@ecomplus/shopping-cart'
+
 // responsive gallery for product pictures with PhotoSwipe
 import PhotoSwipe from 'photoswipe'
 import psUi from 'photoswipe/dist/photoswipe-ui-default'
+
 // setup general utils and get Glidejs slider instances
 import { glides } from './utils'
+
 // get header component Vue instance
 import header from './header'
 

@@ -1,10 +1,10 @@
 'use strict'
 
+import { DEFAULT_LANG } from './lib/constants'
+
 // Storefront init promise
 // E-Com Plus public APIs SDK
 import { Vue, EcomInit, EcomIo } from '@ecomplus/storefront-renderer'
-
-import { DEFAULT_LANG } from './lib/constants'
 
 // nested components
 import EcomNavbar from '@ecomplus/widget-navbar'

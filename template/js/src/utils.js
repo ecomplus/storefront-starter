@@ -8,6 +8,7 @@ import { EcomInit } from '@ecomplus/storefront-renderer'
 // lazy load elements with Lozad
 // https://github.com/ApoorvSaxena/lozad.js
 import lozad from 'lozad'
+
 // using Glide to handle carousel slider with touch support
 // https://glidejs.com/docs/
 import Glide from '@glidejs/glide'

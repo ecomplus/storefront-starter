@@ -12,6 +12,9 @@ import lozad from 'lozad'
 // https://glidejs.com/docs/
 import Glide from '@glidejs/glide'
 
+const glides = {}
+export { glides }
+
 const handleLazyLoad = className => {
   // handle images (and not only) lazy load
   const observer = lozad('.' + className, {
@@ -76,9 +79,9 @@ EcomInit.then(() => {
     let size = $glide.getElementsByClassName('glide__slide').length
     const glide = new Glide($glide, options)
     glide.mount()
-    if ($glide.dataset.global) {
-      // save instance object globally
-      window[$glide.dataset.global] = glide
+    if ($glide.dataset.name) {
+      // save instance object
+      glides[$glide.dataset.name] = glide
     }
 
     glide.on('run.before', move => {

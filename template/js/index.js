@@ -5,14 +5,15 @@ import '@ecomplus/storefront-renderer/dist/storefront.min.js'
 import '@ecomplus/shopping-cart'
 
 // main components
-import './src/components/header'
+import './src/header'
 
 // async load
 import('./src/icons')
-window.SetupUtils = import('./src/utils')
-
 // import scripts by page
 const $main = document.getElementById('__main')
 if ($main && $main.dataset.import) {
-  import('./src/components/' + $main.dataset.import)
+  import('./src/' + $main.dataset.import)
+} else {
+  // import general utils only
+  import('./src/utils')
 }

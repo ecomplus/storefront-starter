@@ -1,17 +1,28 @@
 <section class="items-carousel my-4">
   <div
     class="_ecom-el"
-    data-type="collection"
-    data-id="<%= args.collection %>"
+    <% if (args.collection) { %>
+      data-type="collection"
+      data-id="<%= args.collection %>"
+    <% } else { %>
+      data-type="<%= args.type %>"
+    <% } %>
     data-list="products"
-    data-size="<%= args.size || 8 %>">
+    data-size="<%= args.size || 8 %>"
+    v-if="body.hits && body.hits.total">
     <h4 class="items-carousel__title">
-      <a v-if="body.slug" v-bind:href="body.slug">
-        {{ body.name }}
-      </a>
-      <span v-else>
-        {{ body.name }}
-      </span>
+      <% if (args.title) { %>
+        <span>
+          <%= args.title %>
+        </span>
+      <% } else { %>
+        <a v-if="body.slug" v-bind:href="body.slug">
+          {{ body.name }}
+        </a>
+        <span v-else>
+          {{ body.name }}
+        </span>
+      <% } %>
     </h4>
     <div
       class="glide"

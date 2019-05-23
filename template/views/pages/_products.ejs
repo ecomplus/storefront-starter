@@ -7,148 +7,158 @@
   <%= partial('molecules/photoswipe') %>
 
   <main class="main" id="__main" data-import="product">
-    <div
-      class="container product py-1 py-sm-2 py-lg-4 _ecom-el"
-      data-type="product"
-      data-current="true">
-      <nav class="d-none d-md-block" aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="/">
-              <i class="fas fa-home"></i>
-            </a>
-          </li>
-          <li
-            class="breadcrumb-item"
-            v-if="splitCategoryTree().length"
-            v-for="category in splitCategoryTree()">
-            <a v-bind:href="'/' + category.slug">{{ name(category) }}</a>
-          </li>
-          <li
-            class="breadcrumb-item"
-            v-else-if="body.categories && body.categories.length">
-            <a v-bind:href="'/' + body.categories[0].slug">{{ name(body.categories[0]) }}</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            {{ name() }}
-          </li>
-        </ol>
-      </nav>
+    <div class="container product py-1 py-sm-2 py-lg-4">
+      <div class="_ecom-el" data-type="product" data-current="true">
+        <nav class="d-none d-md-block" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="/">
+                <i class="fas fa-home"></i>
+              </a>
+            </li>
+            <li
+              class="breadcrumb-item"
+              v-if="splitCategoryTree().length"
+              v-for="category in splitCategoryTree()">
+              <a v-bind:href="'/' + category.slug">{{ name(category) }}</a>
+            </li>
+            <li
+              class="breadcrumb-item"
+              v-else-if="body.categories && body.categories.length">
+              <a v-bind:href="'/' + body.categories[0].slug">{{ name(body.categories[0]) }}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              {{ name() }}
+            </li>
+          </ol>
+        </nav>
 
-      <section class="row product__block my-3">
-        <div class="col col-md-6" v-if="body.pictures && body.pictures.length">
-          <div class="glide" data-name="stage">
-            <div class="glide__track product__stage border" data-glide-el="track">
-              <ul class="glide__slides">
-                <li class="glide__slide" v-for="(picture, index) in body.pictures">
-                  <a
-                    href="javascript:;"
-                    v-bind:onclick="'openGallery(' + index + ');'"
-                    class="d-block">
-                    <img
-                      class="lozad-ecom product__picture fade img-fluid"
-                      v-bind:data-src="picture.big.url"
-                      v-bind:alt="picture.big.alt" />
-                  </a>
-                </li>
-              </ul>
-              <div class="glide__arrows glide__arrows--outer" data-glide-el="controls">
-                <button
-                  class="glide__arrow glide__arrow--left"
-                  data-glide-dir="<">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <button
-                  class="glide__arrow glide__arrow--right"
-                  data-glide-dir=">">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
+        <section class="row product__block my-3">
+          <div class="col col-md-6" v-if="body.pictures && body.pictures.length">
+            <div class="glide" data-name="stage">
+              <div class="glide__track product__stage border" data-glide-el="track">
+                <ul class="glide__slides">
+                  <li class="glide__slide" v-for="(picture, index) in body.pictures">
+                    <a
+                      href="javascript:;"
+                      v-bind:onclick="'openGallery(' + index + ');'"
+                      class="d-block">
+                      <img
+                        class="lozad-ecom product__picture fade img-fluid"
+                        v-bind:data-src="picture.big.url"
+                        v-bind:alt="picture.big.alt" />
+                    </a>
+                  </li>
+                </ul>
+                <div class="glide__arrows glide__arrows--outer" data-glide-el="controls">
+                  <button
+                    class="glide__arrow glide__arrow--left"
+                    data-glide-dir="<">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button
+                    class="glide__arrow glide__arrow--right"
+                    data-glide-dir=">">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="glide d-none d-md-block"
+              data-pagination="false"
+              data-name="thumbs"
+              data-per-view="4">
+              <div class="glide__track product__thumbs" data-glide-el="track">
+                <ul class="glide__slides" id="thumbs">
+                  <li class="glide__slide" v-for="(picture, index) in body.pictures">
+                    <a
+                      href="javascript:;"
+                      v-bind:onclick="'moveStage(' + index + ');'"
+                      class="d-block">
+                      <img
+                        class="img-fluid"
+                        v-bind:src="picture.small.url"
+                        v-bind:alt="picture.small.alt" />
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
-          <div
-            class="glide d-none d-md-block"
-            data-pagination="false"
-            data-name="thumbs"
-            data-per-view="4">
-            <div class="glide__track product__thumbs" data-glide-el="track">
-              <ul class="glide__slides" id="thumbs">
-                <li class="glide__slide" v-for="(picture, index) in body.pictures">
-                  <a
-                    href="javascript:;"
-                    v-bind:onclick="'moveStage(' + index + ');'"
-                    class="d-block">
-                    <img
-                      class="img-fluid"
-                      v-bind:src="picture.small.url"
-                      v-bind:alt="picture.small.alt" />
-                  </a>
-                </li>
-              </ul>
-            </div>
+
+          <div class="col col-md">
+            <h1 class="product__name">{{ name() }}</h1>
+            <p class="small text-muted">SKU: {{ body.sku }}</p>
+            <p v-if="!body.available" class="product__unavailable">
+              This item is unavailable now
+            </p>
+            <p v-else-if="!inStock()" class="product__out-of-stock">
+              This item out of stock now
+            </p>
+            <p v-else class="product__prices">
+              <span v-if="onPromotion()">
+                from {{ body.currency_symbol }}
+                {{ formatMoney(body.base_price) }}
+                to
+              </span>
+              <strong class="product__price">
+                {{ body.currency_symbol }}
+                {{ formatMoney(body.price) }}
+              </strong>
+              or 10x of
+              <strong>
+                {{ body.currency_symbol }}
+                {{ formatMoney(body.price / 10) }}
+              </strong>
+            </p>
+            <p v-if="body.short_description" class="product__short-description lead">
+              {{ body.short_description }}
+            </p>
+            <button
+              v-if="body.available && inStock()"
+              class="btn btn-primary btn-lg product__buy"
+              onclick="addToCart()">
+              <i class="fas fa-shopping-bag mr-1"></i>
+              Buy
+            </button>
           </div>
-        </div>
+        </section>
+      </div>
 
-        <div class="col col-md">
-          <h1 class="product__name">{{ name() }}</h1>
-          <p class="small text-muted">SKU: {{ body.sku }}</p>
-          <p v-if="!body.available" class="product__unavailable">
-            This item is unavailable now
-          </p>
-          <p v-else-if="!inStock()" class="product__out-of-stock">
-            This item out of stock now
-          </p>
-          <p v-else class="product__prices">
-            <span v-if="onPromotion()">
-              from {{ body.currency_symbol }}
-              {{ formatMoney(body.base_price) }}
-              to
-            </span>
-            <strong class="product__price">
-              {{ body.currency_symbol }}
-              {{ formatMoney(body.price) }}
-            </strong>
-            or 10x of
-            <strong>
-              {{ body.currency_symbol }}
-              {{ formatMoney(body.price / 10) }}
-            </strong>
-          </p>
-          <p v-if="body.short_description" class="product__short-description lead">
-            {{ body.short_description }}
-          </p>
-          <button
-            v-if="body.available && inStock()"
-            class="btn btn-primary btn-lg product__buy"
-            onclick="addToCart()">
-            <i class="fas fa-shopping-bag mr-1"></i>
-            Buy
-          </button>
-        </div>
-      </section>
+      <%= partial('organisms/items-carousel', {
+        type: 'related',
+        title: 'Related products'
+      }) %>
+      <%= partial('organisms/items-carousel', {
+        type: 'recommended',
+        title: 'People also bought'
+      }) %>
 
-      <section class="product__description my-5" v-if="body.body_html">
-        <p class="lead">
-          <a href="#description" name="description">#</a>
-          Product description
-        </p>
-        <div v-html="body.body_html" class="wysiwyg-content"></div>
-      </section>
+      <div class="_ecom-el" data-type="product" data-current="true">
+        <section class="product__description my-5" v-if="body.body_html">
+          <p class="lead">
+            <a href="#description" name="description">#</a>
+            Product description
+          </p>
+          <div v-html="body.body_html" class="wysiwyg-content"></div>
+        </section>
 
-      <section class="product__specs my-5" v-if="body.specifications">
-        <p class="lead">
-          <a href="#specs" name="specs">#</a>
-          Product specifications
-        </p>
-        <table class="table table-striped">
-          <tbody>
-            <tr v-for="(spec, grid) in body.specifications">
-              <td class="text-muted">{{ gridTitle(grid) }}</td>
-              <td>{{ specTextValue(spec, grid) }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+        <section class="product__specs my-5" v-if="body.specifications">
+          <p class="lead">
+            <a href="#specs" name="specs">#</a>
+            Product specifications
+          </p>
+          <table class="table table-striped">
+            <tbody>
+              <tr v-for="(spec, grid) in body.specifications">
+                <td class="text-muted">{{ gridTitle(grid) }}</td>
+                <td>{{ specTextValue(spec, grid) }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
     </div>
   </main>
 

@@ -1,6 +1,10 @@
 .wysiwyg-content {
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: auto;
+
+  @media (min-width: 992px) {
+    overflow-x: hidden;
+  }
 
   table,
   .table {

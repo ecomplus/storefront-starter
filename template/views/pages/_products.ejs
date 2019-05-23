@@ -140,6 +140,14 @@
           <a href="#specs" name="specs">#</a>
           Product specifications
         </p>
+        <table class="table table-striped">
+          <tbody>
+            <tr v-for="(spec, grid) in body.specifications">
+              <td>{{ gridTitle(grid) }}</td>
+              <td>{{ specTextValue(spec, grid) }}</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
     </div>
   </main>

@@ -102,8 +102,6 @@ collections:
           - {label: 'Short Name', name: 'short_name', widget: 'string'}
           - {label: 'Short Description', name: 'description', widget: 'text'}
           - {label: 'Language', name: 'lang', widget: 'string'}
-          - {label: 'Store ID', name: 'store_id', widget: 'number'}
-          - {label: 'Store Object ID', name: 'store_object_id', widget: 'string'}
           - {label: 'Logo', name: 'logo', widget: 'image', required: false}
           - {label: 'Mini Logo', name: 'mini_logo', widget: 'image', required: false}
           - {label: 'Primary Color', name: 'primary_color', widget: 'string'}
@@ -192,8 +190,7 @@ collections:
                   - {label: Título, name: title, required: false, widget: string}
                   - {label: Link, name: link, required: false, widget: string}
               - {label: 'Mostrar telefone e whatsapp', name: 'phone_wpp', required: false, widget: 'boolean'}
-              - {label: 'Mostrar redes  sociais', name: 'socials', required: false, widget: 'boolean'}
-
+              - {label: 'Mostrar redes sociais', name: 'socials', required: false, widget: 'boolean'}
 
       - name: 'footer'
         label: 'Footer'

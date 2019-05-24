@@ -1,0 +1,41 @@
+<%= partial('html') %>
+<head>
+  <%= partial('head') %>
+</head>
+<%= partial('body') %>
+  <%= partial('organisms/header') %>
+
+  <main class="main" id="__main">
+    <div class="container py-1 py-sm-2 py-lg-4">
+      <div class="_ecom-el" data-type="category" data-current="true">
+        <nav class="d-none d-md-block" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="/">
+                <i class="fas fa-home"></i>
+              </a>
+            </li>
+            <li
+              class="breadcrumb-item"
+              v-if="body.parent">
+              <a v-bind:href="'/' + body.parent.slug">{{ name(body.parent) }}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              {{ name() }}
+            </li>
+          </ol>
+        </nav>
+
+        <section class="row">
+          <div class="col">
+          </div>
+          <div class="col">
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <%= partial('organisms/footer') %>
+</body>
+</html>

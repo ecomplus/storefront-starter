@@ -1,36 +1,28 @@
 {
-  "title": "Essa é a homepage!",
-  "slides": [
-    {
-      "img": "/img/uploads/rect8589.png"
-    },
-    {
-      "img": "/img/uploads/rect859.png"
-    },
-    {
-      "img": "/img/uploads/rect89.png"
-    }
-  ],
+  "title": "",
+  "slider": {
+    "autoplay": 9000,
+    "slides": [
+      {
+        "img": "/img/uploads/banner1.png"
+      },
+      {
+        "img": "/img/uploads/banner2.png"
+      }
+    ]
+  },
+  "pitbar": {
+    "shipping": true,
+    "installments": true,
+    "exchange": true,
+    "promo": true
+  },
   "showcase": [
     {
-      "collection": "5cdf01ba887ef430f1f6d065"
+      "collection": "5cc0ba91887ef430f1f67d81"
     },
     {
-      "collection": "5cc0ba91887ef430f1f67d81"
+      "collection": "5cdf01ba887ef430f1f6d065"
     }
-  ],
-  "pitbar": {
-    "shipping": {
-      "text": "Frete grátis para compras acima de R$ 300"
-    },
-    "installments": {
-      "text": "Parcele até 5x sem juros"
-    },
-    "exchange": {
-      "text": "Não gostou? A primeira troca é gratuita"
-    },
-    "promo": {
-      "text": "Diferentes promoções ao longo do ano! "
-    }
-  }
+  ]
 }

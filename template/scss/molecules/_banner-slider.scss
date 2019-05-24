@@ -4,12 +4,6 @@
   max-width: 80rem;
   margin: 0 auto;
 
-  @media (max-width: 575.98px) {
-    &__bullets {
-      display: none;
-    }
-  }
-
   &__slides,
   &__slides > li {
     overflow: hidden;
@@ -25,8 +19,13 @@
       min-height: 18rem;
     }
 
+    > a {
+      text-align: center;
+    }
+
     > img,
     > a > img {
+      line-height: 4;
       width: 100%;
     }
   }

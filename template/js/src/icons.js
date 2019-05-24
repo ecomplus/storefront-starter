@@ -22,7 +22,9 @@ import {
   faCreditCard,
   faExchangeAlt,
   faPercent,
-  faHome
+  faHome,
+  faTrashAlt,
+  faCheck
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -63,5 +65,7 @@ library.add(
   faCreditCard,
   faExchangeAlt,
   faPercent,
-  faHome
+  faHome,
+  faTrashAlt,
+  faCheck
 )

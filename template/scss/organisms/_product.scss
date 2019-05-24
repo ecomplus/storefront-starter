@@ -1,0 +1,42 @@
+.product {
+  &__stage {
+    text-align: center;
+    min-height: 300px;
+    width: 100%;
+
+    ul {
+      margin: 0;
+    }
+  }
+
+  &__prices {
+    display: block;
+  }
+
+  &__price {
+    line-height: 1.15;
+    font-size: 250%;
+    display: block;
+  }
+
+  &__picture {
+    width: 100%;
+    box-sizing: border-box;
+    padding: .5rem;
+    cursor: zoom-in;
+  }
+
+  &__thumbs {
+    display: block;
+    margin: 1rem auto 0;
+
+    img {
+      width: 100%;
+      max-width: 100px;
+      height: auto;
+      margin-right: .5rem;
+      font-size: .8rem;
+      overflow: hidden;
+    }
+  }
+}

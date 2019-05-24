@@ -1,18 +1,19 @@
 'use strict'
 
-/* global Vue */
-// Storefront renderer init promise
-/* global EcomInit */
-// E-Com Plus public APIs SDK
-/* global EcomIo */
+import { DEFAULT_LANG } from './lib/constants'
 
-import { DEFAULT_LANG } from './../lib/constants'
+// Storefront init promise
+// E-Com Plus public APIs SDK
+import { Vue, EcomInit, EcomIo } from '@ecomplus/storefront-renderer'
 
 // nested components
 import EcomNavbar from '@ecomplus/widget-navbar'
 import EcomUser from '@ecomplus/widget-user'
 import EcomSearch from '@ecomplus/widget-search'
 import EcomMinicart from '@ecomplus/widget-minicart'
+
+const header = {}
+export default header
 
 // navbar DOM element
 const $navbar = document.getElementById('navbar')
@@ -30,7 +31,7 @@ const mountHeader = () => {
     }
   })
 
-  new Vue({
+  header.vm = new Vue({
     components: {
       EcomNavbar,
       EcomMinicart,
@@ -41,7 +42,8 @@ const mountHeader = () => {
     data: {
       lang: DEFAULT_LANG,
       storeId: 1011,
-      searchButtonOnly: false
+      searchButtonOnly: false,
+      showMinicart: false
     },
 
     computed: {
@@ -74,7 +76,7 @@ const mountHeader = () => {
       <template #header-col-2>
         <div class="d-flex justify-content-end">
           <EcomUser class="mr-1" :storeId="getStore" :lang="lang" />
-          <EcomMinicart :lang="lang" />
+          <EcomMinicart :lang="lang" :show.sync="showMinicart" />
         </div>
       </template>
       <template v-slot:header-col-3="{ fixed }">

@@ -39,5 +39,12 @@
       border-color: $gray-900;
       color: $black;
     }
+
+    &--disabled,
+    &--disabled:hover {
+      cursor: not-allowed;
+      opacity: .65;
+      border-color: $gray-200;
+    }
   }
 }

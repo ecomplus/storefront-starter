@@ -112,9 +112,33 @@
                 {{ formatMoney(body.price / 10) }}
               </strong>
             </p>
-            <p v-if="body.short_description" class="product__short-description lead">
-              {{ body.short_description }}
-            </p>
+            <div
+              v-for="(options, grid) in variationsGrids(body)"
+              class="grid-options my-3"
+              v-bind:class="[ 'grid-options--' + grid ]">
+              <h5 class="grid-options__title">
+                {{ gridTitle(grid) }}
+              </h5>
+              <span
+                v-for="option in options"
+                v-bind:title="option"
+                class="grid-options__option"
+                v-bind:data-option="option"
+                v-bind:data-grid="grid"
+                onclick="selectOption(this)"
+                v-bind:style="{
+                  'background': (grid === 'colors' && specValueByText(body.variations, grid, option))
+                }">
+                {{ option }}
+              </span>
+            </div>
+            <div
+              class="alert alert-warning"
+              role="alert"
+              id="select-variation"
+              style="display: none">
+              Please select an option above
+            </div>
             <button
               v-if="body.available && inStock()"
               class="btn btn-primary btn-lg product__buy"
@@ -122,6 +146,9 @@
               <i class="fas fa-shopping-bag mr-1"></i>
               Buy
             </button>
+            <p v-if="body.short_description" class="product__short-description lead">
+              {{ body.short_description }}
+            </p>
           </div>
         </section>
       </div>

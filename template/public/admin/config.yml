@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: 'template/public/img/uploads'
-public_folder: '/img/uploads'
+media_folder: "template/public/img/uploads"
+public_folder: "/img/uploads"
 
 slug:
   encoding: "ascii"
@@ -14,21 +14,21 @@ collections:
 
   # static content for pages
   # may vary by template
-  - name: 'pages'
-    label: 'Pages'
+  - name: "pages"
+    label: "Pages"
     delete: false
     files:
-      - name: 'home'
-        label: 'Homepage'
-        file: 'content/pages/home.json'
+      - name: "home"
+        label: "Homepage"
+        file: "content/pages/home.json"
         fields:
-          - {label: 'Título', name: 'title', widget: 'string', hint: "É relevante para SEO e exibida na aba do navegador"}
+          - {label: "Título", name: "title", widget: "string", hint: "É relevante para SEO e exibida na aba do navegador", required: false}
           - label: "Slider"
             name: "slider"
             widget: object
             hint: "Slider de imagens exibido na página inicial"
             fields:
-              - {label: 'Autoplay', name: 'autoplay', hint: 'Tempo de exibição de cada slide, defina 0 para o slide não mudar automaticamente', required: false, widget: 'number'}
+              - {label: "Autoplay", name: "autoplay", hint: "Tempo de exibição de cada slide, defina 0 para o slide não mudar automaticamente", required: false, widget: "number"}
               - label: Slides
                 name: slides
                 widget: list
@@ -36,98 +36,104 @@ collections:
                   - {label: Imagem, name: img, widget: image}
                   - {label: Link, required: false, name: link, widget: string}
                   - {label: Alt, required: false, name: alt, widget: string}
-          - label: 'Pitbar'
-            name: 'pitbar'
+          - label: "Pitbar"
+            name: "pitbar"
             hint: "Tarja com informações gerais da loja"
-            widget: 'object'
+            widget: "object"
             fields:
               - {label: "Exibir informação de frete", name: "shipping", widget: "boolean", default: true, required: false}
               - {label: "Exibir informação de parcelamento", name: "installments", widget: "boolean", default: true, required: false}
               - {label: "Exibir informação de trocas", name: "exchange", widget: "boolean", default: true, required: false}
               - {label: "Exibir informação de promoção", name: "promo", widget: "boolean", default: true, required: false}
-          - name: 'showcase'
-            label: 'Vitrine'
+          - name: "showcase"
+            label: "Vitrine"
             widget: list
             fields:
               - {label: Coleção, required: false, name: collection, widget: string, hint: "Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
+      - name: "products"
+        label: "Produtos"
+        hint: "Configuração geral das páginas de produto"
+        file: "content/pages/products.json"
+        fields:
+          - {label: "Produtos relacionados", name: "related", widget: "string", hint: "É relevante para SEO e exibida na aba do navegador", required: false}
 
   # default blog posts collection
   # remove if your template does not support blog
-  - name: 'blog_posts'
-    label: 'Blog Posts'
-    description: 'Add extra content to the site with blog posts related to your store and clients'
-    folder: 'content/blog_posts'
-    extension: 'json'
+  - name: "blog_posts"
+    label: "Blog Posts"
+    description: "Add extra content to the site with blog posts related to your store and clients"
+    folder: "content/blog_posts"
+    extension: "json"
     create: true
-    slug: '{{year}}_{{month}}_{{day}}_{{slug}}'
+    slug: "{{year}}_{{month}}_{{day}}_{{slug}}"
     fields:
-      - {label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog'}
-      - {label: 'Title', name: 'title', widget: 'string'}
-      - {label: 'Publish Date', name: 'date', widget: 'datetime'}
-      - {label: 'Featured Image', name: 'thumbnail', widget: 'image'}
-      - {label: 'Short Description', name: 'description', widget: 'text'}
-      - {label: 'Body', name: 'body', widget: 'markdown'}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Short Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
 
   # default extra pages collection
-  # eg.: 'about us', 'contact' and 'privacy'
-  - name: 'extra_pages'
-    label: 'Extra Pages'
-    description: 'Add extra content to the site with blog posts related to your store and clients'
-    folder: 'content/extra_pages'
-    extension: 'json'
+  # eg.: "about us", "contact" and "privacy"
+  - name: "extra_pages"
+    label: "Extra Pages"
+    description: "Add extra content to the site with blog posts related to your store and clients"
+    folder: "content/extra_pages"
+    extension: "json"
     create: true
-    slug: '{{year}}_{{month}}_{{day}}_{{slug}}'
+    slug: "{{year}}_{{month}}_{{day}}_{{slug}}"
     fields:
-      - {label: 'Layout', name: 'layout', widget: 'hidden', default: 'blog'}
-      - {label: 'Title', name: 'title', widget: 'string'}
-      - {label: 'Publish Date', name: 'date', widget: 'datetime'}
-      - {label: 'Featured Image', name: 'thumbnail', widget: 'image'}
-      - {label: 'Short Description', name: 'description', widget: 'text'}
-      - {label: 'Body', name: 'body', widget: 'markdown'}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Short Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
 
   # general site settings
   # usually will be the same for any template
-  - name: 'settings'
-    label: 'Settings'
-    description: 'General settings to modify the site identity and metadata'
+  - name: "settings"
+    label: "Settings"
+    description: "General settings to modify the site identity and metadata"
     delete: false
     editor:
       preview: false
     files:
-      - name: 'general'
-        label: 'Site Settings'
-        file: 'content/settings.json'
+      - name: "general"
+        label: "Site Settings"
+        file: "content/settings.json"
         fields:
-          - {label: 'Name', name: 'name', widget: 'string'}
-          - {label: 'Short Name', name: 'short_name', widget: 'string'}
-          - {label: 'Short Description', name: 'description', widget: 'text'}
-          - {label: 'Language', name: 'lang', widget: 'string'}
-          - {label: 'Logo', name: 'logo', widget: 'image', required: false}
-          - {label: 'Mini Logo', name: 'mini_logo', widget: 'image', required: false}
-          - {label: 'Primary Color', name: 'primary_color', widget: 'string'}
-          - {label: 'Secondary Color', name: 'secondary_color', widget: 'string'}
-          - {label: 'App Background Color', name: 'bg_color', widget: 'string'}
-          - {label: 'Icon', name: 'icon', widget: 'image'}
-          - {label: 'Large Icon', name: 'large_icon', widget: 'image'}
-          - {label: 'Favicon', name: 'favicon', widget: 'image'}
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Short Name", name: "short_name", widget: "string"}
+          - {label: "Short Description", name: "description", widget: "text"}
+          - {label: "Language", name: "lang", widget: "string"}
+          - {label: "Logo", name: "logo", widget: "image", required: false}
+          - {label: "Mini Logo", name: "mini_logo", widget: "image", required: false}
+          - {label: "Primary Color", name: "primary_color", widget: "string"}
+          - {label: "Secondary Color", name: "secondary_color", widget: "string"}
+          - {label: "App Background Color", name: "bg_color", widget: "string"}
+          - {label: "Icon", name: "icon", widget: "image"}
+          - {label: "Large Icon", name: "large_icon", widget: "image"}
+          - {label: "Favicon", name: "favicon", widget: "image"}
 
-      - name: 'contacts'
-        file: 'content/contacts.json'
-        label: 'Contatos'
+      - name: "contacts"
+        file: "content/contacts.json"
+        label: "Contatos"
         hint: "Contatos da loja, exibidos em várias páginas"
         fields:
-          - {label: 'E-mail', name: 'email', required: false, widget: 'string'}
-          - {label: 'Telefone', name: 'phone', required: false, widget: 'string'}
-          - {label: 'Whatsapp', name: 'whatsapp', required: false, widget: 'string'}
-          - {label: 'Facebook', name: 'facebook', widget: 'string', required: false}
-          - {label: 'Twitter', name: 'twitter', widget: 'string', required: false}
-          - {label: 'Youtube', name: 'youtube', widget: 'string', required: false}
-          - {label: 'Instagram', name: 'instagram', widget: 'string', required: false}
-          - {label: 'Pinterest', name: 'pinterest', widget: 'string', required: false}
-          - {label: 'LinkedIn', name: 'linkedin', widget: 'string', required: false}
+          - {label: "E-mail", name: "email", required: false, widget: "string"}
+          - {label: "Telefone", name: "phone", required: false, widget: "string"}
+          - {label: "Whatsapp", name: "whatsapp", required: false, widget: "string"}
+          - {label: "Facebook", name: "facebook", widget: "string", required: false}
+          - {label: "Twitter", name: "twitter", widget: "string", required: false}
+          - {label: "Youtube", name: "youtube", widget: "string", required: false}
+          - {label: "Instagram", name: "instagram", widget: "string", required: false}
+          - {label: "Pinterest", name: "pinterest", widget: "string", required: false}
+          - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
 
       - label: "Informações"
-        file: 'content/info.json'
+        file: "content/info.json"
         name: "info"
         hint: "Informações gerais da loja, exibidas em várias páginas"
         widget: object
@@ -159,25 +165,25 @@ collections:
 
   # Site Layout
   # usually will be applied all pages
-  - name: 'layout'
-    label: 'Layout'
-    description: 'Layout applied to all pages'
+  - name: "layout"
+    label: "Layout"
+    description: "Layout applied to all pages"
     delete: false
     editor:
       preview: false
     files:
-      - name: 'header'
-        label: 'Header'
-        file: 'content/layout/header.json'
+      - name: "header"
+        label: "Header"
+        file: "content/layout/header.json"
         fields:
           - label: "Tarja de marketing "
             name: "marketing_stripe"
             widget: object
             hint: "Tarja na cor secundária com texto e botão, caso não seja configurada não é exibida na loja"
             fields:
-              - {label: 'Texto', name: 'text', required: false, widget: 'string'}
-              - {label: 'Texto do botão', name: 'call_to_action', required: false, widget: 'string'}
-              - {label: 'Link do botão', name: 'call_to_action_link', required: false, widget: 'string'}
+              - {label: "Texto", name: "text", required: false, widget: "string"}
+              - {label: "Texto do botão", name: "call_to_action", required: false, widget: "string"}
+              - {label: "Link do botão", name: "call_to_action_link", required: false, widget: "string"}
           - label: "Tarja de contatos"
             name: "contacts_stripe"
             widget: object
@@ -189,12 +195,12 @@ collections:
                 fields:
                   - {label: Título, name: title, required: false, widget: string}
                   - {label: Link, name: link, required: false, widget: string}
-              - {label: 'Mostrar telefone e whatsapp', name: 'phone_wpp', required: false, widget: 'boolean'}
-              - {label: 'Mostrar redes sociais', name: 'socials', required: false, widget: 'boolean'}
+              - {label: "Mostrar telefone e whatsapp", name: "phone_wpp", required: false, widget: "boolean"}
+              - {label: "Mostrar redes sociais", name: "socials", required: false, widget: "boolean"}
 
-      - name: 'footer'
-        label: 'Footer'
-        file: 'content/layout/footer.json'
+      - name: "footer"
+        label: "Footer"
+        file: "content/layout/footer.json"
         fields:
           - label: Descrição
             name: description
@@ -233,19 +239,19 @@ collections:
             widget: object
             hint: "Contatos da loja"
             fields:
-              - {label: 'Título', required: false, name: title, widget: string}
-              - {label: 'Mostrar telefone e whatsapp', name: 'phone_wpp', required: false, widget: 'boolean'}
-              - {label: 'Mostar email', required: false, name: email, widget: boolean}
-              - {label: 'Mostrar redes  sociais', name: 'socials', required: false, widget: 'boolean'}
+              - {label: "Título", required: false, name: title, widget: string}
+              - {label: "Mostrar telefone e whatsapp", name: "phone_wpp", required: false, widget: "boolean"}
+              - {label: "Mostar email", required: false, name: email, widget: boolean}
+              - {label: "Mostrar redes  sociais", name: "socials", required: false, widget: "boolean"}
           - label: Selos
             name: seals
             widget: list
             fields:
               - {label: Imagem, required: false, name: image, widget: image}
               - {label: alt, required: false, name: Alt tag, widget: string}
-          - label: 'Meios de pagamento'
-            name: 'payment_methods'
-            widget: 'object'
+          - label: "Meios de pagamento"
+            name: "payment_methods"
+            widget: "object"
             fields:
               - {label: "Boleto", name: "boleto", widget: "boolean", default: true, required: false}
               - {label: "Visa", name: "visa", widget: "boolean", default: true, required: false}

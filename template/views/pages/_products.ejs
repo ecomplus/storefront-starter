@@ -91,22 +91,22 @@
             <h1 class="product__name">{{ name() }}</h1>
             <p class="small text-muted">SKU: {{ body.sku }}</p>
             <p v-if="!body.available" class="product__unavailable">
-              This item is unavailable now
+              <%= dictionary.unavailable %>
             </p>
             <p v-else-if="!inStock()" class="product__out-of-stock">
-              This item out of stock now
+              <%= dictionary.no_stock %>
             </p>
             <p v-else class="product__prices">
               <span v-if="onPromotion()">
-                from {{ body.currency_symbol }}
+                <%= dictionary.from %>  {{ body.currency_symbol }}
                 {{ formatMoney(body.base_price) }}
-                to
+                <%= dictionary.to %>
               </span>
               <strong class="product__price">
                 {{ body.currency_symbol }}
                 {{ formatMoney(body.price) }}
               </strong>
-              or 10x of
+              <%= dictionary.ou %> 10x <%= dictionary.of %>
               <strong>
                 {{ body.currency_symbol }}
                 {{ formatMoney(body.price / 10) }}
@@ -137,14 +137,14 @@
               role="alert"
               id="select-variation"
               style="display: none">
-              Please select an option above
+              <%= dictionary.select_option %>
             </div>
             <button
               v-if="body.available && inStock()"
               class="btn btn-primary btn-lg product__buy"
               onclick="addToCart()">
               <i class="fas fa-shopping-bag mr-1"></i>
-              Buy
+              <%= dictionary.buy %>
             </button>
             <p v-if="body.short_description" class="product__short-description lead">
               {{ body.short_description }}
@@ -166,7 +166,7 @@
         <section class="product__description my-5" v-if="body.body_html">
           <p class="lead">
             <a href="#description" name="description">#</a>
-            Product description
+            <%= dictionary.product_description %>
           </p>
           <div v-html="body.body_html" class="wysiwyg-content"></div>
         </section>
@@ -174,7 +174,7 @@
         <section class="product__specs my-5" v-if="body.specifications">
           <p class="lead">
             <a href="#specs" name="specs">#</a>
-            Product specifications
+            <%= dictionary.product_specifications %>
           </p>
           <table class="table table-striped">
             <tbody>

@@ -1,6 +1,6 @@
 <div class="product-item">
   <a
-    v-bind:href="item.slug"
+    v-bind:href="'/' + item.slug"
     class="product-item__link"
     v-bind:title="item.name">
     <span v-if="item.pictures" class="product-item__pictures">

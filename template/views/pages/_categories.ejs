@@ -6,7 +6,7 @@
   <%= partial('organisms/header') %>
 
   <main class="main" id="__main">
-    <div class="container py-1 py-sm-2 py-lg-4">
+    <div class="container category py-1 py-sm-2 py-lg-4">
       <div class="_ecom-el" data-type="category" data-current="true">
         <nav class="d-none d-md-block" aria-label="breadcrumb">
           <ol class="breadcrumb">
@@ -26,11 +26,19 @@
           </ol>
         </nav>
 
-        <section class="row">
-          <div class="col">
-          </div>
-          <div class="col">
-          </div>
+        <section
+          v-if="body.pictures && body.pictures.length"
+          class="category__banner">
+          <img
+            class="img-fluid"
+            v-bind:src="body.pictures[0].url"
+            v-bind:alt="body.pictures[0].alt" />
+        </section>
+      </div>
+
+      <div class="_ecom-el" data-type="category" data-search-by="categories">
+        <section class="category__description my-5" v-if="body.body_html">
+          <div v-html="body.body_html" class="wysiwyg-content"></div>
         </section>
       </div>
     </div>

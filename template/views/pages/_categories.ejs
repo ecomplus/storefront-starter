@@ -26,17 +26,27 @@
           </ol>
         </nav>
 
-        <section
-          v-if="body.pictures && body.pictures.length"
-          class="category__banner">
-          <img
-            class="img-fluid"
-            v-bind:src="body.pictures[0].url"
-            v-bind:alt="body.pictures[0].alt" />
+        <section class="bg-light text-center rounded mb-4 p-3">
+          <h1 class="category__name">
+            {{ name() }}
+          </h1>
+          <div
+            v-if="body.pictures && body.pictures.length"
+            class="category__banner">
+            <img
+              class="img-fluid"
+              v-bind:src="body.pictures[0].url"
+              v-bind:alt="body.pictures[0].alt" />
+          </div>
         </section>
       </div>
 
-      <div class="_ecom-el" data-type="category" data-search-by="categories">
+      <div
+        class="_ecom-el"
+        data-type="category"
+        data-vm="Retail"
+        data-search-by="categories">
+        <%= partial('organisms/retail') %>
         <section class="category__description my-5" v-if="body.body_html">
           <div v-html="body.body_html" class="wysiwyg-content"></div>
         </section>

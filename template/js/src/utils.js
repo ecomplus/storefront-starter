@@ -13,9 +13,6 @@ import lozad from 'lozad'
 // https://glidejs.com/docs/
 import Glide from '@glidejs/glide'
 
-const glides = {}
-export { glides }
-
 const handleLazyLoad = className => {
   // handle images (and not only) lazy load
   const observer = lozad('.' + className, {
@@ -28,6 +25,10 @@ const handleLazyLoad = className => {
   return observer
 }
 const observer = handleLazyLoad('lozad')
+
+// export lozad observer and glides object
+const glides = {}
+export { glides, observer, handleLazyLoad }
 
 EcomInit.then(() => {
   // setup whatsapp links

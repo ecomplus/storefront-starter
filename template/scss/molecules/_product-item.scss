@@ -55,6 +55,10 @@
     @media (min-width: 992px) {
       max-height: 250px;
     }
+
+    &:not(.show) {
+      color: transparent;
+    }
   }
 
   &__picture {
@@ -77,4 +81,10 @@
       }
     }
   }
+}
+
+.col > .product-item {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
 }

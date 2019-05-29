@@ -1,0 +1,16 @@
+.brand {
+  &__name {
+    font-size: 2rem;
+    margin: 0;
+    color: $secondary;
+  }
+
+  &__logo {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  &__banner {
+    margin: 1.5rem auto 0 auto;
+  }
+}

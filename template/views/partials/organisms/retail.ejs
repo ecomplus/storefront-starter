@@ -9,6 +9,7 @@
         <h5>Brands</h5>
         <div
           v-for="brand in body.aggregations.brands.buckets"
+          v-bind:key="'brand-' + brand.key"
           class="custom-control custom-checkbox">
           <input
             type="checkbox"
@@ -32,6 +33,7 @@
         <h5>Categories</h5>
         <div
           v-for="category in body.aggregations.categories.buckets"
+          v-bind:key="'category-' + category.key"
           class="custom-control custom-checkbox">
           <input
             type="checkbox"
@@ -57,6 +59,7 @@
             <h5>{{ gridTitle(grid.key) }}</h5>
             <div
               v-for="spec in grid.text.buckets"
+              v-bind:key="grid.key + '-' + spec.key"
               class="custom-control custom-checkbox">
               <input
                 type="checkbox"

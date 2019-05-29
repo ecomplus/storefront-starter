@@ -56,6 +56,10 @@ const mountHeader = () => {
       hideSearchInput (fixedNav) {
         this.searchButtonOnly = fixedNav && window.screen.width < 767.98
         return this.searchButtonOnly
+      },
+
+      submitSearch (term) {
+        window.location = '/search#' + encodeURIComponent(term)
       }
     },
 
@@ -80,7 +84,10 @@ const mountHeader = () => {
         </div>
       </template>
       <template v-slot:header-col-3="{ fixed }">
-        <EcomSearch :lang="lang" :buttonOnly="hideSearchInput(fixed)" />
+        <EcomSearch
+          :lang="lang"
+          :buttonOnly="hideSearchInput(fixed)"
+          @submit="submitSearch" />
       </template>
       <template #nav>
         ${slots['nav']}

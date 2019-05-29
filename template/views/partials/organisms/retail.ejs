@@ -1,0 +1,114 @@
+<section class="retail row">
+  <aside class="retail__filters col-lg-3 col-xl-2">
+    <!-- Setup filters -->
+    <div v-if="body.aggregations">
+      <!-- Filtering by brands -->
+      <div
+        v-if="body.aggregations.brands && body.aggregations.brands.buckets.length"
+        class="mb-3">
+        <h5>Brands</h5>
+        <div
+          v-for="brand in body.aggregations.brands.buckets"
+          v-bind:key="'brand-' + brand.key"
+          class="custom-control custom-checkbox">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            v-bind:id="'brand-' + brand.key"
+            v-bind:name="'brand-' + brand.key"
+            v-bind:checked="includes(args.brands, brand.key)"
+            v-on:change="set([ 'brands' ], brand.key)">
+          <label
+            v-bind:for="'brand-' + brand.key"
+            class="custom-control-label">
+            {{ brand.key + ' (' + brand.doc_count + ')' }}
+          </label>
+        </div>
+      </div>
+
+      <!-- Filtering by categories -->
+      <div
+        v-if="body.aggregations.categories && body.aggregations.categories.buckets.length"
+        class="mb-3">
+        <h5>Categories</h5>
+        <div
+          v-for="category in body.aggregations.categories.buckets"
+          v-bind:key="'category-' + category.key"
+          class="custom-control custom-checkbox">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            v-bind:id="'category-' + category.key"
+            v-bind:name="'category-' + category.key"
+            v-bind:checked="includes(args.category, category.key)"
+            v-on:change="set([ 'categories' ], category.key)">
+          <label
+            v-bind:for="'category-' + category.key"
+            class="custom-control-label">
+            {{ category.key + ' (' + category.doc_count + ')' }}
+          </label>
+        </div>
+      </div>
+
+      <!-- Filtering by specifications -->
+      <div v-if="body.aggregations.specs && body.aggregations.specs.grid">
+        <div
+          v-for="grid in body.aggregations.specs.grid.buckets"
+          class="mb-3">
+          <span v-if="grid.text">
+            <h5>{{ gridTitle(grid.key) }}</h5>
+            <div
+              v-for="spec in grid.text.buckets"
+              v-bind:key="grid.key + '-' + spec.key"
+              class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                v-bind:id="grid.key + '-' + spec.key"
+                v-bind:name="grid.key + '-' + spec.key"
+                v-bind:checked="args.specs && includes(args.specs[grid.key], spec.key)"
+                v-on:change="set([ 'specs', grid.key ], spec.key)">
+              <label
+                v-bind:for="grid.key + '-' + spec.key"
+                class="custom-control-label">
+                {{ spec.key }}
+              </label>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <article class="retail__results col-md">
+    <% if (args.info) { %>
+      <div class="retail__info" v-if="args.term">
+        <h5 v-if="payload.suggested" class="lead">
+          Did you mean
+          <a
+            href="javascript:;"
+            v-bind:click="args.term = payload.suggested">
+            {{ payload.suggested }}
+          </a>?
+        </h5>
+        <div v-else class="lead">
+          <span v-if="!body.hits.total">
+            No results for
+          </span>
+          <span v-else>
+            {{ body.hits.total }}
+            results for
+          </span>
+          <h1 class="d-inline text-primary lead">
+            {{ args.term }}
+          </h1>
+        </div>
+      </div>
+    <% } %>
+    <div class="row">
+      <div class="col col-lg-3" v-for="item in searchedItems(body)">
+        <%- partial('molecules/product-item') %>
+      </div>
+    </div>
+  </article>
+</section>

@@ -1,1 +1,15 @@
-{}
+{
+  "recommended": {
+    "recommended_on": true,
+    "title": "Quem comprou este produto, também comprou estes"
+  },
+  "related": {
+    "related_on": true,
+    "title": "Produtos relacionados"
+  },
+  "add_collection": {
+    "collection": "5cdf01ba887ef430f1f6d065",
+    "collection_on": true,
+    "title": "Produtos relacionados"
+  }
+}

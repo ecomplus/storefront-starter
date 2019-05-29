@@ -137,7 +137,7 @@
               role="alert"
               id="select-variation"
               style="display: none">
-              <%= dictionary.select_option %>
+              <%= dictionary.related_products %>
             </div>
             <button
               v-if="body.available && inStock()"
@@ -152,15 +152,18 @@
           </div>
         </section>
       </div>
-
-      <%= partial('organisms/items-carousel', {
-        type: 'related',
-        title: 'Related products'
-      }) %>
-      <%= partial('organisms/items-carousel', {
-        type: 'recommended',
-        title: 'People also bought'
-      }) %>
+      <% if (pages.products.related.related_on) { %>
+        <%= partial('organisms/items-carousel', {
+          ...pages.products.related,
+          type: 'related'
+        } ) %>
+      <% } %>
+      <% if (pages.products.recommended.recommended_on) { %>
+        <%= partial('organisms/items-carousel', {
+          ...pages.products.recommended,
+          type: 'recommended'
+        } ) %>
+      <% } %>
 
       <div class="_ecom-el" data-type="product" data-current="true">
         <section class="product__description my-5" v-if="body.body_html">
@@ -186,6 +189,10 @@
           </table>
         </section>
       </div>
+      <% if (pages.products.add_collection.collection_on) { %>
+        <%= partial('organisms/items-carousel', pages.products.add_collection ) %>
+      <% } %>
+
     </div>
   </main>
 

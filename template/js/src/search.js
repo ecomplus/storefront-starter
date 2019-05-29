@@ -7,8 +7,10 @@ import { EcomInit } from '@ecomplus/storefront-renderer'
 import './retail'
 
 EcomInit.then(() => {
+  // handle search term
   const search = window.Retail
   const updateTerm = () => {
+    // update search Vue instance
     search.args.term = decodeURIComponent(window.location.hash.substr(1))
   }
   updateTerm()

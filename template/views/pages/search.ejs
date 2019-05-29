@@ -1,0 +1,18 @@
+<%= partial('html') %>
+<head>
+  <%= partial('head') %>
+</head>
+<%= partial('body') %>
+  <%= partial('organisms/header') %>
+
+  <main class="main" id="__main" data-import="search">
+    <div class="container search py-1 py-sm-2 py-lg-4">
+      <div class="_ecom-el" data-type="items" data-vm="Retail" data-term=" ">
+        <%= partial('organisms/retail', { info: true }) %>
+      </div>
+    </div>
+  </main>
+
+  <%= partial('organisms/footer') %>
+</body>
+</html>

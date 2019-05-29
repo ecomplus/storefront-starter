@@ -81,9 +81,30 @@
   </aside>
 
   <article class="retail__results col-md">
-    <div class="retail__info">
-      <%- args.info %>
-    </div>
+    <% if (args.info) { %>
+      <div class="retail__info" v-if="args.term">
+        <h5 v-if="payload.suggested" class="lead">
+          Did you mean
+          <a
+            href="javascript:;"
+            v-bind:click="args.term = payload.suggested">
+            {{ payload.suggested }}
+          </a>?
+        </h5>
+        <div v-else class="lead">
+          <span v-if="!body.hits.total">
+            No results for
+          </span>
+          <span v-else>
+            {{ body.hits.total }}
+            results for
+          </span>
+          <h1 class="d-inline text-primary lead">
+            {{ args.term }}
+          </h1>
+        </div>
+      </div>
+    <% } %>
     <div class="row">
       <div class="col col-lg-3" v-for="item in searchedItems(body)">
         <%- partial('molecules/product-item') %>

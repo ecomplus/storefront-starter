@@ -1,4 +1,4 @@
-<section class="retail row">
+<section class="retail row" v-if="body.hits">
   <aside class="retail__filters col-lg-3 col-xl-2">
     <!-- Setup filters -->
     <div v-if="body.aggregations">
@@ -87,7 +87,7 @@
           Did you mean
           <a
             href="javascript:;"
-            v-bind:click="args.term = payload.suggested">
+            v-on:click="args.term = payload.suggested">
             {{ payload.suggested }}
           </a>?
         </h5>
@@ -99,16 +99,89 @@
             {{ body.hits.total }}
             results for
           </span>
-          <h1 class="d-inline text-primary lead">
+          <h1 class="ml-2 d-inline-block text-primary lead">
             {{ args.term }}
           </h1>
         </div>
       </div>
     <% } %>
+
+    <!-- Search results -->
     <div class="row">
       <div class="col col-lg-3" v-for="item in searchedItems(body)">
         <%- partial('molecules/product-item') %>
       </div>
     </div>
+
+    <!-- Pagination -->
+    <nav
+      v-if="args.size < body.hits.total"
+      aria-label="Page navigation example"
+      class="my-3">
+      <ul class="pagination justify-content-center">
+        <li
+          v-if="args.from === 0"
+          class="page-item disabled"
+          key="previous">
+          <a
+            class="page-link"
+            href="javascript:;"
+            tabindex="-1"
+            aria-disabled="true">
+            Previous
+          </a>
+        </li>
+        <li v-else class="page-item" key="previous">
+          <a
+            class="page-link"
+            href="javascript:;"
+            tabindex="-1"
+            v-on:click="args.from -= args.size">
+            Previous
+          </a>
+        </li>
+        <li
+          v-for="page in Math.ceil(body.hits.total / args.size)"
+          class="page-item"
+          v-bind:class="{ 'active': (page - 1 === Math.ceil(args.from / args.size)) }"
+          v-bind:aria-current="page - 1 === Math.ceil(args.from / args.size)"
+          v-bind:key="'page:' + page">
+          <span
+            class="page-link"
+            v-if="page - 1 === Math.ceil(args.from / args.size)">
+            {{ page }}
+            <span class="sr-only">(current)</span>
+          </span>
+          <a
+            v-else
+            class="page-link"
+            href="javascript:;"
+            v-on:click="args.from = args.size * (page - 1)">
+            {{ page }}
+          </a>
+        </li>
+        <li
+          v-if="(args.from + args.size) >= body.hits.total"
+          class="page-item disabled"
+          key="next">
+          <a
+            class="page-link"
+            href="javascript:;"
+            tabindex="+1"
+            aria-disabled="true">
+            Next
+          </a>
+        </li>
+        <li v-else class="page-item" key="next">
+          <a
+            class="page-link"
+            href="javascript:;"
+            tabindex="+1"
+            v-on:click="args.from += args.size">
+            Next
+          </a>
+        </li>
+      </ul>
+    </nav>
   </article>
 </section>

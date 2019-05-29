@@ -32,7 +32,9 @@
         class="_ecom-el"
         data-type="collection"
         data-vm="Retail"
-        data-search-by="collections">
+        data-list="products"
+        data-from="0"
+        data-size="20">
         <%= partial('organisms/retail') %>
         <section class="collection__description my-5" v-if="body.body_html">
           <div v-html="body.body_html" class="wysiwyg-content"></div>

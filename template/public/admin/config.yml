@@ -50,6 +50,9 @@ collections:
             widget: list
             fields:
               - {label: Coleção, required: false, name: collection, widget: string, hint: "Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
+          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página inicial, required: false}
+          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página inicial, required: false}
+
       - name: "products"
         label: "Produtos"
         hint: "Configuração geral das páginas de produto"
@@ -77,6 +80,8 @@ collections:
               - {label: Mostrar coleção, name: collection_on, widget: boolean}
               - {label: Título, required: false, name: title, widget: string}
               - {label: ID da coleção, required: false, name: collection, widget: string, hint: Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
+          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas de produto, required: false}
+          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container das páginas de produto, required: false}
 
       - name: "search"
         label: "Busca"
@@ -88,8 +93,8 @@ collections:
             widget: object
             hint: Slider de produtos que foram comprados por outros usuários que também adquiriam o produto visualizado
             fields:
-              - {label: "Markdow no começo da página", name: "top", widget: "markdown"}
-              - {label: "Markdow no fim da página", name: "botton", widget: "markdown"}
+              - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página de busca, required: false}
+              - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página de busca, required: false}
 
       - name: "collections"
         label: "Coleções"
@@ -101,16 +106,16 @@ collections:
             widget: object
             hint: Slider de produtos que foram comprados por outros usuários que também adquiriam o produto visualizado
             fields:
-              - {label: "Markdow no começo da página", name: "top", widget: "markdown"}
-              - {label: "Markdow no fim da página", name: "botton", widget: "markdown"}
+              - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas de coleção, required: false}
+              - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container das páginas de coleção, required: false}
 
       - name: "categories"
         label: "Categorias"
         hint: "Configuração geral das páginas de categorias"
         file: "content/pages/categories.json"
         fields:
-          - {label: "Markdow no começo da página", name: "top", widget: "markdown"}
-          - {label: "Markdow no fim da página", name: "botton", widget: "markdown"}
+          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas de categoria, required: false}
+          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container das páginas de categoria, required: false}
 
 
       - name: "brands"
@@ -123,8 +128,8 @@ collections:
             widget: object
             hint: Slider de produtos que foram comprados por outros usuários que também adquiriam o produto visualizado
             fields:
-              - {label: "Markdow no começo da página", name: "top", widget: "markdown"}
-              - {label: "Markdow no fim da página", name: "botton", widget: "markdown"}
+              - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas de marca, required: false}
+              - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container das páginas de marca, required: false}
 
   # default blog posts collection
   # remove if your template does not support blog

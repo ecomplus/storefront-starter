@@ -8,6 +8,11 @@
 
   <main class="main" id="__main" data-import="product">
     <div class="container product py-1 py-sm-2 py-lg-4">
+      <% if (pages.products.top) { %>
+        <section class="rounded p-3">
+          <%= md.render(pages.products.top) %>
+        </section>
+      <% } %>
       <div class="_ecom-el" data-type="product" data-current="true">
         <nav class="d-none d-md-block" aria-label="breadcrumb">
           <ol class="breadcrumb">
@@ -191,6 +196,11 @@
       </div>
       <% if (pages.products.add_collection.collection_on) { %>
         <%= partial('organisms/items-carousel', pages.products.add_collection ) %>
+      <% } %>
+      <% if (pages.products.botton) { %>
+        <section class="rounded p-3">
+          <%= md.render(pages.products.botton) %>
+        </section>
       <% } %>
     </div>
   </main>

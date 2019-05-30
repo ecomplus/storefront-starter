@@ -30,12 +30,21 @@
             v-bind:alt="body.pictures[0].alt" />
         </section>
       </div>
-
+      <% if (pages.brands.top) { %>
+        <section class="rounded p-3">
+          <%= md.render(pages.brands.top) %>
+        </section>
+      <% } %>
       <div class="_ecom-el" data-type="brand" data-search-by="brands">
         <section class="brand__description my-5" v-if="body.body_html">
           <div v-html="body.body_html" class="wysiwyg-content"></div>
         </section>
       </div>
+      <% if (pages.brands.botton) { %>
+        <section class="rounded p-3">
+          <%= md.render(pages.brands.botton) %>
+        </section>
+      <% } %>
     </div>
   </main>
 

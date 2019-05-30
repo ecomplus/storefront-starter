@@ -27,7 +27,11 @@
           </h1>
         </section>
       </div>
-
+      <% if (pages.collections.top) { %>
+        <section class="rounded p-3">
+          <%= md.render(pages.collections.top) %>
+        </section>
+      <% } %>
       <div
         class="_ecom-el"
         data-type="collection"
@@ -38,6 +42,11 @@
           <div v-html="body.body_html" class="wysiwyg-content"></div>
         </section>
       </div>
+      <% if (pages.collections.botton) { %>
+        <section class="rounded p-3">
+          <%= md.render(pages.collections.botton) %>
+        </section>
+      <% } %>
     </div>
   </main>
 

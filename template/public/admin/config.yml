@@ -78,6 +78,54 @@ collections:
               - {label: Título, required: false, name: title, widget: string}
               - {label: ID da coleção, required: false, name: collection, widget: string, hint: Entrar com o ID da coleção, que pode ser visto nesta página: https://app.e-com.plus/#/resources/collections"}
 
+      - name: "search"
+        label: "Busca"
+        hint: "Configuração geral das páginas de busca"
+        file: "content/pages/search.json"
+        fields:
+          - label: Quem comrpou x também comprou y
+            name: recommended
+            widget: object
+            hint: Slider de produtos que foram comprados por outros usuários que também adquiriam o produto visualizado
+            fields:
+              - {label: "Markdow no começo da página", name: "top", widget: "markdown"}
+              - {label: "Markdow no fim da página", name: "botton", widget: "markdown"}
+
+      - name: "collections"
+        label: "Coleções"
+        hint: "Configuração geral das páginas de coleções"
+        file: "content/pages/collections.json"
+        fields:
+          - label: Quem comrpou x também comprou y
+            name: recommended
+            widget: object
+            hint: Slider de produtos que foram comprados por outros usuários que também adquiriam o produto visualizado
+            fields:
+              - {label: "Markdow no começo da página", name: "top", widget: "markdown"}
+              - {label: "Markdow no fim da página", name: "botton", widget: "markdown"}
+
+      - name: "categories"
+        label: "Categorias"
+        hint: "Configuração geral das páginas de categorias"
+        file: "content/pages/categories.json"
+        fields:
+          - {label: "Markdow no começo da página", name: "top", widget: "markdown"}
+          - {label: "Markdow no fim da página", name: "botton", widget: "markdown"}
+
+
+      - name: "brands"
+        label: "Marcas"
+        hint: "Configuração geral das páginas de marca"
+        file: "content/pages/brands.json"
+        fields:
+          - label: Quem comrpou x também comprou y
+            name: recommended
+            widget: object
+            hint: Slider de produtos que foram comprados por outros usuários que também adquiriam o produto visualizado
+            fields:
+              - {label: "Markdow no começo da página", name: "top", widget: "markdown"}
+              - {label: "Markdow no fim da página", name: "botton", widget: "markdown"}
+
   # default blog posts collection
   # remove if your template does not support blog
   - name: "blog_posts"

@@ -34,23 +34,34 @@
             v-if="body.pictures && body.pictures.length"
             class="category__banner">
             <img
-              class="img-fluid"
+              class="img-fluid rounded"
               v-bind:src="body.pictures[0].url"
               v-bind:alt="body.pictures[0].alt" />
           </div>
         </section>
       </div>
-
+      <% if (pages.categories.top) { %>
+        <section class="rounded p-3">
+          <%= md.render(pages.categories.top) %>
+        </section>
+      <% } %>
       <div
         class="_ecom-el"
         data-type="category"
         data-vm="Retail"
-        data-search-by="categories">
+        data-search-by="categories"
+        data-from="0"
+        data-size="20">
         <%= partial('organisms/retail') %>
         <section class="category__description my-5" v-if="body.body_html">
           <div v-html="body.body_html" class="wysiwyg-content"></div>
         </section>
       </div>
+      <% if (pages.categories.botton) { %>
+        <section class="rounded p-3">
+          <%= md.render(pages.categories.botton) %>
+        </section>
+      <% } %>
     </div>
   </main>
 

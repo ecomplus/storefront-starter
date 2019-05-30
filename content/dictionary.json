@@ -1,6 +1,6 @@
 {
-  "unavailable": "Esse produto está indisponível",
-  "no_stock": "Este produto está fora de estoque",
+  "unavailable": "Produto indisponível",
+  "no_stock": "Produto sem estoque",
   "from": "de",
   "to": "por",
   "or": "ou",
@@ -10,5 +10,10 @@
   "product_description": "Descrições do produto",
   "product_specifications": "Especificações do produto",
   "related_products": "Produtos relacionados",
-  "recommended": "quem viu este produto, viu também"
+  "recommended": "quem viu este produto, viu também",
+  "brands": "Marcas",
+  "categories": "Categorias",
+  "you_mean": "Você quis dizer",
+  "no_results": "Nenhum resultado encontrado para",
+  "results_for": "resultados para"
 }

@@ -6,7 +6,7 @@
       <div
         v-if="body.aggregations.brands && body.aggregations.brands.buckets.length"
         class="mb-3">
-        <h5>Brands</h5>
+        <h5><%= dictionary.brands %></h5>
         <div
           v-for="brand in body.aggregations.brands.buckets"
           v-bind:key="'brand-' + brand.key"
@@ -30,7 +30,7 @@
       <div
         v-if="body.aggregations.categories && body.aggregations.categories.buckets.length"
         class="mb-3">
-        <h5>Categories</h5>
+        <h5><%= dictionary.categories %></h5>
         <div
           v-for="category in body.aggregations.categories.buckets"
           v-bind:key="'category-' + category.key"
@@ -84,20 +84,21 @@
     <% if (args.info) { %>
       <div class="retail__info" v-if="args.term">
         <h5 v-if="payload.suggested" class="lead">
-          Did you mean
+          <%= dictionary.you_mean %>
           <a
             href="javascript:;"
+
             v-on:click="args.term = payload.suggested">
             {{ payload.suggested }}
           </a>?
         </h5>
         <div v-else class="lead">
           <span v-if="!body.hits.total">
-            No results for
+            <%= dictionary.no_results %>
           </span>
           <span v-else>
             {{ body.hits.total }}
-            results for
+            <%= dictionary.results_for %>
           </span>
           <h1 class="ml-2 d-inline-block text-primary lead">
             {{ args.term }}

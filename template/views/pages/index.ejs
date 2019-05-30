@@ -14,9 +14,19 @@
 
     <div class="container py-1 py-sm-2 py-lg-4">
       <!-- Containerized page content -->
+      <% if (pages.index.top) { %>
+        <section class="rounded p-3">
+          <%= md.render(pages.index.top) %>
+        </section>
+      <% } %>
       <% pages.home.showcase.forEach(carousel => { %>
         <%= partial('organisms/items-carousel', carousel) %>
       <% }) %>
+      <% if (pages.index.botton) { %>
+        <section class="rounded p-3">
+          <%= md.render(pages.index.botton) %>
+        </section>
+      <% } %>
     </div>
   </main>
 

@@ -8,9 +8,9 @@
     "title": "Produtos relacionados"
   },
   "add_collection": {
-    "collection": "5cdf01ba887ef430f1f6d065",
-    "collection_on": true,
-    "title": "Produtos relacionados"
+    "collection_on": false,
+    "title": "",
+    "collection": ""
   },
   "top": "",
   "botton": ""

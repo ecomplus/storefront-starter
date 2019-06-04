@@ -1,0 +1,17 @@
+<%= partial('html') %>
+<head>
+  <%= partial('head') %>
+</head>
+<%= partial('body') %>
+  <%= partial('organisms/header') %>
+
+  <main class="main" id="__main" data-import="retail">
+    <div class="container category py-1 py-sm-2 py-lg-4">
+        <section class="rounded p-3">
+          <%= md.render(extra_pages[slug].body) %>
+        </section>
+    </div>
+  </main>
+  <%= partial('organisms/footer') %>
+</body>
+</html>

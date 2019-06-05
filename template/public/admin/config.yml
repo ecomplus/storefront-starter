@@ -136,7 +136,7 @@ collections:
   - name: "blog_posts"
     label: "Blog Posts"
     description: "Add extra content to the site with blog posts related to your store and clients"
-    folder: "content/blog_posts"
+    folder: "content/posts"
     extension: "json"
     create: true
     slug: "{{year}}_{{month}}_{{day}}_{{slug}}"
@@ -153,7 +153,7 @@ collections:
   - name: "extra_pages"
     label: "Extra Pages"
     description: "Add extra content to the site with blog posts related to your store and clients"
-    folder: "content/extra_pages"
+    folder: "content/extra"
     extension: "json"
     create: true
     slug: "{{year}}_{{month}}_{{day}}_{{slug}}"

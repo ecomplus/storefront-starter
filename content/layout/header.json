@@ -8,11 +8,11 @@
     "pages": [
       {
         "title": "Sobre nós",
-        "link": "about"
+        "link": "sobre-nos"
       },
       {
-        "title": "FAQ",
-        "link": "faq"
+        "title": "Esta loja é um PWA",
+        "link": "esta-loja-e-um-progressive-web-app"
       }
     ],
     "phone_wpp": true,

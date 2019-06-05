@@ -116,12 +116,12 @@
         </div>
         <% if (layout.footer.link_list_1.list_pages) { %>
           <ul class="footer__links list-unstyled">
-            <% for (var page in extra_pages)  {%>
-              <% if (extra_pages.hasOwnProperty(page)) { %>
+            <% for (var page in extra)  {%>
+              <% if (extra.hasOwnProperty(page)) { %>
                 <li>
                   <i class="fas fa-angle-right st-text-primary-lightest"></i>
-                  <a href="<%= extra_pages[page].slug %>">
-                    <%= extra_pages[page].title %>
+                  <a href="<%= extra[page].slug %>">
+                    <%= extra[page].title %>
                   </a>
                 </li>
               <% } %>

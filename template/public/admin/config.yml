@@ -89,15 +89,15 @@ collections:
         file: "content/pages/search.json"
         fields:
           - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página de busca, required: false}
-          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página de busca, required: false}     
+          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página de busca, required: false}
 
       - name: "collections"
         label: "Coleções"
         hint: "Configuração geral das páginas de coleções"
         file: "content/pages/collections.json"
         fields:
-          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página de busca, required: false}
-          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página de busca, required: false}
+          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página das coleções, required: false}
+          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página das coleções, required: false}
 
       - name: "categories"
         label: "Categorias"
@@ -113,16 +113,16 @@ collections:
         hint: "Configuração geral das páginas de marca"
         file: "content/pages/brands.json"
         fields:
-          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página de busca, required: false}
-          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página de busca, required: false}
+          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas das marcas, required: false}
+          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da páginas das marcas, required: false}
 
       - name: "blog"
         label: "Blog"
         hint: "Configuração geral da página do blog"
         file: "content/pages/blog.json"
         fields:
-          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página de busca, required: false}
-          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página de busca, required: false}
+          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página do blog, required: false}
+          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página do blog, required: false}
 
   # default blog posts collection
   # remove if your template does not support blog

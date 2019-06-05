@@ -139,7 +139,7 @@ collections:
     folder: "content/posts"
     extension: "json"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}_{{month}}_{{day}}_{{slug}}"
     fields:
       - {label: "Título", name: "name", widget: "string"}
       - {label: "Data de publicação", name: "date", widget: "datetime", required: false}

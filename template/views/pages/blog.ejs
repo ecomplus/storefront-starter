@@ -1,0 +1,28 @@
+<%= partial('html') %>
+<head>
+  <%= partial('head') %>
+</head>
+<%= partial('body') %>
+  <%= partial('organisms/header') %>
+
+  <main class="main" id="__main" data-import="search">
+    <div class="container py-1 py-sm-2 py-lg-4">
+    <% if (pages.blog.top) { %>
+      <section class="rounded p-3">
+        <%= md.render(pages.blog.top) %>
+      </section>
+    <% } %>
+    <section class="rounded p-3">
+      <%= partial('organisms/blog-grid') %>
+    </section>
+    <% if (pages.blog.botton) { %>
+      <section class="rounded p-3">
+        <%= md.render(pages.blog.botton) %>
+      </section>
+    <% } %>
+    </div>
+  </main>
+
+  <%= partial('organisms/footer') %>
+</body>
+</html>

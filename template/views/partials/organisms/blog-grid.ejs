@@ -1,0 +1,18 @@
+<section class="items-carousel my-4">
+  <div class="card-deck">
+    <div class="row align-items-center">
+    <% for (var post in posts)  {%>
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="card" style="" href=" <%= posts[post] %>">
+          <img src="<%= posts[post].thumbnail %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= posts[post].title %></h5>
+            <p class="card-text"><%= posts[post].description %></p>
+            <a href=" <%= post %>" class="btn btn-primary">Leia mais</a>
+          </div>
+        </div>
+      </div>
+    <% } %>
+    </div>
+</div>
+</section>

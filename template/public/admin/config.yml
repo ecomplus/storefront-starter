@@ -8,7 +8,7 @@ public_folder: "/img/uploads"
 slug:
   encoding: "ascii"
   clean_accents: true
-  sanitize_replacement: "_"
+  sanitize_replacement: "-"
 
 collections:
 
@@ -136,34 +136,32 @@ collections:
   - name: "blog_posts"
     label: "Blog Posts"
     description: "Add extra content to the site with blog posts related to your store and clients"
-    folder: "content/blog_posts"
+    folder: "content/posts"
     extension: "json"
     create: true
-    slug: "{{year}}_{{month}}_{{day}}_{{slug}}"
+    slug: "{{slug}}-{{year}}-{{month}}-{{day}}"
     fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime", required: false}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-      - {label: "Short Description", name: "description", widget: "text", required: false}
-      - {label: "Body", name: "body", widget: "markdown", required: false}
+      - {label: "Título", name: "name", widget: "string"}
+      - {label: "Data de publicação", name: "date", widget: "datetime", required: false}
+      - {label: "Imagem em destaque", name: "thumbnail", widget: "image", required: false, hint: "Sugerimos 900px como largura máxima"}
+      - {label: "Descrição curta", name: "description", widget: "text", required: false}
+      - {label: "Corpo", name: "body", widget: "markdown", required: false}
 
   # default extra pages collection
   # eg.: "about us", "contact" and "privacy"
   - name: "extra_pages"
     label: "Extra Pages"
     description: "Add extra content to the site with blog posts related to your store and clients"
-    folder: "content/extra_pages"
+    folder: "content/extra"
     extension: "json"
     create: true
-    slug: "{{year}}_{{month}}_{{day}}_{{slug}}"
+    slug: "{{slug}}"
     fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime", required: false}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
-      - {label: "Short Description", name: "description", widget: "text", required: false}
-      - {label: "Body", name: "body", widget: "markdown", required: false}
+      - {label: "Título", name: "name", widget: "string"}
+      - {label: "Data de publicação", name: "date", widget: "datetime", required: false}
+      - {label: "Imagem em destaque", name: "thumbnail", widget: "image", required: false, hint: "Sugerimos 900px como largura máxima"}
+      - {label: "Descrição curta", name: "description", widget: "text", required: false}
+      - {label: "Corpo", name: "body", widget: "markdown", required: false}
 
   # general site settings
   # usually will be the same for any template

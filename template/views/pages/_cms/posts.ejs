@@ -1,0 +1,30 @@
+<%= partial('html') %>
+<head>
+  <%= partial('head') %>
+</head>
+<%= partial('body') %>
+  <%= partial('organisms/header') %>
+  <main class="main" id="__main" >
+    <div class="container category py-1 py-sm-2 py-lg-4">
+
+      <section class="bg-light text-center rounded mb-4 p-3">
+        <h1 class="category__name">
+          <%= posts[slug].title %>
+        </h1>
+        <div class="category__banner">
+          <img src="<%= posts[slug].thumbnail %>"/>
+        </div>
+      </section>
+
+      <div class="">
+        <section class="category__description my-5" >
+          <div class=""><%= md.render(posts[slug].body) %></div>
+        </section>
+      </div>
+
+    </div>
+  </main>
+
+  <%= partial('organisms/footer') %>
+</body>
+</html>

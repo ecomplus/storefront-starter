@@ -137,6 +137,7 @@ collections:
       - {label: "Título", name: "name", widget: "string"}
       - {label: "Data de publicação", name: "date", widget: "datetime", required: false}
       - {label: "Imagem em destaque", name: "thumbnail", widget: "image", required: false, hint: "Sugerimos 900px como largura máxima"}
+      - {label: "Alt da imagem", name: "alt", widget: "string", required: false, hint: "Alt tag da imagem"}
       - {label: "Descrição curta", name: "description", widget: "text", required: false}
       - {label: "Corpo", name: "body", widget: "markdown", required: false}
 
@@ -153,6 +154,7 @@ collections:
       - {label: "Título", name: "name", widget: "string"}
       - {label: "Data de publicação", name: "date", widget: "datetime", required: false}
       - {label: "Imagem em destaque", name: "thumbnail", widget: "image", required: false, hint: "Sugerimos 900px como largura máxima"}
+      - {label: "Alt da imagem", name: "alt", widget: "string", required: false, hint: "Alt tag da imagem"}
       - {label: "Descrição curta", name: "description", widget: "text", required: false}
       - {label: "Corpo", name: "body", widget: "markdown", required: false}
 

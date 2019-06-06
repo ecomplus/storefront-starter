@@ -88,26 +88,16 @@ collections:
         hint: "Configuração geral das páginas de busca"
         file: "content/pages/search.json"
         fields:
-          - label: Quem comrpou x também comprou y
-            name: recommended
-            widget: object
-            hint: Slider de produtos que foram comprados por outros usuários que também adquiriam o produto visualizado
-            fields:
-              - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página de busca, required: false}
-              - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página de busca, required: false}
+          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página de busca, required: false}
+          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página de busca, required: false}
 
       - name: "collections"
         label: "Coleções"
         hint: "Configuração geral das páginas de coleções"
         file: "content/pages/collections.json"
         fields:
-          - label: Quem comrpou x também comprou y
-            name: recommended
-            widget: object
-            hint: Slider de produtos que foram comprados por outros usuários que também adquiriam o produto visualizado
-            fields:
-              - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas de coleção, required: false}
-              - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container das páginas de coleção, required: false}
+          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página das coleções, required: false}
+          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página das coleções, required: false}
 
       - name: "categories"
         label: "Categorias"
@@ -123,13 +113,16 @@ collections:
         hint: "Configuração geral das páginas de marca"
         file: "content/pages/brands.json"
         fields:
-          - label: Quem comrpou x também comprou y
-            name: recommended
-            widget: object
-            hint: Slider de produtos que foram comprados por outros usuários que também adquiriam o produto visualizado
-            fields:
-              - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas de marca, required: false}
-              - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container das páginas de marca, required: false}
+          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container das páginas das marcas, required: false}
+          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da páginas das marcas, required: false}
+
+      - name: "blog"
+        label: "Blog"
+        hint: "Configuração geral da página do blog"
+        file: "content/pages/blog.json"
+        fields:
+          - {label: "Markdow no começo da página", name: "top", widget: "markdown", hint: Markdown exibido no topo do container da página do blog, required: false}
+          - {label: "Markdow no fim da página", name: "botton", widget: "markdown", hint: Markdown exibido no fim do container da página do blog, required: false}
 
   # default blog posts collection
   # remove if your template does not support blog
@@ -144,6 +137,7 @@ collections:
       - {label: "Título", name: "name", widget: "string"}
       - {label: "Data de publicação", name: "date", widget: "datetime", required: false}
       - {label: "Imagem em destaque", name: "thumbnail", widget: "image", required: false, hint: "Sugerimos 900px como largura máxima"}
+      - {label: "Alt da imagem", name: "alt", widget: "string", required: false, hint: "Alt tag da imagem"}
       - {label: "Descrição curta", name: "description", widget: "text", required: false}
       - {label: "Corpo", name: "body", widget: "markdown", required: false}
 
@@ -160,6 +154,7 @@ collections:
       - {label: "Título", name: "name", widget: "string"}
       - {label: "Data de publicação", name: "date", widget: "datetime", required: false}
       - {label: "Imagem em destaque", name: "thumbnail", widget: "image", required: false, hint: "Sugerimos 900px como largura máxima"}
+      - {label: "Alt da imagem", name: "alt", widget: "string", required: false, hint: "Alt tag da imagem"}
       - {label: "Descrição curta", name: "description", widget: "text", required: false}
       - {label: "Corpo", name: "body", widget: "markdown", required: false}
 

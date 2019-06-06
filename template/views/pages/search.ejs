@@ -6,9 +6,9 @@
   <%= partial('organisms/header') %>
 
   <main class="main" id="__main" data-import="search">
-    <% if (pages.categories.top) { %>
+    <% if (pages.search.top) { %>
       <section class="rounded p-3">
-        <%= md.render(pages.categories.top) %>
+        <%= md.render(pages.search.top) %>
       </section>
     <% } %>
     <div class="container search py-1 py-sm-2 py-lg-4">
@@ -22,9 +22,9 @@
         <%= partial('organisms/retail', { info: true }) %>
       </div>
     </div>
-    <% if (pages.categories.botton) { %>
+    <% if (pages.search.botton) { %>
       <section class="rounded p-3">
-        <%= md.render(pages.categories.botton) %>
+        <%= md.render(pages.search.botton) %>
       </section>
     <% } %>
   </main>

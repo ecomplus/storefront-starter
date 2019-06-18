@@ -1,6 +1,6 @@
 'use strict'
 
-import { DEFAULT_LANG } from './lib/constants'
+import { STORE_ID, DEFAULT_LANG } from './lib/constants'
 
 // Storefront init promise
 // E-Com Plus public APIs SDK
@@ -41,14 +41,13 @@ const mountHeader = () => {
 
     data: {
       lang: DEFAULT_LANG,
-      storeId: 1011,
       searchButtonOnly: false,
       showMinicart: false
     },
 
     computed: {
       getStore () {
-        return this.storeId || (EcomIo.storeId && EcomIo.storeId())
+        return (EcomIo.storeId && EcomIo.storeId()) || STORE_ID
       }
     },
 

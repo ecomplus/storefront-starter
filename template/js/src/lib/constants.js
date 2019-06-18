@@ -3,6 +3,7 @@
 // get CMS settings
 const settings = window.Settings || {}
 
+export const STORE_ID = settings.store_id || 1011
 export const DEFAULT_LANG = settings.lang || 'pt_br'
 // export const DEFAULT_COUNTRY_CODE = settings.country_code || 'br'
 // export const DEFAULT_CURRENCY = settings.currency || 'BRL'

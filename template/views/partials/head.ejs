@@ -6,5 +6,5 @@
 <title><%= args.title || settings.name %></title>
 <meta name="author" content="<%= settings.name %>">
 <script type="text/javascript">
-  window.Settings = <%- JSON.stringify(settings) %>
+  window.Settings = <%- JSON.stringify({ ...settings, store_id, store_object_id }) %>
 </script>

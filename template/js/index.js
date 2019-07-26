@@ -1,11 +1,19 @@
 import './sw.js'
 
 // setup dependencies
-import '@ecomplus/storefront-renderer'
+import { Ecom, EcomInit } from '@ecomplus/storefront-renderer'
 import '@ecomplus/shopping-cart'
 
 // main components
 import './src/header'
+
+// wait for init promise
+EcomInit.then(() => {
+  // setup global context body
+  if (Ecom.currentObject) {
+    window.$context.body = Ecom.currentObject
+  }
+})
 
 // async load
 import('./src/icons')

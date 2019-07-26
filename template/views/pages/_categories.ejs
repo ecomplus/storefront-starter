@@ -1,6 +1,8 @@
 <%= partial('html') %>
 <head>
-  <%= partial('head') %>
+  <%= partial('head', {
+    resource: 'categories'
+  }) %>
 </head>
 <%= partial('body') %>
   <%= partial('organisms/header') %>

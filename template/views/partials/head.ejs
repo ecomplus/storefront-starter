@@ -7,4 +7,8 @@
 <meta name="author" content="<%= settings.name %>">
 <script type="text/javascript">
   window.Settings = <%- JSON.stringify({ ...settings, store_id, store_object_id }) %>
+  window.$context = {
+    resource: <%- JSON.stringify(args.resource || '') %>,
+    body: {}
+  }
 </script>

@@ -35,12 +35,12 @@
   },
   "homepage": "https://github.com/ecomclub/storefront#readme",
   "dependencies": {
-    "@ecomplus/storefront-template": "^0.1.0"
+    "@ecomplus/storefront-template": "^0.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@ecomplus/storefront-framework": "^3.2.3",
+    "@ecomplus/storefront-framework": "^4.0.0",
     "babel-eslint": "^10.0.2",
     "husky": "^3.0.3",
     "standard": "^14.0.0-0",

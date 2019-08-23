@@ -1,24 +1,13 @@
 <%
 const sfTemplatePath = '../../node_modules/@ecomplus/storefront-template/template/pages/'
-const social = cms('social')
-const home = cms('home') || {}
 %>
 
 <!doctype html>
-<html lang="<%= lang.replace('_', '-') %>" dir="ltr">
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
 
 <head>
   <%-
-  await include(`${sfTemplatePath}@/head`, {
-    title: home.meta_title || settings.name,
-    description: home.meta_description || settings.description,
-    lang,
-    settings,
-    cms,
-    social,
-    canonical: null,
-    url: (settings.domain && settings.domain + '/') || store.homepage || (store.domain && store.domain + '/')
-  })
+  await include(`${sfTemplatePath}@/head`, { _ })
   %>
   <%- await include('@custom-html/head') %>
   <%- await include('@custom-html/home/head') %>

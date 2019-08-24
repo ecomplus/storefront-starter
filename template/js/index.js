@@ -1,3 +1,3 @@
-import '@ecomplus/storefront-template'
+import '@ecomplus/storefront-template/template/js/'
 
 window.alert(3)

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-alpha.2](https://github.com/ecomclub/storefront/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2019-08-24)
+
+
+### Bug Fixes
+
+* **ejs:** using _ global template param ([21f4b56](https://github.com/ecomclub/storefront/commit/21f4b56))
+* **js:** fix importing index file from storefront-template ([ae9bafd](https://github.com/ecomclub/storefront/commit/ae9bafd))
+
+
+
 ## [1.0.0-alpha.1](https://github.com/ecomclub/storefront/compare/v0.9.0...v1.0.0-alpha.1) (2019-08-13)
 
 

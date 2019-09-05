@@ -56,7 +56,7 @@
     "@ecomplus/widget-navbar": "^0.3.2",
     "@ecomplus/widget-search": "^0.4.5",
     "@ecomplus/widget-user": "^0.5.0",
-    "@fortawesome/fontawesome-free": "^5.9.0",
+    "@fortawesome/fontawesome-free": "^5.10.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-brands-svg-icons": "^5.9.0",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",

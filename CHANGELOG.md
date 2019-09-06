@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-alpha.3](https://github.com/ecomclub/storefront/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2019-09-06)
+
+
+### Bug Fixes
+
+* **scss:** fix handling styles with storefront-template v1 ([da196c7](https://github.com/ecomclub/storefront/commit/da196c7))
+
+
+### Features
+
+* **js:** setup checkout and admin js entries, update index ([10b52b2](https://github.com/ecomclub/storefront/commit/10b52b2))
+* **pages:** rendering default ejs views imported from sf template v1 ([04dbba5](https://github.com/ecomclub/storefront/commit/04dbba5))
+
 ## [1.0.0-alpha.2](https://github.com/ecomclub/storefront/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2019-08-24)
 
 

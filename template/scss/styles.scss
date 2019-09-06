@@ -1,3 +1,5 @@
-@import '@ecomplus/storefront-template/template/scss/styles';
+@import "variables";
 
-@import 'custom';
+@import "@ecomplus/storefront-twbs/scss/styles";
+
+@import "main";

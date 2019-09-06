@@ -10,14 +10,14 @@ const sfTemplatePath = '../../node_modules/@ecomplus/storefront-template/templat
   <link rel="stylesheet" type="text/css" href="/storefront.css">
 </head>
 
-<body data-resource="brands">
+<body>
   <%- await include(`${sfTemplatePath}@/layout/menu`, { _ }) %>
 
   <main role="main" id="main">
     <%- await include(`${sfTemplatePath}@/layout/header`, { _ }) %>
 
     <article id="content">
-      <%- await include(`${sfTemplatePath}@/views/brands`, { _ }) %>
+      <%- await include(`${sfTemplatePath}@/views/search`, { _ }) %>
     </article>
 
     <%- await include(`${sfTemplatePath}@/layout/footer`, { _ }) %>

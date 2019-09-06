@@ -1,0 +1,19 @@
+<%
+const sfTemplatePath = '../../node_modules/@ecomplus/storefront-template/template/pages/'
+%>
+
+<!doctype html>
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+
+<head>
+  <%- await include(`../${sfTemplatePath}@/head`, { _ }) %>
+  <link rel="stylesheet" type="text/css" href="/storefront.css">
+</head>
+
+<body>
+  <%- await include(`../${sfTemplatePath}@/views/app`, { _ }) %>
+  <%- await include(`../${sfTemplatePath}@/scripts`, { _ }) %>
+  <script src="/checkout.js"></script>
+</body>
+
+</html>

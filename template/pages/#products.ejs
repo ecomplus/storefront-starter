@@ -1,0 +1,34 @@
+<%
+const sfTemplatePath = '../../node_modules/@ecomplus/storefront-template/template/pages/'
+%>
+
+<!doctype html>
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+
+<head>
+  <%- await include(`${sfTemplatePath}@/head`, { _ }) %>
+  <link rel="stylesheet" type="text/css" href="/storefront.css">
+</head>
+
+<body data-resource="products">
+  <%- await include(`${sfTemplatePath}@/layout/menu`, { _ }) %>
+
+  <%- await include(`${sfTemplatePath}@/plugins/photoswipe`) %>
+
+  <main role="main" id="main">
+    <%- await include(`${sfTemplatePath}@/layout/header`, { _ }) %>
+
+    <article id="content">
+      <%- await include(`${sfTemplatePath}@/views/products`, { _ }) %>
+    </article>
+
+    <%- await include(`${sfTemplatePath}@/layout/footer`, { _ }) %>
+
+    <div id="overlay" class="fade"></div>
+  </main>
+
+  <%- await include(`${sfTemplatePath}@/scripts`, { _ }) %>
+  <script src="/storefront.js"></script>
+</body>
+
+</html>

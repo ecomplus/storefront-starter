@@ -6,26 +6,26 @@ const sfTemplatePath = '../../node_modules/@ecomplus/storefront-template/templat
 <html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
 
 <head>
-  <%- await include(`${sfTemplatePath}@/head`, { _ }) %>
+  <%- await include(`../${sfTemplatePath}@/head`, { _ }) %>
   <link rel="stylesheet" type="text/css" href="/storefront.css">
 </head>
 
-<body data-resource="brands">
-  <%- await include(`${sfTemplatePath}@/layout/menu`, { _ }) %>
+<body>
+  <%- await include(`../${sfTemplatePath}@/layout/menu`, { _ }) %>
 
   <main role="main" id="main">
-    <%- await include(`${sfTemplatePath}@/layout/header`, { _ }) %>
+    <%- await include(`../${sfTemplatePath}@/layout/header`, { _ }) %>
 
     <article id="content">
-      <%- await include(`${sfTemplatePath}@/views/brands`, { _ }) %>
+      <%- await include(`../${sfTemplatePath}@/views/posts`, { _ }) %>
     </article>
 
-    <%- await include(`${sfTemplatePath}@/layout/footer`, { _ }) %>
+    <%- await include(`../${sfTemplatePath}@/layout/footer`, { _ }) %>
 
     <div id="overlay" class="fade"></div>
   </main>
 
-  <%- await include(`${sfTemplatePath}@/scripts`, { _ }) %>
+  <%- await include(`../${sfTemplatePath}@/scripts`, { _ }) %>
   <script src="/storefront.js"></script>
 </body>
 

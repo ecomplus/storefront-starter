@@ -8,11 +8,23 @@ const sfTemplatePath = '../../node_modules/@ecomplus/storefront-template/templat
 <head>
   <%- await include(`../${sfTemplatePath}@/head`, { _ }) %>
   <link rel="stylesheet" type="text/css" href="/storefront.css">
+
+  <%- await include('../@custom-html/head', { _ }) %>
+  <%- await include('../@custom-html/checkout/head', { _ }) %>
 </head>
 
 <body>
+  <%- await include('../@custom-html/checkout/append-top', { _ }) %>
+
   <%- await include(`../${sfTemplatePath}@/views/app`, { _ }) %>
+
+  <%- await include('../@custom-html/checkout/append-bottom', { _ }) %>
+  <%- await include('../@custom-html/append-footer', { _ }) %>
+
   <%- await include(`../${sfTemplatePath}@/scripts`, { _ }) %>
+
+  <%- await include('../@custom-html/scripts', { _ }) %>
+
   <script src="/checkout.js"></script>
 </body>
 

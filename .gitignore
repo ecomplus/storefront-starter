@@ -3,6 +3,7 @@
 /.serve
 /template/**/storefront-template
 /template/scss/styles.scss
+/template/public/admin/config.yml
 
 # Logs
 logs

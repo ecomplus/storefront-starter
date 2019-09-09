@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-alpha.4](https://github.com/ecomclub/storefront/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2019-09-09)
+
+
+### Features
+
+* **js:** add custom js files with comments ([1e35ee6](https://github.com/ecomclub/storefront/commit/1e35ee6))
+* **pages:** add custom ejs files with comments ([013b3f7](https://github.com/ecomclub/storefront/commit/013b3f7))
+* **scss:** add custom scss files with comments ([d9853b1](https://github.com/ecomclub/storefront/commit/d9853b1))
+
 ## [1.0.0-alpha.3](https://github.com/ecomclub/storefront/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2019-09-06)
 
 

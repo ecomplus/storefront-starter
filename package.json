@@ -34,8 +34,8 @@
   },
   "homepage": "https://github.com/ecomclub/storefront#readme",
   "dependencies": {
-    "@ecomplus/storefront-framework": "^5.1.2",
-    "@ecomplus/storefront-template": "^1.4.2",
+    "@ecomplus/storefront-framework": "5.*",
+    "@ecomplus/storefront-template": "1.*",
     "babel-eslint": "^10.0.3",
     "core-js": "^3.2.1"
   },

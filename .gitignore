@@ -1,4 +1,9 @@
-dist
+/package-lock.json
+/dist
+/.serve
+/template/**/storefront-template
+/template/scss/styles.scss
+/template/public/admin/config.yml
 
 # Logs
 logs

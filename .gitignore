@@ -2,6 +2,7 @@
 /dist
 /.serve
 /template/**/storefront-template
+/template/public/assets/vendor/
 /template/scss/styles.scss
 /template/public/admin/config.yml
 

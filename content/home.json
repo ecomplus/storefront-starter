@@ -1,0 +1,25 @@
+{
+  "meta_title": "",
+  "meta_description": "",
+  "slider": {
+    "autoplay": 9000,
+    "slides": [
+      {
+        "img": "/img/uploads/rect89.png"
+      },
+      {
+        "img": "/img/uploads/banner2.png"
+      }
+    ]
+  },
+  "pitbar": true,
+  "showcase": [
+    {
+      "collection": "5cc0ba91887ef430f1f67d81"
+    },
+    {
+      "collection": "5cdf01ba887ef430f1f6d065"
+    }
+  ],
+  "additional_content": ""
+}

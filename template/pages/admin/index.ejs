@@ -1,0 +1,18 @@
+<%
+const sfTemplatePath = '../../node_modules/@ecomplus/storefront-template/template/pages/'
+%>
+
+<!doctype html>
+<html>
+
+<head>
+  <%- await include(`../${sfTemplatePath}@/head`, { _ }) %>
+</head>
+
+<body>
+  <%- await include(`../${sfTemplatePath}@/views/cms`, { _ }) %>
+  <%- await include(`../${sfTemplatePath}@/scripts`, { _ }) %>
+  <script src="/admin.js"></script>
+</body>
+
+</html>

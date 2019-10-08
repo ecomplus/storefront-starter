@@ -1,53 +1,5 @@
-// --- DO NOT OVERRIDE BOOTSTRAP STYLES HERE
-// --- Edit `@/template/scss/storefront-twbs/theme/*.scss` instead
+@import "variables";
 
-// Store brand colors are injected from Webpack SASS loader
-// Overrides \$primary and \$secondary
+@import "@ecomplus/storefront-twbs/scss/styles";
 
-// Storefront Bootstrap 4 theme
-@import "@ecomplus/storefront-twbs/scss/storefront-twbs.scss";
-
-// Glidejs to handle sliders and carousel
-@import "@glidejs/glide/src/assets/sass/glide.core";
-@import "@glidejs/glide/src/assets/sass/glide.theme";
-@import "glide";
-
-// PhotoSwipe images gallery
-$pswp__assets-path: "/assets/photoswipe/";
-@import "photoswipe/src/css/main";
-@import "photoswipe/src/css/default-skin/default-skin";
-.pswp {
-  z-index: 9999;
-}
-
-// E-Com Plus storefront rederer recommended styles
-@import "renderer";
-
-// Place below custom additional (non-Bootstrap) variables
-
-// Template styles:
-// Custom theme components and modifiers
-
-@import "atoms/rounded-icon";
-@import "atoms/payment-icon";
-@import "molecules/banner-slider";
-@import "molecules/grid-options";
-@import "molecules/pitbar";
-@import "molecules/product-item";
-@import "molecules/wysiwyg-content";
-@import "organisms/items-carousel";
-@import "organisms/product";
-@import "organisms/category";
-@import "organisms/brand";
-@import "organisms/collection";
-@import "organisms/header";
-@import "organisms/footer";
-
-body {
-  overflow-x: hidden;
-
-  > .main {
-    width: 100%;
-    overflow-x: hidden;
-  }
-}
+@import "main";

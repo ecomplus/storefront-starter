@@ -1,0 +1,48 @@
+<%
+const sfTemplatePath = '../../node_modules/@ecomplus/storefront-template/template/pages/'
+%>
+
+<!doctype html>
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+
+<head>
+  <%- await include(`${sfTemplatePath}@/head`, { _ }) %>
+  <link rel="stylesheet" type="text/css" href="/storefront.css">
+
+  <%- await include('@custom-html/head', { _ }) %>
+  <%- await include('@custom-html/products/head', { _ }) %>
+</head>
+
+<body data-resource="products">
+  <%- await include(`${sfTemplatePath}@/layout/menu`, { _ }) %>
+
+  <%- await include(`${sfTemplatePath}@/plugins/photoswipe`) %>
+
+  <main role="main" id="main">
+    <%- await include(`${sfTemplatePath}@/layout/header`, { _ }) %>
+
+    <article id="content">
+      <%- await include('@custom-html/append-top', { _ }) %>
+      <%- await include('@custom-html/products/append-top', { _ }) %>
+
+      <%- await include(`${sfTemplatePath}@/views/products`, { _ }) %>
+
+      <%- await include('@custom-html/append-bottom', { _ }) %>
+      <%- await include('@custom-html/products/append-bottom', { _ }) %>
+    </article>
+
+    <%- await include(`${sfTemplatePath}@/layout/footer`, { _ }) %>
+
+    <%- await include('@custom-html/append-footer', { _ }) %>
+
+    <div id="overlay" class="fade"></div>
+  </main>
+
+  <%- await include(`${sfTemplatePath}@/scripts`, { _ }) %>
+
+  <%- await include('@custom-html/scripts', { _ }) %>
+
+  <script src="/storefront.js"></script>
+</body>
+
+</html>

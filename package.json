@@ -9,7 +9,7 @@
   "scripts": {
     "template": "storefront-tmpl && storefront-tmpl-styles",
     "pack": "npm run template && storefront-pack",
-    "serve": "ECOMCLIENT_NOTIMEOUT=true npm run pack serve",
+    "serve": "npm run pack serve",
     "build": "ECOMCLIENT_NOTIMEOUT=true npm run pack build"
   },
   "repository": {

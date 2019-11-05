@@ -1,7 +1,7 @@
 {
   "store_id": 1052,
   "name": "My Shop",
-  "domain": "myshop.com",
+  "domain": "storefront-demo.e-com.plus",
   "short_name": "MyShop",
   "description": "My PWA Shop",
   "primary_color": "#383d44",

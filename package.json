@@ -34,15 +34,15 @@
   },
   "homepage": "https://github.com/ecomclub/storefront#readme",
   "dependencies": {
-    "@ecomplus/storefront-framework": "^5.2.5",
-    "@ecomplus/storefront-template": "^1.18.1",
+    "@ecomplus/storefront-framework": "^5.2.6",
+    "@ecomplus/storefront-template": "^1.19.1",
     "babel-eslint": "^10.0.3",
-    "core-js": "^3.3.6"
+    "core-js": "^3.4.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "husky": "^3.0.9",
+    "husky": "^3.1.0",
     "standard": "^14.3.1"
   },
   "husky": {

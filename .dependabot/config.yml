@@ -1,0 +1,20 @@
+version: 1
+
+update_configs:
+  - package_manager: "javascript"
+    directory: "/"
+    update_schedule: "live"
+
+    allowed_updates:
+      - match:
+          dependency_name: "@ecomplus/storefront-*"
+          dependency_type: "direct"
+
+    automerged_updates:
+      - match:
+          dependency_name: "@ecomplus/storefront-*"
+          update_type: "in_range"
+
+    commit_message:
+      prefix: "chore"
+      include_scope: true

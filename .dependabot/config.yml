@@ -8,7 +8,6 @@ update_configs:
     allowed_updates:
       - match:
           dependency_name: "@ecomplus/storefront-*"
-          dependency_type: "direct"
 
     automerged_updates:
       - match:

@@ -13,12 +13,17 @@ const sfTemplatePath = '../../node_modules/@ecomplus/storefront-template/templat
   <%- await include('../@custom-html/checkout/head', { _ }) %>
 </head>
 
-<body>
+<body class="app">
+  <%- await include(`../${sfTemplatePath}@/layout/app/header`, { _ }) %>
+
   <%- await include('../@custom-html/checkout/append-top', { _ }) %>
 
   <%- await include(`../${sfTemplatePath}@/views/app`, { _ }) %>
 
   <%- await include('../@custom-html/checkout/append-bottom', { _ }) %>
+
+  <%- await include(`../${sfTemplatePath}@/layout/app/footer`, { _ }) %>
+
   <%- await include('../@custom-html/append-footer', { _ }) %>
 
   <%- await include(`../${sfTemplatePath}@/scripts`, { _ }) %>

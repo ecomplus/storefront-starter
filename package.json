@@ -34,10 +34,10 @@
   },
   "homepage": "https://github.com/ecomclub/storefront#readme",
   "dependencies": {
-    "@ecomplus/storefront-framework": "^5.2.7",
-    "@ecomplus/storefront-template": "^1.25.2",
+    "@ecomplus/storefront-framework": "^5.2.8",
+    "@ecomplus/storefront-template": "^1.25.4",
     "babel-eslint": "^10.0.3",
-    "core-js": "^3.5.0"
+    "core-js": "^3.6.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",

@@ -33,11 +33,15 @@
     "url": "https://github.com/ecomclub/storefront/issues"
   },
   "homepage": "https://github.com/ecomclub/storefront#readme",
+  "peerDependencies": {
+    "core-js": "3.x",
+    "ejs": "3.x",
+    "lodash": "4.x"
+  },
   "dependencies": {
-    "@ecomplus/storefront-framework": "^5.2.8",
-    "@ecomplus/storefront-template": "^1.25.4",
-    "babel-eslint": "^10.0.3",
-    "core-js": "^3.6.0"
+    "@ecomplus/storefront-framework": "^5.2.9",
+    "@ecomplus/storefront-template": "^1.26.0",
+    "babel-eslint": "^10.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",

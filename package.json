@@ -55,9 +55,9 @@
     }
   },
   "browserslist": [
-    "last 1 version",
+    "> 0.5%",
     "not dead",
-    "> 0.2%"
+    "not ie 11"
   ],
   "standard": {
     "parser": "babel-eslint"

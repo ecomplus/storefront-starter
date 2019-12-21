@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@ecomplus/storefront-framework": "^5.2.9",
-    "@ecomplus/storefront-template": "^1.26.0",
+    "@ecomplus/storefront-template": "^1.26.1",
     "babel-eslint": "^10.0.3"
   },
   "devDependencies": {

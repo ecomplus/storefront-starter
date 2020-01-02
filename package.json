@@ -39,7 +39,7 @@
     "lodash": "4.x"
   },
   "dependencies": {
-    "@ecomplus/storefront-framework": "^5.2.9",
+    "@ecomplus/storefront-framework": "^5.3.0",
     "@ecomplus/storefront-template": "^1.26.6",
     "babel-eslint": "^10.0.3"
   },

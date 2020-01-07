@@ -13,6 +13,6 @@ stores
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront)
 
-[![E-Com Plus Storefront banner](https://repository-images.githubusercontent.com/183649678/fb442e80-316c-11ea-9aeb-5012e4689d9f)](https://opensource.org/licenses/MIT)
-
 :scroll: [TEMPLATE CHANGELOG](https://github.com/ecomclub/storefront-template/blob/master/CHANGELOG.md)
+
+![E-Com Plus Storefront banner](https://repository-images.githubusercontent.com/183649678/fb442e80-316c-11ea-9aeb-5012e4689d9f)

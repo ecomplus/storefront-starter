@@ -36,7 +36,7 @@
   "dependencies": {
     "@ecomplus/storefront-app": "^1.4.7",
     "@ecomplus/storefront-framework": "^5.3.0",
-    "@ecomplus/storefront-template": "^1.26.6",
+    "@ecomplus/storefront-template": "^1.26.7",
     "@ecomplus/utils": "^1.2.8"
   },
   "devDependencies": {

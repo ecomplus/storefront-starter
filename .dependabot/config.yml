@@ -17,5 +17,5 @@ update_configs:
           update_type: "semver:minor"
 
     commit_message:
-      prefix: "chore"
+      prefix: "[skip-ci] chore"
       include_scope: true

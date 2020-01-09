@@ -13,6 +13,7 @@ update_configs:
 
     automerged_updates:
       - match:
+          dependency_name: "@ecomplus/*"
           update_type: "semver:minor"
 
     commit_message:

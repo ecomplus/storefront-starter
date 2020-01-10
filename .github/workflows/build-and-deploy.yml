@@ -28,8 +28,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: npm ci --only=production
-      - run: npm run build
+      - name: Install production dependencies
+        run: npm ci --only=production
+
+      - name: Run build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3

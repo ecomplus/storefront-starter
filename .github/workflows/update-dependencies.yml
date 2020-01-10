@@ -23,13 +23,13 @@ jobs:
 
       - name: Commit files
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "github-actions[bot]"
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
           git add package.json package-lock.json
-          git diff-index --quiet HEAD || git commit -m "chore(deps): update pkg dependencies"
+          git diff-index --quiet HEAD || git commit -m 'chore(deps): update pkg dependencies'
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: 'develop'
+          branch: develop

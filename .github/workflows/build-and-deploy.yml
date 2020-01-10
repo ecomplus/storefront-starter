@@ -28,7 +28,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - run: npm ci
+      - run: npm ci --only=production
       - run: npm run build
 
       - name: Deploy to GitHub Pages

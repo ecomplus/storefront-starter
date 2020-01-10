@@ -29,12 +29,15 @@ jobs:
       - name: Update package dependencies
         run: npm update --production
 
+      - name: Dedupe
+        run: npm ddp
+
       - name: Dedupe and commit files if changed
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
           git add package.json package-lock.json
-          git diff-index --quiet HEAD || npm ddp; git commit -m 'chore(deps): update/ddp pkg dependencies'
+          git diff-index --quiet HEAD || git commit -m 'chore(deps): update/ddp pkg dependencies'
 
       - name: Push changes
         uses: ad-m/github-push-action@master

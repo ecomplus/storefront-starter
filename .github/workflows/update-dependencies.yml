@@ -2,7 +2,7 @@ name: Update dependencies
 
 on:
   schedule:
-    - cron: '30 14,16,17,19 * * MON-FRI'
+    - cron: '*/5 * * * MON-FRI'
 
 jobs:
   update-dependencies:

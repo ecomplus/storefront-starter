@@ -19,7 +19,10 @@ jobs:
           node-version: '10.x'
 
       - name: Update package dependencies
-        run: npm i --save-dev husky@4
+        run: npm update --production
+
+      - name: Dedupe
+        run: npm ddp
 
       - name: Commit files
         run: |

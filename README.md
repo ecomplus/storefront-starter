@@ -11,6 +11,14 @@ based e-commerce template for
 [E-Com Plus](https://www.e-com.plus)
 stores
 
+## Deploy to GitHub Pages
+
+Just [fork this repository](https://github.com/ecomclub/storefront/fork)
+with the name **_username_.github.io** and access
+from https://_username_.github.io
+
+## Deploy to Netlify
+
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront)
 
 :scroll: [TEMPLATE CHANGELOG](https://github.com/ecomclub/storefront-template/blob/master/CHANGELOG.md)

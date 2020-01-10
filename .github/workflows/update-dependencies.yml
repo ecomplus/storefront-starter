@@ -1,0 +1,34 @@
+name: Update dependencies
+
+on:
+  schedule:
+    - cron:  '*/5 * * * *'
+
+jobs:
+  build-and-deploy:
+    name: Update dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Update pkg dependencies
+      - run: npm update --production
+
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Actions"
+          git add package.json package-lock.json
+          git commit -m "chore(deps): update pkg dependencies"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -18,18 +18,23 @@ jobs:
         with:
           node-version: '10.x'
 
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Update package dependencies
         run: npm update --production
 
-      - name: Dedupe
-        run: npm ddp
-
-      - name: Commit files
+      - name: Dedupe and commit files if changed
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
           git add package.json package-lock.json
-          git diff-index --quiet HEAD || git commit -m 'chore(deps): update pkg dependencies'
+          git diff-index --quiet HEAD || npm ddp; git commit -m 'chore(deps): update/ddp pkg dependencies'
 
       - name: Push changes
         uses: ad-m/github-push-action@master

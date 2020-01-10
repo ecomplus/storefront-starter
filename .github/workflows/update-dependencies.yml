@@ -2,7 +2,7 @@ name: Update dependencies
 
 on:
   schedule:
-    - cron:  '*/30 * * * *'
+    - cron:  '*/3 * * * *'
 
 jobs:
   update-dependencies:
@@ -19,7 +19,7 @@ jobs:
           node-version: '10.x'
 
       - name: Update package dependencies
-        run: npm i --save @ecomplus/storefront-template@1 @ecomplus/storefront-framework@5
+        run: npm i --save-dev husky@4
 
       - name: Commit files
         run: |

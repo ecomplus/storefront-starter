@@ -1,4 +1,4 @@
-# /dist
+/dist
 /.serve
 /template/**/storefront-template
 /template/public/assets/vendor/

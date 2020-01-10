@@ -20,7 +20,7 @@ jobs:
   automerge:
     name: Automerge PR
     runs-on: ubuntu-latest
-    if: github.actor == "leomp12" || github.actor == "app/dependabot-preview"
+    if: github.actor == 'leomp12' || github.actor == 'app/dependabot-preview'
     steps:
       - name: leomp12/automerge-action
         uses: leomp12/automerge-action@master

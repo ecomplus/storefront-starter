@@ -25,6 +25,6 @@ jobs:
       - name: leomp12/automerge-action
         uses: leomp12/automerge-action@master
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_METHOD: "merge"
-          MERGE_COMMIT_MESSAGE: "automerge"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_METHOD: merge
+          MERGE_COMMIT_MESSAGE: automerge

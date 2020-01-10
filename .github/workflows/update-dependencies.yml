@@ -1,9 +1,8 @@
 name: Update dependencies
 
 on:
-  push:
-    branches:
-      - develop
+  schedule:
+    - cron:  '*/3 * * * *'
 
 jobs:
   update-dependencies:
@@ -33,3 +32,4 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: 'develop'

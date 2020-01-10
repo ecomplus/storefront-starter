@@ -1,4 +1,4 @@
-name: Auto merge Dependabot updates
+name: Automerge
 
 on:
   pull_request:
@@ -11,13 +11,18 @@ on:
       - ready_for_review
       - reopened
       - unlocked
+  pull_request_review:
+    types:
+      - submitted
+  status: {}
 
 jobs:
-  auto-merge:
-    name: Auto merge
+  automerge:
     runs-on: ubuntu-latest
     steps:
-      - name: Auto merge
-        uses: ridedott/dependabot-auto-merge-action@master
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Automerge PR
+        uses: "pascalgn/automerge-action@2c8e667a3386187418587517e5bfe33470d19b5b"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_METHOD: "squash"
+          MERGE_COMMIT_MESSAGE: "pull-request-description"

@@ -5,7 +5,7 @@ on:
     - cron:  '*/30 * * * *'
 
 jobs:
-  build-and-deploy:
+  update-dependencies:
     name: Update dependencies
     runs-on: ubuntu-latest
 
@@ -19,7 +19,7 @@ jobs:
           node-version: '10.x'
 
       - name: Update pkg dependencies
-      - run: npm update --production
+      - run: npm i --save @ecomplus/storefront-template
 
       - name: Commit files
         run: |

@@ -1,3 +1,4 @@
+# Template vendors and output files
 /dist
 /.serve
 /template/**/storefront-template

@@ -32,7 +32,7 @@ jobs:
       - name: Dedupe
         run: npm ddp
 
-      - name: Dedupe and commit files if changed
+      - name: Commit files if changed
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'

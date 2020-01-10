@@ -18,12 +18,12 @@ on:
 
 jobs:
   automerge:
-    name: leomp12/automerge-action
+    name: Automerge PR
     runs-on: ubuntu-latest
     if: github.actor == "leomp12" || github.actor == "app/dependabot-preview"
     steps:
-      - name: Automerge PR
-        uses: "leomp12/automerge-action@master"
+      - name: leomp12/automerge-action
+        uses: leomp12/automerge-action@master
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_METHOD: "merge"

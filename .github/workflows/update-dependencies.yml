@@ -18,8 +18,8 @@ jobs:
         with:
           node-version: '10.x'
 
-      - name: Update pkg dependencies
-      - run: npm i --save @ecomplus/storefront-template
+      - name: Update package dependencies
+        run: npm i --save @ecomplus/storefront-template@1 @ecomplus/storefront-framework@5
 
       - name: Commit files
         run: |

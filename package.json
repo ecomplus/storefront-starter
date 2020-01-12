@@ -35,7 +35,7 @@
   "homepage": "https://github.com/ecomclub/storefront#readme",
   "dependencies": {
     "@ecomplus/storefront-framework": "^5.3.3",
-    "@ecomplus/storefront-template": "^1.27.8"
+    "@ecomplus/storefront-template": "^1.28.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.4",

@@ -28,4 +28,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MERGE_METHOD: merge
-          MERGE_COMMIT_MESSAGE: automerge
+          MERGE_COMMIT_MESSAGE: "Auto merge #{pullRequest.number}"

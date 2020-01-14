@@ -21,9 +21,6 @@ jobs:
       - name: Update package dependencies
         run: npm update --production
 
-      - name: Dedupe
-        run: npm ddp
-
       - name: Commit files if changed
         run: |
           git config --local user.email 'action@github.com'

@@ -13,9 +13,11 @@ stores
 
 ## Deploy to GitHub Pages
 
-Just [fork this repository](https://github.com/ecomclub/storefront/fork)
-with the name **_username_.github.io** and access
-from https://_username_.github.io
+1. [Use this template](https://github.com/ecomclub/storefront/generate)
+to generate a new repository with the name **_username_.github.io**;
+2. Edit `content/settings.json` and put your correct Store ID;
+3. Wait a little for the build process and access your new store
+from https://_username_.github.io :tada:
 
 ## Deploy to Netlify
 

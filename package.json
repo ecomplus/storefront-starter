@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/ecomclub/storefront#readme",
   "dependencies": {
-    "@ecomplus/storefront-template": "^1.29.3"
+    "@ecomplus/storefront-template": "^1.30.0"
   },
   "browserslist": [
     "> 0.5%",

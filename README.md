@@ -15,7 +15,7 @@ stores
 
 To get started easily, you should have a
 **[E-Com Plus](https://www.e-com.plus)** store,
-and deploy your new e-commerce to
+then deploy your new e-commerce to
 [Netlify](https://www.netlify.com/) or
 [GitHub Pages](https://pages.github.com/).
 

@@ -10,9 +10,9 @@ jobs:
     name: Build and deploy
     runs-on: ubuntu-latest
     if: |
-      !startsWith(github.event.head_commit.message, 'Initial commit') &&
       !startsWith(github.event.head_commit.message, 'Merge branch') &&
-      !contains(github.event.head_commit.message, '[skip ci]')
+      !contains(github.event.head_commit.message, '[skip ci]') &&
+      github.repository != 'ecomclub/storefront'
 
     steps:
       - name: Checkout

@@ -3,7 +3,7 @@ name: Init repository
 on:
   push:
     branches:
-      - develop
+      - master
 
 jobs:
   build-and-deploy:

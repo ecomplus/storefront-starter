@@ -25,11 +25,11 @@ jobs:
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git add package.json package-lock.json
-          git diff-index --quiet HEAD || git commit -m 'chore(deps): update pkg dependencies'
+          git diff --quiet package.json || npm run install
+          git diff-index --quiet HEAD || git commit -am 'chore(deps): update pkg dependencies'
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: develop
+          branch: master

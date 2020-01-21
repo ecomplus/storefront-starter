@@ -9,7 +9,7 @@
   "scripts": {
     "serve": "storefront-tmpl-pack serve",
     "build": "ECOMCLIENT_NOTIMEOUT=true storefront-tmpl-pack build",
-    "install": "storefront-tmpl"
+    "setup": "storefront-tmpl"
   },
   "repository": {
     "type": "git",

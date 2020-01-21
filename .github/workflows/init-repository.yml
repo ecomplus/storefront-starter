@@ -15,31 +15,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Remove LICENSE and edit default README
-        run: |
-          git config --local user.email 'action@github.com'
-          git config --local user.name 'GitHub Action'
-          rm LICENSE
-          cp ./.master/README.md ./
-          git commit -am "chore(init): remove default license and update readme"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
-
-      - name: Setup master branch
+      - name: Setup develop branch
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
           git checkout -b develop
-          rm -rf ./*
-          cp -r ./.master/* ./
-          cp ./.master/.gitignore ./
-          rm -rf ./.github
-          rm -rf ./.dependabot
-          rm -rf ./.master
+          rm LICENSE
+          cp ./.master/README.md ./
           git commit -am "Setup branch 'develop'"
 
       - name: Push changes
@@ -47,3 +29,22 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: develop
+
+      - name: Clear master branch
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git checkout master
+          rm -rf ./*
+          cp -r ./.master/* ./
+          cp ./.master/.gitignore ./
+          rm -rf ./.github
+          rm -rf ./.dependabot
+          rm -rf ./.master
+          git commit -am "Clear (init) branch 'master'"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master

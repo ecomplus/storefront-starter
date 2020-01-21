@@ -1,4 +1,4 @@
-### Acesse o site em https://_username_.github.io
+### Access the site at https://_username_.github.io
 
 :shopping: :rocket:
 [PWA](https://developers.google.com/web/progressive-web-apps) and

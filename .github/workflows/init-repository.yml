@@ -15,19 +15,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Remove copied license file
-        run: |
-          git config --local user.email 'action@github.com'
-          git config --local user.name 'GitHub Action'
-          rm LICENSE
-          git commit -am "chore(license): remove template repo license"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: develop
-
       - name: Setup master branch
         run: |
           git config --local user.email 'action@github.com'
@@ -35,6 +22,8 @@ jobs:
           git checkout -b master
           rm -rf ./*
           cp -r ./.master/* ./
+          rm -rf ./.github
+          rm -rf ./.dependabot
           git commit -am "Setup branch 'master'"
 
       - name: Push changes
@@ -42,3 +31,19 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
+
+      - name: Remove LICENSE and edit default README
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git checkout develop
+          rm LICENSE
+          cp ./.master/README.md ./
+          find ./README.md -type f -exec sed -i 's/_username_/${{ GITHUB_ACTOR }}/g' {} \;
+          git commit -am "chore(init): remove default license and update readme"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: develop

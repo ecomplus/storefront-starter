@@ -1,15 +1,12 @@
 name: Init repository
 
-on:
-  push:
-    branches:
-      - develop
+on: create
 
 jobs:
   build-and-deploy:
     name: Init repository
     runs-on: ubuntu-latest
-    if: github.event.head_commit.message == 'Initial commit'
+    if: github.repository != 'ecomclub/storefront'
 
     steps:
       - name: Checkout
@@ -20,27 +17,8 @@ jobs:
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
           rm LICENSE
-          cp ./.master/README.md ./
+          cp ./.init/README.md ./
           git commit -am "chore(init): remove default license and update readme"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: develop
-
-      - name: Setup master branch
-        run: |
-          git config --local user.email 'action@github.com'
-          git config --local user.name 'GitHub Action'
-          git checkout -b master
-          rm -rf ./*
-          cp -r ./.master/* ./
-          cp ./.master/.gitignore ./
-          rm -rf ./.github
-          rm -rf ./.dependabot
-          rm -rf ./.master
-          git commit -am "Setup branch 'master'"
 
       - name: Push changes
         uses: ad-m/github-push-action@master

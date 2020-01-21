@@ -3,26 +3,25 @@ name: Init repository
 on:
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   build-and-deploy:
     name: Init repository
     runs-on: ubuntu-latest
-    if: startsWith(github.event.head_commit.message, 'Initial commit')
+    if: github.event.head_commit.message == 'Initial commit'
 
     steps:
       - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Setup develop branch
+      - name: Remove LICENSE and edit default README
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git checkout -b develop
           rm LICENSE
           cp ./.master/README.md ./
-          git commit -am "Setup branch 'develop'"
+          git commit -am "chore(init): remove default license and update readme"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
@@ -30,18 +29,18 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: develop
 
-      - name: Clear master branch
+      - name: Setup master branch
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git checkout master
+          git checkout -b master
           rm -rf ./*
           cp -r ./.master/* ./
           cp ./.master/.gitignore ./
           rm -rf ./.github
           rm -rf ./.dependabot
           rm -rf ./.master
-          git commit -am "Clear (init) branch 'master'"
+          git commit -am "Setup branch 'master'"
 
       - name: Push changes
         uses: ad-m/github-push-action@master

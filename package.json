@@ -8,7 +8,8 @@
   "unpkg": "dist/storefront.js",
   "scripts": {
     "serve": "storefront-tmpl-pack serve",
-    "build": "ECOMCLIENT_NOTIMEOUT=true storefront-tmpl-pack build"
+    "build": "ECOMCLIENT_NOTIMEOUT=true storefront-tmpl-pack build",
+    "install": "storefront-tmpl"
   },
   "repository": {
     "type": "git",

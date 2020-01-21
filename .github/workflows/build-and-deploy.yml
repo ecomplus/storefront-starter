@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       !startsWith(github.event.head_commit.message, 'Initial commit') &&
+      !startsWith(github.event.head_commit.message, 'Merge branch') &&
       !contains(github.event.head_commit.message, '[skip ci]')
 
     steps:

@@ -39,7 +39,7 @@ jobs:
           git checkout develop
           rm LICENSE
           cp ./.master/README.md ./
-          find ./README.md -type f -exec sed -i 's/_username_/${{ GITHUB_ACTOR }}/g' {} \;
+          find ./README.md -type f -exec sed -i 's/_username_/$GITHUB_ACTOR/g' {} \;
           git commit -am "chore(init): remove default license and update readme"
 
       - name: Push changes

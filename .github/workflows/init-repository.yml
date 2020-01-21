@@ -1,0 +1,44 @@
+name: Init repository
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build-and-deploy:
+    name: Init repository
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.head_commit.message, 'Initial commit')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Remove copied license file
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          rm LICENSE
+          git commit -am "chore(license): remove template repo license"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: develop
+
+      - name: Setup master branch
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git checkout -b master
+          rm -rf ./*
+          cp -r ./.master/* ./
+          git commit -am "Setup branch 'master'"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master

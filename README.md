@@ -11,17 +11,25 @@ based e-commerce template for
 [E-Com Plus](https://www.e-com.plus)
 stores
 
-## Deploy to GitHub Pages
+## Getting started
+
+To get started easily, you should have a
+**[E-Com Plus](https://www.e-com.plus)** store,
+and deploy your new e-commerce to
+[Netlify](https://www.netlify.com/) or
+[GitHub Pages](https://pages.github.com/).
+
+### Deploy to Netlify
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront)
+
+### Deploy to GitHub Pages
 
 1. [Use this template](https://github.com/ecomclub/storefront/generate)
 to generate a new repository with the name **_username_.github.io**;
 2. Edit `content/settings.json` and put your correct Store ID;
 3. Wait a little for the build process and access your new store
 from https://_username_.github.io :tada:
-
-## Deploy to Netlify
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront)
 
 ## Documentation
 

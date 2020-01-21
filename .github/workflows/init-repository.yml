@@ -27,22 +27,23 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: develop
+          branch: master
 
       - name: Setup master branch
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git checkout -b master
+          git checkout -b develop
           rm -rf ./*
           cp -r ./.master/* ./
           cp ./.master/.gitignore ./
           rm -rf ./.github
           rm -rf ./.dependabot
-          git commit -am "Setup branch 'master'"
+          rm -rf ./.master
+          git commit -am "Setup branch 'develop'"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
+          branch: develop

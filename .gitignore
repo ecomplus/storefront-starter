@@ -1,5 +1,5 @@
 # Template vendors and output files
-#/dist
+/dist
 /.serve
 /template/**/storefront-template
 /template/public/assets/vendor/

@@ -4,17 +4,17 @@
   "version": "1.0.0",
   "description": "PWA and JAMstack based e-commerce template for E-Com Plus stores",
   "main": "template/js/index.js",
-  "jsdelivr": "dist/storefront.js",
-  "unpkg": "dist/storefront.js",
   "scripts": {
     "serve": "storefront-tmpl-pack serve",
     "build": "ECOMCLIENT_NOTIMEOUT=true storefront-tmpl-pack build",
     "setup": "storefront-tmpl"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ecomclub/storefront.git"
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomclub/storefront/issues"
   },
+  "homepage": "https://github.com/ecomclub/storefront#readme",
   "keywords": [
     "ecomplus",
     "storefront",
@@ -26,12 +26,10 @@
     "ecommerce-boilerplate",
     "store-theme"
   ],
-  "author": "E-Com Club <ti@e-com.club>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ecomclub/storefront/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomclub/storefront.git"
   },
-  "homepage": "https://github.com/ecomclub/storefront#readme",
   "dependencies": {
     "@ecomplus/storefront-template": "1.x"
   },

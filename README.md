@@ -20,7 +20,7 @@ then deploy your new e-commerce to
 
 ### Deploy to Netlify
 
-To setup your new site on Netlify, we recommend choosing
+When creating your new site on Netlify, we recommend choosing
 **`dist` as _branch to deploy_ with no _build settings_**.
 
 > You can also deploy from `master`

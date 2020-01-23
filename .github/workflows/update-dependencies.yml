@@ -27,21 +27,24 @@ jobs:
           git config --local user.name 'GitHub Action'
 
       - name: Check if template was updated
-        run: git diff package-lock.json | grep 'ecomplus/storefront-template'
-        continue-on-error: true
+        run: |
+          git diff package-lock.json | grep 'ecomplus/storefront-template' \
+            && echo "::set-output name=updated::1" \
+            || echo "::set-output name=updated::0"
+        id: check_template
 
       - name: Run build with new template
-        if: success()
+        if: steps.check_template.outputs.updated == '1'
         run: npm run build
 
       - name: Commit default content
-        if: success()
+        if: steps.check_template.outputs.updated == '1'
         run: |
           git add content
           git diff-index --quiet HEAD || git commit -m 'chore(content): update from template content'
 
       - name: Deploy to branch dist
-        if: success()
+        if: steps.check_template.outputs.updated == '1'
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,15 +1,12 @@
 name: Init repository
 
-on:
-  create:
-    ref:
-      - dist
-      - refs/heads/dist
+on: create
 
 jobs:
   build-and-deploy:
     name: Init repository
     runs-on: ubuntu-latest
+    if: endsWith(github.event.ref, 'dist')
 
     steps:
       - name: Checkout

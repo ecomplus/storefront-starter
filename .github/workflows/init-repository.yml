@@ -1,12 +1,15 @@
 name: Init repository
 
-on: create
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build-and-deploy:
     name: Init repository
     runs-on: ubuntu-latest
-    if: endsWith(github.event.ref, 'dist')
+    if: github.event.head_commit.message == 'Initial commit'
 
     steps:
       - name: Checkout
@@ -16,8 +19,9 @@ jobs:
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          rm LICENSE
+          rm ./LICENSE
           cp ./.README.md ./README.md
+          rm ./.github/workflows/init-repository.yml
           git commit -am "chore(init): remove default license and update readme"
 
       - name: Push changes

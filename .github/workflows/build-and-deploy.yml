@@ -43,3 +43,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: dist
           FOLDER: dist
+
+      - name: Send Netlify build hook
+        run: |
+          curl -X POST -d '{}' \
+            https://api.netlify.com/build_hooks/${{ secrets.NETLIFY_HOOK }}?trigger_branch=dist
+        continue-on-error: true

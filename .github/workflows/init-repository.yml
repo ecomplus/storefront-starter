@@ -20,7 +20,7 @@ jobs:
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
           rm ./LICENSE
-          cp ./.README.md ./README.md
+          mv ./.README.md ./README.md
           rm ./.github/workflows/init-repository.yml
           git commit -am "chore(init): remove default license and update readme"
 

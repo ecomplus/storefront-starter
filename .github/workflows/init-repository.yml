@@ -4,6 +4,7 @@ on:
   create:
     ref:
       - dist
+      - refs/heads/dist
 
 jobs:
   build-and-deploy:

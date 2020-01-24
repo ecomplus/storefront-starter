@@ -1,4 +1,0 @@
-[dev]
-  command = "npm run serve"
-  port = 9126
-  publish = ".serve"

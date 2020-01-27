@@ -33,6 +33,17 @@ jobs:
             || echo "::set-output name=updated::0"
         id: check_template
 
+      - name: Commit files if changed
+        run: |
+          git add package-lock.json content
+          git diff-index --quiet HEAD || git commit -m '[skip ci] chore(deps): update pkg dependencies'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+
       - name: Run build with new template
         if: steps.check_template.outputs.updated == '1'
         run: npm run build
@@ -44,16 +55,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: dist
           FOLDER: dist
-
-      - name: Commit files if changed
-        if: always()
-        run: |
-          git add package-lock.json content
-          git diff-index --quiet HEAD || git commit -m '[skip ci] chore(deps): update pkg dependencies'
-
-      - name: Push changes
-        if: always()
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master

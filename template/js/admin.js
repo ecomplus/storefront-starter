@@ -1,1 +1,1 @@
-import '@ecomplus/storefront-template/template/js/admin'
+import '#template/js/admin'

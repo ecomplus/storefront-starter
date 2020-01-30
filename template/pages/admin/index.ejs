@@ -1,17 +1,13 @@
-<%
-const sfTemplatePath = '../../node_modules/@ecomplus/storefront-template/template/pages/'
-%>
-
 <!doctype html>
 <html>
 
 <head>
-  <%- await include(`../${sfTemplatePath}@/head`, { _ }) %>
+  <%- await include(`/@/head`, { _ }) %>
 </head>
 
 <body>
-  <%- await include(`../${sfTemplatePath}@/views/cms`, { _ }) %>
-  <%- await include(`../${sfTemplatePath}@/scripts`, { _ }) %>
+  <%- await include(`/@/views/cms`, { _ }) %>
+  <%- await include(`/@/scripts`, { _ }) %>
   <script src="/admin.js"></script>
 </body>
 

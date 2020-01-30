@@ -1,2 +1,2 @@
-import '@ecomplus/storefront-template/template/js/'
+import '#template/js/'
 import './custom-js/pages'

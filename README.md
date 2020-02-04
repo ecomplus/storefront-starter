@@ -1,6 +1,6 @@
-# storefront
+# storefront-starter
 
-[![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/storefront/badge)](https://www.codefactor.io/repository/github/ecomclub/storefront)
+[![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/storefront/badge)](https://www.codefactor.io/repository/github/ecomclub/storefront-starter)
 [![License Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-orange.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ac85a3a2-c06d-4e69-98ce-40c2190db198/deploy-status)](https://app.netlify.com/sites/ecomplus-storefront/deploys)
 
@@ -29,11 +29,11 @@ you'll consume fewer build minutes on your Netlify plan.
 
 #### The easier way
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront-starter)
 
 #### The better way
 
-1. [Use this template](https://github.com/ecomclub/storefront/generate)
+1. [Use this template](https://github.com/ecomclub/storefront-starter/generate)
 to generate a new repository for your store;
 2. Set your own E-Com Plus Store ID at `content/settings.json`
 and **wait up to 3 minutes** for the first build process;

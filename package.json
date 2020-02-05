@@ -33,6 +33,9 @@
   "dependencies": {
     "@ecomplus/storefront-template": "1.x"
   },
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  },
   "browserslist": [
     "> 0.5%",
     "not dead",

@@ -19,7 +19,7 @@ jobs:
           node-version: '10.x'
 
       - name: Update package dependencies
-        run: npm update
+        run: npm update --only=production
 
       - name: Config Git user
         run: |

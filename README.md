@@ -14,7 +14,7 @@ stores
 ## Getting started
 
 To get started easily, you should have a
-**[E-Com Plus](https://www.e-com.plus)** store,
+**[E-Com Plus](https://www.e-com.plus)** store ([free for dev](#free-for-dev)),
 then deploy your new e-commerce to
 [Netlify](https://www.netlify.com/).
 
@@ -66,3 +66,13 @@ at `/admin/` URL using your e-mail and password.
 / [CHANGELOG](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-template/CHANGELOG.md)
 
 ![E-Com Plus Storefront banner](https://repository-images.githubusercontent.com/183649678/1c624a80-3180-11ea-8761-1f45e0f675a5)
+
+### Free for dev
+
+In addition to the open source
+[Storefront](https://github.com/ecomplus/storefront),
+we provide our **SaaS platform and apps for free** for developers
+registered in our partnership program
+or to work with open source projects :smile:
+
+To request, contact [ti@e-com.club](mailto:ti@e-com.club).

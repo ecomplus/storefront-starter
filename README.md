@@ -1,6 +1,6 @@
 # storefront-starter
 
-[![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/storefront/badge)](https://www.codefactor.io/repository/github/ecomclub/storefront-starter)
+[![CodeFactor](https://www.codefactor.io/repository/github/ecomplus/storefront-starter/badge)](https://www.codefactor.io/repository/github/ecomplus/storefront-starter)
 [![License Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-orange.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ac85a3a2-c06d-4e69-98ce-40c2190db198/deploy-status)](https://app.netlify.com/sites/ecomplus-storefront/deploys)
 
@@ -29,11 +29,11 @@ you'll consume fewer build minutes on your Netlify plan.
 
 #### The easier way
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomclub/storefront-starter)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?stack=cms&repository=https://github.com/ecomplus/storefront-starter)
 
 #### The better way
 
-1. [Use this template](https://github.com/ecomclub/storefront-starter/generate)
+1. [Use this template](https://github.com/ecomplus/storefront-starter/generate)
 to generate a new repository for your store;
 2. Set your own E-Com Plus Store ID at `content/settings.json`
 and **wait up to 3 minutes** for the first build process;
@@ -62,7 +62,7 @@ at `/admin/` URL using your e-mail and password.
 
 ## Documentation
 
-:page_with_curl: [Storefront Template](https://github.com/ecomclub/storefront-template#storefront-template)
-/ [CHANGELOG](https://github.com/ecomclub/storefront-template/blob/master/CHANGELOG.md)
+:page_with_curl: [Storefront Template](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-template#storefront-template)
+/ [CHANGELOG](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-template/CHANGELOG.md)
 
 ![E-Com Plus Storefront banner](https://repository-images.githubusercontent.com/183649678/1c624a80-3180-11ea-8761-1f45e0f675a5)

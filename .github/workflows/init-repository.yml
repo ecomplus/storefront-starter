@@ -9,7 +9,7 @@ jobs:
   build-and-deploy:
     name: Init repository
     runs-on: ubuntu-latest
-    if: startsWith(github.event.head_commit.message, 'Initial commit')
+    if: github.event.head_commit.message ==='Setup store'
 
     steps:
       - name: Checkout

@@ -22,7 +22,7 @@ jobs:
           rm ./LICENSE
           mv ./.README.md ./README.md
           rm ./.github/workflows/init-repository.yml
-          git commit -am "chore(init): remove default license and update readme"
+          git commit -am "chore(init): remove default license and update readme [skip ci]"
 
       - name: Push changes
         uses: ad-m/github-push-action@master

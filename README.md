@@ -35,8 +35,8 @@ you'll consume fewer build minutes on your Netlify plan.
 
 1. [Use this template](https://github.com/ecomplus/storefront-starter/generate)
 to generate a new repository for your store;
-2. Set your own E-Com Plus Store ID at `content/settings.json`
-and **wait up to 3 minutes** for the first build process;
+2. Set your own E-Com Plus Store ID at `content/settings.json` and commit with message `Setup store`.
+**Wait up to 3 minutes** for the first build process;
 3. [Log in to Netlify](https://app.netlify.com/) and
 [create a _new site from Git_](https://docs.netlify.com/site-deploys/create-deploys/#deploy-with-git)
 choosing your generated repository;

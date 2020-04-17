@@ -4,6 +4,9 @@ update_configs:
   - package_manager: "javascript"
     directory: "/"
     update_schedule: "live"
+    default_labels:
+      - "dependencies"
+      - "automerge"
 
     allowed_updates:
       - match:
@@ -15,5 +18,5 @@ update_configs:
           update_type: "semver:minor"
 
     commit_message:
-      prefix: "[skip ci] chore"
+      prefix: "fix"
       include_scope: true

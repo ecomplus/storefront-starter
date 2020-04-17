@@ -1,44 +1,21 @@
-<!doctype html>
-<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+<%
+const { body } = await _.resolveRoute()
+_.breadcrumbs = []
+_.ecomUtils.categoriesList(body).forEach(categoryName => {
+  const findCategory = category => category.name === categoryName
+  const category = (body.categories && body.categories.find(findCategory)) ||
+    _.categories.find(findCategory)
+  if (category) {
+    _.breadcrumbs.push({
+      name: _.ecomUtils.name(category),
+      link: `/${category.slug}`
+    })
+  }
+})
+_.breadcrumbs.push({
+  name: _.ecomUtils.name(body),
+  link: `/${body.slug}`
+})
+%>
 
-<head>
-  <%- await include(`/@/head`, { _ }) %>
-  <link rel="stylesheet" type="text/css" href="/storefront.css">
-
-  <%- await include('@custom-html/head', { _ }) %>
-  <%- await include('@custom-html/products/head', { _ }) %>
-</head>
-
-<body data-resource="products">
-  <%- await include(`/@/layout/menu`, { _ }) %>
-
-  <%- await include(`/@/plugins/photoswipe`) %>
-
-  <main role="main" id="main">
-    <%- await include(`/@/layout/header`, { _ }) %>
-
-    <article id="content">
-      <%- await include('@custom-html/append-top', { _ }) %>
-      <%- await include('@custom-html/products/append-top', { _ }) %>
-
-      <%- await include(`/@/views/products`, { _ }) %>
-
-      <%- await include('@custom-html/append-bottom', { _ }) %>
-      <%- await include('@custom-html/products/append-bottom', { _ }) %>
-    </article>
-
-    <%- await include(`/@/layout/footer`, { _ }) %>
-
-    <%- await include('@custom-html/append-footer', { _ }) %>
-
-    <div id="overlay" class="fade"></div>
-  </main>
-
-  <%- await include(`/@/scripts`, { _ }) %>
-
-  <%- await include('@custom-html/scripts', { _ }) %>
-
-  <script src="/storefront.js"></script>
-</body>
-
-</html>
+<%- await include('@/view') %>

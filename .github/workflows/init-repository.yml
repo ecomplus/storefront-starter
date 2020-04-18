@@ -7,7 +7,7 @@ on:
 
 jobs:
   init-repository:
-    name: Init repository
+    name: Setup store and init repository
     runs-on: ubuntu-latest
     if: github.event.head_commit.message == 'Setup store'
 

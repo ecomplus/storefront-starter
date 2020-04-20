@@ -4,14 +4,17 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'content/**'
+      - 'template/**'
+      - 'package-lock.json'
 
 jobs:
   build-and-deploy:
-    name: Build and deploy
+    name: Storefront build and deploy
     runs-on: ubuntu-latest
     if: |
       github.event.head_commit.message != 'Initial commit' &&
-      !startsWith(github.event.head_commit.message, 'Merge branch') &&
       !contains(github.event.head_commit.message, '[skip ci]')
 
     steps:
@@ -21,7 +24,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '10.x'
+          node-version: '12.x'
 
       - name: Cache dependencies
         uses: actions/cache@v1
@@ -43,3 +46,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: dist
           FOLDER: dist
+
+      - name: Commit template updates
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git add content template
+          git diff-index --quiet HEAD || git commit -m "chore: update template default content [skip ci]"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master

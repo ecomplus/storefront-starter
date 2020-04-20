@@ -1,0 +1,22 @@
+version: 1
+
+update_configs:
+  - package_manager: "javascript"
+    directory: "/"
+    update_schedule: "live"
+    default_labels:
+      - "dependencies"
+      - "automerge"
+
+    allowed_updates:
+      - match:
+          dependency_name: "@ecomplus/storefront-template"
+
+    automerged_updates:
+      - match:
+          dependency_name: "@ecomplus/storefront-template"
+          update_type: "semver:minor"
+
+    commit_message:
+      prefix: "fix"
+      include_scope: true

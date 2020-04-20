@@ -1,0 +1,37 @@
+name: Update views
+
+on:
+  schedule:
+    - cron: '10 11,17 * * MON-FRI'
+
+jobs:
+  update-views:
+    name: Update EJS views from Starter
+    runs-on: ubuntu-latest
+    if: github.repository != 'ecomplus/storefront-starter'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Config Git user
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+
+      - name: Git subtree pull
+        run: git subtree pull https://github.com/ecomplus/storefront-starter v2-stable --squash
+
+      - name: Checkout diff as ours
+        run: grep -lr '<<<<<<<' . | xargs git checkout --ours
+
+      - name: Commit template pages
+        run: |
+          git add template/pages
+          git diff-index --quiet HEAD || git commit -m "fix(pages): update default views"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master

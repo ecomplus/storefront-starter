@@ -47,14 +47,21 @@ jobs:
           BRANCH: dist
           FOLDER: dist
 
-      - name: Commit template updates
+      - name: Config Git and check diff
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
           git add content template
-          git diff-index --quiet HEAD || git commit -m "chore: update template default content [skip ci]"
+          (git diff-index --quiet HEAD && echo "::set-output name=diff::0") || echo "::set-output name=diff::1"
+        id: git_diff
+
+      - name: Commit local file changes
+        if: steps.git_diff.outputs.diff == 1
+        run: |
+          git commit -m 'chore: update template default content [skip ci]'
 
       - name: Push changes
+        if: steps.git_diff.outputs.diff == 1
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

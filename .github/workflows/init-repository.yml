@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     if: |
       github.repository != 'ecomplus/storefront-starter' &&
-      startsWith(github.event.head_commit.message, 'Setup store')
+      contains(github.event.head_commit.message, 'Setup store')
 
     steps:
       - name: Checkout

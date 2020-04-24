@@ -26,6 +26,7 @@ When creating your new site on Netlify, we recommend choosing **`dist` as _branc
 4. Select `dist` as _branch to deploy_ field and keep _basic build settings_ fields empty;
 5. [Enable Netlify Identify](https://docs.netlify.com/visitor-access/identity/#enable-identity-in-the-ui), add _invite users_ by email to administrate your storefront, you may start adding your own email address;
 6. [Enable Netlify Git Gateway](https://docs.netlify.com/visitor-access/git-gateway/#setup-and-settings);
+7. To ensure Git Gateway settings, go to your Netlify site's deploys and click _trigger deply_ > _clear cache and deploy site_;
 
 ### Access CMS
 

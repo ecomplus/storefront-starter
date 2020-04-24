@@ -25,7 +25,10 @@ jobs:
 
       - name: Checkout diff as ours
         run: |
-          grep -lr '<<<<<<<' ./template/pages && xargs git checkout --ours
+          for file in ./template/pages/**
+          do
+            git checkout --ours $file -q
+          done
 
       - name: Commit template pages
         run: |

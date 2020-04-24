@@ -20,16 +20,17 @@ jobs:
 
       - name: Pull views subtree
         run: |
-          git subtree pull --prefix=template/pages -q \
+          git subtree pull --prefix=template/pages --message="Pull views subtree" \
             https://github.com/ecomplus/storefront-starter-views master --squash
 
       - name: Checkout diff as ours
-        run: grep -lr '<<<<<<<' . | xargs git checkout --ours
+        run: |
+          grep -lr '<<<<<<<' ./template/pages && xargs git checkout --ours
 
       - name: Commit template pages
         run: |
           git add template/pages
-          git diff-index --quiet HEAD || git commit -m "fix(pages): update default views"
+          git diff-index --quiet HEAD || git commit -m "fix(pages): update/merge default views"
 
       - name: Push changes
         uses: ad-m/github-push-action@master

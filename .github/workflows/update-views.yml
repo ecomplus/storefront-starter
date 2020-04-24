@@ -6,9 +6,8 @@ on:
 
 jobs:
   update-views:
-    name: Update EJS views from Starter
+    name: Update default EJS views
     runs-on: ubuntu-latest
-    if: github.repository != 'ecomplus/storefront-starter'
 
     steps:
       - name: Checkout
@@ -19,8 +18,10 @@ jobs:
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
 
-      - name: Git subtree pull
-        run: git subtree pull https://github.com/ecomplus/storefront-starter v2-stable --squash
+      - name: Pull views subtree
+        run: |
+          git subtree pull --prefix=template/pages -q \
+            https://github.com/ecomplus/storefront-starter-views master --squash
 
       - name: Checkout diff as ours
         run: grep -lr '<<<<<<<' . | xargs git checkout --ours

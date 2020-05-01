@@ -19,6 +19,7 @@ jobs:
           git config --local user.name 'GitHub Action'
 
       - name: Pull views subtree
+        continue-on-error: true
         run: |
           git subtree pull --prefix=template/pages --message="Merge views subtree" \
             https://github.com/ecomplus/storefront-starter-views master --squash

@@ -2,7 +2,7 @@ name: Update views
 
 on:
   schedule:
-    - cron: '50 12 * * MON-FRI'
+    - cron: '50 18 * * MON-FRI'
 
 jobs:
   update-views:

@@ -3,6 +3,12 @@ name: Update views
 on:
   schedule:
     - cron: '50 18 * * MON-FRI'
+  push:
+    branches:
+      - master
+    paths:
+      - 'package.json'
+      - '.github/update-views'
 
 jobs:
   update-views:

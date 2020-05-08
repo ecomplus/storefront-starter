@@ -38,7 +38,7 @@ At the end of this process you'll be able to login to CMS at `/admin/` URL using
 
 ## Documentation
 
-:page_with_curl: [Storefront Template](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-template#storefront-template) / [CHANGELOG](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-template/CHANGELOG.md)
+:page_with_curl: **[Storefront reference](https://developers.e-com.plus/storefront/)** · :pencil: [Customization guide](https://developers.e-com.plus/storefront/docs/customization.html) · [Template changelog](https://github.com/ecomplus/storefront/tree/master/@ecomplus/storefront-template/CHANGELOG.md) · [Forum](https://community.e-com.plus/c/storefront/7) :brazil:
 
 ![E-Com Plus Storefront banner](https://repository-images.githubusercontent.com/183649678/1c624a80-3180-11ea-8761-1f45e0f675a5)
 

@@ -9,9 +9,7 @@ jobs:
   init-repository:
     name: Setup store and init repository
     runs-on: ubuntu-latest
-    if: |
-      github.repository != 'ecomplus/storefront-starter' &&
-      contains(github.event.head_commit.message, 'Setup store')
+    if: github.repository != 'ecomplus/storefront-starter'
 
     steps:
       - name: Checkout

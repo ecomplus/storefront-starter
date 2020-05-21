@@ -2,7 +2,7 @@
   "store_id": 1052,
   "name": "My Shop",
   "domain": "ecomplus-storefront.netlify.app",
-  "short_name": "MyShop",
+  "short_name": "My Shop",
   "description": "My PWA Shop",
   "primary_color": "#222831",
   "secondary_color": "#393e46",

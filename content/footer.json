@@ -5,16 +5,16 @@
   },
   "links_1": {
     "list_pages": true,
-    "title": "Pages",
+    "title": "Páginas",
     "list": []
   },
   "links_2": {
     "list_categories": true,
-    "title": "Categories",
+    "title": "Categorias",
     "list": []
   },
   "contacts": {
-    "title": "Contacts",
+    "title": "Contatos",
     "phone_wpp": true,
     "socials": true,
     "email": true,

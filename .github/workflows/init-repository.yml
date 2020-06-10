@@ -19,16 +19,12 @@ jobs:
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          rm ./LICENSE
-          mv ./.README.md ./README.md
+          rm -f ./LICENSE
+          if [ -f ./.README.md ]; then
+            mv ./.README.md ./README.md
+          fi
           rm ./.github/workflows/init-repository.yml
           git commit -am "chore(init): remove default license and update readme [skip ci]"
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
 
       - name: Add views subtree
         run: |

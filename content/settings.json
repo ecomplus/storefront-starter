@@ -8,7 +8,8 @@
   "secondary_color": "#393e46",
   "bg_color": "#ffffff",
   "theme": {
-    "bootswatch": "_"
+    "bootswatch": "_",
+    "custom": "_"
   },
   "logo": "/img/uploads/logo.png",
   "mini_logo": "",

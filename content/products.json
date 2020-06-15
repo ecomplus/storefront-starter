@@ -1,7 +1,15 @@
 {
   "sections": [
     {
-      "type": "banners-grid"
+      "type": "banners-grid",
+      "banners": [
+        {
+          "img": "/img/uploads/banner1.png",
+          "link": "fgrdthj",
+          "alt": "hjkl",
+          "mobile_img": "/img/uploads/rect89.png"
+        }
+      ]
     }
   ]
 }

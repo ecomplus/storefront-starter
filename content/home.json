@@ -1,52 +1,5 @@
 {
-  "meta_title": "ubiston20i@drolzucby.cf",
-  "meta_description": "ubiston20i@drolzucby.cf",
-  "sections": [
-    {
-      "type": "info-bar",
-      "enabled": true
-    },
-    {
-      "type": "banner-slider",
-      "autoplay": 9000,
-      "slides": [
-        {
-          "img": "/img/uploads/rect89.webp",
-          "link": "/headset",
-          "alt": "Headset banner",
-          "start": "2020-04-11T05:54:06.750Z",
-          "end": "2020-12-31T03:00:00.000Z"
-        },
-        {
-          "img": "/img/uploads/banner2.webp",
-          "alt": "Banner sample two",
-          "start": "",
-          "end": ""
-        }
-      ]
-    },
-    {
-      "type": "collection-shelf",
-      "shuffle": true,
-      "collection_id": null
-    },
-    {
-      "type": "custom-html",
-      "html": "mkjnhbg"
-    },
-    {
-      "type": "breadcrumbs",
-      "enabled": true
-    },
-    {
-      "type": "responsive-banner",
-      "alt": "nbn",
-      "link": "hgvjb",
-      "img": "/img/uploads/large-icon.png"
-    },
-    {
-      "type": "info-bar",
-      "enabled": true
-    }
-  ]
+  "meta_title": "",
+  "meta_description": "",
+  "sections": []
 }

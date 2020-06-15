@@ -1,3 +1,7 @@
 {
-  "sections": []
+  "sections": [
+    {
+      "type": "banners-grid"
+    }
+  ]
 }

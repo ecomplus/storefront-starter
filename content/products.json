@@ -1,15 +1,28 @@
 {
   "sections": [
     {
-      "type": "banners-grid",
-      "banners": [
-        {
-          "img": "/img/uploads/banner1.png",
-          "link": "fgrdthj",
-          "alt": "hjkl",
-          "mobile_img": "/img/uploads/rect89.png"
-        }
-      ]
+      "type": "breadcrumbs",
+      "enabled": true
+    },
+    {
+      "type": "product-block",
+      "enabled": true
+    },
+    {
+      "type": "related-products",
+      "title": "Produtos relacionados"
+    },
+    {
+      "type": "recommended-products",
+      "title": "Quem comprou este produto, também comprou:"
+    },
+    {
+      "type": "product-description",
+      "enabled": true
+    },
+    {
+      "type": "product-specifications",
+      "enabled": true
     }
   ]
 }

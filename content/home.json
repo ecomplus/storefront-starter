@@ -1,5 +1,34 @@
 {
   "meta_title": "",
   "meta_description": "",
-  "sections": []
+  "sections": [
+    {
+      "type": "banner-slider",
+      "autoplay": 9000,
+      "slides": [
+        {
+          "img": "/img/uploads/rect89.webp",
+          "link": "/headset",
+          "alt": "Headset banner",
+          "start": "2020-04-11T05:54:06.750Z",
+          "end": "2020-12-31T03:00:00.000Z"
+        },
+        {
+          "img": "/img/uploads/banner2.webp",
+          "alt": "Banner sample two",
+          "start": "",
+          "end": ""
+        }
+      ]
+    },
+    {
+      "type": "info-bar",
+      "enabled": true
+    },
+    {
+      "type": "collection-shelf",
+      "shuffle": true,
+      "collection_id": null
+    }
+  ]
 }

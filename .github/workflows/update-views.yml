@@ -18,12 +18,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Extract branch name
-        shell: bash
-        run: |
-          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-
       - name: Checkout
         uses: actions/checkout@v1
 
@@ -54,4 +48,4 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ steps.extract_branch.outputs.branch }}
+          branch: ${{ github.base_ref }}

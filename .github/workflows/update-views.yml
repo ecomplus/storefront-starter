@@ -7,8 +7,10 @@ on:
     branches:
       - master
     paths:
-      - 'package.json'
       - '.github/update-views'
+  pull_request:
+    paths:
+      - 'package.json'
 
 jobs:
   update-views:

@@ -18,6 +18,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: |
+          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
       - name: Checkout
         uses: actions/checkout@v1
 
@@ -39,26 +45,12 @@ jobs:
             git checkout --ours $file -q
           done
 
-      - name: Check file changes
+      - name: Commit template pages
         run: |
           git add template/pages
-          (git diff-index --quiet HEAD && echo "::set-output name=diff::0") || echo "::set-output name=diff::1"
-        id: git_diff
-
-      - name: Commit template pages
-        if: steps.git_diff.outputs.diff == 1
-        run: |
-          git commit -m "fix(pages): update/merge default views"
-
-      - name: Extract branch name
-        if: steps.git_diff.outputs.diff == 1
-        shell: bash
-        run: |
-          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
+          git diff-index --quiet HEAD || git commit -m "fix(pages): update/merge default views"
 
       - name: Push changes
-        if: steps.git_diff.outputs.diff == 1
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

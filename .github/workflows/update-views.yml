@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+        with:
+          ref: master
 
       - name: Config Git user
         run: |
@@ -44,15 +46,7 @@ jobs:
           git add template/pages
           git diff-index --quiet HEAD || git commit -m "fix(pages): update/merge default views"
 
-      - name: Push changes to PR source
-        if: github.event_name == 'pull_request'
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.head_ref }}
-
-      - name: Push changes to master
-        if: github.event_name != 'pull_request'
+      - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

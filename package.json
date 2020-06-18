@@ -28,7 +28,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomplus/storefront.git"
+    "url": "git+https://github.com/ecomplus/storefront-starter.git"
   },
   "dependencies": {
     "@ecomplus/storefront-template": "^2.0.0-beta.36"

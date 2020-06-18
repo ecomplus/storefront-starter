@@ -44,8 +44,16 @@ jobs:
           git add template/pages
           git diff-index --quiet HEAD || git commit -m "fix(pages): update/merge default views"
 
-      - name: Push changes
+      - name: Push changes to PR source
+        if: github.event_name == 'pull_request'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.base_ref }}
+          branch: ${{ github.head_ref }}
+
+      - name: Push changes to master
+        if: github.event_name != 'pull_request'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master

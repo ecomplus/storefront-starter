@@ -1,4 +1,10 @@
 {
+  "browserslist": [
+    "> 0.5%",
+    "not dead",
+    "not ie 11",
+    "not ie_mob 11"
+  ],
   "private": true,
   "name": "@ecomplus/storefront",
   "version": "2.0.0-starter",
@@ -35,11 +41,5 @@
   },
   "devDependencies": {
     "browser-sync": "^2.26.7"
-  },
-  "browserslist": [
-    "> 0.5%",
-    "not dead",
-    "not ie 11",
-    "not ie_mob 11"
-  ]
+  }
 }

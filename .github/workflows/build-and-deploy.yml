@@ -46,6 +46,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: dist
           FOLDER: dist
+          CLEAN: true
 
       - name: Config Git and check diff
         run: |

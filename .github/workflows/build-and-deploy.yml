@@ -8,6 +8,7 @@ on:
       - 'content/**'
       - 'template/**'
       - 'package-lock.json'
+      - '.ecomplus.cd.json'
 
 jobs:
   build-and-deploy:

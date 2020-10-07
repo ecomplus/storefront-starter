@@ -159,6 +159,9 @@ jobs:
           name: dist
           path: dist
 
+      - name: Copy built bundles data
+        run: cp -n dist/.*.json ./
+
       - name: Deploy Firebase Hosting
         uses: w9jds/firebase-action@master
         with:
@@ -175,11 +178,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install dependencies and bundles data
+      - name: Install functions dependencies
         if: needs.build.outputs.isg_enum == 0
-        run: |
-          cd functions && npm ci --only=production --no-optional && cd ..;
-          cp -n dist/.*.json ./
+        run: cd functions && npm ci --only=production --no-optional && cd ..
 
       - name: Deploy to Firebase
         if: needs.build.outputs.isg_enum == 0

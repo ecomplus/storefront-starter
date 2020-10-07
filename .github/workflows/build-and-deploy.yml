@@ -11,12 +11,17 @@ on:
       - '.ecomplus.cd.json'
 
 jobs:
-  build-and-deploy:
-    name: Storefront build and deploy
+  build:
+    name: Build Storefront
     runs-on: ubuntu-latest
     if: |
       github.event.head_commit.message != 'Initial commit' &&
       !contains(github.event.head_commit.message, '[skip ci]')
+    env:
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+    outputs:
+      to_firebase: ${{ steps.check_firebase.outputs.set }}
+      isg_enum: ${{ steps.partial_build.outputs.isg }}
 
     steps:
       - name: Checkout
@@ -35,19 +40,80 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Check if deploying to Firebase
+        run: |
+          if [ -z ${FIREBASE_TOKEN+x} ] || [ ! -f .firebaserc ] || [ ! -f firebase.json ]; then
+            echo "::set-output name=set::1";
+          else
+            echo "::set-output name=set::0";
+          fi
+        id: check_firebase
+
       - name: Install dependencies
         run: npm ci --only=production
 
       - name: Run build
+        if: steps.check_firebase.outputs.set == 0
         run: npm run build
 
-      - name: Deploy to branch dist
+      - name: Push to branch dist to trigger deploy
+        if: steps.check_firebase.outputs.set == 0
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: dist
           FOLDER: dist
           CLEAN: true
+
+      - name: Check last changed files
+        if: steps.check_firebase.outputs.set == 1
+        uses: lots0logs/gh-action-get-changed-files@2.1.4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+        id: changed_files
+
+      - name: Run partial build
+        if: steps.check_firebase.outputs.set == 1
+        env:
+          CHANGED_FILES: ${{ steps.changed_files.outputs.all }}
+        run: |
+          IS_ECOMPLUS_CD=$(node -p \
+            "const f = JSON.parse('${CHANGED_FILES}'); f.length === 1 && f[0] === '.ecomplus.cd.json'");
+          if [ $IS_ECOMPLUS_CD != false ]; then
+            BUILD_SLUG=$(node -p "require('./.ecomplus.cd.json').slug || false");
+            if [ $BUILD_SLUG != false ]; then
+              npm run build -- --prerender=$BUILD_SLUG --no-bundler;
+              echo "::set-output name=isg::2";
+            else
+              npm run build -- --prerender=index,app/index --prerender-limit=20 --no-bundler;
+              echo "::set-output name=isg::1";
+            fi
+          else
+            npm run build -- --prerender=index,app/index --prerender-limit=40;
+            echo "::set-output name=isg::0";
+          fi
+        id: partial_build
+
+      - name: Download cached output
+        if: steps.check_firebase.outputs.set == 1 && steps.partial_build.outputs.isg != 0
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: cache
+
+      - name: Merge cache with current build
+        if: steps.check_firebase.outputs.set == 1 && steps.partial_build.outputs.isg != 0
+        run: |
+          mkdir -p cache
+          cp -rn cache/* dist/
+          cp -r cache/.* dist/
+
+      - name: Archive compiled assets and views
+        if: steps.check_firebase.outputs.set == 1
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
 
       - name: Config Git and check diff
         run: |
@@ -68,3 +134,59 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
+
+  deploy-hosting:
+    needs: build
+    name: Deploy to Firebase Hosting
+    runs-on: ubuntu-latest
+    if: needs.build.outputs.to_firebase == 1
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Download build output
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@v1
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+  deploy-functions:
+    needs: build
+    name: Deploy Cloud Functions
+    runs-on: ubuntu-latest
+    if: needs.build.outputs.to_firebase == 1 && needs.build.outputs.isg_enum != 0
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install functions dependencies
+        run: cd functions && npm ci --only=production --no-optional && cd ..
+
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@v1
+        with:
+          args: deploy --only functions
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

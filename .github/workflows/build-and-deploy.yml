@@ -104,18 +104,19 @@ jobs:
 
       - name: Merge cache with current build
         if: steps.check_firebase.outputs.set == 1 && steps.partial_build.outputs.isg != 0
+        continue-on-error: true
         run: |
-          mkdir -p cache
           cp -rn cache/* dist/
-          cp -rn cache/.* dist/
-          cp ./.*.json dist/
+          cp -r cache/.* dist/
 
       - name: Archive compiled assets and views
         if: steps.check_firebase.outputs.set == 1
         uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: dist
+          path: |
+            dist
+            .*.json
 
       - name: Config Git and check diff
         run: |

@@ -107,7 +107,8 @@ jobs:
         run: |
           mkdir -p cache
           cp -rn cache/* dist/
-          cp -r cache/.* dist/
+          cp -rn cache/.* dist/
+          cp ./.*.json dist/
 
       - name: Archive compiled assets and views
         if: steps.check_firebase.outputs.set == 1
@@ -136,9 +137,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
 
-  deploy-hosting:
+  deploy:
     needs: build
-    name: Deploy to Firebase Hosting
+    name: Deploy to Firebase
     runs-on: ubuntu-latest
     if: needs.build.outputs.to_firebase == 1
 
@@ -152,29 +153,21 @@ jobs:
           name: dist
           path: dist
 
-      - name: Deploy to Firebase
+      - name: Deploy Firebase Hosting
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
-  deploy-functions:
-    needs: build
-    name: Deploy Cloud Functions
-    runs-on: ubuntu-latest
-    if: needs.build.outputs.to_firebase == 1 && needs.build.outputs.isg_enum == 0
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
       - name: Setup Node
+        if: needs.build.outputs.isg_enum == 0
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
 
       - name: Cache dependencies
+        if: needs.build.outputs.isg_enum == 0
         uses: actions/cache@v1
         with:
           path: ~/.npm
@@ -182,10 +175,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install functions dependencies
-        run: cd functions && npm ci --only=production --no-optional && cd ..
+      - name: Install dependencies and bundles data
+        if: needs.build.outputs.isg_enum == 0
+        run: |
+          cd functions && npm ci --only=production --no-optional && cd ..
+          cp -n dist/.bundles.json ./
 
       - name: Deploy to Firebase
+        if: needs.build.outputs.isg_enum == 0
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only functions

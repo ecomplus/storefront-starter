@@ -163,7 +163,7 @@ jobs:
     needs: build
     name: Deploy Cloud Functions
     runs-on: ubuntu-latest
-    if: needs.build.outputs.to_firebase == 1 && needs.build.outputs.isg_enum != 0
+    if: needs.build.outputs.to_firebase == 1 && needs.build.outputs.isg_enum == 0
 
     steps:
       - name: Checkout

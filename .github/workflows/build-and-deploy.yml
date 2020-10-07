@@ -9,6 +9,7 @@ on:
       - 'template/**'
       - 'package-lock.json'
       - '.ecomplus.cd.json'
+      - '.github/build-and-deploy'
 
 jobs:
   build:

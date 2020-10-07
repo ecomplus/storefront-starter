@@ -43,9 +43,9 @@ jobs:
       - name: Check if deploying to Firebase
         run: |
           if [ -z ${FIREBASE_TOKEN+x} ] || [ ! -f .firebaserc ] || [ ! -f firebase.json ]; then
-            echo "::set-output name=set::1";
-          else
             echo "::set-output name=set::0";
+          else
+            echo "::set-output name=set::1";
           fi
         id: check_firebase
 

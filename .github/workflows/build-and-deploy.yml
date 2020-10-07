@@ -179,7 +179,7 @@ jobs:
         if: needs.build.outputs.isg_enum == 0
         run: |
           cd functions && npm ci --only=production --no-optional && cd ..
-          cp -n dist/.bundles.json ./
+          cp -n dist/.*.json ./
 
       - name: Deploy to Firebase
         if: needs.build.outputs.isg_enum == 0

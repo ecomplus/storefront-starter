@@ -15,7 +15,7 @@
     ],
     "rewrites": [
       {
-        "source": "**/*",
+        "source": "**/!(*(*.)js|*(*.)css|*(*.)ico|*(*.)png)",
         "function": "ssr"
       }
     ],
@@ -57,7 +57,7 @@
         ]
       },
       {
-        "source": "**/*.?????*.@(js|css|png|gif|jpg|jpeg|webp|svg)",
+        "source": "**/*.?????*.@(js|css|png|gif|jpg|jpeg|webp|svg|ico|woff|woff2|otf|ttf|eot)",
         "headers": [
           {
             "key": "cache-control",

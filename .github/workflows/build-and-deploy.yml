@@ -84,11 +84,11 @@ jobs:
               npm run build -- --prerender=$BUILD_SLUG --no-bundler;
               echo "::set-output name=isg::2";
             else
-              npm run build -- --prerender=index,app/index --prerender-limit=20 --no-bundler;
+              npm run build -- --prerender=index,app/index --prerender-limit=50 --no-bundler;
               echo "::set-output name=isg::1";
             fi
           else
-            npm run build -- --prerender=index,app/index --prerender-limit=40;
+            npm run build -- --prerender=index,app/index,search,404 --prerender-limit=100;
             echo "::set-output name=isg::0";
           fi
         id: partial_build
@@ -155,7 +155,7 @@ jobs:
         if: steps.check_firebase.outputs.set == 1 && steps.partial_build.outputs.isg == 0
         run: cd functions && npm ci --only=production --no-optional && cd ..
 
-      - name: Deploy to Firebase
+      - name: Deploy Cloud Functions
         if: steps.check_firebase.outputs.set == 1 && steps.partial_build.outputs.isg == 0
         uses: w9jds/firebase-action@master
         with:

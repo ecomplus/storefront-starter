@@ -109,14 +109,16 @@ jobs:
           cp -rn cache/* dist/
           cp -r cache/.* dist/
 
+      - name: Copy bundles data to output
+        if: steps.check_firebase.outputs.set == 1
+        run: cp -n .*.json dist/
+
       - name: Archive compiled assets and views
         if: steps.check_firebase.outputs.set == 1
         uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: |
-            dist
-            .*.json
+          path: dist
 
       - name: Config Git and check diff
         run: |

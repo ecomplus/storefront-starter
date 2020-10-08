@@ -106,10 +106,12 @@ jobs:
         run: |
           cp -rn cache/* dist/
           cp -r cache/.* dist/
+          cp -n cache/.*.json ./
 
       - name: Copy bundles data to output
         if: steps.check_firebase.outputs.set == 1
-        run: cp -n .*.json dist/
+        continue-on-error: true
+        run: cp .*.json dist/
 
       - name: Archive compiled assets and views
         if: steps.check_firebase.outputs.set == 1

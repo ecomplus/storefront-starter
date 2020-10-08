@@ -11,6 +11,8 @@ update_configs:
     allowed_updates:
       - match:
           dependency_name: "@ecomplus/storefront-template"
+      - match:
+          dependency_name: "@ecomplus/storefront-renderer"
 
     automerged_updates:
       - match:

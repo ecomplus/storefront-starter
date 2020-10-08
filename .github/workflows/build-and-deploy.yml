@@ -10,19 +10,17 @@ on:
       - 'package-lock.json'
       - '.ecomplus.cd.json'
       - '.github/build-and-deploy'
+      - '.github/workflows/build-and-deploy.yml'
 
 jobs:
-  build:
-    name: Build Storefront
+  build-and-deploy:
+    name: Build Storefront and deploy
     runs-on: ubuntu-latest
     if: |
       github.event.head_commit.message != 'Initial commit' &&
       !contains(github.event.head_commit.message, '[skip ci]')
     env:
       FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-    outputs:
-      to_firebase: ${{ steps.check_firebase.outputs.set }}
-      isg_enum: ${{ steps.partial_build.outputs.isg }}
 
     steps:
       - name: Checkout
@@ -121,6 +119,7 @@ jobs:
           path: dist
 
       - name: Config Git and check diff
+        continue-on-error: true
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
@@ -130,63 +129,32 @@ jobs:
 
       - name: Commit local file changes
         if: steps.git_diff.outputs.diff == 1
+        continue-on-error: true
         run: |
           git commit -m 'chore: update template default content [skip ci]'
 
       - name: Push changes
         if: steps.git_diff.outputs.diff == 1
+        continue-on-error: true
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
 
-  deploy:
-    needs: build
-    name: Deploy to Firebase
-    runs-on: ubuntu-latest
-    if: needs.build.outputs.to_firebase == 1
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Setup Node
-        if: needs.build.outputs.isg_enum == 0
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-
-      - name: Download build output
-        uses: actions/download-artifact@v2
-        with:
-          name: dist
-          path: dist
-
-      - name: Copy built bundles data
-        run: cp -n dist/.*.json ./
-
-      - name: Deploy Firebase Hosting
+      - name: Deploy to Firebase Hosting
+        if: steps.check_firebase.outputs.set == 1
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
-      - name: Cache dependencies
-        if: needs.build.outputs.isg_enum == 0
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Install functions dependencies
-        if: needs.build.outputs.isg_enum == 0
+        if: steps.check_firebase.outputs.set == 1 && steps.partial_build.outputs.isg == 0
         run: cd functions && npm ci --only=production --no-optional && cd ..
 
       - name: Deploy to Firebase
-        if: needs.build.outputs.isg_enum == 0
+        if: steps.check_firebase.outputs.set == 1 && steps.partial_build.outputs.isg == 0
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only functions

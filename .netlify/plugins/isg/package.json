@@ -1,0 +1,19 @@
+{
+  "name": "storefront-isg",
+  "version": "0.1.0",
+  "description": "Utility to support incremental static generation for Storefront on Netlify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomplus/storefront-starter.git"
+  },
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomplus/storefront-starter/issues"
+  },
+  "homepage": "https://github.com/ecomplus/storefront-starter#readme"
+}

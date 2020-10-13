@@ -43,12 +43,6 @@ jobs:
       - name: Install dependencies
         run: npm ci --only=production
 
-      - name: Download cached data
-        uses: actions/download-artifact@v2
-        continue-on-error: true
-        with:
-          name: track-latest
-
       - name: Check last changed files
         uses: lots0logs/gh-action-get-changed-files@2.1.4
         with:
@@ -61,7 +55,7 @@ jobs:
         run: |
           IS_ECOMPLUS_CD=$(node -p \
             "const f = JSON.parse('${CHANGED_FILES}'); f.length === 1 && f[0] === '.ecomplus.cd.json'");
-          if [ $IS_ECOMPLUS_CD != false ]; then
+          if [ $IS_ECOMPLUS_CD != false ] && [ -f .bundles.json ]; then
             BUILD_SLUG=$(node -p "require('./.ecomplus.cd.json').slug || false");
             if [ $BUILD_SLUG != false ]; then
               npm run build -- --prerender=$BUILD_SLUG --no-bundler;
@@ -86,12 +80,6 @@ jobs:
         continue-on-error: true
         run: cp .*.json .deploy/
 
-      - name: Archive compiled bundles data
-        uses: actions/upload-artifact@v2
-        with:
-          name: track-latest
-          path: .*.json
-
       - name: Output ISG state
         if: steps.partial_build.outputs.isg != 0
         env:
@@ -111,7 +99,7 @@ jobs:
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git add content template
+          git add .bundles.json content template
           (git diff-index --quiet HEAD && echo "::set-output name=diff::0") || echo "::set-output name=diff::1"
         id: git_diff
 
@@ -119,7 +107,7 @@ jobs:
         if: steps.git_diff.outputs.diff == 1
         continue-on-error: true
         run: |
-          git commit -m 'chore: update template default content [skip ci]'
+          git commit -m 'chore: update template defaults and bundles data [skip ci]'
 
       - name: Push changes
         if: steps.git_diff.outputs.diff == 1

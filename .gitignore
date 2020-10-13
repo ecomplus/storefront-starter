@@ -3,6 +3,7 @@
 /dist
 /cache
 /.serve
+/.deploy
 /template/**/storefront-template
 /template/public/assets/vendor/
 /template/scss/styles.scss

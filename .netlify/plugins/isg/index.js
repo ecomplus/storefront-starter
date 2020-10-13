@@ -12,14 +12,14 @@ const handleCacheList = async ({ utils, constants }, filepaths, method) => {
 
 module.exports = {
   async onPreBuild (context) {
-    if (getCompiledFiles().includes('.isg')) {
+    if (getCompiledFiles(context).includes('.isg')) {
       const cachedFiles = await context.utils.cache.list()
       await handleCacheList(context, cachedFiles, 'restore')
     }
   },
 
   async onPostBuild (context) {
-    const compiledFiles = getCompiledFiles()
+    const compiledFiles = getCompiledFiles(context)
     await handleCacheList(context, compiledFiles, 'save')
     if (!compiledFiles.includes('.isg')) {
       const oldCacheFiles = await context.utils.cache.list()

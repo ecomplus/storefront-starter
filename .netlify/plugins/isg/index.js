@@ -22,9 +22,9 @@ module.exports = {
     const compiledFiles = getCompiledFiles(context)
     await handleCacheList(context, compiledFiles, 'save')
     if (!compiledFiles.includes('.isg')) {
-      const oldCacheFiles = await context.utils.cache.list()
-        .filter(filepath => !compiledFiles.includes(filepath))
-      await handleCacheList(context, oldCacheFiles, 'remove')
+      const cachedFiles = await context.utils.cache.list()
+      const oldCachedFiles = cachedFiles.filter(filepath => !compiledFiles.includes(filepath))
+      await handleCacheList(context, oldCachedFiles, 'remove')
     }
   }
 }

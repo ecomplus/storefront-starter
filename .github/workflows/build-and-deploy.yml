@@ -44,6 +44,7 @@ jobs:
 
       - name: Download cached data
         uses: actions/download-artifact@v2
+        continue-on-error: true
         with:
           name: track-latest
 

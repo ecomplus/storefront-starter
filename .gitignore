@@ -1,5 +1,4 @@
 # Template vendors and output files
-.bundles.json
 /dist
 /cache
 /.serve

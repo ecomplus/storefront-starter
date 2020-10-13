@@ -1,8 +1,0 @@
-[build]
-  functions = ".functions"
-  NODE_ENV = "10.15.3"
-
-[[redirects]]
-  from = "/*"
-  to = "/.netlify/functions/ssr?slug=:splat"
-  status = 302

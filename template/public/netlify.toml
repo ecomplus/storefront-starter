@@ -1,5 +1,5 @@
 [build]
-  functions = "functions/lambda"
+  functions = ".functions"
   NODE_ENV = "10.15.3"
 
 [[redirects]]

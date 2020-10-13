@@ -97,7 +97,9 @@ jobs:
 
       - name: Copy bundles data to output
         continue-on-error: true
-        run: cp .*.json dist/
+        run: |
+          cp .*.json dist/
+          cp -r functions/lambda dist/.functions
 
       - name: Archive compiled assets and views
         uses: actions/upload-artifact@v2

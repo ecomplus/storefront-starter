@@ -55,7 +55,6 @@ jobs:
         id: changed_files
 
       - name: Run partial build
-        if: steps.check_firebase.outputs.set == 1
         env:
           CHANGED_FILES: ${{ steps.changed_files.outputs.all }}
         run: |

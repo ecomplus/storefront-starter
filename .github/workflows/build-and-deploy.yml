@@ -19,12 +19,12 @@ jobs:
     if: |
       github.event.head_commit.message != 'Initial commit' &&
       !contains(github.event.head_commit.message, '[skip ci]')
-    env:
-      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+        with:
+          ref: ${{ github.ref }}
 
       - name: Setup Node
         uses: actions/setup-node@v1
@@ -39,33 +39,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Check if deploying to Firebase
-        run: |
-          if [ -z ${FIREBASE_TOKEN+x} ] || [ ! -f .firebaserc ] || [ ! -f firebase.json ]; then
-            echo "::set-output name=set::0";
-          else
-            echo "::set-output name=set::1";
-          fi
-        id: check_firebase
-
       - name: Install dependencies
         run: npm ci --only=production
 
-      - name: Run build
-        if: steps.check_firebase.outputs.set == 0
-        run: npm run build
-
-      - name: Push to branch dist to trigger deploy
-        if: steps.check_firebase.outputs.set == 0
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+      - name: Download cached data
+        uses: actions/download-artifact@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: dist
-          FOLDER: dist
-          CLEAN: true
+          name: track-latest
 
       - name: Check last changed files
-        if: steps.check_firebase.outputs.set == 1
         uses: lots0logs/gh-action-get-changed-files@2.1.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -93,32 +75,35 @@ jobs:
           fi
         id: partial_build
 
-      - name: Download cached output
-        if: steps.check_firebase.outputs.set == 1 && steps.partial_build.outputs.isg != 0
-        uses: actions/download-artifact@v2
-        with:
-          name: dist
-          path: cache
-
-      - name: Merge cache with current build
-        if: steps.check_firebase.outputs.set == 1 && steps.partial_build.outputs.isg != 0
-        continue-on-error: true
+      - name: Setup output directory to deploy
         run: |
-          cp -rn cache/* dist/
-          cp -r cache/.* dist/
-          cp -n cache/.*.json ./
+          mkdir -p .deploy
+          mv dist .deploy/publish
+          cp -r .netlify/* .deploy/
 
       - name: Copy bundles data to output
-        if: steps.check_firebase.outputs.set == 1
         continue-on-error: true
-        run: cp .*.json dist/
+        run: cp .*.json .deploy/
 
-      - name: Archive compiled assets and views
-        if: steps.check_firebase.outputs.set == 1
+      - name: Archive compiled bundles data
         uses: actions/upload-artifact@v2
         with:
-          name: dist
-          path: dist
+          name: track-latest
+          path: .*.json
+
+      - name: Output ISG state
+        if: steps.partial_build.outputs.isg != 0
+        env:
+          ISG_ENUM: ${{ steps.partial_build.outputs.isg }}
+        run: echo "$ISG_ENUM" > .deploy/.isg
+
+      - name: Push to branch dist to trigger deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: dist
+          FOLDER: .deploy
+          CLEAN: true
 
       - name: Config Git and check diff
         continue-on-error: true
@@ -142,23 +127,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
-
-      - name: Deploy to Firebase Hosting
-        if: steps.check_firebase.outputs.set == 1
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-
-      - name: Install functions dependencies
-        if: steps.check_firebase.outputs.set == 1 && steps.partial_build.outputs.isg == 0
-        run: cd functions && npm ci --only=production --no-optional && cd ..
-
-      - name: Deploy Cloud Functions
-        if: steps.check_firebase.outputs.set == 1 && steps.partial_build.outputs.isg == 0
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only functions
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

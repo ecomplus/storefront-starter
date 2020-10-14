@@ -81,6 +81,11 @@ jobs:
           mkdir -p .deploy/functions/template/pages/@ecomplus
           cp -r node_modules/@ecomplus/widget-* .deploy/functions/template/pages/@ecomplus/ 2>/dev/null || :
 
+      - name: Zip Lambda functions
+        run: |
+          npx zip-it-and-ship-it .deploy/functions .deploy/functions-zip
+          rm -rf .deploy/functions
+
       - name: Clear output directory
         continue-on-error: true
         run: rm -rf .deploy/functions/template/pages/**/node_modules

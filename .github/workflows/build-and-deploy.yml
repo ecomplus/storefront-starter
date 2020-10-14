@@ -78,17 +78,22 @@ jobs:
           cp -r template .deploy/functions/
           cp -r content .deploy/functions/
           cp .bundles.json .deploy/functions/
+          mkdir .deploy/functions-zip
           mkdir -p .deploy/functions/template/pages/@ecomplus
           cp -r node_modules/@ecomplus/widget-* .deploy/functions/template/pages/@ecomplus/ 2>/dev/null || :
 
+      - name: Clear functions source
+        continue-on-error: true
+        run: rm -rf .deploy/functions/template/pages/**/node_modules
+
       - name: Zip Lambda functions
-        run: |
-          npx zip-it-and-ship-it .deploy/functions .deploy/functions-zip
-          rm -rf .deploy/functions
+        uses: montudor/action-zip@v0.1.0
+        with:
+          args: zip -qq -r .deploy/functions-zip/ssr.zip .deploy/functions
 
       - name: Clear output directory
         continue-on-error: true
-        run: rm -rf .deploy/functions/template/pages/**/node_modules
+        run: rm -rf .deploy/functions
 
       - name: Output ISG state
         if: steps.partial_build.outputs.isg != 0

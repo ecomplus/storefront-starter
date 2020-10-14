@@ -13,14 +13,19 @@
   package = "./plugins/isg"
 
 [[headers]]
-  for = "/storefront.*.*"
+  for = "/storefront.*"
   [headers.values]
-  	Cache-Control = "public, max-age=604800"
+  	Cache-Control = "public, max-age=600, s-maxage=60, must-revalidate"
+
+[[headers]]
+  for = "/checkout.*"
+  [headers.values]
+  	Cache-Control = "public, max-age=600, s-maxage=60"
 
 [[headers]]
   for = "/img/*"
   [headers.values]
-  	Cache-Control = "public, max-age=3600, s-maxage=60, must-revalidate"
+  	Cache-Control = "public, max-age=300, s-maxage=60, must-revalidate"
 
 [[headers]]
   for = "/assets/*"

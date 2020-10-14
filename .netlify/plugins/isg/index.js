@@ -15,8 +15,6 @@ module.exports = {
       console.log('>> Restoring ISG cache')
       await utils.cache.restore(PUBLISH_DIR)
     } else {
-      console.log('>> Removing ISG old cache')
-      await utils.cache.remove(PUBLISH_DIR)
       console.log('>> Saving ISG cache')
       await utils.cache.save(PUBLISH_DIR)
     }

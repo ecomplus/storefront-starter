@@ -38,7 +38,8 @@ module.exports = {
 
     if (!isIsg) {
       console.log('>> Removing old cache')
-      const oldCachedFiles = cachedFiles.filter(filepath => !compiledFiles.includes(filepath))
+      const oldCachedFiles = cachedFiles
+        .filter(filepath => utils.git.deletedFiles.includes(filepath))
       await handleCacheList(context, oldCachedFiles, 'remove')
     }
   }

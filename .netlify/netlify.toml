@@ -8,6 +8,3 @@
   from = "/*"
   to = "/.netlify/functions/ssr?slug=:splat"
   status = 200
-
-[[plugins]]
-  package = "./plugins/isg"

@@ -58,10 +58,10 @@ jobs:
           if [ $IS_ECOMPLUS_CD != false ] && [ -f .bundles.json ]; then
             BUILD_SLUG=$(node -p "require('./.ecomplus.cd.json').slug || false");
             if [ $BUILD_SLUG != false ]; then
-              npm run build -- --prerender=$BUILD_SLUG --no-bundler;
+              npm run build -- --prerender=index,$BUILD_SLUG --no-bundler;
               echo "::set-output name=isg::2";
             else
-              npm run build -- --prerender=index,app/index --prerender-limit=50 --no-bundler;
+              npm run build -- --prerender=index,app/index --prerender-limit=200 --no-bundler;
               echo "::set-output name=isg::1";
             fi
           else

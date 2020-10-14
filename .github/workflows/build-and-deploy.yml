@@ -75,8 +75,8 @@ jobs:
           mkdir -p .deploy
           mv dist .deploy/publish
           cp -r .netlify/* .deploy/
-          cp -r template .deploy/
-          cp -r content .deploy/
+          cp -r template .deploy/functions/
+          cp -r content .deploy/functions/
           cp .bundles.json .deploy/functions/
           mkdir -p .deploy/functions/template/pages/@ecomplus
           cp -r node_modules/@ecomplus/widget-* .deploy/functions/template/pages/@ecomplus/ 2>/dev/null || :

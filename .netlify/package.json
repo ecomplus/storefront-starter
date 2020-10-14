@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/ecomplus/storefront-starter#readme",
   "dependencies": {
-    "@ecomplus/storefront-renderer": "^2.2.0"
+    "@ecomplus/storefront-renderer": "^2.2.1"
   }
 }

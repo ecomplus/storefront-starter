@@ -12,17 +12,32 @@ const handleCacheList = async ({ utils, constants }, filepaths, method) => {
 
 module.exports = {
   async onPostBuild (context) {
-    const { utils } = context
+    const { utils, constants } = context
     const compiledFiles = utils.git.createdFiles.concat(utils.git.modifiedFiles)
-    const cachedFiles = await context.utils.cache.list()
     const isIsg = compiledFiles.includes('.isg')
+
+    const absoluteCachedFiles = await context.utils.cache.list()
+    const testFile = `/${constants.PUBLISH_DIR}/index.html`
+    const absolutePath = absoluteCachedFiles
+      .find(filepath => filepath.endsWith(testFile))
+    let cachedFiles
+    if (absolutePath) {
+      const basePath = absolutePath.replace(testFile, '/')
+      cachedFiles = absoluteCachedFiles.map(filepath => filepath.replace(basePath, ''))
+    } else {
+      cachedFiles = absoluteCachedFiles
+    }
+
     if (isIsg) {
       console.log('>> Restoring cache')
       await handleCacheList(context, cachedFiles, 'restore')
     }
+
     console.log('>> Saving cache')
     await handleCacheList(context, compiledFiles, 'save')
+
     if (!isIsg) {
+      console.log('>> Removing old cache')
       const oldCachedFiles = cachedFiles.filter(filepath => !compiledFiles.includes(filepath))
       await handleCacheList(context, oldCachedFiles, 'remove')
     }

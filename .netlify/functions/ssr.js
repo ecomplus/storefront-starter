@@ -1,6 +1,5 @@
-exports.handler = (event, context, callback) => {
-  const slug = event.queryStringParameters.slug
-  if (/\.(js|css|ico|png|gif|jpg|jpeg|webp|svg)$/.test(slug)) {
+exports.handler = ({ path }, context, callback) => {
+  if (/\.(js|css|ico|png|gif|jpg|jpeg|webp|svg)$/.test(path)) {
     return callback(null, {
       statusCode: 404,
       'Cache-Control': 'public, max-age=60'
@@ -11,7 +10,7 @@ exports.handler = (event, context, callback) => {
   const headers = {}
 
   const req = {
-    url: slug.charAt(0) === '/' ? slug : `/${slug}`
+    url: path.charAt(0) === '/' ? path : `/${path}`
   }
 
   const res = {

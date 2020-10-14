@@ -75,15 +75,15 @@ jobs:
           mkdir -p .deploy
           mv dist .deploy/publish
           cp -r .netlify/* .deploy/
-          cp -r template .deploy/functions/
-          cp -r content .deploy/functions/
-          cp .bundles.json .deploy/functions/bundles.json
-          mkdir -p .deploy/functions/template/pages/@ecomplus
-          cp -r node_modules/@ecomplus/widget-* .deploy/functions/template/pages/@ecomplus/ 2>/dev/null || :
+          cp -r template .deploy/functions/ssr/
+          cp -r content .deploy/functions/ssr/
+          cp .bundles.json .deploy/functions/ssr/bundles.json
+          mkdir -p .deploy/functions/ssr/template/pages/@ecomplus
+          cp -r node_modules/@ecomplus/widget-* .deploy/functions/ssr/template/pages/@ecomplus/ 2>/dev/null || :
 
       - name: Clear functions directory
         continue-on-error: true
-        run: rm -rf .deploy/functions/template/pages/**/node_modules
+        run: rm -rf .deploy/functions/ssr/template/pages/**/node_modules
 
       - name: Zip Lambda functions
         run: |

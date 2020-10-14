@@ -1,5 +1,9 @@
 const path = require('path')
 
+process.env.NODE_ENV = 'production'
+process.env.STOREFRONT_BASE_DIR = __dirname
+process.env.STOREFRONT_BUNDLES_PATH = path.join(`${__dirname}/bundles.json`)
+
 exports.handler = (ev, context, callback) => {
   if (/\.(js|css|ico|png|gif|jpg|jpeg|webp|svg)$/.test(ev.path)) {
     return callback(null, {
@@ -33,9 +37,6 @@ exports.handler = (ev, context, callback) => {
       return res
     }
   }
-
-  process.env.STOREFRONT_BASE_DIR = __dirname
-  process.env.STOREFRONT_BUNDLES_PATH = path.join(`${__dirname}/bundles.json`)
 
   const { ssr } = require('@ecomplus/storefront-renderer/functions/')
   ssr(req, res)

@@ -75,10 +75,15 @@ jobs:
           mkdir -p .deploy
           mv dist .deploy/publish
           cp -r .netlify/* .deploy/
+          cp -r template .deploy/
+          cp -r content .deploy/
+          cp .bundles.json .deploy/functions/
+          mkdir -p .deploy/functions/template/pages/@ecomplus
+          cp -r node_modules/@ecomplus/widget-* .deploy/functions/template/pages/@ecomplus/ 2>/dev/null || :
 
-      - name: Copy bundles data to output
+      - name: Clear output directory
         continue-on-error: true
-        run: cp .*.json .deploy/
+        run: rm -rf .deploy/functions/template/pages/**/node_modules
 
       - name: Output ISG state
         if: steps.partial_build.outputs.isg != 0

@@ -1,7 +1,11 @@
-const { ssr } = require('@ecomplus/storefront-renderer/functions/')
-
 exports.handler = (event, context, callback) => {
   const slug = event.queryStringParameters.slug
+  if (/\.(js|css|ico|png|gif|jpg|jpeg|webp|svg)$/.test(slug)) {
+    return callback(null, {
+      statusCode: 404,
+      'Cache-Control': 'public, max-age=60'
+    })
+  }
 
   let statusCode = 200
   const headers = {}
@@ -29,5 +33,6 @@ exports.handler = (event, context, callback) => {
     }
   }
 
+  const { ssr } = require('@ecomplus/storefront-renderer/functions/')
   ssr(req, res)
 }

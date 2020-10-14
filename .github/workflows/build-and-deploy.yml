@@ -91,7 +91,7 @@ jobs:
       - name: Zip Lambda functions
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -qq -r ../functions-zip/ssr.zip ./*
+          args: zip -qq -r ../functions-zip/ssr.zip .
 
       - name: Clear output directory
         continue-on-error: true

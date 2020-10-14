@@ -1,8 +1,6 @@
 [build]
-  command = "echo 'E-Com Plus Storefront ISG'"
   publish = "publish"
   functions = "functions-zip"
-  NODE_ENV = "10.15.3"
 
 [[redirects]]
   from = "/*"

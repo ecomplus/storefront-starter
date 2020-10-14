@@ -1,0 +1,28 @@
+{
+  "name": "storefront-ssr",
+  "private": true,
+  "version": "0.1.0",
+  "description": "SSR for Storefront on Netlify with Lambda functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecomplus/storefront-starter.git"
+  },
+  "author": "E-Com Club <ti@e-com.club>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecomplus/storefront-starter/issues"
+  },
+  "homepage": "https://github.com/ecomplus/storefront-starter#readme",
+  "dependencies": {
+    "@ecomplus/storefront-renderer": "^2.3.0"
+  },
+  "files": [
+    "bundles.json",
+    "content/*",
+    "template/*"
+  ]
+}

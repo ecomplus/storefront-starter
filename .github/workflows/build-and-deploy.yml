@@ -89,7 +89,7 @@ jobs:
         if: steps.partial_build.outputs.isg != 0
         env:
           ISG_ENUM: ${{ steps.partial_build.outputs.isg }}
-        run: echo "$ISG_ENUM" > .deploy/.isg
+        run: echo $RANDOM > .deploy/.isg
 
       - name: Push to branch dist to trigger deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3

@@ -1,5 +1,6 @@
 {
   "name": "storefront-isg",
+  "private": true,
   "version": "0.1.0",
   "description": "Utility to support incremental static generation for Storefront on Netlify",
   "main": "index.js",

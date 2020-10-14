@@ -32,6 +32,7 @@ exports.handler = ({ path }, context, callback) => {
     }
   }
 
+  process.env.STOREFRONT_BASE_DIR = __dirname
   const { ssr } = require('@ecomplus/storefront-renderer/functions/')
   ssr(req, res)
 }

@@ -84,16 +84,20 @@ jobs:
 
       - name: Clear functions source
         continue-on-error: true
-        run: rm -rf .deploy/functions/template/pages/**/node_modules
+        run: |
+          cd .deploy/functions
+          rm -rf template/pages/**/node_modules
 
       - name: Zip Lambda functions
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -qq -r .deploy/functions-zip/ssr.zip .deploy/functions
+          args: zip -qq -r ../functions-zip/ssr.zip ./*
 
       - name: Clear output directory
         continue-on-error: true
-        run: rm -rf .deploy/functions
+        run: |
+          cd ../..
+          rm -rf .deploy/functions
 
       - name: Output ISG state
         if: steps.partial_build.outputs.isg != 0

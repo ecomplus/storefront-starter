@@ -5,7 +5,15 @@ process.env.STOREFRONT_BASE_DIR = __dirname
 process.env.STOREFRONT_BUNDLES_PATH = path.join(`${__dirname}/bundles.json`)
 
 exports.handler = (ev, context, callback) => {
-  if (/\.(js|css|ico|png|gif|jpg|jpeg|webp|svg)$/.test(ev.path)) {
+  if (/^\/(storefront|checkout)\.[^.]+\.(js|css)$/.test(ev.path)) {
+    const [filename, , ext] = ev.path.split('.')
+    return callback(null, {
+      statusCode: 301,
+      Location: `${filename}.${ext}`
+    })
+  }
+
+  if (/\.(js|css|ico|png|gif|jpg|jpeg|webp|svg|woff|woff2|otf|ttf|eot)$/.test(ev.path)) {
     return callback(null, {
       statusCode: 404,
       'Cache-Control': 'public, max-age=60'
@@ -33,7 +41,6 @@ exports.handler = (ev, context, callback) => {
       return res
     },
     send (body) {
-      headers['X-Request-ID'] = context.awsRequestId
       callback(null, { statusCode, headers, body })
       return res
     }

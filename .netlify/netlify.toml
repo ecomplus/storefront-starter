@@ -2,13 +2,23 @@
   publish = "publish"
   functions = "functions-zip"
 
+[[plugins]]
+  package = "./plugins/isg"
+
+[[redirects]]
+  from = "/storefront.*"
+  to = "/storefront.js"
+  status = 200
+
+[[redirects]]
+  from = "/checkout.*"
+  to = "/checkout.js"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/ssr?slug=:splat"
   status = 200
-
-[[plugins]]
-  package = "./plugins/isg"
 
 [[headers]]
   for = "/storefront.*"

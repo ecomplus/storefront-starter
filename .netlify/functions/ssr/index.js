@@ -33,6 +33,7 @@ exports.handler = (ev, context, callback) => {
       return res
     },
     send (body) {
+      headers['X-Request-ID'] = context.awsRequestId
       callback(null, { statusCode, headers, body })
       return res
     }

@@ -9,14 +9,18 @@ exports.handler = (ev, context, callback) => {
     const [filename, , ext] = ev.path.split('.')
     return callback(null, {
       statusCode: 301,
-      Location: `${filename}.${ext}`
+      headers: {
+        Location: `${filename}.${ext}`
+      }
     })
   }
 
   if (/\.(js|css|ico|png|gif|jpg|jpeg|webp|svg|woff|woff2|otf|ttf|eot)$/.test(ev.path)) {
     return callback(null, {
       statusCode: 404,
-      'Cache-Control': 'public, max-age=60'
+      headers: {
+        'Cache-Control': 'public, max-age=60'
+      }
     })
   }
 

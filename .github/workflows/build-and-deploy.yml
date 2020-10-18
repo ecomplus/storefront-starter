@@ -130,8 +130,10 @@ jobs:
         run: |
           git push "${REMOTE_REPO}" --delete dist;
           git checkout --orphan dist
+          git rm -rf .
           git commit --no-verify --allow-empty -m "Reset dist [skip ci]"
           git push "${REMOTE_REPO}" HEAD:dist --force --follow-tags
+          git checkout master
 
       - name: Push to branch dist to trigger deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3

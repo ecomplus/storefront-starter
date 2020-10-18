@@ -122,6 +122,17 @@ jobs:
           ISG_ENUM: ${{ steps.partial_build.outputs.isg }}
         run: echo $RANDOM > .deploy/.isg
 
+      - name: Reset dist to clear Git ref
+        if: steps.partial_build.outputs.isg == 0
+        continue-on-error: true
+        env:
+          REMOTE_REPO: ${{ steps.remote_repo.outputs.url }}
+        run: |
+          git push "${REMOTE_REPO}" --delete dist;
+          git checkout -b dist
+          git commit --no-verify --allow-empty -m "Reset dist [skip ci]"
+          git push "${REMOTE_REPO}" HEAD:dist
+
       - name: Push to branch dist to trigger deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
@@ -129,4 +140,3 @@ jobs:
           BRANCH: dist
           FOLDER: .deploy
           CLEAN: true
-          SINGLE_COMMIT: ${{ steps.partial_build.outputs.isg == 0 }}

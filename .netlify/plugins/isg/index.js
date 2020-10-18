@@ -7,7 +7,11 @@ module.exports = {
       const { createdFiles, modifiedFiles } = utils.git
       isIsg = createdFiles.includes('.isg') || modifiedFiles.includes('.isg')
     } catch (err) {
-      console.error(err)
+      if (err.exitCode !== 128) {
+        console.error(err)
+      } else {
+        console.log('>> Skipping Git changes check')
+      }
       isIsg = false
     }
 

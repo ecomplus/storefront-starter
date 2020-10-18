@@ -129,4 +129,4 @@ jobs:
           BRANCH: dist
           FOLDER: .deploy
           CLEAN: true
-          SINGLE_COMMIT: true
+          SINGLE_COMMIT: ${{ steps.partial_build.outputs.isg == 0 }}

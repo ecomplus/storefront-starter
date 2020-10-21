@@ -56,13 +56,32 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
         id: changed_files
 
-      - name: Run partial build
+      - name: Check if E-Com Plus CD trigger
         env:
           CHANGED_FILES: ${{ steps.changed_files.outputs.all }}
         run: |
           IS_ECOMPLUS_CD=$(node -p \
             "const f = JSON.parse('${CHANGED_FILES}'); f.length === 1 && f[0] === '.ecomplus.cd.json'");
-          if [ $IS_ECOMPLUS_CD != false ] && [ -f .bundles.json ]; then
+          if [ $IS_ECOMPLUS_CD != false ]; then
+            echo "::set-output name=is::1";
+          else
+            echo "::set-output name=is::0";
+          fi
+        id: ecomplus_cd
+
+      - name: Checkout dist for last build assets
+        if: steps.ecomplus_cd.outputs.is == 1
+        continue-on-error: true
+        uses: actions/checkout@v1
+        with:
+          ref: dist
+          path: cache
+
+      - name: Run partial build
+        env:
+          IS_ECOMPLUS_CD: ${{ steps.ecomplus_cd.outputs.is == 1 }}
+        run: |
+          if [ $IS_ECOMPLUS_CD != false ] && [ -f cache/.bundles.json ]; then
             BUILD_SLUG=$(node -p "require('./.ecomplus.cd.json').slug || false");
             if [ $BUILD_SLUG != false ]; then
               npm run build -- --prerender=index,$BUILD_SLUG --no-bundler;
@@ -71,6 +90,7 @@ jobs:
               npm run build -- --prerender=index,app/index --prerender-limit=200 --no-bundler;
               echo "::set-output name=isg::1";
             fi
+            cp -rn cache/publish/* dist/;
           else
             npm run build -- --prerender=index,app/index,search,404 --prerender-limit=100;
             echo "::set-output name=isg::0";
@@ -81,14 +101,14 @@ jobs:
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git add .bundles.json content template
+          git add content template
           (git diff-index --quiet HEAD && echo "::set-output name=diff::0") || echo "::set-output name=diff::1"
         id: git_diff
 
       - name: Commit local file changes
         if: steps.git_diff.outputs.diff == 1
         run: |
-          git commit -m 'chore: update template defaults and bundles data [skip ci]'
+          git commit -m 'chore: update template defaults [skip ci]'
 
       - name: Push changes
         if: steps.git_diff.outputs.diff == 1
@@ -99,6 +119,7 @@ jobs:
       - name: Setup output directory to deploy
         run: |
           mkdir -p .deploy
+          cp .*.json .deploy/
           mv dist .deploy/publish
           cp -r .netlify/* .deploy/
           cp -r template .deploy/functions/ssr/

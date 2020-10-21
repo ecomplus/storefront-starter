@@ -76,6 +76,7 @@ jobs:
         with:
           ref: dist
           path: cache
+        run: cd ..
 
       - name: Back to workflow root dir
         if: steps.ecomplus_cd.outputs.is == 1

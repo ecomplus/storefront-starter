@@ -78,6 +78,8 @@ jobs:
           path: cache
 
       - name: Checkout master for source
+        if: steps.ecomplus_cd.outputs.is == 1
+        continue-on-error: true
         uses: actions/checkout@v1
         with:
           ref: ${{ github.ref }}

@@ -77,15 +77,11 @@ jobs:
           ref: dist
           path: cache
 
-      - name: Back to workflow root dir
-        if: steps.ecomplus_cd.outputs.is == 1
-        continue-on-error: true
-        run: cd ..
-
       - name: Run partial build
         env:
           IS_ECOMPLUS_CD: ${{ steps.ecomplus_cd.outputs.is == 1 }}
         run: |
+          cd ..;
           if [ $IS_ECOMPLUS_CD != false ] && [ -f cache/.bundles.json ]; then
             BUILD_SLUG=$(node -p "require('./.ecomplus.cd.json').slug || false");
             if [ $BUILD_SLUG != false ]; then

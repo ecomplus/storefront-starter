@@ -101,17 +101,17 @@ jobs:
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git add content template
-          (git diff-index --quiet HEAD && echo "::set-output name=diff::0") || echo "::set-output name=diff::1"
+          echo "::set-output name=diff::$(git diff content template)"
         id: git_diff
 
       - name: Commit local file changes
-        if: steps.git_diff.outputs.diff == 1
+        if: steps.git_diff.outputs.diff != ''
         run: |
-          git commit -m 'chore: update template defaults [skip ci]'
+          git add content template
+          git commit -m 'chore: update template default content [skip ci]'
 
       - name: Push changes
-        if: steps.git_diff.outputs.diff == 1
+        if: steps.git_diff.outputs.diff != ''
         env:
           REMOTE_REPO: ${{ steps.remote_repo.outputs.url }}
         run: git push "${REMOTE_REPO}" HEAD:master --follow-tags

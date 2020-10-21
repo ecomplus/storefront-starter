@@ -81,6 +81,7 @@ jobs:
         env:
           IS_ECOMPLUS_CD: ${{ steps.ecomplus_cd.outputs.is == 1 }}
         run: |
+          ls -l
           if [ $IS_ECOMPLUS_CD != false ] && [ -f cache/.bundles.json ]; then
             BUILD_SLUG=$(node -p "require('./.ecomplus.cd.json').slug || false");
             if [ $BUILD_SLUG != false ]; then

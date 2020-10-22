@@ -103,6 +103,11 @@ jobs:
           REMOTE_REPO: ${{ steps.remote_repo.outputs.url }}
         run: git push "${REMOTE_REPO}" HEAD:master --follow-tags
 
+      - name: Clear cache if not ISG
+        if: steps.partial_build.outputs.isg == 0
+        continue-on-error: true
+        run: rm -rf .deploy
+
       - name: Setup output directory to deploy
         run: |
           mkdir -p .deploy/publish

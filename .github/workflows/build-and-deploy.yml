@@ -117,7 +117,7 @@ jobs:
           cp .bundles.json .deploy/functions/ssr/bundles.json
           mkdir -p .deploy/functions/ssr/template/pages/@ecomplus/storefront-template/template
           cp -r node_modules/@ecomplus/widget-* .deploy/functions/ssr/template/pages/@ecomplus/ 2>/dev/null || :
-          cp -r node_modules/@ecomplus/storefront-template/template/pages .deploy/functions/ssr/template/pages/@ecomplus/storefront-template/template || :
+          cp -r node_modules/@ecomplus/storefront-template/template/pages .deploy/functions/ssr/template/pages/@ecomplus/storefront-template/template/ || :
 
       - name: Clear functions directory
         continue-on-error: true

@@ -106,7 +106,7 @@ jobs:
       - name: Setup output directory to deploy
         run: |
           mkdir -p .deploy/publish
-          cp -rn dist/* .deploy/publish/
+          cp -r dist/* .deploy/publish/
           cp -r .netlify/* .deploy/
           cp -r template .deploy/functions/ssr/
           cp -r content .deploy/functions/ssr/

@@ -2,9 +2,6 @@
   publish = "publish"
   functions = "functions-zip"
 
-[[plugins]]
-  package = "./plugins/isg"
-
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/ssr?slug=:splat"

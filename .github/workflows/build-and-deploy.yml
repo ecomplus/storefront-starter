@@ -88,17 +88,17 @@ jobs:
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          echo "::set-output name=diff::$(git diff .bundles.json content template)"
+          git add .bundles.json content template
+          (git diff-index --quiet HEAD && echo "::set-output name=diff::0") || echo "::set-output name=diff::1"
         id: git_diff
 
       - name: Commit local file changes
-        if: steps.git_diff.outputs.diff != ''
+        if: steps.git_diff.outputs.diff == 1
         run: |
-          git add .bundles.json content template
           git commit -m 'chore: update template defaults and bundles data [skip ci]'
 
       - name: Push changes
-        if: steps.git_diff.outputs.diff != ''
+        if: steps.git_diff.outputs.diff == 1
         env:
           REMOTE_REPO: ${{ steps.remote_repo.outputs.url }}
         run: git push "${REMOTE_REPO}" HEAD:master --follow-tags

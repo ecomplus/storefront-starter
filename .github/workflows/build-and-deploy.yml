@@ -31,6 +31,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v1
+        with:
+          ref: ${{ github.ref }}
 
       - name: Setup Node
         uses: actions/setup-node@v1
@@ -45,6 +47,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Cache output
+        continue-on-error: true
+        uses: actions/cache@v1
+        with:
+          path: .deploy/publish
+          key: ${{ hashFiles('.bundles.json') }}
+
       - name: Install dependencies
         run: npm ci --only=production
 
@@ -54,32 +63,13 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
         id: changed_files
 
-      - name: Check if E-Com Plus CD trigger
+      - name: Run partial build
         env:
           CHANGED_FILES: ${{ steps.changed_files.outputs.all }}
         run: |
           IS_ECOMPLUS_CD=$(node -p \
             "const f = JSON.parse('${CHANGED_FILES}'); f.length === 1 && f[0] === '.ecomplus.cd.json'");
-          if [ $IS_ECOMPLUS_CD != false ]; then
-            echo "::set-output name=is::1";
-          else
-            echo "::set-output name=is::0";
-          fi
-        id: ecomplus_cd
-
-      - name: Checkout dist for last build assets
-        if: steps.ecomplus_cd.outputs.is == 1
-        continue-on-error: true
-        run: |
-          git checkout dist -- publish
-          mv publish cache
-          git checkout dist -- .bundles.json
-
-      - name: Run partial build
-        env:
-          IS_ECOMPLUS_CD: ${{ steps.ecomplus_cd.outputs.is == 1 }}
-        run: |
-          if [ $IS_ECOMPLUS_CD != false ] && [ -f cache/.bundles.json ]; then
+          if [ $IS_ECOMPLUS_CD != false ] && [ -f .bundles.json ] && [ -f .deploy/publish/index.html ]; then
             BUILD_SLUG=$(node -p "require('./.ecomplus.cd.json').slug || false");
             if [ $BUILD_SLUG != false ]; then
               npm run build -- --prerender=index,$BUILD_SLUG --no-bundler;
@@ -88,7 +78,6 @@ jobs:
               npm run build -- --prerender=index,app/index --prerender-limit=200 --no-bundler;
               echo "::set-output name=isg::1";
             fi
-            cp -rn cache/publish/* dist/;
           else
             npm run build -- --prerender=index,app/index,search,404 --prerender-limit=100;
             echo "::set-output name=isg::0";
@@ -99,14 +88,14 @@ jobs:
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          echo "::set-output name=diff::$(git diff content template)"
+          echo "::set-output name=diff::$(git diff .bundles.json content template)"
         id: git_diff
 
       - name: Commit local file changes
         if: steps.git_diff.outputs.diff != ''
         run: |
-          git add content template
-          git commit -m 'chore: update template default content [skip ci]'
+          git add .bundles.json content template
+          git commit -m 'chore: update template defaults and bundles data [skip ci]'
 
       - name: Push changes
         if: steps.git_diff.outputs.diff != ''
@@ -116,9 +105,8 @@ jobs:
 
       - name: Setup output directory to deploy
         run: |
-          mkdir -p .deploy
-          cp .*.json .deploy/
-          mv dist .deploy/publish
+          mkdir -p .deploy/publish
+          mv dist/* .deploy/publish/
           cp -r .netlify/* .deploy/
           cp -r template .deploy/functions/ssr/
           cp -r content .deploy/functions/ssr/

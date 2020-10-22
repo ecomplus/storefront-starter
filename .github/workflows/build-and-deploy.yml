@@ -31,8 +31,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v1
-        with:
-          ref: ${{ github.ref }}
 
       - name: Setup Node
         uses: actions/setup-node@v1
@@ -72,15 +70,10 @@ jobs:
       - name: Checkout dist for last build assets
         if: steps.ecomplus_cd.outputs.is == 1
         continue-on-error: true
-        uses: actions/checkout@v1
-        with:
-          ref: dist
-          path: cache
-
-      - name: Test folder after second checkout
-        if: steps.ecomplus_cd.outputs.is == 1
-        continue-on-error: true
-        run: ls; ls ..; cd ..;
+        run: |
+          git checkout dist -- publish
+          mv publish cache
+          git checkout dist -- .bundles.json
 
       - name: Run partial build
         env:
@@ -88,7 +81,6 @@ jobs:
         run: |
           if [ $IS_ECOMPLUS_CD != false ] && [ -f cache/.bundles.json ]; then
             BUILD_SLUG=$(node -p "require('./.ecomplus.cd.json').slug || false");
-            cp cache/.bundles.json ./;
             if [ $BUILD_SLUG != false ]; then
               npm run build -- --prerender=index,$BUILD_SLUG --no-bundler;
               echo "::set-output name=isg::2";

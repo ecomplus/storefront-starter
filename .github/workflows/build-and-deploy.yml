@@ -69,7 +69,7 @@ jobs:
         run: |
           IS_ECOMPLUS_CD=$(node -p \
             "const f = JSON.parse('${CHANGED_FILES}'); f.length === 1 && f[0] === '.ecomplus.cd.json'");
-          if [ $IS_ECOMPLUS_CD != false ] && [ -f .bundles.json ] && [ -f .deploy/publish/index.html ]; then
+          if [ $IS_ECOMPLUS_CD != false ] && [ -f .bundles.json ] && [ -f .deploy/publish/storefront.js ]; then
             BUILD_SLUG=$(node -p "require('./.ecomplus.cd.json').slug || false");
             if [ $BUILD_SLUG != false ]; then
               npm run build -- --prerender=index,$BUILD_SLUG --no-bundler;

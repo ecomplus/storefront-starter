@@ -67,8 +67,7 @@ jobs:
         env:
           CHANGED_FILES: ${{ steps.changed_files.outputs.all }}
         run: |
-          IS_ECOMPLUS_CD=$(node -p \
-            "const f = JSON.parse('${CHANGED_FILES}'); f.length === 1 && f[0] === '.ecomplus.cd.json'");
+          IS_ECOMPLUS_CD=$(node -p "const f = JSON.parse('${CHANGED_FILES}'); f.length === 1 && f[0] === '.ecomplus.cd.json'");
           if [ $IS_ECOMPLUS_CD != false ] && [ -f .bundles.json ] && [ -f .deploy/publish/storefront.js ]; then
             BUILD_SLUG=$(node -p "require('./.ecomplus.cd.json').slug || false");
             if [ $BUILD_SLUG != false ]; then
@@ -116,8 +115,9 @@ jobs:
           cp -r template .deploy/functions/ssr/
           cp -r content .deploy/functions/ssr/
           cp .bundles.json .deploy/functions/ssr/bundles.json
-          mkdir -p .deploy/functions/ssr/template/pages/@ecomplus
+          mkdir -p .deploy/functions/ssr/template/pages/@ecomplus/storefront-template/template
           cp -r node_modules/@ecomplus/widget-* .deploy/functions/ssr/template/pages/@ecomplus/ 2>/dev/null || :
+          cp -r node_modules/@ecomplus/storefront-template/template/pages .deploy/functions/ssr/template/pages/@ecomplus/storefront-template/template || :
 
       - name: Clear functions directory
         continue-on-error: true

@@ -77,12 +77,10 @@ jobs:
           ref: dist
           path: cache
 
-      - name: Checkout master for source
+      - name: Test folder after second checkout
         if: steps.ecomplus_cd.outputs.is == 1
         continue-on-error: true
-        uses: actions/checkout@v1
-        with:
-          ref: ${{ github.ref }}
+        run: ls; ls ..; cd ..;
 
       - name: Run partial build
         env:

@@ -74,11 +74,11 @@ jobs:
               npm run build -- --prerender=index,$BUILD_SLUG --no-bundler;
               echo "::set-output name=isg::2";
             else
-              npm run build -- --prerender=index,app/index --prerender-limit=200 --no-bundler;
+              npm run build -- --prerender-limit=1000 --no-bundler;
               echo "::set-output name=isg::1";
             fi
           else
-            npm run build -- --prerender=index,app/index,search,404 --prerender-limit=100;
+            npm run build -- --prerender=index,app/index,search,404 --prerender-limit=300;
             echo "::set-output name=isg::0";
           fi
         id: partial_build

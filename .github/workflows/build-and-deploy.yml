@@ -52,7 +52,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: .deploy/publish
-          key: ${{ hashFiles('.bundles.json') }}-${{ hashFiles('template/p*/**') }}
+          key: ${{ hashFiles('.bundles.json') }}-${{ hashFiles('template/p*/**') }}-${{ hashFiles('content/**') }}
 
       - name: Install dependencies
         run: npm ci --only=production

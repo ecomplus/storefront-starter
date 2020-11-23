@@ -47,12 +47,21 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Get ISG state
+        id: isg_state
+        run: |
+          if [ -f .isg ]; then
+            echo "::set-output name=rand::$(cat .isg)";
+          else
+            echo "::set-output name=rand::0";
+          fi
+
       - name: Cache output
         continue-on-error: true
         uses: actions/cache@v2
         with:
           path: .deploy/publish
-          key: ${{ hashFiles('.bundles.json') }}-${{ hashFiles('template/p*/**') }}-${{ hashFiles('content/**') }}-${{ hashFiles('.isg') }}
+          key: ${{ hashFiles('.bundles.json') }}-${{ hashFiles('template/p*/**') }}-${{ hashFiles('content/**') }}-${{ steps.isg_state.outputs.rand }}
 
       - name: Install dependencies
         run: npm ci --only=production
@@ -158,9 +167,18 @@ jobs:
           FOLDER: .deploy
           CLEAN: true
 
+      - name: Get new ISG state
+        id: new_isg_state
+        run: |
+          if [ -f .isg ]; then
+            echo "::set-output name=rand::$(cat .isg)";
+          else
+            echo "::set-output name=rand::0";
+          fi
+
       - name: Cache output force update
         continue-on-error: true
         uses: actions/cache@v2
         with:
           path: .deploy/publish
-          key: ${{ hashFiles('.bundles.json') }}-${{ hashFiles('template/p*/**') }}-${{ hashFiles('content/**') }}-${{ hashFiles('.isg') }}
+          key: ${{ hashFiles('.bundles.json') }}-${{ hashFiles('template/p*/**') }}-${{ hashFiles('content/**') }}-${{ steps.new_isg_state.outputs.rand }}

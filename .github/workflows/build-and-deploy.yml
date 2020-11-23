@@ -40,7 +40,7 @@ jobs:
           node-version: '12.x'
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: leomp12/cache@master
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -49,10 +49,11 @@ jobs:
 
       - name: Cache output
         continue-on-error: true
-        uses: actions/cache@v1
+        uses: leomp12/cache@master
         with:
           path: .deploy/publish
-          key: ${{ hashFiles('.bundles.json') }}-${{ hashFiles('template/p*/**') }}-${{ hashFiles('content/**') }}-${{ hashFiles('.isg') }}
+          key: ${{ hashFiles('.bundles.json') }}-${{ hashFiles('template/p*/**') }}-${{ hashFiles('content/**') }}
+          update: true
 
       - name: Install dependencies
         run: npm ci --only=production
@@ -83,28 +84,18 @@ jobs:
           fi
         id: partial_build
 
-      - name: Output ISG state
-        env:
-          ISG_ENUM: ${{ steps.partial_build.outputs.isg }}
-        run: |
-          if [ $ISG_ENUM != 0 ]; then
-            echo $RANDOM > .isg
-          else
-            echo "" > .isg
-          fi
-
       - name: Config Git and check diff
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git add .isg .bundles.json content template
+          git add .bundles.json content template
           (git diff-index --quiet HEAD && echo "::set-output name=diff::0") || echo "::set-output name=diff::1"
         id: git_diff
 
       - name: Commit local file changes
         if: steps.git_diff.outputs.diff == 1
         run: |
-          git commit -m 'chore: update template defaults, isg state or bundles data [skip ci]'
+          git commit -m 'chore: update template defaults and bundles data [skip ci]'
 
       - name: Push changes
         if: steps.git_diff.outputs.diff == 1

@@ -52,7 +52,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: .deploy/publish
-          key: ${{ hashFiles('.bundles.json') }}-${{ hashFiles('template/p*/**') }}-${{ hashFiles('content/**') }}
+          key: ${{ hashFiles('.bundles.json') }}-${{ hashFiles('template/p*/**') }}-${{ hashFiles('content/**') }}-${{ hashFiles('.isg') }}
 
       - name: Install dependencies
         run: npm ci --only=production
@@ -83,18 +83,22 @@ jobs:
           fi
         id: partial_build
 
+      - name: Output ISG state
+        if: steps.partial_build.outputs.isg != 0
+        run: echo $RANDOM > .isg
+
       - name: Config Git and check diff
         run: |
           git config --local user.email 'action@github.com'
           git config --local user.name 'GitHub Action'
-          git add .bundles.json content template
+          git add .isg .bundles.json content template
           (git diff-index --quiet HEAD && echo "::set-output name=diff::0") || echo "::set-output name=diff::1"
         id: git_diff
 
       - name: Commit local file changes
         if: steps.git_diff.outputs.diff == 1
         run: |
-          git commit -m 'chore: update template defaults and bundles data [skip ci]'
+          git commit -m 'chore: update template defaults, isg state or bundles data [skip ci]'
 
       - name: Push changes
         if: steps.git_diff.outputs.diff == 1

@@ -116,7 +116,7 @@ jobs:
       - name: Commit local file changes
         if: steps.git_diff.outputs.diff == 1
         run: |
-          git commit -m 'chore: update template defaults, bundles data or isg state [skip ci]'
+          git commit -m 'chore(post-build): update template defaults, bundles and isg states [skip ci]'
 
       - name: Push changes
         if: steps.git_diff.outputs.diff == 1

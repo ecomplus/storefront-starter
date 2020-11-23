@@ -84,8 +84,14 @@ jobs:
         id: partial_build
 
       - name: Output ISG state
-        if: steps.partial_build.outputs.isg != 0
-        run: echo $RANDOM > .isg
+        env:
+          ISG_ENUM: ${{ steps.partial_build.outputs.isg }}
+        run: |
+          if [ $ISG_ENUM != 0 ]; then
+            echo $RANDOM > .isg
+          else
+            echo "" > .isg
+          fi
 
       - name: Config Git and check diff
         run: |

@@ -84,16 +84,6 @@ jobs:
           fi
         id: partial_build
 
-      - name: Output ISG state
-        env:
-          ISG_ENUM: ${{ steps.partial_build.outputs.isg }}
-        run: |
-          if [ $ISG_ENUM != 0 ]; then
-            echo $RANDOM > .deploy/.isg
-          else
-            echo "" > .deploy/.isg
-          fi
-
       - name: Config Git and check diff
         run: |
           git config --local user.email 'action@github.com'
@@ -130,6 +120,19 @@ jobs:
           mkdir -p .deploy/functions/ssr/template/pages/@ecomplus/storefront-template/template
           cp -r node_modules/@ecomplus/widget-* .deploy/functions/ssr/template/pages/@ecomplus/ 2>/dev/null || :
           cp -r node_modules/@ecomplus/storefront-template/template/pages .deploy/functions/ssr/template/pages/@ecomplus/storefront-template/template/ || :
+
+      - name: Output ISG state
+        env:
+          ISG_ENUM: ${{ steps.partial_build.outputs.isg }}
+        run: |
+          if [ -f .deploy/publish/.isg ]; then
+            mv .deploy/publish/.isg .deploy/publish/.isg-last
+          fi
+          if [ $ISG_ENUM != 0 ]; then
+            echo $RANDOM > .deploy/publish/.isg
+          else
+            echo "" > .deploy/publish/.isg
+          fi
 
       - name: Clear functions directory
         continue-on-error: true

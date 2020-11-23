@@ -177,6 +177,7 @@ jobs:
           fi
 
       - name: Cache output force update
+        if: steps.new_isg_state.outputs.rand != steps.isg_state.outputs.rand
         continue-on-error: true
         uses: actions/cache@v2
         with:

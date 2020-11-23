@@ -93,12 +93,7 @@ jobs:
         id: partial_build
 
       - name: Output ISG state
-        env:
-          ISG_ENUM: ${{ steps.partial_build.outputs.isg }}
-        run: |
-          if [ $ISG_ENUM != 0 ] || [ ! -f .isg ]; then
-            echo $RANDOM > .isg
-          fi
+        run: echo $RANDOM > .isg
 
       - name: Config Git and check diff
         run: |
@@ -169,15 +164,9 @@ jobs:
 
       - name: Get new ISG state
         id: new_isg_state
-        run: |
-          if [ -f .isg ]; then
-            echo "::set-output name=rand::$(cat .isg)";
-          else
-            echo "::set-output name=rand::0";
-          fi
+        run: echo "::set-output name=rand::$(cat .isg)";
 
       - name: Cache output force update
-        if: steps.new_isg_state.outputs.rand != steps.isg_state.outputs.rand
         continue-on-error: true
         uses: actions/cache@v2
         with:

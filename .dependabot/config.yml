@@ -7,16 +7,13 @@ update_configs:
     default_labels:
       - "dependencies"
       - "automerge"
-
     allowed_updates:
       - match:
           dependency_name: "@ecomplus/storefront-template"
-
     automerged_updates:
       - match:
           dependency_name: "@ecomplus/storefront-*"
           update_type: "in_range"
-
     commit_message:
       prefix: "fix"
       include_scope: true
@@ -27,16 +24,13 @@ update_configs:
     default_labels:
       - "dependencies"
       - "automerge"
-
     allowed_updates:
       - match:
           dependency_name: "@ecomplus/storefront-renderer"
-
     automerged_updates:
       - match:
           dependency_name: "@ecomplus/storefront-*"
           update_type: "in_range"
-
     commit_message:
       prefix: "chore"
       include_scope: true

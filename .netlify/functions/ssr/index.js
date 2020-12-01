@@ -19,7 +19,7 @@ exports.handler = (ev, context, callback) => {
     return callback(null, {
       statusCode: 404,
       headers: {
-        'Cache-Control': 'public, max-age=60'
+        'Cache-Control': 'public, max-age=300, s-maxage=180'
       }
     })
   }

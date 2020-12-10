@@ -37,7 +37,7 @@
     "url": "git+https://github.com/ecomplus/storefront-starter.git"
   },
   "dependencies": {
-    "@ecomplus/storefront-template": "^2.0.0-beta.96",
+    "@ecomplus/storefront-template": "^2.0.0-beta.97",
     "@netlify/zip-it-and-ship-it": "^1.4.0"
   },
   "devDependencies": {

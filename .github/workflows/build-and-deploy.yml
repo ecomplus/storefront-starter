@@ -138,6 +138,8 @@ jobs:
           rm -rf .deploy/publish/netlify.toml
           cp -r .netlify/* .deploy/
           cp -r template .deploy/functions/ssr/
+          rm -rf .deploy/functions/ssr/template/public
+          rm -rf .deploy/functions/ssr/template/scss
           cp -r content .deploy/functions/ssr/
           cp .bundles.json .deploy/functions/ssr/bundles.json
           mkdir -p .deploy/functions/ssr/template/pages/@ecomplus/storefront-template/template

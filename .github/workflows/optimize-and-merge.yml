@@ -6,23 +6,34 @@ jobs:
   compress-images:
     name: Optimize repository images
     runs-on: ubuntu-latest
+    if: !contains(github.event.pull_request.title, '[skip ci]')
 
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Optimize with Calibre's image actions
-        uses: docker://calibreapp/github-image-actions
+        uses: calibreapp/image-actions@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  auto-approve:
-    name: Auto approve dependencies PRs
+  auto-merge:
+    name: Auto merge dependencies PRs
     runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
 
     steps:
-      - name: Approve Dependabot PRs
-        uses: hmarr/auto-approve-action@v2.0.0
-        if: github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+      - name: Wait images optimization
+        run: sleep 120
+
+      - name: Request Dependabot merge
+        uses: actions/github-script@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '@dependabot squash and merge'
+            })

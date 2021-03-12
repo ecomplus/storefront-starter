@@ -32,5 +32,5 @@ update_configs:
           dependency_name: "@ecomplus/storefront-*"
           update_type: "in_range"
     commit_message:
-      prefix: "chore"
+      prefix: "[skip ci] chore"
       include_scope: true

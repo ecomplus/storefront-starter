@@ -27,14 +27,14 @@ jobs:
       - name: Wait images optimization
         run: sleep 120
 
-      - name: Request Dependabot merge
+      - name: Squash and merge
         uses: actions/github-script@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            await github.issues.createComment({
-              issue_number: context.issue.number,
+            await github.pulls.merge({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '@dependabot squash and merge'
+              pull_number: context.payload.pull_request.number,
+              merge_method: 'squash'
             })

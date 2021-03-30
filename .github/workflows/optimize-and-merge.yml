@@ -7,7 +7,8 @@ jobs:
     name: Optimize repository images
     runs-on: ubuntu-latest
     if: |
-       !contains(github.event.pull_request.title, '[skip ci]')
+       !contains(github.event.pull_request.title, '[skip ci]') &&
+       !startsWith(github.head_ref, 'chore')
 
     steps:
       - name: Checkout
@@ -25,6 +26,9 @@ jobs:
 
     steps:
       - name: Wait images optimization
+        if: |
+           !contains(github.event.pull_request.title, '[skip ci]') &&
+           !startsWith(github.head_ref, 'chore')
         run: sleep 120
 
       - name: Squash and merge

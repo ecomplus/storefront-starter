@@ -108,7 +108,6 @@ jobs:
         env:
           GOOGLE_APPLICATION_CREDENTIALS: .firebase-adminsdk.json
           FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
-          FIREBASE_PROJECT: ${{ secrets.FIREBASE_PROJECT }}
         run: |
           echo $FIREBASE_PRIVATE_KEY > $GOOGLE_APPLICATION_CREDENTIALS
-          npx firebase deploy --project=$FIREBASE_PROJECT
+          npx firebase deploy

@@ -15,9 +15,8 @@ jobs:
     steps:
       - name: Check Firebase credentials secrets
         env:
-          FIREBASE_PROJECT: ${{ secrets.FIREBASE_PROJECT }}
           FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
-        if: env.FIREBASE_PROJECT == null || env.FIREBASE_PRIVATE_KEY == null
+        if: env.FIREBASE_PRIVATE_KEY == null
         run: exit 1
 
       - name: Set remote repo URL
@@ -31,10 +30,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Prepare CI files for Firebase
-        env:
-          FIREBASE_PROJECT: ${{ secrets.FIREBASE_PROJECT }}
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        if: env.FIREBASE_PROJECT != null && env.FIREBASE_TOKEN != null
         run: |
           rm -rf ./.isg ./.bundles.json ./.github/workflows/setup-firebase-ci.yml
           sed -i 's/.netlify\/functions\/ssr/functions/' ./.dependabot/config.yml

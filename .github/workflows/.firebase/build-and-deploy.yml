@@ -9,7 +9,7 @@ on:
       - 'template/**'
       - 'package-lock.json'
       - '.ecomplus.cd.json'
-      - 'functions/**'
+      - '.functions/**'
       - 'firebase.json'
       - '.github/build-and-deploy'
       - '.github/workflows/build-and-deploy.yml'
@@ -53,7 +53,7 @@ jobs:
         run: npm ci --only=production
 
       - name: Install functions dependencies
-        run: cd .firebase/functions && npm ci --only=production && cd ../..
+        run: cd .functions && npm ci --only=production && cd ../..
 
       - name: Check last changed files
         uses: lots0logs/gh-action-get-changed-files@2.1.4
@@ -106,8 +106,9 @@ jobs:
       - name: Deploy to Firebase
         if: steps.partial_build.outputs.isg == 0
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: .firebase-adminsdk.json
           FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
         run: |
+          export GOOGLE_APPLICATION_CREDENTIALS=".firebase-adminsdk.json"
           echo $FIREBASE_PRIVATE_KEY > $GOOGLE_APPLICATION_CREDENTIALS
-          npx firebase deploy
+          PROJECT_ID=$(node -p "require('./$GOOGLE_APPLICATION_CREDENTIALS').project_id");
+          npx firebase deploy --project=$PROJECT_ID

@@ -1,0 +1,114 @@
+name: Build and deploy
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'content/**'
+      - 'template/**'
+      - 'package-lock.json'
+      - '.ecomplus.cd.json'
+      - 'functions/**'
+      - 'firebase.json'
+      - '.github/build-and-deploy'
+      - '.github/workflows/build-and-deploy.yml'
+
+jobs:
+  build-and-deploy:
+    name: Build Storefront and deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: |
+      github.event.head_commit.message != 'Initial commit' &&
+      !contains(github.event.head_commit.message, '[skip ci]')
+
+    steps:
+      - name: Set remote repo URL
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "::set-output name=url::https://${GITHUB_ACTOR}:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+        id: remote_repo
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install root dependencies
+        run: npm ci --only=production
+
+      - name: Install functions dependencies
+        run: cd .firebase/functions && npm ci --only=production && cd ../..
+
+      - name: Check last changed files
+        uses: lots0logs/gh-action-get-changed-files@2.1.4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+        id: changed_files
+
+      - name: Run partial build
+        env:
+          CHANGED_FILES: ${{ steps.changed_files.outputs.all }}
+        run: |
+          IS_ECOMPLUS_CD=$(node -p "const f = JSON.parse('${CHANGED_FILES}'); f.length === 1 && f[0] === '.ecomplus.cd.json'");
+          if [ $IS_ECOMPLUS_CD != false ]; then
+            BUILD_SLUG=$(node -p "require('./.ecomplus.cd.json').slug || false");
+            STORE_DOMAIN=$(node -p "require('./content/settings.json').domain || false");
+            if [ $BUILD_SLUG != false ] && [ $STORE_DOMAIN != false ]; then
+              IFS=",";
+              read -ra slug <<< "$BUILD_SLUG";
+              for i in "${slug[@]}"; do
+                curl -X PURGE "https://$STORE_DOMAIN/$i"
+              done;
+              echo "::set-output name=isg::2";
+              exit 0;
+            fi
+          fi
+          npm run build -- --prerender=index,app/index,search,404 --prerender-limit=40;
+          echo "::set-output name=isg::0";
+        id: partial_build
+
+      - name: Config Git and check diff
+        run: |
+          git config --local user.email 'action@github.com'
+          git config --local user.name 'GitHub Action'
+          git add content template
+          (git diff-index --quiet HEAD && echo "::set-output name=diff::0") || echo "::set-output name=diff::1"
+        id: git_diff
+
+      - name: Commit local file changes
+        if: steps.git_diff.outputs.diff == 1
+        run: |
+          git commit -m 'chore(post-build): update template and content defaults [skip ci]'
+
+      - name: Push changes
+        if: steps.git_diff.outputs.diff == 1
+        continue-on-error: true
+        env:
+          REMOTE_REPO: ${{ steps.remote_repo.outputs.url }}
+        run: git push "${REMOTE_REPO}" HEAD:master --follow-tags
+
+      - name: Deploy to Firebase
+        if: steps.partial_build.outputs.isg == 0
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: .firebase-adminsdk.json
+          FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+          FIREBASE_PROJECT: ${{ secrets.FIREBASE_PROJECT }}
+        run: |
+          echo $FIREBASE_PRIVATE_KEY > $GOOGLE_APPLICATION_CREDENTIALS
+          npx firebase deploy --project=$FIREBASE_PROJECT

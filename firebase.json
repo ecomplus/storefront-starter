@@ -1,0 +1,110 @@
+{
+  "functions": {
+    "predeploy": [
+      "cp -r template .functions/; rm -rf .functions/template/public; rm -rf .functions/template/scss",
+      "cp -r content .functions/; cp .bundles.json .functions/",
+      "mkdir -p .functions/template/pages/@ecomplus/storefront-template/template",
+      "cp -r node_modules/@ecomplus/widget-* .functions/template/pages/@ecomplus/ 2>/dev/null || :",
+      "cp -r node_modules/@ecomplus/storefront-template/template/pages .functions/template/pages/@ecomplus/storefront-template/template/ || :",
+      "rm -rf .functions/template/pages/**/node_modules"
+    ],
+    "postdeploy": "rm -rf .functions/template; rm -rf .functions/content; rm -rf .functions/.bundles.json",
+    "source": ".functions"
+  },
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**/!(*(*.)js|*(*.)css|*(*.)ico|*(*.)png|*(*.)gif|*(*.)jpg|*(*.)jpeg|*(*.)webp|*(*.)svg|*(*.)woff|*(*.)woff2|*(*.)otf|*(*.)ttf|*(*.)eot)",
+        "function": "ssr"
+      },
+      {
+        "source": "/storefront.?*.js",
+        "destination": "/storefront.js"
+      },
+      {
+        "source": "/storefront.?*.css",
+        "destination": "/storefront.css"
+      },
+      {
+        "source": "/checkout.?*.js",
+        "destination": "/checkout.js"
+      },
+      {
+        "source": "/checkout.?*.css",
+        "destination": "/checkout.css"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=30, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "/img/**",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=300, s-maxage=60, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "/assets/**",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=86400, s-maxage=600"
+          }
+        ]
+      },
+      {
+        "source": "/chunk.?*.*",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=604800"
+          }
+        ]
+      },
+      {
+        "source": "/app/**",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=300, stale-while-revalidate=900"
+          }
+        ]
+      },
+      {
+        "source": "/@(storefront|checkout).@(js|css)",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=0, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "**/*.?????*.@(js|css)",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=86400"
+          }
+        ]
+      }
+    ],
+    "cleanUrls": true
+  }
+}

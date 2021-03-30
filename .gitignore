@@ -8,6 +8,9 @@
 /template/scss/styles.scss
 /template/public/admin/config.yml
 
+# Firebase credentials
+*firebase-admin*.json
+
 # Logs
 logs
 *.log

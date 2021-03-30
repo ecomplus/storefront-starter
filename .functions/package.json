@@ -1,9 +1,16 @@
 {
   "name": "storefront-functions",
-  "private": true,
   "version": "0.1.0",
   "description": "SSR for Storefront on Firebase with Cloud Functions",
+  "engines": {
+    "node": "10"
+  },
   "main": "index.js",
+  "dependencies": {
+    "@ecomplus/storefront-renderer": "^2.6.0",
+    "firebase-admin": "^9.5.0",
+    "firebase-functions": "^3.13.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,12 +24,5 @@
     "url": "https://github.com/ecomplus/storefront-starter/issues"
   },
   "homepage": "https://github.com/ecomplus/storefront-starter#readme",
-  "dependencies": {
-    "@ecomplus/storefront-renderer": "^2.6.0"
-  },
-  "files": [
-    ".bundles.json",
-    "content/*",
-    "template/*"
-  ]
+  "private": true
 }

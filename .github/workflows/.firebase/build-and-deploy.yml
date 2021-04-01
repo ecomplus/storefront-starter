@@ -92,6 +92,7 @@ jobs:
         id: git_diff
 
       - name: Commit local file changes
+        continue-on-error: true
         if: steps.git_diff.outputs.diff == 1
         run: |
           git commit -m 'chore(post-build): update template and content defaults [skip ci]'

@@ -109,7 +109,9 @@ jobs:
         env:
           GCP_ACCOUNT_KEY: ${{ secrets.GCP_ACCOUNT_KEY }}
         run: |
-          export GOOGLE_APPLICATION_CREDENTIALS=".firebase-adminsdk.json"
-          echo $GCP_ACCOUNT_KEY > $GOOGLE_APPLICATION_CREDENTIALS
-          PROJECT_ID=$(node -p "require('./$GOOGLE_APPLICATION_CREDENTIALS').project_id")
-          GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS npx firebase deploy --project=$PROJECT_ID
+          if [ -f .bundles.json ] && [ -f dist/storefront.js ]; then
+            export GOOGLE_APPLICATION_CREDENTIALS=".firebase-adminsdk.json";
+            echo $GCP_ACCOUNT_KEY > $GOOGLE_APPLICATION_CREDENTIALS;
+            PROJECT_ID=$(node -p "require('./$GOOGLE_APPLICATION_CREDENTIALS').project_id");
+            GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS npx firebase deploy --project=$PROJECT_ID;
+          fi

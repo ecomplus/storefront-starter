@@ -10,10 +10,8 @@ Pre-rendered views and assets to [Firebase Hosting](https://firebase.google.com/
 
 #### Prepare CI files
 
-4. Edit `.dependabot/config.yml` to update `/.functions` directory instead of Netlify functions default one;
-5. Copy new build and deploy GitHub Actions workflow from `.github/workflows/.firebase/build-and-deploy.yml` to `.github/workflows/build-and-deploy.yml`;
+4. Copy new build and deploy GitHub Actions workflow from `.github/workflows/.firebase/build-and-deploy.yml` to `.github/workflows/build-and-deploy.yml`;
 
 ```bash
-sed -i 's/.netlify\/functions\/ssr/.functions/' ./.dependabot/config.yml
 mv ./.github/workflows/.firebase/build-and-deploy.yml ./.github/workflows/build-and-deploy.yml
 ```

@@ -3,6 +3,7 @@
 /cache
 /.serve
 /.deploy
+/.ecom.json
 /template/**/storefront-template
 /template/public/assets/vendor/
 /template/scss/styles.scss

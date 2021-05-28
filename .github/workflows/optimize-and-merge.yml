@@ -7,8 +7,8 @@ jobs:
     name: Compress repository images
     runs-on: ubuntu-latest
     if: |
-       !contains(github.event.pull_request.title, '[skip ci]') &&
-       !startsWith(github.head_ref, 'chore')
+      !contains(github.event.pull_request.title, '[skip ci]') &&
+      !startsWith(github.head_ref, 'chore')
 
     steps:
       - name: Checkout
@@ -32,7 +32,7 @@ jobs:
     steps:
       - name: Squash and merge
         if: |
-           contains(github.event.pull_request.body, 'Automerge**: Enabled')
+          contains(github.event.pull_request.body, 'Automerge**: Enabled')
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

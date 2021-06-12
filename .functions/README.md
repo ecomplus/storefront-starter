@@ -14,4 +14,7 @@ Pre-rendered views and assets to [Firebase Hosting](https://firebase.google.com/
 
 ```bash
 mv ./.github/workflows/.firebase/build-and-deploy.yml ./.github/workflows/build-and-deploy.yml
+echo "true" > ./.github/firebase-deploy
+git add ./.github
+git commit -m "ci(build-and-deploy): deploy to firebase"
 ```

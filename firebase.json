@@ -63,7 +63,7 @@
         "headers": [
           {
             "key": "cache-control",
-            "value": "public, max-age=604800"
+            "value": "public, max-age=31536000"
           }
         ]
       },
@@ -90,7 +90,7 @@
         "headers": [
           {
             "key": "cache-control",
-            "value": "public, max-age=86400"
+            "value": "public, max-age=31536000"
           }
         ]
       }

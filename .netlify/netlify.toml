@@ -8,14 +8,14 @@
   status = 200
 
 [[headers]]
-  for = "/storefront.*.*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-[[headers]]
   for = "/storefront.*"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/storefront.*.*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
 
 [[headers]]
   for = "/storefront.js"
@@ -38,14 +38,14 @@
     Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
-  for = "/chunk.*.*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-
-[[headers]]
   for = "/chunk.*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/chunk.*.*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
 
 [[headers]]
   for = "/img/*"

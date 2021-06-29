@@ -79,7 +79,7 @@ jobs:
               exit 0;
             fi
           fi
-          npm run build -- --prerender=index,app/index,search,404 --prerender-limit=40;
+          npm run build -- --prerender=index,app/index,search,404,blog,admin/index --prerender-limit=0;
           echo "::set-output name=isg::0";
         id: partial_build
 

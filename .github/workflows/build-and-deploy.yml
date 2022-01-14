@@ -134,6 +134,7 @@ jobs:
       - name: Setup output directory to deploy
         run: |
           mkdir -p .deploy/publish
+          cp .nvmrc .deploy/ 2>/dev/null || :
           cp -r dist/* .deploy/publish/
           rm -rf .deploy/publish/netlify.toml
           cp -r .netlify/* .deploy/

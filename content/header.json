@@ -22,5 +22,6 @@
     "random": 6,
     "full_width": false
   },
+  "desktop_megamenu": false,
   "search_input": true
 }

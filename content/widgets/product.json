@@ -5,8 +5,8 @@
   "options": {
     "buyText": "",
     "buy": "",
-    "strHasQuantitySelector": "_",
     "lowQuantityToWarn": 12,
-    "maxVariationOptionsBtns": 6
+    "maxVariationOptionsBtns": 6,
+    "strHasQuantitySelector": "_"
   }
 }

@@ -41,7 +41,7 @@ jobs:
           node-version: '14.x'
 
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -59,7 +59,7 @@ jobs:
 
       - name: Cache output
         continue-on-error: true
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: .deploy/publish
           key: ${{ hashFiles('.bundles.json') }}-${{ hashFiles('template/p*/**') }}-${{ hashFiles('content/**') }}-${{ steps.isg_state.outputs.rand }}
@@ -180,7 +180,7 @@ jobs:
       - name: Cache output force update
         if: steps.new_isg_state.outputs.rand != steps.isg_state.outputs.rand
         continue-on-error: true
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: .deploy/publish
           key: ${{ hashFiles('.bundles.json') }}-${{ hashFiles('template/p*/**') }}-${{ hashFiles('content/**') }}-${{ steps.new_isg_state.outputs.rand }}

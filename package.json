@@ -39,9 +39,9 @@
   "dependencies": {
     "@ecomplus/storefront-template": "^2.0.0-beta.167",
     "@netlify/zip-it-and-ship-it": "^5.9.0",
-    "firebase-tools": "^10.2.2"
+    "firebase-tools": "^10.6.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.27.8"
+    "browser-sync": "^2.27.9"
   }
 }

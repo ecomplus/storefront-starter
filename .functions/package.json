@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@ecomplus/storefront-renderer": "^2.8.18",
+    "@ecomplus/storefront-renderer": "^2.8.19",
     "firebase-admin": "^11.0.1",
     "firebase-functions": "^3.23.0"
   },

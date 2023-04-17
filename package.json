@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@ecomplus/storefront-template": "^2.0.0-beta.222",
-    "@netlify/zip-it-and-ship-it": "^8.9.0",
-    "firebase-tools": "^11.25.3"
+    "@netlify/zip-it-and-ship-it": "^8.10.0",
+    "firebase-tools": "^11.27.0"
   },
   "devDependencies": {
     "browser-sync": "^2.29.1"

@@ -68,7 +68,7 @@ jobs:
         run: npm ci --only=production
 
       - name: Check last changed files
-        uses: lots0logs/gh-action-get-changed-files@2.1.4
+        uses: lots0logs/gh-action-get-changed-files@2.2.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
         id: changed_files

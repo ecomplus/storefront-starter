@@ -4,7 +4,7 @@
   "description": "SSR for Storefront on Firebase with Cloud Functions",
   "engines": {
     "node": "16",
-    "npm": "^8.19.4"
+    "npm": "^9.8.1"
   },
   "main": "index.js",
   "dependencies": {

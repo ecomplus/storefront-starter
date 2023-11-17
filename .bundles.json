@@ -1,27 +1,27 @@
 {
   "assetsByChunkName": {
-    "vendors~app-account~app-checkout~app-confirmation~app-order": "chunk.02f4c84ebc9f264b167a.js",
-    "vendors~app-account~app-confirmation~app-order": "chunk.59ab7df591296e6fe95e.js",
-    "vendors~app-account~app-checkout": "chunk.d45f2367ee5f38a756fd.js",
-    "vendors~app-cart~app-checkout": "chunk.84db2c13b866c673ac38.js",
+    "vendors~app-account~app-checkout~app-confirmation~app-order": "chunk.be256d3c70e275daee85.js",
+    "vendors~app-account~app-confirmation~app-order": "chunk.b84936f32f3fe35ddc44.js",
+    "vendors~app-account~app-checkout": "chunk.a80ec056585ffa8d4302.js",
+    "vendors~app-cart~app-checkout": "chunk.121bee62c5b441bf963c.js",
     "admin": [
-      "admin.b7f841be43d726e5564c.js",
-      "admin.b7f841be43d726e5564c.js.map"
+      "admin.d3c8827aa312b2ce1a73.js",
+      "admin.d3c8827aa312b2ce1a73.js.map"
     ],
-    "app-account": "chunk.b8d95bf42339386961dd.js",
-    "app-checkout": "chunk.622f7a8247bc952f381f.js",
-    "app-confirmation": "chunk.33a9f19137d304a05e51.js",
-    "app-order": "chunk.b96ee1edf9ac692a46c0.js",
+    "app-account": "chunk.2791233117ded25d1d37.js",
+    "app-checkout": "chunk.c4f852cadda5ed309af2.js",
+    "app-confirmation": "chunk.089c96c7b21912898bce.js",
+    "app-order": "chunk.995d3e41fb1fe3f538e6.js",
     "checkout": [
-      "checkout.65c673b04f25093b5cff.js",
-      "checkout.65c673b04f25093b5cff.js.map"
+      "checkout.fce1a9ea120c3f943740.js",
+      "checkout.fce1a9ea120c3f943740.js.map"
     ],
     "storefront": [
-      "storefront.81ea9c9d786947b4de65.css",
-      "storefront.b9d82567b369cc9eea6a.js",
-      "storefront.81ea9c9d786947b4de65.css.map",
-      "storefront.b9d82567b369cc9eea6a.js.map"
+      "storefront.8a531439654c22589769.css",
+      "storefront.5ad721c912e3c32ddd6e.js",
+      "storefront.8a531439654c22589769.css.map",
+      "storefront.5ad721c912e3c32ddd6e.js.map"
     ],
-    "vendors~app-cart": "chunk.865e456b715322ff0c00.js"
+    "vendors~app-cart": "chunk.9358378f9137569203d2.js"
   }
 }

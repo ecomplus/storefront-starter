@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "SSR for Storefront on Firebase with Cloud Functions",
   "engines": {
-    "node": "16",
+    "node": "16.20.2",
     "npm": "^8.19.4"
   },
   "main": "index.js",

@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/ecomplus/storefront-starter#readme",
   "dependencies": {
-    "@ecomplus/storefront-renderer": "^2.11.5"
+    "@ecomplus/storefront-renderer": "^2.11.6"
   },
   "files": [
     "bundles.json",

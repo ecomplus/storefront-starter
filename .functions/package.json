@@ -9,7 +9,7 @@
   "dependencies": {
     "@ecomplus/storefront-renderer": "^2.11.7",
     "firebase-admin": "^11.11.1",
-    "firebase-functions": "5.0.1"
+    "firebase-functions": "5.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "SSR for Storefront on Firebase with Cloud Functions",
   "engines": {
-    "node": "20"
+    "node": "20.18.2"
   },
   "main": "index.js",
   "dependencies": {

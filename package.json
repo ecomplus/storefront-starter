@@ -6,7 +6,7 @@
     "not ie_mob 11"
   ],
   "engines": {
-    "node": "20"
+    "node": "20.18.2"
   },
   "private": true,
   "name": "@ecomplus/storefront",

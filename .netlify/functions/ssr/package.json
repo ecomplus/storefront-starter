@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "SSR for Storefront on Netlify with Lambda functions",
   "engines": {
-    "node": "20"
+    "node": "20.18.3"
   },
   "main": "index.js",
   "scripts": {

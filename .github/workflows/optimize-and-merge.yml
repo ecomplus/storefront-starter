@@ -33,7 +33,7 @@ jobs:
       - name: Squash and merge
         if: |
           contains(github.event.pull_request.body, 'Automerge**: Enabled')
-        uses: actions/github-script@v6
+        uses: actions/github-script@v8
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |

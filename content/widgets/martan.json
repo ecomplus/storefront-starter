@@ -4,12 +4,12 @@
   "options": {
     "store_id": "",
     "web_id": "",
-    "widget_key": "",
     "widget_rating": {
       "is_enabled": false,
       "font_size": 15,
       "star_color": "#ff00bc",
       "display": "always",
+      "theme": "normal",
       "search_page": false
     },
     "widget_review": {
@@ -19,6 +19,12 @@
       "header_layout": "header-minimal",
       "reviews_layout": "list-expanded"
     },
+    "widget_questions": {
+      "is_enabled": false,
+      "title": "Perguntas e respostas",
+      "enable_new_questions": true
+    },
+    "widget_key": "",
     "widget_snippet": {
       "border": true,
       "border_color": "#eee",
@@ -28,10 +34,10 @@
       "star_color": "#ff00bc"
     }
   },
-  "headAppend": "src/append/head",
-  "bodyAppend": "src/append/body",
   "productDescriptionAppend": "src/append/product-block",
   "productCardSlots": "src/append/product-card-slots",
   "productSlots": "src/append/product-slots",
+  "headAppend": "src/append/head",
+  "bodyAppend": "src/append/body",
   "stampsAppend": "src/append/stamps"
 }

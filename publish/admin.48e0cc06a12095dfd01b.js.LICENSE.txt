@@ -1,0 +1,26 @@
+/*!
+ * @ecomplus/client
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */
+
+/*!
+ * @ecomplus/search-engine
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */
+
+/*!
+ * @ecomplus/utils
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */
+
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <http://feross.org>
+ * @license  MIT
+ */
+
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */

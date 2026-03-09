@@ -38,7 +38,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: '20.20.0'
+          node-version: '20.20.1'
 
       - name: Cache dependencies
         uses: actions/cache@v5
